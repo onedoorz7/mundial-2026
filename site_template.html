@@ -104,8 +104,16 @@ td.name{font-weight:700;text-align:right;color:var(--blue)}
 .tot{font-weight:900;font-size:16px}
 .rk-badge{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;
   border-radius:50%;font-weight:800;font-size:13px;background:#eef2f9}
+/* rank-tinted rows: gold / silver / bronze / last */
+tr.top1 td{background:linear-gradient(90deg,rgba(255,194,28,.22),rgba(255,194,28,.07))}
+tr.top2 td{background:rgba(168,184,206,.22)}
+tr.top3 td{background:rgba(205,127,80,.16)}
+tr.last  td{background:rgba(226,59,80,.11)}
+tr.top1:hover td,tr.top2:hover td,tr.top3:hover td,tr.last:hover td{filter:brightness(.97)}
 tr.top1 .rk-badge{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#fff}
-tr.top2 .rk-badge,tr.top3 .rk-badge{background:#cfd8e6}
+tr.top2 .rk-badge{background:linear-gradient(135deg,#c9d2e0,#a6b3c6);color:#fff}
+tr.top3 .rk-badge{background:linear-gradient(135deg,#d49a6a,#b5763f);color:#fff}
+tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff}
 
 /* ---------- bars ---------- */
 .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0}
@@ -380,8 +388,10 @@ function renderLB(){
   // table
   const card=el('div','card');
   let h=`<table><thead><tr><th>#</th><th>שם</th><th>בתים</th><th>נוקאאוט</th><th>התקדמות</th><th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
+  const lastRank=lb.length;
   lb.forEach(p=>{
-    const tc=p.rank<=3?'top'+p.rank:'';
+    let tc=p.rank<=3?'top'+p.rank:'';
+    if(p.rank===lastRank) tc+=(tc?' ':'')+'last';
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
       <td><span class="rk-badge">${p.rank}</span></td>
       <td class="name">${p.name}</td><td>${p.group}</td><td>${p.knockout}</td>
