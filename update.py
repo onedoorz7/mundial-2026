@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Self-contained daily updater for the Mundial 2026 bet site.
+No third-party dependencies (stdlib only). Run by GitHub Actions each morning.
+
+Pipeline:
+  1. Fetch actual results from ESPN's public JSON scoreboard (no API key).
+  2. Update results_store.json (group + knockout, champion).
+  3. Score all participants per the bet rules.
+  4. Rebuild site_data.json and index.html (password gate from env GATE_PASSWORD).
+"""
+import json, os, hashlib, urllib.request, datetime, sys
+from collections import Counter
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+def P(name): return os.path.join(HERE, name)
+
+# ---------------- team-name normalization ----------------
+NAME_ALIASES = {
+    "south korea":"Korea Republic","korea republic":"Korea Republic","korea dpr":"Korea DPR",
+    "czechia":"Czech Republic","czech republic":"Czech Republic",
+    "türkiye":"Turkey","turkiye":"Turkey","turkey":"Turkey",
+    "côte d'ivoire":"Ivory Coast","cote d'ivoire":"Ivory Coast","ivory coast":"Ivory Coast",
+    "usa":"United States","united states":"United States","united states of america":"United States",
+    "bosnia and herzegovina":"Bosnia and Herzegovina","bosnia & herzegovina":"Bosnia and Herzegovina",
+    "curacao":"Curaçao","curaçao":"Curaçao",
+    "cape verde":"Cape Verde","cabo verde":"Cape Verde",
+    "dr congo":"DR Congo","congo dr":"DR Congo","democratic republic of the congo":"DR Congo",
+    "iran":"Iran","ir iran":"Iran",
+}
+def norm(name):
+    if not name: return name
+    return NAME_ALIASES.get(str(name).strip().lower(), str(name).strip())
+
+# ---------------- golden boot name canonicalization ----------------
+def canon_scorer(name):
+    if not name: return None
+    s = str(name).lower()
+    rules = [
+        (('אמבפ','אמבא','אמבם','אמפב','mbappe'), 'אמבפה (Mbappé)'),
+        (('הלאנ','האלנ','האלא','הלנד','haaland'), 'האלנד (Haaland)'),
+        (('קיין','kane'), 'קיין (Kane)'),
+        (('יאמ','ימאל','yamal'), 'יאמאל (Yamal)'),
+        (('רונאלד','ronaldo'), 'רונאלדו (Ronaldo)'),
+        (('מאלן','malen'), 'מאלן (Malen)'),
+        (('אוירז','oyarz','oyarzabal'), 'אויארסבאל (Oyarzabal)'),
+        (('ראפינ','raphinha'), 'ראפיניה (Raphinha)'),
+    ]
+    for keys, label in rules:
+        if any(k in s for k in keys): return label
+    return str(name)
+
+# ---------------- ESPN fetch ----------------
+ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates={}"
+def daterange(start, end):
+    d = start
+    while d <= end:
+        yield d
+        d += datetime.timedelta(days=1)
+
+def round_for_date(d):
+    """Map a knockout match date to its round name."""
+    md = (d.month, d.day)
+    if (d.month==6 and d.day>=28) or (d.month==7 and d.day<=3): return "Round of 32"
+    if d.month==7 and 4<=d.day<=8:  return "Round of 16"
+    if d.month==7 and 9<=d.day<=12: return "Quarterfinals"
+    if d.month==7 and 14<=d.day<=16:return "Semi-Finals"
+    if d.month==7 and d.day==18:    return "Third-Place"
+    if d.month==7 and d.day==19:    return "Final"
+    return None
+
+def fetch_espn():
+    """Return list of completed matches: {date, home, away, hs, as, round_or_None}."""
+    out = []
+    start = datetime.date(2026,6,11); end = datetime.date(2026,7,20)
+    for d in daterange(start, end):
+        url = ESPN.format(d.strftime("%Y%m%d"))
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=25) as r:
+                data = json.load(r)
+        except Exception as e:
+            sys.stderr.write(f"warn: fetch {d} failed: {e}\n"); continue
+        for ev in data.get("events", []):
+            comp = ev["competitions"][0]
+            st = comp.get("status", {}).get("type", {})
+            if not st.get("completed"): continue
+            home = away = None
+            for c in comp["competitors"]:
+                t = norm(c["team"]["displayName"])
+                try: sc = int(c.get("score"))
+                except (TypeError, ValueError): sc = None
+                if c["homeAway"]=="home": home=(t, sc)
+                else: away=(t, sc)
+            if not home or not away or home[1] is None or away[1] is None: continue
+            out.append({"date": d, "home": home[0], "away": away[0],
+                        "hs": home[1], "as": away[1], "round": round_for_date(d)})
+    return out
+
+# ---------------- update results store ----------------
+def update_store():
+    store = json.load(open(P("results_store.json"), encoding="utf-8"))
+    gmatches = store["group_matches"]
+    # index group fixtures by unordered team pair
+    by_pair = {}
+    for g in gmatches:
+        by_pair[frozenset((norm(g["home"]), norm(g["away"])))] = g
+    results = fetch_espn()
+    ko = {}  # key by (round, pair) to avoid dups
+    champion = store.get("champion")
+    for m in results:
+        pair = frozenset((m["home"], m["away"]))
+        is_group = (m["round"] is None) and (pair in by_pair)
+        if is_group:
+            g = by_pair[pair]
+            # orient score to fixture home/away
+            if norm(g["home"]) == m["home"]:
+                g["home_score"], g["away_score"] = m["hs"], m["as"]
+            else:
+                g["home_score"], g["away_score"] = m["as"], m["hs"]
+            g["played"] = True
+        elif m["round"]:
+            key = (m["round"], pair)
+            ko[key] = {"round": m["round"], "home": m["home"], "away": m["away"],
+                       "home_score": m["hs"], "away_score": m["as"]}
+            if m["round"] == "Final":
+                champion = m["home"] if m["hs"] >= m["as"] else m["away"]
+    store["knockout_matches"] = list(ko.values())
+    if champion: store["champion"] = champion
+    store["last_updated"] = datetime.date.today().isoformat()
+    json.dump(store, open(P("results_store.json"),"w",encoding="utf-8"), ensure_ascii=False, indent=2)
+    played = sum(1 for g in gmatches if g["played"])
+    print(f"results updated: {played}/72 group played, {len(ko)} knockout, champion={store.get('champion')}")
+    return store
+
+# ---------------- scoring ----------------
+STAGE_PTS = {"r32":4,"r16":5,"qf":7,"sf":10,"final":14,"champion":16}
+GB_POINTS = 12
+def match_points(pred, actual):
+    if None in pred or None in actual: return 0,""
+    hg,ag = pred; hs,as_ = actual
+    exact = (hg==hs and ag==as_)
+    correct = ((hg-ag>0)==(hs-as_>0)) and ((hg-ag<0)==(hs-as_<0))
+    if exact and (hs+as_)>3: return 3,"מדויק 4+ גולים"
+    if exact: return 2,"מדויק"
+    if correct: return 1,"כיוון נכון"
+    return 0,""
+def pred_sets(d):
+    def teams(rms):
+        s=set()
+        for m in rms:
+            for side in m:
+                if side.get("team"): s.add(norm(side["team"]))
+        return s
+    return {"r32":teams(d["r32"]),"r16":teams(d["r16"]),"qf":teams(d["qf"]),
+            "sf":teams(d["sf"]),"final":teams([d["final"]]),
+            "champion":{norm(d["champion"])} if d.get("champion") else set()}
+def reached_sets(store):
+    reached={k:set() for k in STAGE_PTS}
+    r2s={"Round of 32":"r32","Round of 16":"r16","Quarterfinals":"qf","Semi-Finals":"sf","Final":"final"}
+    for m in store.get("knockout_matches",[]):
+        st=r2s.get(m.get("round"))
+        if st:
+            for t in (m.get("home"),m.get("away")):
+                if t: reached[st].add(norm(t))
+    if store.get("champion"): reached["champion"].add(norm(store["champion"]))
+    return reached
+def score_one(d, store):
+    gmap={g["num"]:g for g in store["group_matches"]}
+    gp=0; gh=0; gd=[]
+    for m in d["group_matches"]:
+        g=gmap.get(m["num"])
+        if not g or not g["played"]: continue
+        pts,lab=match_points((m["hg"],m["ag"]),(g["home_score"],g["away_score"]))
+        if pts>0: gh+=1
+        gp+=pts
+        gd.append({"num":m["num"],"home":m["home"],"away":m["away"],
+                   "pred":f"{m['hg']}-{m['ag']}","actual":f"{g['home_score']}-{g['away_score']}",
+                   "pts":pts,"label":lab})
+    kp=0; kd=[]
+    predr={"Round of 32":d["r32"],"Round of 16":d["r16"],"Quarterfinals":d["qf"],
+           "Semi-Finals":d["sf"],"Final":[d["final"]]}
+    for am in store.get("knockout_matches",[]):
+        if am.get("home_score") is None: continue
+        rnd=am.get("round"); pair={norm(am["home"]),norm(am["away"])}
+        for pm in predr.get(rnd,[]):
+            pp={norm(pm[0]["team"]),norm(pm[1]["team"])}
+            if pp==pair and len(pair)==2:
+                if norm(pm[0]["team"])==norm(am["home"]): pred=(pm[0]["score"],pm[1]["score"])
+                else: pred=(pm[1]["score"],pm[0]["score"])
+                pts,lab=match_points(pred,(am["home_score"],am["away_score"]))
+                kp+=pts; kd.append({"round":rnd,"match":f"{am['home']} {am['home_score']}-{am['away_score']} {am['away']}","pts":pts,"label":lab})
+                break
+    ps=pred_sets(d); rs=reached_sets(store); pp=0; pb={}
+    for st,v in STAGE_PTS.items():
+        hits=ps[st]&rs[st]; pb[st]={"hits":sorted(hits),"points":len(hits)*v}; pp+=len(hits)*v
+    gb=0; leaders={norm(x) for x in store.get("golden_boot_leaders",[])}
+    picks={norm(p) for p in d["golden_boot"] if p}
+    if leaders and (picks&leaders): gb=GB_POINTS
+    return {"name":d["name"],"group_points":gp,"group_hits":gh,"group_details":gd,
+            "knockout_points":kp,"knockout_details":kd,"progression_points":pp,
+            "progression_breakdown":pb,"golden_boot_points":gb,"total":gp+kp+pp+gb}
+
+# ---------------- site data + html ----------------
+def participant_payload(d, store, sc):
+    gmap={g["num"]:g for g in store["group_matches"]}
+    det={x["num"]:x for x in sc["group_details"]}
+    matches=[]
+    for m in d["group_matches"]:
+        g=gmap.get(m["num"])
+        matches.append({"num":m["num"],"date":m["date"],"home":m["home"],"away":m["away"],
+            "pred":f"{m['hg']}-{m['ag']}",
+            "actual":(f"{g['home_score']}-{g['away_score']}" if g and g["played"] else None),
+            "pts":det.get(m["num"],{}).get("pts",0) if (g and g["played"]) else None})
+    def rnd(ms):
+        out=[]
+        for m in ms:
+            t1,s1=m[0]["team"],m[0]["score"]; t2,s2=m[1]["team"],m[1]["score"]
+            out.append({"t1":t1,"s1":s1,"t2":t2,"s2":s2,"win":t1 if (s1 or 0)>=(s2 or 0) else t2})
+        return out
+    bracket={"r32":rnd(d["r32"]),"r16":rnd(d["r16"]),"qf":rnd(d["qf"]),
+             "sf":rnd(d["sf"]),"final":rnd([d["final"]]),"third":rnd([d["third"]])}
+    standings=[{"group":g["group"],"rows":[{"place":x["place"],"team":x["team"],"W":x["W"],
+        "D":x["D"],"L":x["L"],"GF":x["GF"],"GA":x["GA"],"Pts":x["Pts"]} for x in g["standings"]]}
+        for g in d["groups"]]
+    return {"name":d["name"],"champion":d["champion"],"gb":d["golden_boot"],"winner":d["winner_bet"],
+            "matches":matches,"bracket":bracket,"standings":standings,
+            "totals":{"group":sc["group_points"],"knockout":sc["knockout_points"],
+                      "progression":sc["progression_points"],"gb":sc["golden_boot_points"],
+                      "total":sc["total"],"rank":sc["rank"]}}
+
+def build_all():
+    store = update_store()
+    preds = json.load(open(P("predictions.json"), encoding="utf-8"))
+    scores=[]
+    for nm,d in preds.items():
+        d["name"]=nm; scores.append(score_one(d, store))
+    scores.sort(key=lambda r:(-r["total"],-r["group_hits"],r["name"]))
+    for i,s in enumerate(scores,1): s["rank"]=i
+    json.dump(scores, open(P("scores.json"),"w",encoding="utf-8"), ensure_ascii=False, indent=2)
+    sc_by={s["name"]:s for s in scores}
+
+    gb_tally=Counter(); champ_tally=Counter(); picks=[]
+    participants={}
+    for nm,d in preds.items():
+        participants[nm]=participant_payload(d, store, sc_by[nm])
+        for p in d["golden_boot"]:
+            if p: gb_tally[canon_scorer(p)]+=1
+        if d["champion"]: champ_tally[d["champion"]]+=1
+        picks.append({"name":nm,"gb1":d["golden_boot"][0] or "","gb2":d["golden_boot"][1] or "",
+                      "champion":d["champion"] or "","winner":d["winner_bet"] or ""})
+    played=sum(1 for g in store["group_matches"] if g["played"])
+    site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
+                  "played":played,"total_group":len(store["group_matches"]),"source":store["source"]},
+          "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
+                          "knockout":s["knockout_points"],"progression":s["progression_points"],
+                          "gb":s["golden_boot_points"],"total":s["total"],"hits":s["group_hits"]} for s in scores],
+          "goldenboot":{"tally":gb_tally.most_common(),"champions":champ_tally.most_common(),"picks":picks},
+          "results":[{"num":g["num"],"date":g["date"],"home":g["home"],"away":g["away"],
+                      "hs":g["home_score"],"as":g["away_score"],"played":g["played"]} for g in store["group_matches"]],
+          "participants":participants}
+    # optional payments
+    pay_path=P("payments.json")
+    if os.path.exists(pay_path):
+        site["payments"]=json.load(open(pay_path, encoding="utf-8"))
+    json.dump(site, open(P("site_data.json"),"w",encoding="utf-8"), ensure_ascii=False)
+
+    # build index.html
+    tpl=open(P("site_template.html"), encoding="utf-8").read()
+    data=json.dumps(site, ensure_ascii=False).replace("</","<\\/")
+    pw=os.environ.get("GATE_PASSWORD","")
+    gate=hashlib.sha256(pw.encode()).hexdigest() if pw else ""
+    html=tpl.replace("/*DATA*/", data).replace("/*GATE*/", gate)
+    open(P("index.html"),"w",encoding="utf-8").write(html)
+    print(f"site rebuilt: {len(participants)} participants, leader={scores[0]['name']} ({scores[0]['total']})")
+
+if __name__ == "__main__":
+    build_all()

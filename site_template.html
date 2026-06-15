@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>התערבות מונדיאל 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1733; --navy2:#15294f; --blue:#2e6fb8; --green:#11a35a; --green-d:#0a7a41;
+  --gold:#ffc21c; --gold-d:#e0a000; --bg:#eef2f8; --card:#ffffff; --line:#e2e8f2;
+  --txt:#15203a; --muted:#6b7790; --win:#e4f7ec; --miss:#fbe9e9; --exact:#fff3cf;
+  --red:#e23b50; --teal:#19b6c9; --magenta:#d6307e;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(16,32,64,.06),0 2px 8px rgba(16,32,64,.05);
+  --shadow-lg:0 10px 30px rgba(16,32,64,.14);
+  --safe-r:env(safe-area-inset-right,0px); --safe-l:env(safe-area-inset-left,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;
+  padding-inline:max(16px,var(--safe-r)) max(16px,var(--safe-l))}
+@media(max-width:560px){.wrap{padding-inline:max(13px,var(--safe-r)) max(13px,var(--safe-l))}}
+
+/* ---------- header ---------- */
+header{position:relative;color:#fff;padding:clamp(20px,5vw,30px) 0 clamp(22px,5vw,30px);overflow:hidden;
+  background:linear-gradient(135deg,#0a1733 0%,#15294f 55%,#143f5e 100%)}
+header::before{content:"";position:absolute;inset:0;opacity:.55;pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(214,48,126,.35),transparent 38%),
+    radial-gradient(circle at 88% 12%,rgba(25,182,201,.32),transparent 40%),
+    radial-gradient(circle at 70% 95%,rgba(255,194,28,.25),transparent 42%)}
+header .wrap{position:relative;z-index:1}
+.htop{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.crest{width:clamp(46px,12vw,54px);height:clamp(46px,12vw,54px);border-radius:15px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:clamp(24px,6vw,28px);
+  background:linear-gradient(150deg,var(--gold),var(--gold-d));
+  box-shadow:0 8px 20px rgba(255,194,28,.4);transform:rotate(-4deg)}
+.title{font-size:clamp(20px,5.5vw,26px);font-weight:900;letter-spacing:-.5px;line-height:1.06}
+.title small{display:block;font-size:clamp(10px,2.6vw,12px);font-weight:800;color:var(--gold);letter-spacing:2px;margin-bottom:3px}
+.hosts{font-size:clamp(15px,4vw,18px);margin-top:4px;letter-spacing:3px}
+.meta{font-size:13px;color:#c2cfe6;text-align:left;flex-shrink:0}
+.meta b{color:#fff}
+.badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;margin-top:6px;backdrop-filter:blur(4px)}
+.fl{font-size:1.05em;line-height:1;margin-inline-end:5px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.12))}
+.flsvg{margin-inline-end:5px;display:inline-block}
+.flsvg svg{height:.8em;width:auto;vertical-align:-1px;border:.5px solid rgba(0,0,0,.18);border-radius:2px}
+
+/* ---------- sticky nav ---------- */
+.navbar{position:sticky;top:0;z-index:50;
+  background:linear-gradient(180deg,#0a1733,#0d1d3d);
+  box-shadow:0 6px 18px rgba(8,18,40,.28);
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--gold),var(--red),var(--teal),var(--magenta))}
+nav{display:flex;gap:6px;padding:9px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+nav::-webkit-scrollbar{display:none}
+nav button{background:transparent;border:none;color:#aebbd4;font-family:inherit;font-size:15px;
+  font-weight:700;padding:9px 15px;cursor:pointer;border-radius:11px;transition:.15s;white-space:nowrap;flex-shrink:0}
+nav button:hover{color:#fff;background:rgba(255,255,255,.08)}
+nav button.active{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy);
+  box-shadow:0 4px 12px rgba(255,194,28,.35)}
+
+main{padding:22px 0 70px}
+.view{display:none;animation:fade .25s}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+h2.sec{font-size:clamp(17px,4.5vw,20px);font-weight:800;margin:10px 0 14px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden}
+
+/* ---------- podium ---------- */
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:clamp(7px,2.5vw,12px);align-items:end;margin-bottom:18px}
+.pod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);text-align:center;
+  padding:clamp(13px,3.5vw,18px) clamp(6px,2vw,10px);cursor:pointer;transition:.18s;box-shadow:var(--shadow)}
+.pod:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.pod .rk{font-size:12px;font-weight:700;color:var(--muted)}
+.pod .nm{font-weight:800;font-size:clamp(14px,3.6vw,17px);margin:4px 0;line-height:1.15;word-break:break-word}
+.pod .pt{font-size:clamp(24px,7vw,32px);font-weight:900;line-height:1}
+.pod .lbl{font-size:11px;color:var(--muted)}
+.pod .pickline{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);font-size:12px;font-weight:700;color:var(--txt)}
+.pod.p1{border-color:var(--gold);background:linear-gradient(180deg,#fffaf0,#fff);box-shadow:0 10px 26px rgba(224,160,0,.22)}
+.pod.p1 .medal{font-size:clamp(26px,7vw,32px)}.pod.p2 .medal,.pod.p3 .medal{font-size:clamp(20px,5.5vw,25px)}
+.pod.p1 .pt{color:var(--gold-d)}
+.pod.p1{transform:translateY(-8px)}
+.pod.p1:hover{transform:translateY(-11px)}
+
+/* ---------- table ---------- */
+.tscroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--navy);color:#fff;font-weight:700;padding:11px 8px;text-align:center;font-size:13px}
+td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#f7faff}
+tr.clickable{cursor:pointer}
+td.name{font-weight:700;text-align:right;color:var(--blue)}
+.tot{font-weight:900;font-size:16px}
+.rk-badge{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;
+  border-radius:50%;font-weight:800;font-size:13px;background:#eef2f9}
+tr.top1 .rk-badge{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#fff}
+tr.top2 .rk-badge,tr.top3 .rk-badge{background:#cfd8e6}
+
+/* ---------- bars ---------- */
+.bar-row{display:flex;align-items:center;gap:10px;margin:8px 0}
+.bar-name{width:clamp(96px,28vw,150px);font-weight:600;font-size:14px;text-align:left;flex-shrink:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;background:#eef2f9;border-radius:8px;height:26px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--green),var(--green-d));
+  display:flex;align-items:center;justify-content:flex-start;padding:0 9px;color:#fff;font-weight:800;font-size:13px;
+  min-width:26px;transition:width .4s ease}
+.bar-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold-d))}
+
+/* ---------- results grid ---------- */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:11px}
+.match{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;box-shadow:var(--shadow)}
+.match.up{opacity:.6;box-shadow:none}
+.match .mh{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px}
+.match .teams{display:flex;align-items:center;justify-content:space-between;gap:6px;font-weight:700;font-size:14px;direction:ltr}
+.match .sc{background:var(--navy);color:#fff;border-radius:8px;padding:3px 10px;font-weight:800;min-width:48px;text-align:center;direction:ltr;unicode-bidi:bidi-override;flex-shrink:0}
+.score-ltr{direction:ltr;unicode-bidi:bidi-override;display:inline-block}
+.match.up .sc{background:#cdd6e5;color:#5a6a85}
+
+/* ---------- browse ---------- */
+.pick-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.pick-bar button{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px 14px;
+  font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;transition:.12s;min-height:38px}
+.pick-bar button:hover{border-color:var(--blue);color:var(--blue)}
+.pick-bar button.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:var(--shadow)}
+.psum{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.kpi .v{font-size:clamp(18px,5vw,22px);font-weight:900}.kpi .k{font-size:12px;color:var(--muted);margin-top:3px}
+.kpi.hl{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border:none}
+.kpi.hl .k{color:#b9c6de}
+.brk{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.chip{background:#eef2f9;border-radius:9px;padding:7px 13px;font-size:13px;font-weight:600}
+.chip b{color:var(--green-d)}
+.bracket{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-bottom:8px}
+.bcol h4{font-size:12px;text-align:center;color:var(--muted);margin-bottom:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.bmatch{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:7px;overflow:hidden;font-size:12px;box-shadow:var(--shadow)}
+.bteam{display:flex;justify-content:space-between;gap:5px;padding:6px 8px;border-bottom:1px solid var(--line)}
+.bteam:last-child{border-bottom:none}
+.bteam.w{background:var(--win);font-weight:800}
+.bteam span.s{font-weight:800;flex-shrink:0}
+.minicol{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.gtable{font-size:12px}
+.gtable .gh{background:var(--blue);color:#fff;font-weight:800;padding:6px 9px;font-size:12px}
+.gtable table{font-size:11.5px}
+.gtable td{padding:6px 5px}
+.gtable tr.q td{background:var(--win)}
+.mtable{direction:ltr}
+.mtable td.h{text-align:right;font-weight:600}
+.mtable td.a{text-align:left;font-weight:600}
+.pp{font-weight:800;border-radius:6px;padding:2px 6px;font-size:11px;display:inline-block}
+.pp.p3{background:var(--exact);color:#9a7400}.pp.p2{background:var(--exact);color:#9a7400}
+.pp.p1{background:var(--win);color:var(--green-d)}.pp.p0{background:var(--miss);color:#b53b3b}
+
+/* ---------- gate ---------- */
+.gate{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0a1733,#15294f);padding:16px}
+.gate[hidden]{display:none}
+.gate::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;
+  background:linear-gradient(90deg,var(--green),var(--gold),var(--red),var(--teal),var(--magenta))}
+.gate-box{background:#fff;border-radius:18px;padding:34px 30px;text-align:center;width:min(340px,92vw);
+  box-shadow:0 24px 70px rgba(0,0,0,.45);position:relative}
+.gate-crest{font-size:44px}
+.gate-box h1{font-size:20px;margin:6px 0 2px}
+.gate-box .hosts2{font-size:16px;letter-spacing:2px;margin:4px 0 2px}
+.gate-box p{color:var(--muted);font-size:13px;margin:8px 0 16px}
+.gate-box input{width:100%;padding:13px;border:1.5px solid var(--line);border-radius:11px;
+  font-family:inherit;font-size:16px;text-align:center}
+.gate-box input:focus{outline:none;border-color:var(--blue)}
+.gate-box button{width:100%;margin-top:10px;padding:13px;border:none;border-radius:11px;
+  background:var(--navy);color:#fff;font-family:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.gate-box button:hover{background:var(--navy2)}
+.gate-err{color:var(--red);font-size:13px;margin-top:9px;min-height:18px;font-weight:700}
+.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:34px;line-height:1.9}
+.collapse-row td{padding:0;border:none}
+.detail{background:#f7faff;padding:12px 16px;font-size:13px}
+
+/* ---------- responsive ---------- */
+@media(max-width:760px){
+  .meta{text-align:right;width:100%}
+}
+@media(max-width:640px){
+  .bracket{grid-template-columns:repeat(6,150px)}
+}
+@media(max-width:560px){
+  table{font-size:13px}
+  th,td{padding:9px 6px}
+  /* leaderboard: keep rank · name · total, fold the breakdown columns away */
+  #lb table th:nth-child(n+3):nth-child(-n+6),
+  #lb table td:nth-child(n+3):nth-child(-n+6){display:none}
+  /* let the wider tables scroll instead of squashing */
+  #gb .card,#forms .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  #gb .card table,#forms .mtable{min-width:440px}
+}
+</style>
+</head>
+<body>
+<div id="gate" class="gate" hidden>
+ <div class="gate-box">
+  <div class="gate-crest">🏆</div>
+  <div class="hosts2">🇨🇦 🇺🇸 🇲🇽</div>
+  <h1>התערבות מונדיאל 2026</h1>
+  <p>הזינו סיסמה לצפייה</p>
+  <input id="gate-in" type="password" placeholder="סיסמה" autocomplete="off">
+  <button id="gate-go">כניסה</button>
+  <div id="gate-err" class="gate-err"></div>
+ </div>
+</div>
+<header>
+ <div class="wrap">
+  <div class="htop">
+   <div class="brand">
+    <div class="crest">🏆</div>
+    <div class="title"><small>WORLD CUP · מונדיאל</small>התערבות מונדיאל 2026
+     <div class="hosts">🇨🇦 🇺🇸 🇲🇽</div></div>
+   </div>
+   <div class="meta">מעודכן: <b id="m-upd"></b><br><span class="badge" id="m-played"></span></div>
+  </div>
+ </div>
+</header>
+<div class="navbar">
+ <nav id="nav" class="wrap">
+  <button data-v="lb" class="active">🏆 טבלת ניקוד</button>
+  <button data-v="gb">👟 מלך שערים</button>
+  <button data-v="res">📅 תוצאות</button>
+  <button data-v="forms">📋 הטפסים</button>
+ </nav>
+</div>
+<main class="wrap">
+ <section id="lb" class="view active"></section>
+ <section id="gb" class="view"></section>
+ <section id="res" class="view"></section>
+ <section id="forms" class="view"></section>
+ <div class="foot">
+  אתר צפייה בלבד · הנתונים מתעדכנים אוטומטית מדי בוקר · מקור תוצאות: <span id="m-src"></span><br>
+  הניקוד לפי חוקי ההתערבות: כיוון נכון 1 · תוצאה מדויקת 2 · מדויקת 4+ גולים 3 · התקדמות בבית 4/5/7/10/14/16 · מלך שערים 12
+ </div>
+</main>
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+// ---- access gate (light protection; static-site password) ----
+const GATE_HASH = "/*GATE*/";
+(function(){
+  if(!GATE_HASH){return;}
+  if(!(window.crypto && crypto.subtle)){return;} // local file:// (insecure context) — skip gate
+  const g=document.getElementById('gate');
+  async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+    return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
+  try{ if(localStorage.getItem('wc_ok')===GATE_HASH){return;} }catch(e){}
+  g.hidden=false;
+  const err=document.getElementById('gate-err'), inp=document.getElementById('gate-in');
+  async function tryit(){
+    const h=await sha(inp.value.trim());
+    if(h===GATE_HASH){ try{localStorage.setItem('wc_ok',GATE_HASH);}catch(e){} g.hidden=true; }
+    else{ err.textContent='סיסמה שגויה 🙈'; inp.value=''; inp.focus(); }
+  }
+  document.getElementById('gate-go').onclick=tryit;
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')tryit();});
+  setTimeout(()=>inp.focus(),50);
+})();
+const D = JSON.parse(document.getElementById('data').textContent);
+const FLAGS = {
+ "Mexico":"🇲🇽","South Africa":"🇿🇦","Korea Republic":"🇰🇷","Czech Republic":"🇨🇿",
+ "Canada":"🇨🇦","Bosnia and Herzegovina":"🇧🇦","Qatar":"🇶🇦","Switzerland":"🇨🇭",
+ "Brazil":"🇧🇷","Morocco":"🇲🇦","Haiti":"🇭🇹","Scotland":"🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+ "United States":"🇺🇸","Paraguay":"🇵🇾","Australia":"🇦🇺","Turkey":"🇹🇷",
+ "Germany":"🇩🇪","Curaçao":"🇨🇼","Ivory Coast":"🇨🇮","Ecuador":"🇪🇨",
+ "Netherlands":"🇳🇱","Japan":"🇯🇵","Sweden":"🇸🇪","Tunisia":"🇹🇳",
+ "Belgium":"🇧🇪","Egypt":"🇪🇬","Iran":"🇮🇷","New Zealand":"🇳🇿",
+ "Spain":"🇪🇸","Cape Verde":"🇨🇻","Saudi Arabia":"🇸🇦","Uruguay":"🇺🇾",
+ "France":"🇫🇷","Senegal":"🇸🇳","Iraq":"🇮🇶","Norway":"🇳🇴",
+ "Argentina":"🇦🇷","Algeria":"🇩🇿","Austria":"🇦🇹","Jordan":"🇯🇴",
+ "Portugal":"🇵🇹","DR Congo":"🇨🇩","Uzbekistan":"🇺🇿","Colombia":"🇨🇴",
+ "England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","Croatia":"🇭🇷","Ghana":"🇬🇭","Panama":"🇵🇦"
+};
+// England & Scotland tag-emoji render black on many browsers -> inline SVG instead
+const FLAG_SVG = {
+ "England":"<svg viewBox='0 0 30 18'><rect width='30' height='18' fill='#fff'/><rect x='12.5' width='5' height='18' fill='#ce1124'/><rect y='6.5' width='30' height='5' fill='#ce1124'/></svg>",
+ "Scotland":"<svg viewBox='0 0 30 18'><rect width='30' height='18' fill='#0065bf'/><path d='M0 0 L30 18 M30 0 L0 18' stroke='#fff' stroke-width='4'/></svg>"
+};
+const fl = n => FLAG_SVG[n] ? `<span class="flsvg">${FLAG_SVG[n]}</span>`
+              : (FLAGS[n] ? `<span class="fl">${FLAGS[n]}</span>` : "");
+const team = n => n ? `${fl(n)}${n}` : "—";
+const $ = (s,e=document)=>e.querySelector(s);
+const el = (t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+$('#m-upd').textContent = D.meta.updated;
+$('#m-played').textContent = `${D.meta.played} מתוך ${D.meta.total_group} משחקי בתים שוחקו`;
+$('#m-src').textContent = D.meta.source;
+
+// ---- nav ----
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); $('#'+b.dataset.v).classList.add('active');
+  window.scrollTo(0,0);
+});
+
+// ---- leaderboard ----
+function renderLB(){
+  const v=$('#lb'); v.innerHTML='';
+  const lb=D.leaderboard;
+  // podium (2-1-3 visual order)
+  const pod=el('div','podium');
+  const order=[lb[1],lb[0],lb[2]]; const cls=['p2','p1','p3']; const medal=['🥈','🥇','🥉'];
+  order.forEach((p,i)=>{ if(!p)return;
+    const c=el('div','pod '+cls[i]);
+    const ch=(D.participants[p.name]||{}).champion;
+    c.innerHTML=`<div class="medal">${medal[i]}</div><div class="rk">מקום ${p.rank}</div>
+     <div class="nm">${p.name}</div><div class="pt">${p.total}</div><div class="lbl">נקודות</div>
+     <div class="pickline">🏆 ${team(ch)}</div>`;
+    c.onclick=()=>openForm(p.name); pod.appendChild(c);
+  });
+  v.appendChild(pod);
+  // table
+  const card=el('div','card');
+  let h=`<table><thead><tr><th>#</th><th>שם</th><th>בתים</th><th>נוקאאוט</th><th>התקדמות</th><th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
+  lb.forEach(p=>{
+    const tc=p.rank<=3?'top'+p.rank:'';
+    h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
+      <td><span class="rk-badge">${p.rank}</span></td>
+      <td class="name">${p.name}</td><td>${p.group}</td><td>${p.knockout}</td>
+      <td>${p.progression}</td><td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
+  });
+  h+='</tbody></table>'; card.innerHTML=h; v.appendChild(card);
+}
+
+// ---- golden boot ----
+function renderGB(){
+  const v=$('#gb'); v.innerHTML='';
+  const gb=D.goldenboot;
+  v.appendChild(el('h2','sec','👟 ניחושי מלך השערים'));
+  const c1=el('div','card'); c1.style.padding='16px';
+  const max=Math.max(...gb.tally.map(x=>x[1]),1);
+  gb.tally.forEach(([p,n])=>{
+    const row=el('div','bar-row');
+    row.innerHTML=`<div class="bar-name">${p}</div><div class="bar-track">
+      <div class="bar-fill gold" style="width:${Math.max(n/max*100,10)}%">${n}</div></div>`;
+    c1.appendChild(row);
+  });
+  v.appendChild(c1);
+  v.appendChild(el('h2','sec','🏆 ניחושי האלופה'));
+  const c2=el('div','card'); c2.style.padding='16px';
+  const cmax=Math.max(...gb.champions.map(x=>x[1]),1);
+  gb.champions.forEach(([t,n])=>{
+    const row=el('div','bar-row');
+    row.innerHTML=`<div class="bar-name">${team(t)}</div><div class="bar-track">
+      <div class="bar-fill" style="width:${Math.max(n/cmax*100,10)}%">${n}</div></div>`;
+    c2.appendChild(row);
+  });
+  v.appendChild(c2);
+  v.appendChild(el('h2','sec','📋 הניחושים של כולם'));
+  const c3=el('div','card');
+  let h=`<table><thead><tr><th>שם</th><th>מלך שערים 1</th><th>מלך שערים 2</th><th>אלופה</th><th>ניחוש זוכה</th></tr></thead><tbody>`;
+  gb.picks.forEach(p=>{ h+=`<tr><td class="name" style="color:var(--txt)">${p.name}</td>
+     <td>${p.gb1||'—'}</td><td>${p.gb2||'—'}</td><td>${p.champion||'—'}</td><td>${p.winner||'—'}</td></tr>`; });
+  h+='</tbody></table>'; c3.innerHTML=h; v.appendChild(c3);
+}
+
+// ---- results ----
+function renderRes(){
+  const v=$('#res'); v.innerHTML='';
+  v.appendChild(el('h2','sec','📅 תוצאות שלב הבתים'));
+  const grid=el('div','rgrid');
+  D.results.forEach(m=>{
+    const c=el('div','match'+(m.played?'':' up'));
+    const sc=m.played?`${m.hs}-${m.as}`:'vs';
+    c.innerHTML=`<div class="mh"><span>משחק ${m.num}</span><span>${m.date}</span></div>
+     <div class="teams"><span>${team(m.home)}</span><span class="sc">${sc}</span><span>${team(m.away)}</span></div>`;
+    grid.appendChild(c);
+  });
+  v.appendChild(grid);
+}
+
+// ---- forms / browse ----
+let curForm=null;
+function renderFormsNav(){
+  const v=$('#forms'); v.innerHTML='';
+  const bar=el('div','pick-bar');
+  D.leaderboard.forEach(p=>{
+    const b=el('button',null,`${p.name} · ${p.total}`);
+    b.dataset.n=p.name; b.onclick=()=>openForm(p.name,false);
+    bar.appendChild(b);
+  });
+  v.appendChild(bar);
+  v.appendChild(el('div','form-body','')).id='form-body';
+  openForm(curForm||D.leaderboard[0].name,false);
+}
+function openForm(name,switchTab=true){
+  curForm=name;
+  if(switchTab){
+    document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+    document.querySelector('#nav button[data-v="forms"]').classList.add('active');
+    $('#forms').classList.add('active');
+    if(!$('#form-body')){renderFormsNav();}
+  }
+  document.querySelectorAll('.pick-bar button').forEach(b=>b.classList.toggle('active',b.dataset.n===name));
+  const p=D.participants[name]; if(!p)return;
+  const t=p.totals;
+  const body=$('#form-body'); body.innerHTML='';
+  // KPIs
+  const k=el('div','psum');
+  k.innerHTML=`<div class="kpi hl"><div class="v">${t.total}</div><div class="k">נקודות · מקום ${t.rank}</div></div>
+    <div class="kpi"><div class="v">${team(p.champion)}</div><div class="k">אלופה</div></div>
+    <div class="kpi"><div class="v" style="font-size:15px">${(p.gb[0]||'—')}<br>${(p.gb[1]||'')}</div><div class="k">מלך שערים</div></div>`;
+  body.appendChild(k);
+  const brk=el('div','brk');
+  brk.innerHTML=`<span class="chip">בתים <b>${t.group}</b></span><span class="chip">נוקאאוט <b>${t.knockout}</b></span>
+    <span class="chip">התקדמות <b>${t.progression}</b></span><span class="chip">מלך שערים <b>${t.gb}</b></span>`;
+  body.appendChild(brk);
+  // bracket
+  body.appendChild(el('h2','sec','🏟️ הברקט'));
+  const labels={r32:'1/16',r16:'1/8',qf:'1/4',sf:'1/2',final:'גמר',third:'מקום 3'};
+  const br=el('div','bracket');
+  ['r32','r16','qf','sf','final','third'].forEach(rk=>{
+    const col=el('div','bcol'); col.appendChild(el('h4',null,labels[rk]));
+    p.bracket[rk].forEach(m=>{
+      const bm=el('div','bmatch');
+      bm.innerHTML=`<div class="bteam ${m.win===m.t1?'w':''}"><span>${team(m.t1)}</span><span class="s">${m.s1??''}</span></div>
+        <div class="bteam ${m.win===m.t2?'w':''}"><span>${team(m.t2)}</span><span class="s">${m.s2??''}</span></div>`;
+      col.appendChild(bm);
+    });
+    br.appendChild(col);
+  });
+  body.appendChild(br);
+  // standings
+  body.appendChild(el('h2','sec','📊 טבלאות הבתים (הניחוש)'));
+  const mc=el('div','minicol');
+  p.standings.forEach(g=>{
+    const gt=el('div','card gtable');
+    let h=`<div class="gh">בית ${g.group}</div><table><tbody>`;
+    g.rows.forEach((r,i)=>{ h+=`<tr class="${i<2?'q':''}"><td style="text-align:right;font-weight:600">${r.place}. ${team(r.team)}</td><td>${r.Pts}</td></tr>`; });
+    h+='</tbody></table>'; gt.innerHTML=h; mc.appendChild(gt);
+  });
+  body.appendChild(mc);
+  // group match predictions
+  body.appendChild(el('h2','sec','⚽ ניחושי שלב הבתים'));
+  const card=el('div','card');
+  let h=`<table class="mtable"><thead><tr><th>#</th><th>בית</th><th>ניחוש</th><th>תוצאה</th><th>חוץ</th><th>נק׳</th></tr></thead><tbody>`;
+  p.matches.forEach(m=>{
+    const ptcell = m.pts==null?'' : `<span class="pp p${m.pts}">${m.pts}</span>`;
+    h+=`<tr><td>${m.num}</td><td class="h">${team(m.home)}</td><td><b class="score-ltr">${m.pred}</b></td>
+      <td><span class="score-ltr">${m.actual||'—'}</span></td><td class="a">${team(m.away)}</td><td>${ptcell}</td></tr>`;
+  });
+  h+='</tbody></table>'; card.innerHTML=h; body.appendChild(card);
+  window.scrollTo(0,0);
+}
+
+renderLB(); renderGB(); renderRes(); renderFormsNav();
+</script>
+</body>
+</html>
