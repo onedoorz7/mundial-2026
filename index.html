@@ -202,6 +202,25 @@ tr.top2 .rk-badge,tr.top3 .rk-badge{background:#cfd8e6}
 .allpaid{text-align:center;padding:34px 16px;font-size:clamp(17px,5vw,20px);font-weight:800;color:var(--green-d)}
 .pay-upd{text-align:center;color:var(--muted);font-size:12px;margin-top:12px}
 
+/* ---------- prizes ---------- */
+.prizes{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:18px}
+.prize{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 8px;text-align:center;box-shadow:var(--shadow);transition:.15s}
+.prize.clk{cursor:pointer}
+.prize.clk:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.prize .ic{font-size:21px;line-height:1}
+.prize .amt{font-size:clamp(15px,4.6vw,20px);font-weight:900;margin-top:3px}
+.prize .pl{font-size:11px;color:var(--muted);font-weight:700;margin-top:1px}
+.prize .who{font-size:11px;font-weight:800;color:var(--blue);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prize.p1{border-color:var(--gold);background:linear-gradient(180deg,#fffaf0,#fff)}
+.prize.p1 .amt{color:var(--gold-d)}
+.prize.last{border-color:#f0b6bc;background:linear-gradient(180deg,#fff5f5,#fff)}
+.prize.last .amt{color:#b5293b}
+@media(max-width:560px){.prizes{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- trademark ---------- */
+.trademark{text-align:center;margin-top:34px;font-weight:900;letter-spacing:.5px;color:var(--navy);font-size:14px}
+.trademark span{color:var(--gold-d)}
+
 /* ---------- responsive ---------- */
 @media(max-width:760px){
   .meta{text-align:right;width:100%}
@@ -238,7 +257,7 @@ tr.top2 .rk-badge,tr.top3 .rk-badge{background:#cfd8e6}
   <div class="htop">
    <div class="brand">
     <div class="crest">🏆</div>
-    <div class="title"><small>WORLD CUP · מונדיאל</small>התערבות מונדיאל 2026
+    <div class="title"><small>WORLD CUP · מונדיאל · SINCE 2010</small>התערבות מונדיאל 2026
      <div class="hosts">🇨🇦 🇺🇸 🇲🇽</div></div>
    </div>
    <div class="meta">מעודכן: <b id="m-upd"></b><br><span class="badge" id="m-played"></span></div>
@@ -260,6 +279,7 @@ tr.top2 .rk-badge,tr.top3 .rk-badge{background:#cfd8e6}
  <section id="res" class="view"></section>
  <section id="forms" class="view"></section>
  <section id="pay" class="view"></section>
+ <div class="trademark">התערבות מונדיאל™ · <span>Since 2010</span></div>
  <div class="foot">
   אתר צפייה בלבד · הנתונים מתעדכנים אוטומטית מדי בוקר · מקור תוצאות: <span id="m-src"></span><br>
   הניקוד לפי חוקי ההתערבות: כיוון נכון 1 · תוצאה מדויקת 2 · מדויקת 4+ גולים 3 · התקדמות בבית 4/5/7/10/14/16 · מלך שערים 12
@@ -340,6 +360,23 @@ function renderLB(){
     c.onclick=()=>openForm(p.name); pod.appendChild(c);
   });
   v.appendChild(pod);
+  // prizes (tied to live standings)
+  const last=lb[lb.length-1];
+  const tiers=[
+    {cls:'p1',ic:'🥇',amt:'1000₪',pl:'מקום ראשון',who:lb[0]},
+    {cls:'',ic:'🥈',amt:'400₪',pl:'מקום שני',who:lb[1]},
+    {cls:'',ic:'🥉',amt:'100₪',pl:'מקום שלישי',who:lb[2]},
+    {cls:'last',ic:'🃏',amt:'50₪',pl:'מקום אחרון',who:last},
+  ];
+  const prizes=el('div','prizes');
+  tiers.forEach(t=>{
+    const c=el('div','prize '+t.cls+(t.who?' clk':''));
+    c.innerHTML=`<div class="ic">${t.ic}</div><div class="amt">${t.amt}</div>
+      <div class="pl">${t.pl}</div><div class="who">${t.who?t.who.name:'—'}</div>`;
+    if(t.who) c.onclick=()=>openForm(t.who.name);
+    prizes.appendChild(c);
+  });
+  v.appendChild(prizes);
   // table
   const card=el('div','card');
   let h=`<table><thead><tr><th>#</th><th>שם</th><th>בתים</th><th>נוקאאוט</th><th>התקדמות</th><th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
