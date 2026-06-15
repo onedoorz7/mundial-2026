@@ -1,0 +1,131 @@
+{
+  "fee": "50₪ לטופס",
+  "instructions": "נאספו 700₪ · נותרו 850₪ לגבייה (14/31 טפסים)",
+  "updated": "2026-06-15",
+  "people": [
+    {
+      "name": "אוני ואלישע",
+      "paid": false
+    },
+    {
+      "name": "אוני",
+      "paid": false
+    },
+    {
+      "name": "אורי",
+      "paid": true
+    },
+    {
+      "name": "איליה ואסף",
+      "paid": false
+    },
+    {
+      "name": "איליה",
+      "paid": false
+    },
+    {
+      "name": "אליאור",
+      "paid": true
+    },
+    {
+      "name": "אלישע",
+      "paid": true
+    },
+    {
+      "name": "אמיל",
+      "paid": true
+    },
+    {
+      "name": "אסף אמיר",
+      "paid": false
+    },
+    {
+      "name": "אסף צמח",
+      "paid": true
+    },
+    {
+      "name": "בן",
+      "paid": true
+    },
+    {
+      "name": "ברק גבאי",
+      "paid": false
+    },
+    {
+      "name": "ברק גילאון",
+      "paid": true
+    },
+    {
+      "name": "וידר",
+      "paid": false
+    },
+    {
+      "name": "חמו",
+      "paid": false
+    },
+    {
+      "name": "טל אנוך",
+      "paid": true
+    },
+    {
+      "name": "יותקה",
+      "paid": false
+    },
+    {
+      "name": "יעל",
+      "paid": false
+    },
+    {
+      "name": "נדב",
+      "paid": false
+    },
+    {
+      "name": "עומר תדמור",
+      "paid": true
+    },
+    {
+      "name": "עידו וידר",
+      "paid": true
+    },
+    {
+      "name": "ערן ורועי",
+      "paid": true
+    },
+    {
+      "name": "ערן",
+      "paid": true
+    },
+    {
+      "name": "קאמי",
+      "paid": false
+    },
+    {
+      "name": "קפצן",
+      "paid": false
+    },
+    {
+      "name": "רועי אנטו",
+      "paid": true
+    },
+    {
+      "name": "רועי וינשטוק",
+      "paid": false
+    },
+    {
+      "name": "שחר גולן",
+      "paid": false
+    },
+    {
+      "name": "שחר זכרוביץ׳",
+      "paid": false
+    },
+    {
+      "name": "אליה 1",
+      "paid": false
+    },
+    {
+      "name": "אליה 2",
+      "paid": true
+    }
+  ]
+}
