@@ -271,6 +271,19 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .trademark{text-align:center;margin-top:34px;font-weight:900;letter-spacing:.5px;color:var(--navy);font-size:14px}
 .trademark span{color:var(--gold-d)}
 
+/* ---------- daily movers + trends ---------- */
+.mv{display:block;font-size:10px;font-weight:800;margin-top:3px;line-height:1}
+.mv.up{color:var(--green-d)}
+.mv.down{color:var(--red)}
+.mv.same{color:#9aa6bb}
+.trend-row{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--line);cursor:pointer}
+.trend-row:last-child{border-bottom:none}
+.trend-row:hover{background:#f7faff}
+.tr-rank{font-size:12px;font-weight:800;color:var(--muted);min-width:20px;text-align:center}
+.tr-name{flex:1;font-weight:700;font-size:13px;color:var(--blue);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spark{flex-shrink:0}
+.trend-row .mv{display:inline-block;margin-top:0;min-width:28px;text-align:left}
+
 /* ---------- responsive ---------- */
 @media(max-width:760px){
   .meta{text-align:right;width:100%}
@@ -326,6 +339,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   <button data-v="res">📅 תוצאות</button>
   <button data-v="forms">📋 הטפסים</button>
   <button data-v="pay">💸 בושה!</button>
+  <button data-v="trends">📈 מגמות</button>
  </nav>
 </div>
 <main class="wrap">
@@ -334,6 +348,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
  <section id="res" class="view"></section>
  <section id="forms" class="view"></section>
  <section id="pay" class="view"></section>
+ <section id="trends" class="view"></section>
  <div class="trademark">התערבות מונדיאל™ · <span>Since 2010</span></div>
  <div class="foot">
   אתר צפייה בלבד · הנתונים מתעדכנים אוטומטית מדי בוקר · מקור תוצאות: <span id="m-src"></span><br>
@@ -427,6 +442,13 @@ function renderLB(){
   const card=el('div','card');
   let h=`<table><thead><tr><th>#</th><th>שם</th><th>בתים</th><th>נוקאאוט</th><th>התקדמות</th><th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
   const lastRank=lb.length;
+  const hdates=Object.keys(D.history||{}).sort();
+  const prevSnap=hdates.length>=2?D.history[hdates[hdates.length-2]]:null;
+  const mvr=(name,rank)=>{ if(!prevSnap||!prevSnap[name])return '';
+    const d=prevSnap[name][0]-rank;
+    if(d>0)return `<span class="mv up">▲${d}</span>`;
+    if(d<0)return `<span class="mv down">▼${-d}</span>`;
+    return `<span class="mv same">–</span>`; };
   lb.forEach((p,idx)=>{
     let tc=p.rank<=3?'top'+p.rank:'';
     if(p.rank===lastRank) tc+=(tc?' ':'')+'last';
@@ -436,7 +458,7 @@ function renderLB(){
     else if(p.rank===3) prize='<span class="money-chip p3">₪100</span>';
     else if(idx===lb.length-1) prize='<span class="money-chip last">₪50</span>';
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
-      <td><span class="rk-badge">${p.rank}</span></td>
+      <td><span class="rk-badge">${p.rank}</span>${mvr(p.name,p.rank)}</td>
       <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${prize}</span></td><td>${p.group}</td><td>${p.knockout}</td>
       <td>${p.progression}</td><td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
   });
@@ -642,7 +664,51 @@ document.getElementById('modal-x').onclick=closeModal;
 $('#modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay();
+// ---- trends / rank history ----
+function sparkline(ranks,maxRank,color){
+  const W=112,H=26,pad=3,n=ranks.length;
+  const xs=i=>pad+(n<=1?0:i*(W-2*pad)/(n-1));
+  const ys=r=>pad+((r-1)/Math.max(maxRank-1,1))*(H-2*pad); // rank 1 = top
+  let d='';
+  ranks.forEach((r,i)=>{ if(r==null)return; const x=xs(i),y=ys(r); d+=(d?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' '; });
+  const li=ranks.map((r,i)=>r!=null?i:-1).filter(i=>i>=0).pop();
+  const dot=(li!=null)?`<circle cx="${xs(li).toFixed(1)}" cy="${ys(ranks[li]).toFixed(1)}" r="2.6" fill="${color}"/>`:'';
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><path d="${d}" fill="none" stroke="${color}" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>${dot}</svg>`;
+}
+function renderTrends(){
+  const v=$('#trends'); if(!v) return; v.innerHTML='';
+  const dates=Object.keys(D.history||{}).sort();
+  if(dates.length<2){
+    v.innerHTML='<div class="card" style="padding:26px;text-align:center;color:var(--muted)">📈 המגמות מתחילות להצטבר — חזרו עוד יום-יומיים כדי לראות מי מטפס ומי צולל</div>';
+    return;
+  }
+  const first=D.history[dates[0]], lb=D.leaderboard, maxRank=lb.length;
+  const moves=lb.map(p=>{ const st=first[p.name]?first[p.name][0]:null;
+    return {name:p.name, rank:p.rank, delta:(st!=null?st-p.rank:0)}; });
+  const climber=[...moves].sort((a,b)=>b.delta-a.delta)[0];
+  const faller=[...moves].sort((a,b)=>a.delta-b.delta)[0];
+  v.appendChild(el('h2','sec','📈 מגמות לאורך הטורניר'));
+  const hero=el('div','pay-hero');
+  hero.innerHTML=`<div class="pay-stat ok"><div class="v">▲ ${Math.max(climber.delta,0)}</div><div class="k">המטפס הגדול · ${climber.name}</div></div>
+    <div class="pay-stat bad"><div class="v">▼ ${Math.max(-faller.delta,0)}</div><div class="k">הצניחה הגדולה · ${faller.name}</div></div>`;
+  v.appendChild(hero);
+  const card=el('div','card');
+  moves.forEach(o=>{
+    const pts=dates.map(dt=>{ const s=D.history[dt][o.name]; return s?s[0]:null; });
+    const col=o.delta>0?'#0a7a41':(o.delta<0?'#e23b50':'#2e6fb8');
+    const dcls=o.delta>0?'up':(o.delta<0?'down':'same');
+    const dtxt=o.delta>0?`▲${o.delta}`:(o.delta<0?`▼${-o.delta}`:'–');
+    const row=el('div','trend-row');
+    row.innerHTML=`<span class="tr-rank">${o.rank}</span><span class="tr-name">${o.name}</span>${sparkline(pts,maxRank,col)}<span class="mv ${dcls}">${dtxt}</span>`;
+    row.onclick=()=>openForm(o.name);
+    card.appendChild(row);
+  });
+  v.appendChild(card);
+  v.appendChild(el('div','pay-upd',`${dates.length} ימי מעקב · ${dates[0]} → ${dates[dates.length-1]} · השינוי מתחילת המעקב`));
+}
+if(!D.history || Object.keys(D.history).length<2){ const tb=document.querySelector('#nav button[data-v="trends"]'); if(tb) tb.style.display='none'; }
+
+renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderTrends();
 </script>
 </body>
 </html>

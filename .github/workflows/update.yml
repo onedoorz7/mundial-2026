@@ -11,6 +11,7 @@ on:
       - 'site_data.json'
       - 'scores.json'
       - 'results_store.json'
+      - 'history.json'
 
 permissions:
   contents: write
@@ -35,6 +36,6 @@ jobs:
         run: |
           git config user.name "mundial-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add index.html site_data.json scores.json results_store.json
+          git add index.html site_data.json scores.json results_store.json history.json
           git commit -m "Auto-update $(date -u +%F)" || echo "no changes to commit"
           git push

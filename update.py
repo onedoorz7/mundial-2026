@@ -238,6 +238,13 @@ def build_all():
         d["name"]=nm; scores.append(score_one(d, store))
     scores.sort(key=lambda r:(-r["total"],-r["group_hits"],r["name"]))
     for i,s in enumerate(scores,1): s["rank"]=i
+    # ---- daily rank-history snapshot (upsert one entry per date) ----
+    hist_path=P("history.json"); history={}
+    if os.path.exists(hist_path):
+        try: history=json.load(open(hist_path, encoding="utf-8"))
+        except Exception: history={}
+    history[store["last_updated"]]={s["name"]:[s["rank"],s["total"]] for s in scores}
+    json.dump(history, open(hist_path,"w",encoding="utf-8"), ensure_ascii=False)
     json.dump(scores, open(P("scores.json"),"w",encoding="utf-8"), ensure_ascii=False, indent=2)
     sc_by={s["name"]:s for s in scores}
 
@@ -264,6 +271,7 @@ def build_all():
     pay_path=P("payments.json")
     if os.path.exists(pay_path):
         site["payments"]=json.load(open(pay_path, encoding="utf-8"))
+    site["history"]=history
     json.dump(site, open(P("site_data.json"),"w",encoding="utf-8"), ensure_ascii=False)
 
     # build index.html
