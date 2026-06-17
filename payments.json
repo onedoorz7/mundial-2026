@@ -1,15 +1,15 @@
 {
   "fee": "50₪ לטופס",
-  "instructions": "נאספו 750₪ · נותרו 800₪ לגבייה (15/31 טפסים)",
-  "updated": "2026-06-15",
+  "instructions": "נאספו 1200₪ · נותרו 350₪ לגבייה (24/31 טפסים)",
+  "updated": "2026-06-17",
   "people": [
     {
       "name": "אוני ואלישע",
-      "paid": false
+      "paid": true
     },
     {
       "name": "אוני",
-      "paid": false
+      "paid": true
     },
     {
       "name": "אורי",
@@ -57,7 +57,7 @@
     },
     {
       "name": "וידר",
-      "paid": false
+      "paid": true
     },
     {
       "name": "חמו",
@@ -73,11 +73,11 @@
     },
     {
       "name": "יעל",
-      "paid": false
+      "paid": true
     },
     {
       "name": "נדב",
-      "paid": false
+      "paid": true
     },
     {
       "name": "עומר תדמור",
@@ -97,11 +97,11 @@
     },
     {
       "name": "קאמי",
-      "paid": false
+      "paid": true
     },
     {
       "name": "קפצן",
-      "paid": false
+      "paid": true
     },
     {
       "name": "רועי אנטו",
@@ -109,7 +109,7 @@
     },
     {
       "name": "רועי וינשטוק",
-      "paid": false
+      "paid": true
     },
     {
       "name": "שחר גולן",
@@ -117,7 +117,7 @@
     },
     {
       "name": "שחר זכרוביץ׳",
-      "paid": false
+      "paid": true
     },
     {
       "name": "אליה 1",

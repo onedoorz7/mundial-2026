@@ -141,8 +141,12 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 
 /* ---------- results grid ---------- */
 .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:11px}
-.match{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;box-shadow:var(--shadow)}
-.match.up{opacity:.6;box-shadow:none}
+.match{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;box-shadow:var(--shadow);cursor:pointer;transition:.15s}
+.match:hover{border-color:var(--blue);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.match.up{opacity:.62;box-shadow:none}
+.match.up:hover{opacity:.9}
+.mtap{margin-top:9px;text-align:center;font-size:11px;font-weight:800;color:var(--blue);border-top:1px dashed var(--line);padding-top:7px}
+.match.up .mtap{color:var(--muted)}
 .match .mh{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px}
 .match .teams{display:flex;align-items:center;justify-content:space-between;gap:6px;font-weight:700;font-size:14px;direction:ltr}
 .match .sc{background:var(--navy);color:#fff;border-radius:8px;padding:3px 10px;font-weight:800;min-width:48px;text-align:center;direction:ltr;unicode-bidi:bidi-override;flex-shrink:0}
@@ -237,6 +241,32 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .allpaid{text-align:center;padding:34px 16px;font-size:clamp(17px,5vw,20px);font-weight:800;color:var(--green-d)}
 .pay-upd{text-align:center;color:var(--muted);font-size:12px;margin-top:12px}
 
+/* ---------- match-bets modal ---------- */
+.modal{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;
+  background:rgba(8,16,34,.55);backdrop-filter:blur(2px)}
+.modal[hidden]{display:none}
+.modal-card{background:var(--card);width:100%;max-width:560px;max-height:88vh;overflow-y:auto;
+  -webkit-overflow-scrolling:touch;border-radius:20px 20px 0 0;position:relative;
+  box-shadow:0 -12px 44px rgba(0,0,0,.32);animation:slideup .25s}
+@keyframes slideup{from{transform:translateY(34px);opacity:.5}to{transform:translateY(0);opacity:1}}
+@media(min-width:560px){.modal{align-items:center;padding:16px}.modal-card{border-radius:20px}}
+.modal-x{position:absolute;top:13px;inset-inline-start:13px;width:34px;height:34px;border:none;border-radius:50%;
+  background:rgba(255,255,255,.85);font-size:15px;cursor:pointer;color:var(--navy);z-index:3;font-weight:800}
+.modal-head{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:22px 16px 18px;text-align:center;
+  position:sticky;top:0;border-radius:20px 20px 0 0}
+@media(min-width:560px){.modal-head{border-radius:20px 20px 0 0}}
+.mm-teams{display:flex;align-items:center;justify-content:center;gap:12px;font-weight:800;font-size:16px;direction:ltr}
+.mm-sc{background:var(--gold);color:var(--navy);border-radius:9px;padding:3px 13px;font-weight:900;direction:ltr;unicode-bidi:bidi-override}
+.mm-sc.up{background:rgba(255,255,255,.2);color:#fff}
+.mm-sub{font-size:12px;color:#c2cfe6;margin-top:8px}
+.mm-stats{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;padding:13px 14px 2px}
+.mm-list{padding:8px 14px 20px}
+.mm-row{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line)}
+.mm-row:last-child{border-bottom:none}
+.mm-rank{font-size:12px;font-weight:800;color:var(--muted);min-width:20px;text-align:center}
+.mm-name{flex:1;font-weight:700;font-size:14px;color:var(--blue);cursor:pointer}
+.mm-pred{font-weight:800;font-size:14px;background:#eef2f9;border-radius:7px;padding:3px 10px;min-width:48px;text-align:center}
+
 /* ---------- trademark ---------- */
 .trademark{text-align:center;margin-top:34px;font-weight:900;letter-spacing:.5px;color:var(--navy);font-size:14px}
 .trademark span{color:var(--gold-d)}
@@ -310,6 +340,12 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   הניקוד לפי חוקי ההתערבות: כיוון נכון 1 · תוצאה מדויקת 2 · מדויקת 4+ גולים 3 · התקדמות בבית 4/5/7/10/14/16 · מלך שערים 12
  </div>
 </main>
+<div id="modal" class="modal" hidden>
+ <div class="modal-card">
+  <button class="modal-x" id="modal-x" aria-label="סגור">✕</button>
+  <div id="modal-body"></div>
+ </div>
+</div>
 <script id="data" type="application/json">/*DATA*/</script>
 <script>
 // ---- access gate (light protection; static-site password) ----
@@ -448,7 +484,9 @@ function renderRes(){
     const c=el('div','match'+(m.played?'':' up'));
     const sc=m.played?`${m.hs}-${m.as}`:'vs';
     c.innerHTML=`<div class="mh"><span>משחק ${m.num}</span><span>${m.date}</span></div>
-     <div class="teams"><span>${team(m.home)}</span><span class="sc">${sc}</span><span>${team(m.away)}</span></div>`;
+     <div class="teams"><span>${team(m.home)}</span><span class="sc">${sc}</span><span>${team(m.away)}</span></div>
+     <div class="mtap">👁️ ${m.played?'הניחושים והנקודות':'הניחושים של כולם'} ›</div>`;
+    c.onclick=()=>openMatch(m.num);
     grid.appendChild(c);
   });
   v.appendChild(grid);
@@ -565,6 +603,44 @@ function renderPay(){
 }
 // hide the בושה tab until there's a payments list
 if(!D.payments){ const pb=document.querySelector('#nav button[data-v="pay"]'); if(pb) pb.style.display='none'; }
+
+// ---- match bets modal ----
+function closeModal(){ $('#modal').hidden=true; }
+function openMatch(num){
+  const m=D.results.find(x=>x.num===num); if(!m) return;
+  const rankOf={}; D.leaderboard.forEach(p=>rankOf[p.name]=p.rank);
+  const rows=[];
+  for(const nm in D.participants){
+    const mm=(D.participants[nm].matches||[]).find(x=>x.num===num);
+    rows.push({name:nm, pred:(mm&&mm.pred)||'—', pts:(mm?mm.pts:null)});
+  }
+  if(m.played) rows.sort((a,b)=>(b.pts??-1)-(a.pts??-1) || (rankOf[a.name]||99)-(rankOf[b.name]||99));
+  else rows.sort((a,b)=>(rankOf[a.name]||99)-(rankOf[b.name]||99));
+  const sc=m.played?`${m.hs}-${m.as}`:'vs';
+  let h=`<div class="modal-head">
+    <div class="mm-teams"><span>${team(m.home)}</span><span class="mm-sc ${m.played?'':'up'}">${sc}</span><span>${team(m.away)}</span></div>
+    <div class="mm-sub">משחק ${m.num} · ${m.date}${m.played?'':' · טרם שוחק'}</div></div>`;
+  if(m.played){
+    const scored=rows.filter(r=>r.pts>0).length, exact=rows.filter(r=>r.pts>=2).length;
+    h+=`<div class="mm-stats"><span class="chip">✅ צדקו <b>${scored}</b></span>
+      <span class="chip">🎯 מדויקים <b>${exact}</b></span>
+      <span class="chip">❌ פספסו <b>${rows.length-scored}</b></span></div>`;
+  } else {
+    h+=`<div class="mm-stats"><span class="chip">${rows.length} ניחושים · טרם שוחק</span></div>`;
+  }
+  h+='<div class="mm-list">';
+  rows.forEach((r,i)=>{
+    const pc=(m.played && r.pts!=null)?`<span class="pp p${r.pts}">${r.pts}</span>`:'';
+    h+=`<div class="mm-row"><span class="mm-rank">${i+1}</span>
+      <span class="mm-name" onclick="openForm('${r.name.replace(/'/g,"\\'")}');closeModal()">${r.name}</span>
+      <span class="mm-pred score-ltr">${r.pred}</span>${pc}</div>`;
+  });
+  h+='</div>';
+  $('#modal-body').innerHTML=h; $('#modal').hidden=false; $('.modal-card').scrollTop=0;
+}
+document.getElementById('modal-x').onclick=closeModal;
+$('#modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
 renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay();
 </script>
