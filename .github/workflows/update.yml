@@ -2,7 +2,7 @@ name: Update Mundial site
 
 on:
   schedule:
-    - cron: '3-59/10 * * * *' # poll off the busiest round minutes
+    - cron: '0 5 * * *'      # 05:00 UTC daily (~08:00 Israel). Change if you like.
   workflow_dispatch:           # lets you run it manually from the Actions tab
   push:
     branches: [ main ]
