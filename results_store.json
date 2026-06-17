@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-06-16",
+  "last_updated": "2026-06-17",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -152,36 +152,36 @@
       "date": "Jun 16, 2026",
       "home": "France",
       "away": "Senegal",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 3,
+      "away_score": 1,
+      "played": true
     },
     {
       "num": 18,
       "date": "Jun 17, 2026",
       "home": "Iraq",
       "away": "Norway",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 1,
+      "away_score": 4,
+      "played": true
     },
     {
       "num": 19,
       "date": "Jun 17, 2026",
       "home": "Argentina",
       "away": "Algeria",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 3,
+      "away_score": 0,
+      "played": true
     },
     {
       "num": 20,
       "date": "Jun 17, 2026",
       "home": "Austria",
       "away": "Jordan",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 3,
+      "away_score": 1,
+      "played": true
     },
     {
       "num": 21,
