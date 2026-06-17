@@ -2,7 +2,7 @@ name: Update Mundial site
 
 on:
   schedule:
-    - cron: '0 5 * * *'      # 05:00 UTC daily (~08:00 Israel). Change if you like.
+    - cron: '*/10 * * * *'   # poll for live/final score changes roughly every 10 minutes
   workflow_dispatch:           # lets you run it manually from the Actions tab
   push:
     branches: [ main ]
@@ -18,7 +18,7 @@ permissions:
 
 concurrency:
   group: mundial-update
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
@@ -37,5 +37,9 @@ jobs:
           git config user.name "mundial-bot"
           git config user.email "actions@users.noreply.github.com"
           git add index.html site_data.json scores.json results_store.json history.json
-          git commit -m "Auto-update $(date -u +%F)" || echo "no changes to commit"
-          git push
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "Auto-update $(date -u +%F)"
+            git push
+          fi

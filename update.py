@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Self-contained daily updater for the Mundial 2026 bet site.
-No third-party dependencies (stdlib only). Run by GitHub Actions each morning.
+Self-contained live updater for the Mundial 2026 bet site.
+No third-party dependencies (stdlib only). Run by GitHub Actions frequently.
 
 Pipeline:
-  1. Fetch actual results from ESPN's public JSON scoreboard (no API key).
+  1. Fetch actual/live results from ESPN's public JSON scoreboard (no API key).
   2. Update results_store.json (group + knockout, champion).
   3. Score all participants per the bet rules.
   4. Rebuild site_data.json and index.html (password gate from env GATE_PASSWORD).
@@ -70,11 +70,23 @@ def round_for_date(d):
     if d.month==7 and d.day==19:    return "Final"
     return None
 
+def fetch_dates():
+    """Fetch a small live window by default; use MUNDIAL_FULL_SYNC=1 for a full sweep."""
+    if os.environ.get("MUNDIAL_FULL_SYNC") == "1":
+        return list(daterange(datetime.date(2026,6,11), datetime.date(2026,7,20)))
+    today = datetime.datetime.utcnow().date()
+    start = max(datetime.date(2026,6,11), today - datetime.timedelta(days=1))
+    end = min(datetime.date(2026,7,20), today + datetime.timedelta(days=1))
+    return list(daterange(start, end))
+
+def parse_score(v):
+    try: return int(v)
+    except (TypeError, ValueError): return None
+
 def fetch_espn():
-    """Return list of completed matches: {date, home, away, hs, as, round_or_None}."""
+    """Return ESPN matches with live/final status metadata."""
     out = []
-    start = datetime.date(2026,6,11); end = datetime.date(2026,7,20)
-    for d in daterange(start, end):
+    for d in fetch_dates():
         url = ESPN.format(d.strftime("%Y%m%d"))
         try:
             req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
@@ -84,19 +96,46 @@ def fetch_espn():
             sys.stderr.write(f"warn: fetch {d} failed: {e}\n"); continue
         for ev in data.get("events", []):
             comp = ev["competitions"][0]
-            st = comp.get("status", {}).get("type", {})
-            if not st.get("completed"): continue
+            status = comp.get("status", {})
+            st = status.get("type", {})
             home = away = None
             for c in comp["competitors"]:
                 t = norm(c["team"]["displayName"])
-                try: sc = int(c.get("score"))
-                except (TypeError, ValueError): sc = None
+                sc = parse_score(c.get("score"))
                 if c["homeAway"]=="home": home=(t, sc)
                 else: away=(t, sc)
             if not home or not away or home[1] is None or away[1] is None: continue
+            state = st.get("state")
+            completed = bool(st.get("completed"))
+            live = (state == "in") and not completed
             out.append({"date": d, "home": home[0], "away": away[0],
-                        "hs": home[1], "as": away[1], "round": round_for_date(d)})
+                        "hs": home[1], "as": away[1], "round": round_for_date(d),
+                        "completed": completed, "live": live, "status_state": state,
+                        "display_clock": status.get("displayClock") or "",
+                        "status_detail": st.get("shortDetail") or st.get("detail") or st.get("description") or ""})
     return out
+
+def scoreable(m):
+    return bool(m.get("played"))
+
+def status_sig(m):
+    return (m.get("home_score"), m.get("away_score"), bool(m.get("played")),
+            bool(m.get("live")), m.get("status_state") or "",
+            m.get("display_clock") or "", m.get("status_detail") or "")
+
+def fetched_sig(m, hs=None, as_=None):
+    return (hs if hs is not None else m["hs"], as_ if as_ is not None else m["as"],
+            bool(m["completed"]), bool(m["live"]), m.get("status_state") or "",
+            m.get("display_clock") or "", m.get("status_detail") or "")
+
+def apply_match_state(dst, m, hs=None, as_=None):
+    dst["home_score"] = hs if hs is not None else m["hs"]
+    dst["away_score"] = as_ if as_ is not None else m["as"]
+    dst["played"] = bool(m["completed"])
+    dst["live"] = bool(m["live"])
+    dst["status_state"] = m.get("status_state") or ""
+    dst["display_clock"] = m.get("display_clock") or ""
+    dst["status_detail"] = m.get("status_detail") or ""
 
 # ---------------- update results store ----------------
 def update_store():
@@ -107,8 +146,12 @@ def update_store():
     for g in gmatches:
         by_pair[frozenset((norm(g["home"]), norm(g["away"])))] = g
     results = fetch_espn()
-    ko = {}  # key by (round, pair) to avoid dups
+    existing_ko = {}
+    for km in store.get("knockout_matches", []):
+        if km.get("round") and km.get("home") and km.get("away"):
+            existing_ko[(km["round"], frozenset((norm(km["home"]), norm(km["away"]))))] = km
     champion = store.get("champion")
+    changed = False
     for m in results:
         pair = frozenset((m["home"], m["away"]))
         is_group = (m["round"] is None) and (pair in by_pair)
@@ -116,23 +159,38 @@ def update_store():
             g = by_pair[pair]
             # orient score to fixture home/away
             if norm(g["home"]) == m["home"]:
-                g["home_score"], g["away_score"] = m["hs"], m["as"]
+                hs, as_ = m["hs"], m["as"]
             else:
-                g["home_score"], g["away_score"] = m["as"], m["hs"]
-            g["played"] = True
+                hs, as_ = m["as"], m["hs"]
+            if m["completed"] or m["live"]:
+                if status_sig(g) != fetched_sig(m, hs, as_):
+                    apply_match_state(g, m, hs, as_)
+                    changed = True
         elif m["round"]:
             key = (m["round"], pair)
-            ko[key] = {"round": m["round"], "home": m["home"], "away": m["away"],
-                       "home_score": m["hs"], "away_score": m["as"]}
-            if m["round"] == "Final":
+            if not (m["completed"] or m["live"]): continue
+            km = existing_ko.get(key, {"round": m["round"], "home": m["home"], "away": m["away"]})
+            if status_sig(km) != fetched_sig(m):
+                apply_match_state(km, m)
+                existing_ko[key] = km
+                changed = True
+            if m["round"] == "Final" and m["completed"]:
                 champion = m["home"] if m["hs"] >= m["as"] else m["away"]
-    store["knockout_matches"] = list(ko.values())
-    if champion: store["champion"] = champion
+    if store.get("knockout_matches") != list(existing_ko.values()):
+        store["knockout_matches"] = list(existing_ko.values())
+        changed = True
+    if champion and store.get("champion") != champion:
+        store["champion"] = champion
+        changed = True
+    if not changed:
+        print("no ESPN match changes; site rebuild skipped")
+        return store, False
     store["last_updated"] = datetime.date.today().isoformat()
     json.dump(store, open(P("results_store.json"),"w",encoding="utf-8"), ensure_ascii=False, indent=2)
     played = sum(1 for g in gmatches if g["played"])
-    print(f"results updated: {played}/72 group played, {len(ko)} knockout, champion={store.get('champion')}")
-    return store
+    live = sum(1 for g in gmatches if g.get("live"))
+    print(f"results updated: {played}/72 group played, {live} live, {len(existing_ko)} knockout, champion={store.get('champion')}")
+    return store, True
 
 # ---------------- scoring ----------------
 STAGE_PTS = {"r32":4,"r16":5,"qf":7,"sf":10,"final":14,"champion":16}
@@ -160,6 +218,7 @@ def reached_sets(store):
     reached={k:set() for k in STAGE_PTS}
     r2s={"Round of 32":"r32","Round of 16":"r16","Quarterfinals":"qf","Semi-Finals":"sf","Final":"final"}
     for m in store.get("knockout_matches",[]):
+        if not m.get("played"): continue
         st=r2s.get(m.get("round"))
         if st:
             for t in (m.get("home"),m.get("away")):
@@ -171,7 +230,7 @@ def score_one(d, store):
     gp=0; gh=0; gd=[]
     for m in d["group_matches"]:
         g=gmap.get(m["num"])
-        if not g or not g["played"]: continue
+        if not g or not g.get("played"): continue
         pts,lab=match_points((m["hg"],m["ag"]),(g["home_score"],g["away_score"]))
         if pts>0: gh+=1
         gp+=pts
@@ -182,7 +241,7 @@ def score_one(d, store):
     predr={"Round of 32":d["r32"],"Round of 16":d["r16"],"Quarterfinals":d["qf"],
            "Semi-Finals":d["sf"],"Final":[d["final"]]}
     for am in store.get("knockout_matches",[]):
-        if am.get("home_score") is None: continue
+        if am.get("home_score") is None or not am.get("played"): continue
         rnd=am.get("round"); pair={norm(am["home"]),norm(am["away"])}
         for pm in predr.get(rnd,[]):
             pp={norm(pm[0]["team"]),norm(pm[1]["team"])}
@@ -209,10 +268,14 @@ def participant_payload(d, store, sc):
     matches=[]
     for m in d["group_matches"]:
         g=gmap.get(m["num"])
+        scored = g and g.get("played")
         matches.append({"num":m["num"],"date":m["date"],"home":m["home"],"away":m["away"],
             "pred":f"{m['hg']}-{m['ag']}",
-            "actual":(f"{g['home_score']}-{g['away_score']}" if g and g["played"] else None),
-            "pts":det.get(m["num"],{}).get("pts",0) if (g and g["played"]) else None})
+            "actual":(f"{g['home_score']}-{g['away_score']}" if scored else None),
+            "pts":det.get(m["num"],{}).get("pts",0) if scored else None,
+            "live":bool(g and g.get("live")),
+            "display_clock":(g.get("display_clock") if g else ""),
+            "status_detail":(g.get("status_detail") if g else "")})
     def rnd(ms):
         out=[]
         for m in ms:
@@ -231,7 +294,9 @@ def participant_payload(d, store, sc):
                       "total":sc["total"],"rank":sc["rank"]}}
 
 def build_all():
-    store = update_store()
+    store, changed = update_store()
+    if not changed:
+        return
     preds = json.load(open(P("predictions.json"), encoding="utf-8"))
     scores=[]
     for nm,d in preds.items():
@@ -258,14 +323,17 @@ def build_all():
         picks.append({"name":nm,"gb1":d["golden_boot"][0] or "","gb2":d["golden_boot"][1] or "",
                       "champion":d["champion"] or "","winner":d["winner_bet"] or ""})
     played=sum(1 for g in store["group_matches"] if g["played"])
+    live=sum(1 for g in store["group_matches"] if g.get("live"))
     site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
-                  "played":played,"total_group":len(store["group_matches"]),"source":store["source"]},
+                  "played":played,"live":live,"total_group":len(store["group_matches"]),"source":store["source"]},
           "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
                           "knockout":s["knockout_points"],"progression":s["progression_points"],
                           "gb":s["golden_boot_points"],"total":s["total"],"hits":s["group_hits"]} for s in scores],
           "goldenboot":{"tally":gb_tally.most_common(),"champions":champ_tally.most_common(),"picks":picks},
           "results":[{"num":g["num"],"date":g["date"],"home":g["home"],"away":g["away"],
-                      "hs":g["home_score"],"as":g["away_score"],"played":g["played"]} for g in store["group_matches"]],
+                      "hs":g["home_score"],"as":g["away_score"],"played":g["played"],
+                      "live":bool(g.get("live")),"display_clock":g.get("display_clock") or "",
+                      "status_detail":g.get("status_detail") or ""} for g in store["group_matches"]],
           "participants":participants}
     # optional payments
     pay_path=P("payments.json")
