@@ -339,7 +339,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
     <div class="title"><small>WORLD CUP · מונדיאל · SINCE 2010</small>התערבות מונדיאל 2026
      <div class="hosts">🇨🇦 🇺🇸 🇲🇽</div></div>
    </div>
-   <div class="meta">מעודכן: <b id="m-upd"></b><br><span class="badge" id="m-played"></span></div>
+   <div class="meta"><span class="badge" id="m-played"></span></div>
   </div>
  </div>
 </header>
@@ -437,7 +437,6 @@ function currentMatchPts(pred, actual){
   if(((hg-ag>0)===(hs-as>0)) && ((hg-ag<0)===(hs-as<0))) return 1;
   return 0;
 }
-$('#m-upd').textContent = D.meta.updated;
 $('#m-played').textContent = `${D.meta.played} מתוך ${D.meta.total_group} משחקי בתים שוחקו`;
 $('#m-src').textContent = D.meta.source;
 
