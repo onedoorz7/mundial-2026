@@ -150,11 +150,14 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .match.up .sc{background:#cdd6e5;color:#5a6a85}
 
 /* ---------- browse ---------- */
-.pick-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.pick-bar button{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px 14px;
-  font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;transition:.12s;min-height:38px}
-.pick-bar button:hover{border-color:var(--blue);color:var(--blue)}
-.pick-bar button.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:var(--shadow)}
+.form-head{margin-bottom:12px}
+.form-person{min-width:0;position:relative}
+.form-person::after{content:"";position:absolute;left:17px;top:50%;width:7px;height:7px;
+  border-left:1.75px solid var(--navy);border-bottom:1.75px solid var(--navy);transform:translateY(-68%) rotate(-45deg);
+  pointer-events:none}
+.form-person select{width:100%;height:42px;border:1px solid var(--line);border-radius:12px;background:#fff;
+  font-family:inherit;font-size:15px;font-weight:800;color:var(--txt);padding:0 12px 0 42px;box-shadow:var(--shadow);
+  appearance:none;-webkit-appearance:none}
 .psum{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:18px}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px;text-align:center;box-shadow:var(--shadow)}
 .kpi .v{font-size:clamp(18px,5vw,22px);font-weight:900}.kpi .k{font-size:12px;color:var(--muted);margin-top:3px}
@@ -238,6 +241,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 @media(max-width:560px){
   table{font-size:13px}
   th,td{padding:9px 6px}
+  .form-person select{height:38px;font-size:14px}
   /* leaderboard: keep rank · name · total, fold the breakdown columns away */
   #lb table th:nth-child(n+3):nth-child(-n+6),
   #lb table td:nth-child(n+3):nth-child(-n+6){display:none}
@@ -440,13 +444,6 @@ function renderRes(){
 let curForm=null;
 function renderFormsNav(){
   const v=$('#forms'); v.innerHTML='';
-  const bar=el('div','pick-bar');
-  D.leaderboard.forEach(p=>{
-    const b=el('button',null,`${p.name} · ${p.total}`);
-    b.dataset.n=p.name; b.onclick=()=>openForm(p.name,false);
-    bar.appendChild(b);
-  });
-  v.appendChild(bar);
   v.appendChild(el('div','form-body','')).id='form-body';
   openForm(curForm||D.leaderboard[0].name,false);
 }
@@ -459,10 +456,14 @@ function openForm(name,switchTab=true){
     $('#forms').classList.add('active');
     if(!$('#form-body')){renderFormsNav();}
   }
-  document.querySelectorAll('.pick-bar button').forEach(b=>b.classList.toggle('active',b.dataset.n===name));
   const p=D.participants[name]; if(!p)return;
   const t=p.totals;
   const body=$('#form-body'); body.innerHTML='';
+  const head=el('div','form-head');
+  const opts=D.leaderboard.map(x=>`<option value="${x.name.replace(/"/g,'&quot;')}" ${x.name===name?'selected':''}>${x.name} (${x.total} נק׳)</option>`).join('');
+  head.innerHTML=`<div class="form-person"><select aria-label="בחירת משתתף">${opts}</select></div>`;
+  head.querySelector('select').onchange=e=>openForm(e.target.value,false);
+  body.appendChild(head);
   // KPIs
   const k=el('div','psum');
   k.innerHTML=`<div class="kpi hl"><div class="v">${t.total}</div><div class="k">נקודות · מקום ${t.rank}</div></div>
