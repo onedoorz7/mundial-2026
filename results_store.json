@@ -214,12 +214,12 @@
       "home": "England",
       "away": "Croatia",
       "home_score": 2,
-      "away_score": 1,
+      "away_score": 2,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "45'+5'",
-      "status_detail": "45'+5'"
+      "display_clock": "45'+6'",
+      "status_detail": "HT"
     },
     {
       "num": 23,
