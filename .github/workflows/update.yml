@@ -2,7 +2,7 @@ name: Update Mundial site
 
 on:
   schedule:
-    - cron: '*/10 * * * *'   # poll for live/final score changes roughly every 10 minutes
+    - cron: '3-59/10 * * * *' # poll off the busiest round minutes
   workflow_dispatch:           # lets you run it manually from the Actions tab
   push:
     branches: [ main ]
