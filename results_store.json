@@ -257,12 +257,12 @@
       "home": "Czech Republic",
       "away": "South Africa",
       "home_score": 1,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "78'",
-      "status_detail": "78'"
+      "display_clock": "88'",
+      "status_detail": "88'"
     },
     {
       "num": 26,
