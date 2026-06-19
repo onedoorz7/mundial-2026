@@ -269,9 +269,13 @@
       "date": "Jun 18, 2026",
       "home": "Switzerland",
       "away": "Bosnia and Herzegovina",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 4,
+      "away_score": 1,
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     },
     {
       "num": 27,

@@ -24,6 +24,7 @@ NAME_ALIASES = {
     "côte d'ivoire":"Ivory Coast","cote d'ivoire":"Ivory Coast","ivory coast":"Ivory Coast",
     "usa":"United States","united states":"United States","united states of america":"United States",
     "bosnia and herzegovina":"Bosnia and Herzegovina","bosnia & herzegovina":"Bosnia and Herzegovina",
+    "bosnia-herzegovina":"Bosnia and Herzegovina",
     "curacao":"Curaçao","curaçao":"Curaçao",
     "cape verde":"Cape Verde","cabo verde":"Cape Verde",
     "dr congo":"DR Congo","congo dr":"DR Congo","democratic republic of the congo":"DR Congo",
