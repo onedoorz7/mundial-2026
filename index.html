@@ -140,9 +140,26 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   min-width:26px;transition:width .4s ease}
 .bar-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold-d))}
 .scorer-card{margin-bottom:18px}
-.scorer-card table{font-size:13px}
-.scorer-card td.player{text-align:right;font-weight:800;color:var(--txt)}
+.scorer-card table{font-size:13px;table-layout:fixed}
+.scorer-card th,.scorer-card td{padding:10px 6px}
+.scorer-card th:nth-child(1),.scorer-card td:nth-child(1){width:44px}
+.scorer-card th:nth-child(3),.scorer-card td:nth-child(3){width:58px}
+.scorer-card th:nth-child(4),.scorer-card td:nth-child(4){width:70px}
+.scorer-card td.player{text-align:right;font-weight:800;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scorer-player{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;max-width:100%;vertical-align:middle}
+.scorer-name{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.scorer-short{display:none}
 .scorer-num{font-weight:900;color:var(--txt)}
+@media(max-width:560px){
+  .scorer-card table{font-size:12px}
+  .scorer-card th,.scorer-card td{padding:9px 4px}
+  .scorer-card th:nth-child(1),.scorer-card td:nth-child(1){width:38px}
+  .scorer-card th:nth-child(3),.scorer-card td:nth-child(3){width:50px}
+  .scorer-card th:nth-child(4),.scorer-card td:nth-child(4){width:58px}
+  .scorer-card .rk-badge{width:28px;height:28px}
+  .scorer-full{display:none}
+  .scorer-short{display:inline}
+}
 
 /* ---------- results grid ---------- */
 .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:11px}
@@ -520,6 +537,10 @@ function guessCountForScorer(name){
   });
   return row ? row[1] : 0;
 }
+function shortScorerName(name){
+  const parts=String(name||'').trim().split(/\s+/).filter(Boolean);
+  return parts.length ? parts[parts.length-1] : name;
+}
 function renderGB(){
   const v=$('#gb'); v.innerHTML='';
   const gb=D.goldenboot;
@@ -527,11 +548,11 @@ function renderGB(){
   if(current.length){
     v.appendChild(el('h2','sec','🔥 מובילי מלך השערים כרגע'));
     const top=el('div','card scorer-card');
-    let h=`<table><thead><tr><th>#</th><th>שחקן</th><th>נבחרת</th><th>שערים</th><th>ניחושים</th></tr></thead><tbody>`;
+    let h=`<table><thead><tr><th>#</th><th>שחקן</th><th>שערים</th><th>ניחושים</th></tr></thead><tbody>`;
     current.slice(0,5).forEach((p,i)=>{
       const rank=i+1;
       h+=`<tr><td><span class="rk-badge">${rank}</span></td>
-        <td class="player">${p.player}</td><td>${team(p.team)}</td>
+        <td class="player"><span class="scorer-player">${fl(p.team)}<span class="scorer-name scorer-full">${p.player}</span><span class="scorer-name scorer-short">${shortScorerName(p.player)}</span></span></td>
         <td><span class="scorer-num">${p.goals}</span></td>
         <td><span class="scorer-num">${guessCountForScorer(p.player)}</span></td></tr>`;
     });
