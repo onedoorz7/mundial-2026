@@ -140,23 +140,24 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   min-width:26px;transition:width .4s ease}
 .bar-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold-d))}
 .scorer-card{margin-bottom:18px}
-.scorer-card table{font-size:13px;table-layout:fixed}
-.scorer-card th,.scorer-card td{padding:10px 6px}
-.scorer-card th:nth-child(1),.scorer-card td:nth-child(1){width:44px}
-.scorer-card th:nth-child(3),.scorer-card td:nth-child(3){width:58px}
-.scorer-card th:nth-child(4),.scorer-card td:nth-child(4){width:70px}
-.scorer-card td.player{text-align:right;font-weight:800;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scorer-grid{width:100%;overflow:hidden}
+.scorer-row{display:grid;grid-template-columns:50px minmax(0,1fr) 62px 78px;align-items:center;border-bottom:1px solid var(--line)}
+.scorer-row:last-child{border-bottom:none}
+.scorer-row.head{background:var(--navy);color:#fff;font-weight:700;font-size:13px}
+.scorer-row>div{padding:11px 8px;text-align:center;min-width:0}
+.scorer-row .player{text-align:right;font-weight:800;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scorer-row.head .player{color:#fff;text-align:center}
 .scorer-player{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;max-width:100%;vertical-align:middle}
 .scorer-name{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .scorer-short{display:none}
 .scorer-num{font-weight:900;color:var(--txt)}
 @media(max-width:560px){
-  .scorer-card table{font-size:12px}
-  .scorer-card th,.scorer-card td{padding:9px 4px}
-  .scorer-card th:nth-child(1),.scorer-card td:nth-child(1){width:38px}
-  .scorer-card th:nth-child(3),.scorer-card td:nth-child(3){width:50px}
-  .scorer-card th:nth-child(4),.scorer-card td:nth-child(4){width:58px}
+  .scorer-card{overflow:hidden}
+  .scorer-row{grid-template-columns:36px minmax(0,1fr) 46px 62px}
+  .scorer-row>div{padding:9px 4px;font-size:12px}
   .scorer-card .rk-badge{width:28px;height:28px}
+  .scorer-row .player{text-align:right}
+  .scorer-player{max-width:100%}
   .scorer-full{display:none}
   .scorer-short{display:inline}
 }
@@ -548,15 +549,15 @@ function renderGB(){
   if(current.length){
     v.appendChild(el('h2','sec','🔥 מובילי מלך השערים כרגע'));
     const top=el('div','card scorer-card');
-    let h=`<table><thead><tr><th>#</th><th>שחקן</th><th>שערים</th><th>ניחושים</th></tr></thead><tbody>`;
+    let h=`<div class="scorer-grid"><div class="scorer-row head"><div>#</div><div class="player">שחקן</div><div class="goals">שערים</div><div class="guesses">ניחושים</div></div>`;
     current.slice(0,5).forEach((p,i)=>{
       const rank=i+1;
-      h+=`<tr><td><span class="rk-badge">${rank}</span></td>
-        <td class="player"><span class="scorer-player">${fl(p.team)}<span class="scorer-name scorer-full">${p.player}</span><span class="scorer-name scorer-short">${shortScorerName(p.player)}</span></span></td>
-        <td><span class="scorer-num">${p.goals}</span></td>
-        <td><span class="scorer-num">${guessCountForScorer(p.player)}</span></td></tr>`;
+      h+=`<div class="scorer-row"><div><span class="rk-badge">${rank}</span></div>
+        <div class="player"><span class="scorer-player">${fl(p.team)}<span class="scorer-name scorer-full">${p.player}</span><span class="scorer-name scorer-short">${shortScorerName(p.player)}</span></span></div>
+        <div><span class="scorer-num">${p.goals}</span></div>
+        <div><span class="scorer-num">${guessCountForScorer(p.player)}</span></div></div>`;
     });
-    h+='</tbody></table>';
+    h+='</div>';
     top.innerHTML=h; v.appendChild(top);
   }
   v.appendChild(el('h2','sec','👟 ניחושי מלך השערים'));
