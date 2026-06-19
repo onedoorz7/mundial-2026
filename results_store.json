@@ -291,13 +291,13 @@
       "date": "Jun 19, 2026",
       "home": "Mexico",
       "away": "Korea Republic",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "50'",
-      "status_detail": "50'"
+      "display_clock": "60'",
+      "status_detail": "60'"
     },
     {
       "num": 29,
