@@ -326,13 +326,13 @@
       "date": "Jun 20, 2026",
       "home": "United States",
       "away": "Australia",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "9'",
-      "status_detail": "9'"
+      "display_clock": "19'",
+      "status_detail": "19'"
     },
     {
       "num": 32,
