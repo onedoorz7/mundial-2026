@@ -701,6 +701,41 @@
     }
   ],
   "knockout_matches": [],
-  "golden_boot_leaders": [],
+  "current_top_scorers": [
+    {
+      "rank": 1,
+      "player": "Lionel Messi",
+      "team": "Argentina",
+      "goals": 3
+    },
+    {
+      "rank": 2,
+      "player": "Harry Kane",
+      "team": "England",
+      "goals": 2
+    },
+    {
+      "rank": 2,
+      "player": "Kylian Mbappé",
+      "team": "France",
+      "goals": 2
+    },
+    {
+      "rank": 2,
+      "player": "Erling Haaland",
+      "team": "Norway",
+      "goals": 2
+    },
+    {
+      "rank": 2,
+      "player": "Folarin Balogun",
+      "team": "United States",
+      "goals": 2
+    }
+  ],
+  "current_top_scorers_note": "",
+  "golden_boot_leaders": [
+    "Lionel Messi"
+  ],
   "champion": null
 }

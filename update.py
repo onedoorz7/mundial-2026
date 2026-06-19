@@ -296,7 +296,7 @@ def participant_payload(d, store, sc):
 
 def build_all():
     store, changed = update_store()
-    if not changed:
+    if not changed and os.environ.get("MUNDIAL_FORCE_REBUILD") != "1":
         return
     preds = json.load(open(P("predictions.json"), encoding="utf-8"))
     scores=[]
@@ -330,7 +330,9 @@ def build_all():
           "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
                           "knockout":s["knockout_points"],"progression":s["progression_points"],
                           "gb":s["golden_boot_points"],"total":s["total"],"hits":s["group_hits"]} for s in scores],
-          "goldenboot":{"tally":gb_tally.most_common(),"champions":champ_tally.most_common(),"picks":picks},
+          "goldenboot":{"current":store.get("current_top_scorers",[]),
+                        "current_note":store.get("current_top_scorers_note",""),
+                        "tally":gb_tally.most_common(),"champions":champ_tally.most_common(),"picks":picks},
           "results":[{"num":g["num"],"date":g["date"],"home":g["home"],"away":g["away"],
                       "hs":g["home_score"],"as":g["away_score"],"played":g["played"],
                       "live":bool(g.get("live")),"display_clock":g.get("display_clock") or "",

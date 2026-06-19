@@ -52,6 +52,7 @@ header .wrap{position:relative;z-index:1}
 .fl{font-size:1.05em;line-height:1;margin-inline-end:5px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.12))}
 .flsvg{margin-inline-end:5px;display:inline-block}
 .flsvg svg{height:.8em;width:auto;vertical-align:-1px;border:.5px solid rgba(0,0,0,.18);border-radius:2px}
+.team-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
 
 /* ---------- sticky nav ---------- */
 .navbar{position:sticky;top:0;z-index:50;
@@ -138,6 +139,10 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   display:flex;align-items:center;justify-content:flex-start;padding:0 9px;color:#fff;font-weight:800;font-size:13px;
   min-width:26px;transition:width .4s ease}
 .bar-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold-d))}
+.scorer-card{margin-bottom:18px}
+.scorer-card table{font-size:13px}
+.scorer-card td.player{text-align:right;font-weight:800;color:var(--txt)}
+.scorer-num{font-weight:900;color:var(--txt)}
 
 /* ---------- results grid ---------- */
 .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:11px}
@@ -418,7 +423,7 @@ const FLAG_SVG = {
 };
 const fl = n => FLAG_SVG[n] ? `<span class="flsvg">${FLAG_SVG[n]}</span>`
               : (FLAGS[n] ? `<span class="fl">${FLAGS[n]}</span>` : "");
-const team = n => n ? `${fl(n)}${n}` : "—";
+const team = n => n ? `<span class="team-ltr">${fl(n)}${n}</span>` : "—";
 const $ = (s,e=document)=>e.querySelector(s);
 const el = (t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
 const hasResult = m => !!(m && (m.played || m.live));
@@ -495,9 +500,44 @@ function renderLB(){
 }
 
 // ---- golden boot ----
+function guessCountForScorer(name){
+  const q=String(name||'').toLowerCase();
+  const aliases=[
+    [['messi','מסי'],['messi','מסי']],
+    [['balogun','באלוגון','בלוגון'],['balogun','באלוגון','בלוגון']],
+    [['havertz','האברץ','האוורץ'],['havertz','האברץ','האוורץ']],
+    [['ayari','איארי','איירי'],['ayari','איארי','איירי']],
+    [['just','ג׳אסט','גאסט'],['just','ג׳אסט','גאסט']],
+    [['kane','קיין'],['kane','קיין']],
+    [['haaland','האלנד','הלאנד','האלאנד'],['haaland','האלנד','הלאנד','האלאנד']],
+    [['mbappe','אמבפה','אמבאפה','אמפבה'],['mbappe','אמבפה','אמבאפה','אמפבה']]
+  ];
+  const hit=aliases.find(([needles])=>needles.some(x=>q.includes(x)));
+  const needles=hit ? hit[1] : [q];
+  const row=(D.goldenboot.tally||[]).find(([p])=>{
+    const s=String(p||'').toLowerCase();
+    return needles.some(x=>s.includes(x));
+  });
+  return row ? row[1] : 0;
+}
 function renderGB(){
   const v=$('#gb'); v.innerHTML='';
   const gb=D.goldenboot;
+  const current=gb.current||[];
+  if(current.length){
+    v.appendChild(el('h2','sec','🔥 מובילי מלך השערים כרגע'));
+    const top=el('div','card scorer-card');
+    let h=`<table><thead><tr><th>#</th><th>שחקן</th><th>נבחרת</th><th>שערים</th><th>ניחושים</th></tr></thead><tbody>`;
+    current.slice(0,5).forEach((p,i)=>{
+      const rank=i+1;
+      h+=`<tr><td><span class="rk-badge">${rank}</span></td>
+        <td class="player">${p.player}</td><td>${team(p.team)}</td>
+        <td><span class="scorer-num">${p.goals}</span></td>
+        <td><span class="scorer-num">${guessCountForScorer(p.player)}</span></td></tr>`;
+    });
+    h+='</tbody></table>';
+    top.innerHTML=h; v.appendChild(top);
+  }
   v.appendChild(el('h2','sec','👟 ניחושי מלך השערים'));
   const c1=el('div','card'); c1.style.padding='16px';
   const max=Math.max(...gb.tally.map(x=>x[1]),1);
