@@ -76,6 +76,13 @@ main{padding:22px 0 70px}
 h2.sec{font-size:clamp(17px,4.5vw,20px);font-weight:800;margin:10px 0 14px;display:flex;align-items:center;gap:8px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
   box-shadow:var(--shadow);overflow:hidden}
+.fold{margin:0 0 16px}
+.fold>summary{list-style:none;cursor:pointer;user-select:none}
+.fold>summary::-webkit-details-marker{display:none}
+.fold-title{font-size:clamp(17px,4.5vw,20px);font-weight:800;margin:10px 0 14px;display:flex;align-items:center;gap:8px}
+.fold-title::before{content:"▾";font-size:14px;color:var(--muted);transition:transform .15s ease}
+.fold:not([open]) .fold-title::before{transform:rotate(90deg)}
+.fold-body{display:block}
 
 /* ---------- podium ---------- */
 .podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:clamp(7px,2.5vw,12px);align-items:end;margin-bottom:18px}
@@ -681,6 +688,14 @@ function thirdPlaceTableHtml(rows, kind){
     <table><colgroup><col><col class="gpts-col"></colgroup><tbody>${thirdPlaceRows(rows)}</tbody></table>
   </div>`;
 }
+function appendFold(parent, title, children){
+  const d=el('details','fold'); d.open=true;
+  const s=el('summary'); s.innerHTML=`<span class="fold-title">${title}</span>`;
+  const b=el('div','fold-body');
+  (Array.isArray(children)?children:[children]).filter(Boolean).forEach(x=>b.appendChild(x));
+  d.appendChild(s); d.appendChild(b); parent.appendChild(d);
+  return d;
+}
 function openForm(name,switchTab=true){
   curForm=name;
   if(switchTab){
@@ -711,23 +726,7 @@ function openForm(name,switchTab=true){
     <div class="stage-chip"><span class="label">התקדמות</span><span class="pts">${t.progression}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">מלך שערים</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
   body.appendChild(brk);
-  // bracket
-  body.appendChild(el('h2','sec','🏟️ הברקט'));
-  const labels={r32:'1/16',r16:'1/8',qf:'1/4',sf:'1/2',final:'גמר',third:'מקום 3'};
-  const br=el('div','bracket');
-  ['r32','r16','qf','sf','final','third'].forEach(rk=>{
-    const col=el('div','bcol'); col.appendChild(el('h4',null,labels[rk]));
-    p.bracket[rk].forEach(m=>{
-      const bm=el('div','bmatch');
-      bm.innerHTML=`<div class="bteam ${m.win===m.t1?'w':''}"><span>${team(m.t1)}</span><span class="s">${m.s1??''}</span></div>
-        <div class="bteam ${m.win===m.t2?'w':''}"><span>${team(m.t2)}</span><span class="s">${m.s2??''}</span></div>`;
-      col.appendChild(bm);
-    });
-    br.appendChild(col);
-  });
-  body.appendChild(br);
   // standings
-  body.appendChild(el('h2','sec','📊 טבלאות הבתים: ניחוש מול מצב בפועל'));
   const actualByGroup=new Map((D.standings||[]).map(g=>[g.group,g]));
   const mc=el('div','gcompare');
   p.standings.forEach(g=>{
@@ -740,16 +739,14 @@ function openForm(name,switchTab=true){
       </div>`;
     mc.appendChild(gp);
   });
-  body.appendChild(mc);
-  body.appendChild(el('h2','sec','📈 דירוג מקומות 3'));
+  appendFold(body,'📊 טבלאות הבתים',mc);
   const thirds=el('div','gpair third-compare');
   thirds.innerHTML=`<div class="gpair-tables">
       ${thirdPlaceTableHtml(p.third_places,'pred')}
       ${thirdPlaceTableHtml(D.third_places,'actual')}
     </div>`;
-  body.appendChild(thirds);
+  appendFold(body,'📈 דירוג מקומות 3',thirds);
   // group match predictions
-  body.appendChild(el('h2','sec','⚽ ניחושי שלב הבתים'));
   const card=el('div','card');
   let h=`<table class="mtable"><thead><tr><th>#</th><th>בית</th><th>ניחוש</th><th>תוצאה</th><th>חוץ</th><th>נק׳</th></tr></thead><tbody>`;
   p.matches.forEach(m=>{
@@ -757,7 +754,21 @@ function openForm(name,switchTab=true){
     h+=`<tr><td>${m.num}</td><td class="h">${team(m.home)}</td><td><b class="score-ltr">${m.pred}</b></td>
       <td><span class="score-ltr">${m.actual||'—'}</span></td><td class="a">${team(m.away)}</td><td>${ptcell}</td></tr>`;
   });
-  h+='</tbody></table>'; card.innerHTML=h; body.appendChild(card);
+  h+='</tbody></table>'; card.innerHTML=h; appendFold(body,'⚽ ניחושי שלב הבתים',card);
+  // bracket
+  const labels={r32:'1/16',r16:'1/8',qf:'1/4',sf:'1/2',final:'גמר',third:'מקום 3'};
+  const br=el('div','bracket');
+  ['r32','r16','qf','sf','final','third'].forEach(rk=>{
+    const col=el('div','bcol'); col.appendChild(el('h4',null,labels[rk]));
+    p.bracket[rk].forEach(m=>{
+      const bm=el('div','bmatch');
+      bm.innerHTML=`<div class="bteam ${m.win===m.t1?'w':''}"><span>${team(m.t1)}</span><span class="s">${m.s1??''}</span></div>
+        <div class="bteam ${m.win===m.t2?'w':''}"><span>${team(m.t2)}</span><span class="s">${m.s2??''}</span></div>`;
+      col.appendChild(bm);
+    });
+    br.appendChild(col);
+  });
+  appendFold(body,'🏟️ הברקט',br);
   window.scrollTo(0,0);
 }
 
