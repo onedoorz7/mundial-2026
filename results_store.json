@@ -362,11 +362,11 @@
       "away": "Ivory Coast",
       "home_score": 2,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
+      "played": true,
+      "live": false,
+      "status_state": "post",
       "display_clock": "90'+7'",
-      "status_detail": "90'+7'"
+      "status_detail": "FT"
     },
     {
       "num": 34,
