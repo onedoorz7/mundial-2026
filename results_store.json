@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-06-19",
+  "last_updated": "2026-06-20",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -319,11 +319,11 @@
       "away": "Morocco",
       "home_score": 0,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "87'",
-      "status_detail": "87'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 31,
