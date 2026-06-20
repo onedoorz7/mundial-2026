@@ -361,12 +361,12 @@
       "home": "Germany",
       "away": "Ivory Coast",
       "home_score": 0,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "30'",
-      "status_detail": "30'"
+      "display_clock": "40'",
+      "status_detail": "40'"
     },
     {
       "num": 34,
