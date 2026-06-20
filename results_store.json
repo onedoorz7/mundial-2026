@@ -349,11 +349,11 @@
       "away": "Paraguay",
       "home_score": 0,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+3'",
-      "status_detail": "90'+3'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+9'",
+      "status_detail": "FT"
     },
     {
       "num": 33,
