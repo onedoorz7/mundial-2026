@@ -226,6 +226,56 @@ def reached_sets(store):
                 if t: reached[st].add(norm(t))
     if store.get("champion"): reached["champion"].add(norm(store["champion"]))
     return reached
+
+def actual_group_standings(store, preds):
+    """Build current group tables from played/live group-stage results."""
+    groups_src = next(iter(preds.values())).get("groups", [])
+    groups = []
+    team_to_group = {}
+    for g in groups_src:
+        group = g["group"]
+        rows = {}
+        for r in g["standings"]:
+            team = norm(r["team"])
+            rows[team] = {"team": team, "W": 0, "D": 0, "L": 0, "GF": 0, "GA": 0, "Pts": 0}
+            team_to_group[team] = group
+        groups.append({"group": group, "rows": rows})
+
+    for m in store["group_matches"]:
+        if not (m.get("played") or m.get("live")):
+            continue
+        if m.get("home_score") is None or m.get("away_score") is None:
+            continue
+        home, away = norm(m["home"]), norm(m["away"])
+        group = team_to_group.get(home) or team_to_group.get(away)
+        if not group:
+            continue
+        table = next((g["rows"] for g in groups if g["group"] == group), None)
+        if table is None:
+            continue
+        for team in (home, away):
+            table.setdefault(team, {"team": team, "W": 0, "D": 0, "L": 0, "GF": 0, "GA": 0, "Pts": 0})
+        hs, as_ = m["home_score"], m["away_score"]
+        table[home]["GF"] += hs; table[home]["GA"] += as_
+        table[away]["GF"] += as_; table[away]["GA"] += hs
+        if hs > as_:
+            table[home]["W"] += 1; table[away]["L"] += 1; table[home]["Pts"] += 3
+        elif hs < as_:
+            table[away]["W"] += 1; table[home]["L"] += 1; table[away]["Pts"] += 3
+        else:
+            table[home]["D"] += 1; table[away]["D"] += 1
+            table[home]["Pts"] += 1; table[away]["Pts"] += 1
+
+    out = []
+    for g in groups:
+        rows = sorted(g["rows"].values(), key=lambda r: (-r["Pts"], -(r["GF"] - r["GA"]), -r["GF"], r["team"]))
+        out.append({"group": g["group"], "rows": [
+            {"place": i, "team": r["team"], "W": r["W"], "D": r["D"], "L": r["L"],
+             "GF": r["GF"], "GA": r["GA"], "Pts": r["Pts"]}
+            for i, r in enumerate(rows, 1)
+        ]})
+    return out
+
 def score_one(d, store):
     gmap={g["num"]:g for g in store["group_matches"]}
     gp=0; gh=0; gd=[]
@@ -337,6 +387,7 @@ def build_all():
                       "hs":g["home_score"],"as":g["away_score"],"played":g["played"],
                       "live":bool(g.get("live")),"display_clock":g.get("display_clock") or "",
                       "status_detail":g.get("status_detail") or ""} for g in store["group_matches"]],
+          "standings":actual_group_standings(store, preds),
           "participants":participants}
     # optional payments
     pay_path=P("payments.json")

@@ -217,11 +217,27 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .bteam.w{background:var(--win);font-weight:800}
 .bteam span.s{font-weight:800;flex-shrink:0}
 .minicol{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-.gtable{font-size:12px}
+.gcompare{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin-bottom:6px}
+.gpair{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);overflow:hidden}
+.gpair-title{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;background:#f6f9fd;border-bottom:1px solid var(--line)}
+.gpair-name{font-size:13px;font-weight:900;color:var(--navy)}
+.gpair-tables{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.gpair-tables .gtable+.gtable{border-inline-start:1px solid var(--line)}
+.gtable{font-size:12px;min-width:0}
 .gtable .gh{background:var(--blue);color:#fff;font-weight:800;padding:6px 9px;font-size:12px}
-.gtable table{font-size:11.5px}
+.gtable .gh.actual{background:linear-gradient(135deg,var(--green),var(--green-d))}
+.gtable .gh.pred{background:linear-gradient(135deg,var(--blue),#1f5797)}
+.gtable table{width:100%;table-layout:fixed;font-size:11.5px}
+.gpts-col{width:28px}
 .gtable td{padding:6px 5px}
 .gtable tr.q td{background:var(--win)}
+.gteam{display:flex;align-items:center;gap:5px;text-align:right;font-weight:700;line-height:1.25;white-space:nowrap;min-width:0}
+.gplace{flex-shrink:0}
+.gteam-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gteam-name .team-ltr{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gpts{width:26px;text-align:center;font-weight:900;white-space:nowrap}
+.gtable.actual tr.q td{background:#e7f7ee}
+.gtable.pred tr.q td{background:#e8f1fb}
 .mtable{direction:ltr}
 .mtable td.h{text-align:right;font-weight:600}
 .mtable td.a{text-align:left;font-weight:600}
@@ -333,6 +349,14 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   .pick-kpi .k{font-size:11px}.pick-kpi .v{font-size:13px}.rank-v{width:24px;height:24px;border-radius:8px;font-size:15px}
   .pick-kpi.scorers .v{font-size:13px}
   .brk{gap:5px}.stage-chip{padding:7px 5px}.stage-chip .label{font-size:10px}.stage-chip .pts{font-size:16px}.stage-chip .unit{font-size:10px}
+  .gcompare{grid-template-columns:1fr;gap:12px}
+  .gpair-tables{grid-template-columns:1fr 1fr}
+  .gpair-tables .gtable+.gtable{border-inline-start:1px solid var(--line);border-top:none}
+  .gtable table{font-size:12.5px}
+  .gtable .gh{padding:6px 7px}
+  .gtable td{padding:7px 5px}
+  .gteam{font-size:12px}
+  .gpts{width:22px;font-size:12px}
   /* leaderboard: keep rank · name · total, fold the breakdown columns away */
   #lb table th:nth-child(n+3):nth-child(-n+6),
   #lb table td:nth-child(n+3):nth-child(-n+6){display:none}
@@ -625,6 +649,21 @@ function renderFormsNav(){
   v.appendChild(el('div','form-body','')).id='form-body';
   openForm(curForm||D.leaderboard[0].name,false);
 }
+function standingRows(rows, kind){
+  return (rows||[]).map((r,i)=>{
+    return `<tr class="${i<2?'q':''}">
+      <td><span class="gteam"><span class="gplace">${r.place}.</span><span class="gteam-name">${team(r.team)}</span></span></td>
+      <td class="gpts">${r.Pts ?? 0}</td>
+    </tr>`;
+  }).join('');
+}
+function groupTableHtml(group, rows, kind){
+  const label = kind === 'actual' ? 'כרגע' : 'הניחוש';
+  return `<div class="gtable ${kind}">
+    <div class="gh ${kind}">${label}</div>
+    <table><colgroup><col><col class="gpts-col"></colgroup><tbody>${standingRows(rows, kind)}</tbody></table>
+  </div>`;
+}
 function openForm(name,switchTab=true){
   curForm=name;
   if(switchTab){
@@ -671,13 +710,18 @@ function openForm(name,switchTab=true){
   });
   body.appendChild(br);
   // standings
-  body.appendChild(el('h2','sec','📊 טבלאות הבתים (הניחוש)'));
-  const mc=el('div','minicol');
+  body.appendChild(el('h2','sec','📊 טבלאות הבתים: ניחוש מול מצב בפועל'));
+  const actualByGroup=new Map((D.standings||[]).map(g=>[g.group,g]));
+  const mc=el('div','gcompare');
   p.standings.forEach(g=>{
-    const gt=el('div','card gtable');
-    let h=`<div class="gh">בית ${g.group}</div><table><tbody>`;
-    g.rows.forEach((r,i)=>{ h+=`<tr class="${i<2?'q':''}"><td style="text-align:right;font-weight:600">${r.place}. ${team(r.team)}</td><td>${r.Pts}</td></tr>`; });
-    h+='</tbody></table>'; gt.innerHTML=h; mc.appendChild(gt);
+    const actual=actualByGroup.get(g.group);
+    const gp=el('div','gpair');
+    gp.innerHTML=`<div class="gpair-title"><span class="gpair-name">בית ${g.group}</span></div>
+      <div class="gpair-tables">
+        ${groupTableHtml(g.group,g.rows,'pred')}
+        ${groupTableHtml(g.group,actual&&actual.rows,'actual')}
+      </div>`;
+    mc.appendChild(gp);
   });
   body.appendChild(mc);
   // group match predictions
