@@ -379,12 +379,12 @@
       "home": "Netherlands",
       "away": "Sweden",
       "home_score": 4,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "59'",
-      "status_detail": "59'"
+      "display_clock": "69'",
+      "status_detail": "69'"
     },
     {
       "num": 36,
