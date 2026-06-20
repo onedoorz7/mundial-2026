@@ -238,6 +238,10 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .gpts{width:26px;text-align:center;font-weight:900;white-space:nowrap}
 .gtable.actual tr.q td{background:#e7f7ee}
 .gtable.pred tr.q td{background:#e8f1fb}
+.third-compare{max-width:660px;margin:0 auto 8px}
+.third-table .gteam{font-size:12px}
+.third-table table{font-size:12.5px}
+.third-table td{padding:8px 6px}
 .mtable{direction:ltr}
 .mtable td.h{text-align:right;font-weight:600}
 .mtable td.a{text-align:left;font-weight:600}
@@ -664,6 +668,19 @@ function groupTableHtml(group, rows, kind){
     <table><colgroup><col><col class="gpts-col"></colgroup><tbody>${standingRows(rows, kind)}</tbody></table>
   </div>`;
 }
+function thirdPlaceRows(rows){
+  return (rows||[]).map(r=>`<tr class="${r.qualified?'q':''}">
+    <td><span class="gteam"><span class="gplace">${r.rank}.</span><span class="gteam-name">${team(r.team)}</span></span></td>
+    <td class="gpts">${r.Pts ?? 0}</td>
+  </tr>`).join('');
+}
+function thirdPlaceTableHtml(rows, kind){
+  const label = kind === 'actual' ? 'כרגע' : 'הניחוש';
+  return `<div class="gtable third-table ${kind}">
+    <div class="gh ${kind}">${label}</div>
+    <table><colgroup><col><col class="gpts-col"></colgroup><tbody>${thirdPlaceRows(rows)}</tbody></table>
+  </div>`;
+}
 function openForm(name,switchTab=true){
   curForm=name;
   if(switchTab){
@@ -724,6 +741,13 @@ function openForm(name,switchTab=true){
     mc.appendChild(gp);
   });
   body.appendChild(mc);
+  body.appendChild(el('h2','sec','📈 דירוג מקומות 3'));
+  const thirds=el('div','gpair third-compare');
+  thirds.innerHTML=`<div class="gpair-tables">
+      ${thirdPlaceTableHtml(p.third_places,'pred')}
+      ${thirdPlaceTableHtml(D.third_places,'actual')}
+    </div>`;
+  body.appendChild(thirds);
   // group match predictions
   body.appendChild(el('h2','sec','⚽ ניחושי שלב הבתים'));
   const card=el('div','card');

@@ -355,6 +355,25 @@ def actual_group_standings(store, preds):
         ]})
     return out
 
+def third_place_table(groups, qualified_teams=None):
+    qualified_teams = {norm(t) for t in (qualified_teams or []) if t}
+    rows = []
+    for g in groups or []:
+        third = next((r for r in g.get("rows", g.get("standings", [])) if r.get("place") == 3), None)
+        if not third:
+            continue
+        gf = third.get("GF", 0) or 0
+        ga = third.get("GA", 0) or 0
+        rows.append({"group": g["group"], "team": third["team"], "Pts": third.get("Pts", 0) or 0,
+                     "GD": gf - ga, "GF": gf})
+    rows.sort(key=lambda r: (-r["Pts"], -r["GD"], -r["GF"],
+                             norm(r["team"]) not in qualified_teams if qualified_teams else False,
+                             r["team"]))
+    for i, r in enumerate(rows, 1):
+        r["rank"] = i
+        r["qualified"] = norm(r["team"]) in qualified_teams if qualified_teams else i <= 8
+    return rows
+
 def score_one(d, store):
     gmap={g["num"]:g for g in store["group_matches"]}
     gp=0; gh=0; gd=[]
@@ -417,8 +436,10 @@ def participant_payload(d, store, sc):
     standings=[{"group":g["group"],"rows":[{"place":x["place"],"team":x["team"],"W":x["W"],
         "D":x["D"],"L":x["L"],"GF":x["GF"],"GA":x["GA"],"Pts":x["Pts"]} for x in g["standings"]]}
         for g in d["groups"]]
+    r32_teams = {side["team"] for m in d["r32"] for side in m if side.get("team")}
     return {"name":d["name"],"champion":d["champion"],"gb":d["golden_boot"],"winner":d["winner_bet"],
             "matches":matches,"bracket":bracket,"standings":standings,
+            "third_places":third_place_table(standings, r32_teams),
             "totals":{"group":sc["group_points"],"knockout":sc["knockout_points"],
                       "progression":sc["progression_points"],"gb":sc["golden_boot_points"],
                       "total":sc["total"],"rank":sc["rank"]}}
@@ -454,6 +475,7 @@ def build_all():
                       "champion":d["champion"] or "","winner":d["winner_bet"] or ""})
     played=sum(1 for g in store["group_matches"] if g["played"])
     live=sum(1 for g in store["group_matches"] if g.get("live"))
+    actual_standings = actual_group_standings(store, preds)
     site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
                   "played":played,"live":live,"total_group":len(store["group_matches"]),"source":store["source"]},
           "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
@@ -466,7 +488,8 @@ def build_all():
                       "hs":g["home_score"],"as":g["away_score"],"played":g["played"],
                       "live":bool(g.get("live")),"display_clock":g.get("display_clock") or "",
                       "status_detail":g.get("status_detail") or ""} for g in store["group_matches"]],
-          "standings":actual_group_standings(store, preds),
+          "standings":actual_standings,
+          "third_places":third_place_table(actual_standings),
           "participants":participants}
     # optional payments
     pay_path=P("payments.json")
