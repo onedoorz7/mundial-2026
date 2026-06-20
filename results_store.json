@@ -720,30 +720,30 @@
   "current_top_scorers": [
     {
       "rank": 1,
+      "player": "Jonathan David",
+      "team": "Canada",
+      "goals": 3
+    },
+    {
+      "rank": 2,
       "player": "Lionel Messi",
       "team": "Argentina",
       "goals": 3
     },
     {
-      "rank": 2,
-      "player": "Harry Kane",
-      "team": "England",
+      "rank": 3,
+      "player": "Ismael Saibari",
+      "team": "Morocco",
       "goals": 2
     },
     {
-      "rank": 2,
-      "player": "Kylian Mbappé",
-      "team": "France",
+      "rank": 4,
+      "player": "Vinícius Júnior",
+      "team": "Brazil",
       "goals": 2
     },
     {
-      "rank": 2,
-      "player": "Erling Haaland",
-      "team": "Norway",
-      "goals": 2
-    },
-    {
-      "rank": 2,
+      "rank": 5,
       "player": "Folarin Balogun",
       "team": "United States",
       "goals": 2
@@ -751,6 +751,7 @@
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
+    "Jonathan David",
     "Lionel Messi"
   ],
   "champion": null

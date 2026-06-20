@@ -47,6 +47,11 @@ def canon_scorer(name):
         (('מאלן','malen'), 'מאלן (Malen)'),
         (('אוירז','oyarz','oyarzabal'), 'אויארסבאל (Oyarzabal)'),
         (('ראפינ','raphinha'), 'ראפיניה (Raphinha)'),
+        (('מסי','messi'), 'מסי (Messi)'),
+        (('david','דויד'), 'דויד (David)'),
+        (('balogun','באלוגון','בלוגון'), 'באלוגון (Balogun)'),
+        (('vinicius','vinícius','ויניסיוס'), 'ויניסיוס (Vinícius)'),
+        (('saibari','סאיבארי'), 'סאיבארי (Saibari)'),
     ]
     for keys, label in rules:
         if any(k in s for k in keys): return label
@@ -54,6 +59,7 @@ def canon_scorer(name):
 
 # ---------------- ESPN fetch ----------------
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates={}"
+ESPN_LEADERS = "https://sports.core.api.espn.com/v2/sports/soccer/leagues/fifa.world/seasons/2026/types/1/leaders?lang=en&region=us"
 def daterange(start, end):
     d = start
     while d <= end:
@@ -84,15 +90,20 @@ def parse_score(v):
     try: return int(v)
     except (TypeError, ValueError): return None
 
+def fetch_json(url, timeout=25):
+    if url.startswith("http://sports.core.api.espn.com/"):
+        url = "https://" + url[len("http://"):]
+    req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.load(r)
+
 def fetch_espn():
     """Return ESPN matches with live/final status metadata."""
     out = []
     for d in fetch_dates():
         url = ESPN.format(d.strftime("%Y%m%d"))
         try:
-            req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=25) as r:
-                data = json.load(r)
+            data = fetch_json(url)
         except Exception as e:
             sys.stderr.write(f"warn: fetch {d} failed: {e}\n"); continue
         for ev in data.get("events", []):
@@ -115,6 +126,61 @@ def fetch_espn():
                         "display_clock": status.get("displayClock") or "",
                         "status_detail": st.get("shortDetail") or st.get("detail") or st.get("description") or ""})
     return out
+
+def ref_url(ref):
+    if isinstance(ref, dict):
+        return ref.get("$ref")
+    return ref
+
+def fetch_ref(ref, cache):
+    url = ref_url(ref)
+    if not url: return {}
+    if url not in cache:
+        cache[url] = fetch_json(url)
+    return cache[url]
+
+def fetch_top_scorers(limit=5):
+    """Fetch current Golden Boot leaders from ESPN's public core API."""
+    data = fetch_json(ESPN_LEADERS)
+    cats = data.get("categories", [])
+    cat = next((c for c in cats if c.get("name") == "goalsLeaders"), None)
+    if not cat:
+        cat = next((c for c in cats if c.get("abbreviation") == "G" or c.get("displayName") == "Goals"), None)
+    leaders = (cat or {}).get("leaders") or []
+    if not leaders:
+        return None
+
+    def goals_of(row):
+        try: return int(row.get("value") or 0)
+        except (TypeError, ValueError): return 0
+
+    top_goals = goals_of(leaders[0])
+    display_rows = leaders[:limit]
+    needed = list(display_rows)
+    for row in leaders[limit:]:
+        if goals_of(row) != top_goals:
+            break
+        needed.append(row)
+
+    cache = {}
+    current = []
+    golden_boot_leaders = []
+    for i, row in enumerate(needed):
+        goals = goals_of(row)
+        athlete = fetch_ref(row.get("athlete"), cache)
+        team_obj = fetch_ref(row.get("team"), cache)
+        player = athlete.get("displayName") or athlete.get("fullName") or athlete.get("shortName")
+        team = norm(team_obj.get("displayName") or team_obj.get("name") or athlete.get("citizenship") or "")
+        if not player:
+            continue
+        if i < len(display_rows):
+            current.append({"rank": len(current)+1, "player": player, "team": team, "goals": goals})
+        if goals == top_goals:
+            golden_boot_leaders.append(player)
+
+    if not current or not golden_boot_leaders:
+        return None
+    return current, golden_boot_leaders
 
 def scoreable(m):
     return bool(m.get("played"))
@@ -183,6 +249,19 @@ def update_store():
     if champion and store.get("champion") != champion:
         store["champion"] = champion
         changed = True
+    try:
+        top_scorers = fetch_top_scorers()
+    except Exception as e:
+        sys.stderr.write(f"warn: fetch top scorers failed: {e}\n")
+        top_scorers = None
+    if top_scorers:
+        current, gb_leaders = top_scorers
+        if store.get("current_top_scorers") != current:
+            store["current_top_scorers"] = current
+            changed = True
+        if store.get("golden_boot_leaders") != gb_leaders:
+            store["golden_boot_leaders"] = gb_leaders
+            changed = True
     if not changed:
         print("no ESPN match changes; site rebuild skipped")
         return store, False
@@ -305,8 +384,8 @@ def score_one(d, store):
     ps=pred_sets(d); rs=reached_sets(store); pp=0; pb={}
     for st,v in STAGE_PTS.items():
         hits=ps[st]&rs[st]; pb[st]={"hits":sorted(hits),"points":len(hits)*v}; pp+=len(hits)*v
-    gb=0; leaders={norm(x) for x in store.get("golden_boot_leaders",[])}
-    picks={norm(p) for p in d["golden_boot"] if p}
+    gb=0; leaders={canon_scorer(x) for x in store.get("golden_boot_leaders",[]) if x}
+    picks={canon_scorer(p) for p in d["golden_boot"] if p}
     if leaders and (picks&leaders): gb=GB_POINTS
     return {"name":d["name"],"group_points":gp,"group_hits":gh,"group_details":gd,
             "knockout_points":kp,"knockout_details":kd,"progression_points":pp,
