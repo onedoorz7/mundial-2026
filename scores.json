@@ -302,6 +302,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "1-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -645,6 +654,15 @@
         "actual": "2-1",
         "pts": 2,
         "label": "מדויק"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -992,6 +1010,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -1333,6 +1360,15 @@
         "away": "Ivory Coast",
         "pred": "2-2",
         "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-0",
+        "actual": "0-0",
         "pts": 0,
         "label": ""
       },
@@ -1682,6 +1718,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -2025,6 +2070,15 @@
         "actual": "2-1",
         "pts": 2,
         "label": "מדויק"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -2372,6 +2426,15 @@
         "label": "מדויק"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -2715,6 +2778,15 @@
         "actual": "2-1",
         "pts": 2,
         "label": "מדויק"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -3062,6 +3134,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "1-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -3405,6 +3486,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -3752,6 +3842,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -4093,6 +4192,15 @@
         "away": "Ivory Coast",
         "pred": "2-2",
         "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "1-0",
+        "actual": "0-0",
         "pts": 0,
         "label": ""
       },
@@ -4442,6 +4550,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -4785,6 +4902,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -5132,6 +5258,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -5475,6 +5610,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -5822,6 +5966,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-2",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -6163,6 +6316,15 @@
         "away": "Ivory Coast",
         "pred": "1-1",
         "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "1-0",
+        "actual": "0-0",
         "pts": 0,
         "label": ""
       },
@@ -6512,6 +6674,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -6855,6 +7026,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -7202,6 +7382,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -7545,6 +7734,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -7892,6 +8090,15 @@
         "label": "מדויק"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "4-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -8235,6 +8442,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -8582,6 +8798,15 @@
         "label": "מדויק"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -8925,6 +9150,15 @@
         "actual": "2-1",
         "pts": 2,
         "label": "מדויק"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -9272,6 +9506,15 @@
         "label": "כיוון נכון"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -9615,6 +9858,15 @@
         "actual": "2-1",
         "pts": 2,
         "label": "מדויק"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
@@ -9962,6 +10214,15 @@
         "label": "מדויק"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -10307,6 +10568,15 @@
         "label": "מדויק"
       },
       {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "5-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
@@ -10650,6 +10920,15 @@
         "actual": "2-1",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 35,
