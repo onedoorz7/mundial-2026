@@ -481,6 +481,28 @@ def participant_payload(d, store, sc):
                       "progression":sc["progression_points"],"gb":sc["golden_boot_points"],
                       "total":sc["total"],"rank":sc["rank"]}}
 
+def prediction_outcome_splits(preds):
+    totals = {}
+    for d in preds.values():
+        for m in d.get("group_matches", []):
+            row = totals.setdefault(m["num"], {"total": 0, "home": 0, "draw": 0, "away": 0})
+            row["total"] += 1
+            hg, ag = m.get("hg"), m.get("ag")
+            if hg > ag:
+                row["home"] += 1
+            elif hg < ag:
+                row["away"] += 1
+            else:
+                row["draw"] += 1
+    for row in totals.values():
+        total = row["total"] or 1
+        row["pct"] = {
+            "home": round(row["home"] * 100 / total),
+            "draw": round(row["draw"] * 100 / total),
+            "away": round(row["away"] * 100 / total),
+        }
+    return totals
+
 def predicted_r32_teams(d):
     return pred_sets(d)["r32"]
 
@@ -563,6 +585,7 @@ def build_all():
     played=sum(1 for g in store["group_matches"] if g["played"])
     live=sum(1 for g in store["group_matches"] if g.get("live"))
     actual_standings = actual_group_standings(store, preds)
+    outcome_splits = prediction_outcome_splits(preds)
     site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
                   "played":played,"live":live,"total_group":len(store["group_matches"]),"source":store["source"]},
           "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
@@ -574,7 +597,10 @@ def build_all():
           "results":[{"num":g["num"],"date":g["date"],"home":g["home"],"away":g["away"],
                       "hs":g["home_score"],"as":g["away_score"],"played":g["played"],
                       "live":bool(g.get("live")),"display_clock":g.get("display_clock") or "",
-                      "status_detail":g.get("status_detail") or ""} for g in store["group_matches"]],
+                      "status_detail":g.get("status_detail") or "",
+                      "outcome_split":outcome_splits.get(g["num"], {"total": 0, "home": 0, "draw": 0, "away": 0,
+                                                                   "pct": {"home": 0, "draw": 0, "away": 0}})}
+                     for g in store["group_matches"]],
           "standings":actual_standings,
           "third_places":third_place_table(actual_standings),
           "participants":participants,

@@ -183,10 +183,23 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .match .mh-date{text-align:left}
 .match .mh-num{text-align:right}
 .match .mh-live{text-align:center;color:var(--red)}
-.match .teams{display:flex;align-items:center;justify-content:space-between;gap:6px;font-weight:700;font-size:14px;direction:ltr}
+.match .teams{display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);align-items:center;gap:7px;font-weight:700;font-size:14px;direction:ltr}
+.match .teams>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.match .teams>span:first-child{text-align:left}
+.match .teams>span:last-child{text-align:right}
+.match .teams .team-ltr{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 .match .sc{background:var(--navy);color:#fff;border-radius:8px;padding:3px 10px;font-weight:800;min-width:48px;text-align:center;direction:ltr;unicode-bidi:bidi-override;flex-shrink:0}
 .score-ltr{direction:ltr;unicode-bidi:bidi-override;display:inline-block}
 .match.up .sc{background:#cdd6e5;color:#5a6a85}
+.outcome-split{width:min(74%,340px);margin:8px auto 0;display:flex;align-items:center;justify-content:center;direction:ltr}
+.outcome-seg{height:20px;display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  padding:0 12px;color:#778399;font-size:11px;font-weight:700;line-height:1;white-space:nowrap}
+.outcome-seg+.outcome-seg{border-inline-start:1px solid #dfe6f0}
+.outcome-seg.fav{color:var(--navy);font-weight:900}
+.outcome-seg.correct{color:var(--green-d);font-weight:900}
+.outcome-seg .mark{display:inline-flex;align-items:center;color:inherit;opacity:.9}
+.outcome-seg .mark .fl,.outcome-seg .mark .flsvg{margin-inline-end:0}
+.outcome-seg .pct{font-size:12px;color:inherit}
 .live-chip{color:var(--red);font-weight:400}
 
 /* ---------- browse ---------- */
@@ -501,6 +514,7 @@ const FLAG_SVG = {
 const fl = n => FLAG_SVG[n] ? `<span class="flsvg">${FLAG_SVG[n]}</span>`
               : (FLAGS[n] ? `<span class="fl">${FLAGS[n]}</span>` : "");
 const team = n => n ? `<span class="team-ltr">${fl(n)}${n}</span>` : "—";
+const escAttr = s => String(s ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $ = (s,e=document)=>e.querySelector(s);
 const el = (t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
 const hasResult = m => !!(m && (m.played || m.live));
@@ -660,13 +674,35 @@ function renderRes(){
     c.dataset.matchNum=m.num;
     if(latestPlayed && latestPlayed.num===m.num) c.dataset.latestPlayed='true';
     const sc=result?`${m.hs}-${m.as}`:'vs';
+    const split=outcomeSplitHtml(m);
     c.innerHTML=`<div class="mh"><span class="mh-num">משחק ${m.num}</span><span class="mh-live">${liveLabel(m)}</span><span class="mh-date">${m.date}</span></div>
      <div class="teams"><span>${team(m.home)}</span><span class="sc">${sc}</span><span>${team(m.away)}</span></div>
-     <div class="mtap">👁️ ${points?'הניחושים והנקודות':'הניחושים של כולם'} ›</div>`;
+     <div class="mtap">${points?'הניחושים והנקודות':'הניחושים של כולם'} ›</div>
+     ${split}`;
     c.onclick=()=>openMatch(m.num);
     grid.appendChild(c);
   });
   v.appendChild(grid);
+}
+
+function outcomeSplitHtml(m){
+  const s=m.outcome_split;
+  if(!s || !s.total) return '';
+  const pct=s.pct||{};
+  const actual=hasResult(m) ? (m.hs>m.as?'home':(m.hs<m.as?'away':'draw')) : '';
+  const items=[
+    {key:'home',mark:fl(m.home)||'1',label:m.home,pct:pct.home||0,count:s.home||0},
+    {key:'draw',mark:'🏳️',label:'תיקו',pct:pct.draw||0,count:s.draw||0},
+    {key:'away',mark:fl(m.away)||'2',label:m.away,pct:pct.away||0,count:s.away||0}
+  ];
+  const showFavorite=!actual;
+  const maxPct=Math.max(...items.map(x=>x.pct));
+  return `<div class="outcome-split" title="${s.total} ניחושים">${
+    items.map(x=>`<div class="outcome-seg ${x.key}${showFavorite&&x.pct===maxPct?' fav':''}${actual===x.key?' correct':''}"
+      title="${escAttr(x.label)}: ${x.count} מתוך ${s.total}">
+      <span class="mark">${x.mark}</span><span class="pct">${x.pct}%</span>
+    </div>`).join('')
+  }</div>`;
 }
 
 function scrollToLatestResult(){
