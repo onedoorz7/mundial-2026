@@ -401,11 +401,11 @@
       "away": "Japan",
       "home_score": 0,
       "away_score": 4,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'",
-      "status_detail": "90'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 37,
