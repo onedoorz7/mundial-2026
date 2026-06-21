@@ -742,32 +742,33 @@
     },
     {
       "rank": 2,
+      "player": "Deniz Undav",
+      "team": "Germany",
+      "goals": 3
+    },
+    {
+      "rank": 3,
       "player": "Lionel Messi",
       "team": "Argentina",
       "goals": 3
     },
     {
-      "rank": 3,
-      "player": "Ismael Saibari",
-      "team": "Morocco",
-      "goals": 2
-    },
-    {
       "rank": 4,
-      "player": "Vinícius Júnior",
-      "team": "Brazil",
+      "player": "Kai Havertz",
+      "team": "Germany",
       "goals": 2
     },
     {
       "rank": 5,
-      "player": "Folarin Balogun",
-      "team": "United States",
+      "player": "Cody Gakpo",
+      "team": "Netherlands",
       "goals": 2
     }
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
     "Jonathan David",
+    "Deniz Undav",
     "Lionel Messi"
   ],
   "champion": null
