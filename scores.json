@@ -331,11 +331,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -359,7 +363,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 30,
+    "total": 42,
     "rank": 1
   },
   {
@@ -694,11 +698,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -722,7 +730,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 30,
+    "total": 42,
     "rank": 2
   },
   {
@@ -1057,11 +1065,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -1085,7 +1097,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 29,
+    "total": 41,
     "rank": 3
   },
   {
@@ -1420,11 +1432,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -1448,7 +1464,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 29,
+    "total": 41,
     "rank": 4
   },
   {
@@ -1783,11 +1799,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -1811,7 +1831,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 28,
+    "total": 40,
     "rank": 5
   },
   {
@@ -2146,11 +2166,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -2174,7 +2198,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 28,
+    "total": 40,
     "rank": 6
   },
   {
@@ -2509,11 +2533,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -2537,7 +2565,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 27,
+    "total": 39,
     "rank": 7
   },
   {
@@ -2872,11 +2900,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -2900,7 +2932,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 27,
+    "total": 39,
     "rank": 8
   },
   {
@@ -3235,11 +3267,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -3263,7 +3299,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 26,
+    "total": 38,
     "rank": 9
   },
   {
@@ -3598,11 +3634,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -3626,7 +3666,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 26,
+    "total": 38,
     "rank": 10
   },
   {
@@ -3961,11 +4001,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -3989,7 +4033,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 26,
+    "total": 38,
     "rank": 11
   },
   {
@@ -4324,11 +4368,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -4352,7 +4400,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 26,
+    "total": 38,
     "rank": 12
   },
   {
@@ -4687,11 +4735,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -4715,7 +4767,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 25,
+    "total": 37,
     "rank": 13
   },
   {
@@ -5050,11 +5102,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -5078,7 +5134,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 24,
+    "total": 36,
     "rank": 14
   },
   {
@@ -5413,11 +5469,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -5441,7 +5501,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 24,
+    "total": 36,
     "rank": 15
   },
   {
@@ -5776,11 +5836,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -5804,7 +5868,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 16
   },
   {
@@ -6139,11 +6203,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -6167,7 +6235,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 17
   },
   {
@@ -6502,11 +6570,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -6530,7 +6602,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 18
   },
   {
@@ -6865,11 +6937,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -6893,7 +6969,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 19
   },
   {
@@ -7228,11 +7304,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -7256,7 +7336,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 20
   },
   {
@@ -7591,11 +7671,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -7619,7 +7703,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 21
   },
   {
@@ -7954,11 +8038,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -7982,7 +8070,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 22
   },
   {
@@ -8317,11 +8405,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -8345,7 +8437,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 23,
+    "total": 35,
     "rank": 23
   },
   {
@@ -8680,11 +8772,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -8708,7 +8804,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 22,
+    "total": 34,
     "rank": 24
   },
   {
@@ -9043,11 +9139,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -9071,7 +9171,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 22,
+    "total": 34,
     "rank": 25
   },
   {
@@ -9406,11 +9506,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -9434,7 +9538,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 22,
+    "total": 34,
     "rank": 26
   },
   {
@@ -9769,11 +9873,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -9797,7 +9905,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 22,
+    "total": 34,
     "rank": 27
   },
   {
@@ -10132,11 +10240,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -10160,7 +10272,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 22,
+    "total": 34,
     "rank": 28
   },
   {
@@ -10495,11 +10607,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -10523,7 +10639,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 21,
+    "total": 33,
     "rank": 29
   },
   {
@@ -10858,11 +10974,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -10886,7 +11006,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 20,
+    "total": 32,
     "rank": 30
   },
   {
@@ -11221,11 +11341,15 @@
     ],
     "knockout_points": 0,
     "knockout_details": [],
-    "progression_points": 0,
+    "progression_points": 12,
     "progression_breakdown": {
       "r32": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Germany",
+          "Mexico",
+          "United States"
+        ],
+        "points": 12
       },
       "r16": {
         "hits": [],
@@ -11249,7 +11373,7 @@
       }
     },
     "golden_boot_points": 0,
-    "total": 20,
+    "total": 32,
     "rank": 31
   }
 ]

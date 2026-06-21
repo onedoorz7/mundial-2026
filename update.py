@@ -60,6 +60,7 @@ def canon_scorer(name):
 # ---------------- ESPN fetch ----------------
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates={}"
 ESPN_LEADERS = "https://sports.core.api.espn.com/v2/sports/soccer/leagues/fifa.world/seasons/2026/types/1/leaders?lang=en&region=us"
+ESPN_R32 = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260628-20260703"
 def daterange(start, end):
     d = start
     while d <= end:
@@ -182,6 +183,33 @@ def fetch_top_scorers(limit=5):
         return None
     return current, golden_boot_leaders
 
+def is_placeholder_team(team):
+    if not team:
+        return True
+    name = team.get("displayName") or team.get("name") or team.get("location") or ""
+    if team.get("isActive") is True:
+        return False
+    markers = ("Group ", "Third Place", "Winner", "2nd Place")
+    return not name or any(m in name for m in markers)
+
+def fetch_r32_qualified_teams():
+    """Return teams ESPN has already placed into Round-of-32 fixtures."""
+    data = fetch_json(ESPN_R32)
+    teams = set()
+    for ev in data.get("events", []):
+        season = ev.get("season") or {}
+        if season.get("slug") != "round-of-32":
+            continue
+        for comp in (ev.get("competitions") or [])[:1]:
+            for row in comp.get("competitors", []):
+                team = row.get("team") or {}
+                if is_placeholder_team(team):
+                    continue
+                name = norm(team.get("displayName") or team.get("name") or "")
+                if name:
+                    teams.add(name)
+    return sorted(teams)
+
 def scoreable(m):
     return bool(m.get("played"))
 
@@ -262,6 +290,14 @@ def update_store():
         if store.get("golden_boot_leaders") != gb_leaders:
             store["golden_boot_leaders"] = gb_leaders
             changed = True
+    try:
+        qualified_r32 = fetch_r32_qualified_teams()
+    except Exception as e:
+        sys.stderr.write(f"warn: fetch Round-of-32 qualified teams failed: {e}\n")
+        qualified_r32 = None
+    if qualified_r32 is not None and store.get("qualified_r32_teams", []) != qualified_r32:
+        store["qualified_r32_teams"] = qualified_r32
+        changed = True
     if not changed:
         print("no ESPN match changes; site rebuild skipped")
         return store, False
@@ -296,6 +332,7 @@ def pred_sets(d):
             "champion":{norm(d["champion"])} if d.get("champion") else set()}
 def reached_sets(store):
     reached={k:set() for k in STAGE_PTS}
+    reached["r32"].update(norm(t) for t in store.get("qualified_r32_teams", []) if t)
     r2s={"Round of 32":"r32","Round of 16":"r16","Quarterfinals":"qf","Semi-Finals":"sf","Final":"final"}
     for m in store.get("knockout_matches",[]):
         if not m.get("played"): continue
@@ -444,6 +481,56 @@ def participant_payload(d, store, sc):
                       "progression":sc["progression_points"],"gb":sc["golden_boot_points"],
                       "total":sc["total"],"rank":sc["rank"]}}
 
+def predicted_r32_teams(d):
+    return pred_sets(d)["r32"]
+
+def build_stats(preds, scores, store):
+    rank_by_name = {s["name"]: s["rank"] for s in scores}
+    score_rows = []
+    for s in scores:
+        exact = sum(1 for m in s["group_details"] if m["pts"] >= 2)
+        big_exact = sum(1 for m in s["group_details"] if m["pts"] == 3)
+        direction_only = sum(1 for m in s["group_details"] if m["pts"] == 1)
+        score_rows.append({"name": s["name"], "rank": s["rank"],
+                           "correct": exact + direction_only,
+                           "exact": exact, "big_exact": big_exact,
+                           "direction_only": direction_only})
+    score_rows.sort(key=lambda r: (-r["correct"], -r["exact"], -r["big_exact"], r["rank"], r["name"]))
+
+    guaranteed = {norm(t) for t in store.get("qualified_r32_teams", []) if t}
+    pending = set()
+    qual_rows = []
+    qual_by_name = {}
+    for nm, d in preds.items():
+        picks = predicted_r32_teams(d)
+        guaranteed_hits = sorted(picks & guaranteed)
+        pending_matches = sorted(picks & pending)
+        row = {"name": nm, "rank": rank_by_name[nm],
+               "guaranteed_hits": len(guaranteed_hits),
+               "guaranteed_teams": guaranteed_hits,
+               "pending_matches": pending_matches}
+        qual_by_name[nm] = row
+        qual_rows.append(row)
+    qual_rows.sort(key=lambda r: (-r["guaranteed_hits"], -len(r["pending_matches"]), r["rank"], r["name"]))
+
+    combined_rows = []
+    for row in score_rows:
+        q = qual_by_name[row["name"]]
+        combined_rows.append({"name": row["name"], "rank": row["rank"],
+                              "correct": row["correct"], "exact": row["exact"],
+                              "big_exact": row["big_exact"],
+                              "qualifiers": q["guaranteed_hits"],
+                              "guaranteed_teams": q["guaranteed_teams"]})
+
+    return {"rows": combined_rows,
+            "score_accuracy": {"rows": score_rows},
+            "qualification_accuracy": {
+                "source": "espn_round_of_32_fixtures",
+                "available": True,
+                "guaranteed_teams": sorted(guaranteed),
+                "pending_teams": sorted(pending),
+                "rows": qual_rows}}
+
 def build_all():
     store, changed = update_store()
     if not changed and os.environ.get("MUNDIAL_FORCE_REBUILD") != "1":
@@ -490,7 +577,8 @@ def build_all():
                       "status_detail":g.get("status_detail") or ""} for g in store["group_matches"]],
           "standings":actual_standings,
           "third_places":third_place_table(actual_standings),
-          "participants":participants}
+          "participants":participants,
+          "stats":build_stats(preds, scores, store)}
     # optional payments
     pay_path=P("payments.json")
     if os.path.exists(pay_path):

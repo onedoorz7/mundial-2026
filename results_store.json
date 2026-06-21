@@ -771,5 +771,10 @@
     "Deniz Undav",
     "Lionel Messi"
   ],
-  "champion": null
+  "champion": null,
+  "qualified_r32_teams": [
+    "Germany",
+    "Mexico",
+    "United States"
+  ]
 }

@@ -332,7 +332,18 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .trademark{text-align:center;margin-top:34px;font-weight:900;letter-spacing:.5px;color:var(--navy);font-size:14px}
 .trademark span{color:var(--gold-d)}
 
-/* ---------- daily movers + trends ---------- */
+/* ---------- statistics + trends ---------- */
+.stats-card .muted-note{padding:12px 14px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);line-height:1.6}
+.stats-card table{table-layout:fixed}
+.stats-card th:first-child,.stats-card td:first-child{width:44px}
+.stats-card th:nth-child(2),.stats-card td:nth-child(2){width:28%}
+.stats-card th:nth-child(n+3),.stats-card td:nth-child(n+3){width:14.4%}
+.stats-card th.sortable{cursor:pointer;user-select:none}
+.stats-card th.sortable:hover{background:var(--navy2)}
+.sort-mark{display:inline-block;min-width:14px;margin-inline-start:3px;color:var(--gold)}
+.stats-card td.num{font-weight:900;font-size:16px;color:var(--navy)}
+.stats-card td.callout{color:#9a7400}
+.empty-state{padding:24px;text-align:center;color:var(--muted);font-size:14px;line-height:1.7}
 .mv{display:block;font-size:10px;font-weight:800;margin-top:3px;line-height:1}
 .mv.up{color:var(--green-d)}
 .mv.down{color:var(--red)}
@@ -374,6 +385,17 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   /* let the wider tables scroll instead of squashing */
   #gb .card,#forms .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
   #gb .card table,#forms .mtable{min-width:440px}
+  #stats .card{overflow:hidden}
+  #stats table{min-width:0;font-size:11px}
+  #stats th,#stats td{padding:8px 3px}
+  #stats .stats-card th:first-child,#stats .stats-card td:first-child{width:30px}
+  #stats .stats-card th:nth-child(2),#stats .stats-card td:nth-child(2){width:26%}
+  #stats .stats-card th:nth-child(n+3),#stats .stats-card td:nth-child(n+3){width:15.5%}
+  #stats .rk-badge{width:24px;height:24px;font-size:12px}
+  #stats td.name{font-size:11px}
+  #stats .stats-card td.num{font-size:13px}
+  #stats .sort-mark{min-width:9px;margin-inline-start:1px}
+  #stats .stats-card .muted-note{font-size:11px;padding:10px 12px}
 }
 </style>
 </head>
@@ -407,6 +429,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   <button data-v="res">📅 תוצאות</button>
   <button data-v="forms">📋 הטפסים</button>
   <button data-v="gb">👟 מלך שערים</button>
+  <button data-v="stats">📊 סטטיסטיקות</button>
   <button data-v="pay">💸 בושה!</button>
   <button data-v="trends">📈 מגמות</button>
  </nav>
@@ -416,6 +439,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
  <section id="res" class="view"></section>
  <section id="forms" class="view"></section>
  <section id="gb" class="view"></section>
+ <section id="stats" class="view"></section>
  <section id="pay" class="view"></section>
  <section id="trends" class="view"></section>
  <div class="trademark">התערבות מונדיאל™ · <span>Since 2010</span></div>
@@ -809,6 +833,69 @@ function renderPay(){
 // hide the בושה tab until there's a payments list
 if(!D.payments){ const pb=document.querySelector('#nav button[data-v="pay"]'); if(pb) pb.style.display='none'; }
 
+// ---- statistics ----
+function openPersonFromStats(name){
+  openForm(name);
+}
+function statNameCell(name){
+  return `<td class="name"><span class="name-wrap"><span class="name-text">${name}</span></span></td>`;
+}
+function statRowClick(name){
+  return `onclick="openPersonFromStats('${name.replace(/'/g,"\\'")}')"`;
+}
+let statsSort={key:'correct',dir:'desc'};
+function setStatsSort(key){
+  if(statsSort.key===key) statsSort.dir=statsSort.dir==='desc'?'asc':'desc';
+  else statsSort={key,dir:(key==='name'?'asc':'desc')};
+  renderStats();
+}
+function sortedStatsRows(rows){
+  const dir=statsSort.dir==='asc'?1:-1;
+  return [...rows].sort((a,b)=>{
+    if(statsSort.key==='name') return a.name.localeCompare(b.name)*dir;
+    const av=a[statsSort.key] ?? 0, bv=b[statsSort.key] ?? 0;
+    return (av===bv ? (a.rank-b.rank || a.name.localeCompare(b.name)) : (av-bv)*dir);
+  });
+}
+function sortHead(key,label){
+  const mark=statsSort.key===key?(statsSort.dir==='desc'?'▼':'▲'):'';
+  return `<th class="sortable" onclick="setStatsSort('${key}')">${label}<span class="sort-mark">${mark}</span></th>`;
+}
+function renderStatsTable(rows){
+  const cols=[
+    {key:'place',label:'#'},
+    {key:'name',label:'שם'},
+    {key:'correct',label:'תוצאה',render:r=>`<td class="num">${r.correct}</td>`},
+    {key:'exact',label:'מדויקת',render:r=>`<td class="num">${r.exact}</td>`},
+    {key:'big_exact',label:'4+ גולים',render:r=>`<td class="num callout">${r.big_exact}</td>`},
+    {key:'qualifiers',label:'עולות',render:r=>`<td class="num">${r.qualifiers}</td>`}
+  ];
+  return `<table><thead><tr>${cols.map(c=>(c.key==='place'||c.key==='name')?`<th>${c.label}</th>`:sortHead(c.key,c.label)).join('')}</tr></thead><tbody>`+
+    rows.map((r,i)=>`<tr class="clickable" ${statRowClick(r.name)}>${
+      cols.map(c=>{
+        if(c.key==='place') return `<td><span class="rk-badge">${i+1}</span></td>`;
+        if(c.key==='name') return statNameCell(r.name);
+        if(c.render) return c.render(r);
+        return `<td>${r[c.key] ?? ''}</td>`;
+      }).join('')
+    }</tr>`).join('')+
+    `</tbody></table>`;
+}
+function renderStats(){
+  const v=$('#stats'); if(!v) return; v.innerHTML='';
+  const stats=D.stats||{};
+  const rows=stats.rows||[];
+  v.appendChild(el('h2','sec','📊 סטטיסטיקות'));
+  if(!rows.length){
+    v.appendChild(el('div','card empty-state','הסטטיסטיקות עדיין לא זמינות.'));
+    return;
+  }
+  const card=el('div','card stats-card');
+  card.innerHTML=renderStatsTable(sortedStatsRows(rows));
+  card.innerHTML+=`<div class="muted-note">תוצאה כוללת משחקים שבהם צדקו במנצחת או בתיקו, כולל תוצאות מדויקות. עולות נספרות כש-ESPN כבר מציב את הקבוצה במשחקי שלב 32 האחרונות.</div>`;
+  v.appendChild(card);
+}
+
 // ---- match bets modal ----
 function closeModal(){ $('#modal').hidden=true; }
 function openMatch(num){
@@ -902,7 +989,7 @@ function renderTrends(){
 }
 if(!D.history || Object.keys(D.history).length<2){ const tb=document.querySelector('#nav button[data-v="trends"]'); if(tb) tb.style.display='none'; }
 
-renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderTrends();
+renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderStats(); renderTrends();
 </script>
 </body>
 </html>
