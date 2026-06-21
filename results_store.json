@@ -399,9 +399,13 @@
       "date": "Jun 21, 2026",
       "home": "Tunisia",
       "away": "Japan",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 1,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "10'",
+      "status_detail": "10'"
     },
     {
       "num": 37,
