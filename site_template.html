@@ -689,7 +689,7 @@ function outcomeSplitHtml(m){
   const s=m.outcome_split;
   if(!s || !s.total) return '';
   const pct=s.pct||{};
-  const actual=hasResult(m) ? (m.hs>m.as?'home':(m.hs<m.as?'away':'draw')) : '';
+  const actual=hasPoints(m) ? (m.hs>m.as?'home':(m.hs<m.as?'away':'draw')) : '';
   const items=[
     {key:'home',mark:fl(m.home)||'1',label:m.home,pct:pct.home||0,count:s.home||0},
     {key:'draw',mark:'🏳️',label:'תיקו',pct:pct.draw||0,count:s.draw||0},
