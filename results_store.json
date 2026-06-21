@@ -423,11 +423,11 @@
       "away": "Saudi Arabia",
       "home_score": 4,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+6'",
-      "status_detail": "90'+6'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     },
     {
       "num": 39,
