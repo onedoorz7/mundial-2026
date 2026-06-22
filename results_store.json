@@ -473,13 +473,13 @@
       "date": "Jun 22, 2026",
       "home": "France",
       "away": "Iraq",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "9'",
-      "status_detail": "9'"
+      "display_clock": "19'",
+      "status_detail": "19'"
     },
     {
       "num": 43,
