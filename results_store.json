@@ -453,11 +453,11 @@
       "away": "Egypt",
       "home_score": 1,
       "away_score": 3,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+9'",
-      "status_detail": "90'+9'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+10'",
+      "status_detail": "FT"
     },
     {
       "num": 41,
