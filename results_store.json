@@ -452,12 +452,12 @@
       "home": "New Zealand",
       "away": "Egypt",
       "home_score": 1,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "50'",
-      "status_detail": "50'"
+      "display_clock": "60'",
+      "status_detail": "60'"
     },
     {
       "num": 41,
