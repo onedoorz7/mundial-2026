@@ -464,13 +464,13 @@
       "date": "Jun 23, 2026",
       "home": "Norway",
       "away": "Senegal",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "40'",
-      "status_detail": "40'"
+      "display_clock": "45'+4'",
+      "status_detail": "45'+4'"
     },
     {
       "num": 42,
@@ -479,11 +479,11 @@
       "away": "Iraq",
       "home_score": 3,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "84'",
-      "status_detail": "84'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+2'",
+      "status_detail": "FT"
     },
     {
       "num": 43,
