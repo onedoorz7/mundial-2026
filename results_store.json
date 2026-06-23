@@ -504,12 +504,12 @@
       "home": "Jordan",
       "away": "Algeria",
       "home_score": 1,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "67'",
-      "status_detail": "67'"
+      "display_clock": "77'",
+      "status_detail": "77'"
     },
     {
       "num": 45,
