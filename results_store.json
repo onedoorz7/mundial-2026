@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-06-22",
+  "last_updated": "2026-06-23",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -464,9 +464,13 @@
       "date": "Jun 23, 2026",
       "home": "Norway",
       "away": "Senegal",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "10'",
+      "status_detail": "10'"
     },
     {
       "num": 42,
@@ -478,8 +482,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "45'+3'",
-      "status_detail": "Delay"
+      "display_clock": "54'",
+      "status_detail": "54'"
     },
     {
       "num": 43,
