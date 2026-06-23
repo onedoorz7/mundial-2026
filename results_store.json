@@ -534,13 +534,13 @@
       "date": "Jun 23, 2026",
       "home": "Portugal",
       "away": "Uzbekistan",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "10'",
-      "status_detail": "10'"
+      "display_clock": "20'",
+      "status_detail": "20'"
     },
     {
       "num": 48,
