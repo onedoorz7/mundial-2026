@@ -505,11 +505,11 @@
       "away": "Algeria",
       "home_score": 1,
       "away_score": 2,
-      "played": false,
-      "live": true,
-      "status_state": "in",
+      "played": true,
+      "live": false,
+      "status_state": "post",
       "display_clock": "90'+8'",
-      "status_detail": "90'+8'"
+      "status_detail": "FT"
     },
     {
       "num": 45,
@@ -805,6 +805,7 @@
   ],
   "champion": null,
   "qualified_r32_teams": [
+    "Argentina",
     "Germany",
     "Mexico",
     "United States"
