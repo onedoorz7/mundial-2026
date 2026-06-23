@@ -768,39 +768,37 @@
   "current_top_scorers": [
     {
       "rank": 1,
+      "player": "Lionel Messi",
+      "team": "Argentina",
+      "goals": 5
+    },
+    {
+      "rank": 2,
+      "player": "Erling Haaland",
+      "team": "Norway",
+      "goals": 4
+    },
+    {
+      "rank": 3,
+      "player": "Kylian Mbappé",
+      "team": "France",
+      "goals": 4
+    },
+    {
+      "rank": 4,
       "player": "Jonathan David",
       "team": "Canada",
       "goals": 3
     },
     {
-      "rank": 2,
+      "rank": 5,
       "player": "Deniz Undav",
       "team": "Germany",
       "goals": 3
-    },
-    {
-      "rank": 3,
-      "player": "Lionel Messi",
-      "team": "Argentina",
-      "goals": 3
-    },
-    {
-      "rank": 4,
-      "player": "Elijah Just",
-      "team": "New Zealand",
-      "goals": 2
-    },
-    {
-      "rank": 5,
-      "player": "Kai Havertz",
-      "team": "Germany",
-      "goals": 2
     }
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
-    "Jonathan David",
-    "Deniz Undav",
     "Lionel Messi"
   ],
   "champion": null,
