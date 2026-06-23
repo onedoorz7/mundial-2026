@@ -656,14 +656,20 @@ function renderLB(){
 }
 
 // ---- golden boot ----
+function scorerKey(name){
+  return String(name||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
 function guessCountForScorer(name){
-  const q=String(name||'').toLowerCase();
+  const q=scorerKey(name);
   const aliases=[
     [['messi','מסי'],['messi','מסי']],
+    [['david','דויד'],['david','דויד']],
     [['balogun','באלוגון','בלוגון'],['balogun','באלוגון','בלוגון']],
     [['havertz','האברץ','האוורץ'],['havertz','האברץ','האוורץ']],
     [['ayari','איארי','איירי'],['ayari','איארי','איירי']],
     [['just','ג׳אסט','גאסט'],['just','ג׳אסט','גאסט']],
+    [['oyarz','oyarzabal','אוירז','אויארס'],['oyarz','oyarzabal','אוירז','אויארס']],
+    [['vinicius','ויניסיוס'],['vinicius','ויניסיוס']],
     [['kane','קיין'],['kane','קיין']],
     [['haaland','האלנד','הלאנד','האלאנד'],['haaland','האלנד','הלאנד','האלאנד']],
     [['mbappe','אמבפה','אמבאפה','אמפבה'],['mbappe','אמבפה','אמבאפה','אמפבה']]
@@ -671,7 +677,7 @@ function guessCountForScorer(name){
   const hit=aliases.find(([needles])=>needles.some(x=>q.includes(x)));
   const needles=hit ? hit[1] : [q];
   const row=(D.goldenboot.tally||[]).find(([p])=>{
-    const s=String(p||'').toLowerCase();
+    const s=scorerKey(p);
     return needles.some(x=>s.includes(x));
   });
   return row ? row[1] : 0;
@@ -688,12 +694,17 @@ function renderGB(){
     v.appendChild(el('h2','sec','🔥 מובילי מלך השערים כרגע'));
     const top=el('div','card scorer-card');
     let h=`<div class="scorer-grid"><div class="scorer-row head"><div>#</div><div class="player">שחקן</div><div class="goals">שערים</div><div class="guesses">ניחושים</div></div>`;
-    current.slice(0,5).forEach((p,i)=>{
-      const rank=i+1;
-      h+=`<div class="scorer-row"><div><span class="rk-badge">${rank}</span></div>
+    let prevGoals=null, prevRank=0;
+    current.forEach((p,i)=>{
+      const rank=Number(p.goals)===prevGoals ? prevRank : i+1;
+      const rankBadge=Number(p.goals)===prevGoals ? '' : `<span class="rk-badge">${rank}</span>`;
+      prevGoals=Number(p.goals);
+      prevRank=rank;
+      const guesses=p.guess_count ?? guessCountForScorer(p.player);
+      h+=`<div class="scorer-row"><div>${rankBadge}</div>
         <div class="player"><span class="scorer-player">${fl(p.team)}<span class="scorer-name scorer-full">${p.player}</span><span class="scorer-name scorer-short">${shortScorerName(p.player)}</span></span></div>
         <div><span class="scorer-num">${p.goals}</span></div>
-        <div><span class="scorer-num">${guessCountForScorer(p.player)}</span></div></div>`;
+        <div><span class="scorer-num">${guesses}</span></div></div>`;
     });
     h+='</div>';
     top.innerHTML=h; v.appendChild(top);

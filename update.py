@@ -10,7 +10,7 @@ Pipeline:
   3. Score all participants per the bet rules.
   4. Rebuild site_data.json and index.html (password gate from env GATE_PASSWORD).
 """
-import json, os, hashlib, urllib.request, datetime, sys
+import json, os, hashlib, urllib.request, datetime, sys, unicodedata
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -35,9 +35,14 @@ def norm(name):
     return NAME_ALIASES.get(str(name).strip().lower(), str(name).strip())
 
 # ---------------- golden boot name canonicalization ----------------
+def scorer_key(name):
+    if not name: return ""
+    s = unicodedata.normalize("NFKD", str(name).strip().lower())
+    return "".join(ch for ch in s if not unicodedata.combining(ch))
+
 def canon_scorer(name):
     if not name: return None
-    s = str(name).lower()
+    s = scorer_key(name)
     rules = [
         (('אמבפ','אמבא','אמבם','אמפב','mbappe'), 'אמבפה (Mbappé)'),
         (('הלאנ','האלנ','האלא','הלנד','haaland'), 'האלנד (Haaland)'),
@@ -50,7 +55,7 @@ def canon_scorer(name):
         (('מסי','messi'), 'מסי (Messi)'),
         (('david','דויד'), 'דויד (David)'),
         (('balogun','באלוגון','בלוגון'), 'באלוגון (Balogun)'),
-        (('vinicius','vinícius','ויניסיוס'), 'ויניסיוס (Vinícius)'),
+        (('vinicius','ויניסיוס'), 'ויניסיוס (Vinícius)'),
         (('saibari','סאיבארי'), 'סאיבארי (Saibari)'),
     ]
     for keys, label in rules:
@@ -157,25 +162,30 @@ def fetch_top_scorers(limit=5):
 
     top_goals = goals_of(leaders[0])
     display_rows = leaders[:limit]
+    cutoff_goals = goals_of(display_rows[-1])
     needed = list(display_rows)
     for row in leaders[limit:]:
-        if goals_of(row) != top_goals:
+        if goals_of(row) != cutoff_goals:
             break
         needed.append(row)
 
     cache = {}
     current = []
     golden_boot_leaders = []
+    last_goals = None
+    last_rank = 0
     for i, row in enumerate(needed):
         goals = goals_of(row)
+        rank = last_rank if goals == last_goals else i + 1
+        last_goals = goals
+        last_rank = rank
         athlete = fetch_ref(row.get("athlete"), cache)
         team_obj = fetch_ref(row.get("team"), cache)
         player = athlete.get("displayName") or athlete.get("fullName") or athlete.get("shortName")
         team = norm(team_obj.get("displayName") or team_obj.get("name") or athlete.get("citizenship") or "")
         if not player:
             continue
-        if i < len(display_rows):
-            current.append({"rank": len(current)+1, "player": player, "team": team, "goals": goals})
+        current.append({"rank": rank, "player": player, "team": team, "goals": goals})
         if goals == top_goals:
             golden_boot_leaders.append(player)
 
@@ -586,12 +596,19 @@ def build_all():
     live=sum(1 for g in store["group_matches"] if g.get("live"))
     actual_standings = actual_group_standings(store, preds)
     outcome_splits = prediction_outcome_splits(preds)
+    gb_counts = dict(gb_tally)
+    current_top_scorers = []
+    for row in store.get("current_top_scorers", []):
+        player = row.get("player")
+        current_row = dict(row)
+        current_row["guess_count"] = gb_counts.get(canon_scorer(player), 0)
+        current_top_scorers.append(current_row)
     site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
                   "played":played,"live":live,"total_group":len(store["group_matches"]),"source":store["source"]},
           "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
                           "knockout":s["knockout_points"],"progression":s["progression_points"],
                           "gb":s["golden_boot_points"],"total":s["total"],"hits":s["group_hits"]} for s in scores],
-          "goldenboot":{"current":store.get("current_top_scorers",[]),
+          "goldenboot":{"current":current_top_scorers,
                         "current_note":store.get("current_top_scorers_note",""),
                         "tally":gb_tally.most_common(),"champions":champ_tally.most_common(),"picks":picks},
           "results":[{"num":g["num"],"date":g["date"],"home":g["home"],"away":g["away"],
