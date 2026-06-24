@@ -586,18 +586,26 @@
       "date": "Jun 24, 2026",
       "home": "Switzerland",
       "away": "Canada",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "10'",
+      "status_detail": "10'"
     },
     {
       "num": 52,
       "date": "Jun 24, 2026",
       "home": "Bosnia and Herzegovina",
       "away": "Qatar",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "10'",
+      "status_detail": "10'"
     },
     {
       "num": 53,
