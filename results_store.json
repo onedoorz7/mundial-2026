@@ -530,12 +530,12 @@
       "home": "Panama",
       "away": "Croatia",
       "home_score": 0,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "51'",
-      "status_detail": "51'"
+      "display_clock": "61'",
+      "status_detail": "61'"
     },
     {
       "num": 47,
