@@ -587,12 +587,12 @@
       "home": "Switzerland",
       "away": "Canada",
       "home_score": 2,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "71'",
-      "status_detail": "71'"
+      "display_clock": "81'",
+      "status_detail": "81'"
     },
     {
       "num": 52,
@@ -604,8 +604,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "67'",
-      "status_detail": "67'"
+      "display_clock": "77'",
+      "status_detail": "77'"
     },
     {
       "num": 53,
