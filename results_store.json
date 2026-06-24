@@ -586,13 +586,13 @@
       "date": "Jun 24, 2026",
       "home": "Switzerland",
       "away": "Canada",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "51'",
-      "status_detail": "51'"
+      "display_clock": "60'",
+      "status_detail": "60'"
     },
     {
       "num": 52,
@@ -604,8 +604,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "48'",
-      "status_detail": "48'"
+      "display_clock": "57'",
+      "status_detail": "57'"
     },
     {
       "num": 53,
