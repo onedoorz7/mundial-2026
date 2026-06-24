@@ -531,11 +531,11 @@
       "away": "Croatia",
       "home_score": 0,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+1'",
-      "status_detail": "90'+1'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+5'",
+      "status_detail": "FT"
     },
     {
       "num": 47,
