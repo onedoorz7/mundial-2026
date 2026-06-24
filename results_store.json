@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-06-23",
+  "last_updated": "2026-06-24",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -534,8 +534,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "45'+3'",
-      "status_detail": "HT"
+      "display_clock": "51'",
+      "status_detail": "51'"
     },
     {
       "num": 47,
