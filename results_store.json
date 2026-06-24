@@ -588,11 +588,11 @@
       "away": "Canada",
       "home_score": 2,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+1'",
-      "status_detail": "90'+1'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 52,
@@ -601,11 +601,11 @@
       "away": "Qatar",
       "home_score": 3,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "88'",
-      "status_detail": "88'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 53,
@@ -830,6 +830,7 @@
     "Argentina",
     "Germany",
     "Mexico",
+    "Switzerland",
     "United States"
   ]
 }
