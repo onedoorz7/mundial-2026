@@ -235,6 +235,49 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .stage-chip .label{display:block;color:var(--muted);font-size:12px;font-weight:800;margin-bottom:4px;white-space:nowrap}
 .stage-chip .pts{display:block;color:var(--green-d);font-size:18px;font-weight:900}
 .stage-chip .unit{font-size:11px;font-weight:800;color:var(--muted);margin-inline-start:2px}
+.stage-tabs{display:flex;gap:4px;margin:0 0 14px;padding:5px;background:#dfe7f2;border:1px solid #cfd9e8;border-radius:13px;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;box-shadow:inset 0 1px 2px rgba(10,23,51,.05)}
+.stage-tabs::-webkit-scrollbar{display:none}
+.stage-tab{border:none;background:transparent;color:#52617a;font-family:inherit;font-size:13px;font-weight:900;
+  border-radius:9px;padding:8px 13px;white-space:nowrap;cursor:pointer;transition:.15s;flex-shrink:0}
+.stage-tab:hover{background:rgba(255,255,255,.48);color:var(--navy)}
+.stage-tab.active{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 3px 9px rgba(10,23,51,.22)}
+.stage-note{margin:-5px 1px 13px;color:var(--muted);font-size:12px;font-weight:800;line-height:1.55}
+.stage-panel{display:none}
+.stage-panel.active{display:block}
+.stage-status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:14px}
+.stage-status-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.stage-status-card.guaranteed{border-color:#bfe6cd;background:linear-gradient(180deg,#f4fbf7,#fff)}
+.stage-status-card.pending{border-color:#d7e0ec}
+.stage-status-card.eliminated{border-color:#f0b6bc;background:linear-gradient(180deg,#fff5f5,#fff)}
+.stage-status-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line);
+  font-size:12px;font-weight:900;color:var(--navy)}
+.stage-status-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:999px;background:#eef2f9;color:var(--navy);
+  font-size:12px;font-weight:900;padding:0 8px}
+.stage-team-list{display:flex;flex-direction:column;gap:6px;padding:10px;min-height:50px}
+.stage-team-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 9px;border-radius:9px;background:#f7faff;
+  font-size:12px;font-weight:800;min-width:0}
+.stage-team-row .team-ltr{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+.stage-team-row.eliminated{background:#fff0f1;color:#a92f3d}
+.stage-team-row.guaranteed{background:#e4f7ec;color:var(--green-d)}
+.stage-team-row.pending{background:#f7faff;color:var(--txt)}
+.stage-pct{flex-shrink:0;border-radius:999px;background:#fff;border:1px solid #d8e0ec;color:var(--navy);font-size:11px;font-weight:900;padding:2px 7px}
+.stage-games-title{font-size:14px;font-weight:900;margin:2px 0 9px;color:var(--navy)}
+.stage-games{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:14px}
+.stage-game{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;padding:10px 12px}
+.stage-game.eliminated{border-color:#f0b6bc}
+.stage-game-num{color:var(--muted);font-size:11px;font-weight:900;margin-bottom:7px;text-align:center}
+.stage-game-row{display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);align-items:center;gap:7px;font-size:14px;font-weight:700;direction:ltr}
+.stage-game-row>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stage-game-row>span:first-child{text-align:left}
+.stage-game-row>span:last-child{text-align:right}
+.stage-game-row .team-ltr{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+.stage-game-row .team-win{font-weight:700;color:var(--navy)}
+.stage-game-row .team-loss{font-weight:500;color:var(--muted)}
+.stage-game-row .team-out{color:#a92f3d;text-decoration:line-through;text-decoration-thickness:1.5px}
+.stage-game-score{background:var(--navy);color:#fff;border-radius:8px;padding:3px 10px;font-weight:900;min-width:48px;text-align:center;direction:ltr;unicode-bidi:bidi-override}
+.stage-warning{margin:9px 0 0;padding:7px 9px;border-radius:8px;background:#fff0f1;color:#a92f3d;font-size:12px;font-weight:800;text-align:center}
+.stage-standings{margin-top:2px}
 .bracket{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-bottom:8px}
 .bcol h4{font-size:12px;text-align:center;color:var(--muted);margin-bottom:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
 .bmatch{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:7px;overflow:hidden;font-size:12px;box-shadow:var(--shadow)}
@@ -435,6 +478,11 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   .pick-kpi .k{font-size:11px}.pick-kpi .v{font-size:13px}.rank-v{width:24px;height:24px;border-radius:8px;font-size:15px}
   .pick-kpi.scorers .v{font-size:13px}
   .brk{gap:5px}.stage-chip{padding:7px 5px}.stage-chip .label{font-size:10px}.stage-chip .pts{font-size:16px}.stage-chip .unit{font-size:10px}
+  .stage-tabs{gap:4px;margin-bottom:11px;padding:4px}
+  .stage-tab{font-size:12px;padding:7px 10px}
+  .stage-status-grid{grid-template-columns:1fr;gap:8px}
+  .stage-team-list{padding:8px}
+  .stage-games{grid-template-columns:1fr;gap:8px}
   .gcompare{grid-template-columns:1fr;gap:12px}
   .gpair-tables{grid-template-columns:1fr 1fr}
   .gpair-tables .gtable+.gtable{border-inline-start:1px solid var(--line);border-top:none}
@@ -832,6 +880,158 @@ function appendFold(parent, title, children){
   d.appendChild(s); d.appendChild(b); parent.appendChild(d);
   return d;
 }
+const STAGES=[
+  {key:'group',label:'בתים',popKey:'r32',matches:'group'},
+  {key:'r32',label:'32 האחרונות',popKey:'r32',matches:'r32'},
+  {key:'r16',label:'שמינית',popKey:'r16',matches:'r16'},
+  {key:'qf',label:'רבע',popKey:'qf',matches:'qf'},
+  {key:'sf',label:'חצי',popKey:'sf',matches:'sf'},
+  {key:'final',label:'גמר',popKey:'final',matches:'final'},
+  {key:'third',label:'מקום 3',popKey:'third',matches:'third'}
+];
+const STAGE_INDEX={r32:0,r16:1,qf:2,sf:3,final:4,third:4};
+function uniq(arr){ return [...new Set((arr||[]).filter(Boolean))]; }
+function participantStageTeams(p, key){
+  if(!p) return [];
+  if(key==='group'){
+    const direct=(p.standings||[]).flatMap(g=>(g.rows||[]).filter(r=>r.place<=2).map(r=>r.team));
+    const thirds=(p.third_places||[]).filter(r=>r.qualified).map(r=>r.team);
+    return uniq(direct.concat(thirds));
+  }
+  return uniq(((p.bracket||{})[key]||[]).flatMap(m=>[m.t1,m.t2]));
+}
+function stagePopularityMap(stageKey){
+  const counts=new Map();
+  Object.values(D.participants||{}).forEach(p=>{
+    participantStageTeams(p,stageKey).forEach(tm=>counts.set(tm,(counts.get(tm)||0)+1));
+  });
+  return counts;
+}
+const STAGE_POPULARITY=Object.fromEntries(['r32','r16','qf','sf','final','third'].map(k=>[k,stagePopularityMap(k)]));
+function stagePct(teamName, stageKey, participant){
+  const total=Object.keys(D.participants||{}).length;
+  if(!total) return 0;
+  return Math.round(((STAGE_POPULARITY[stageKey].get(teamName)||0)/total)*100);
+}
+function knockoutRoundFromDate(dateText){
+  const s=String(dateText||'');
+  const m=s.match(/(?:Jun|June)\s+(\d+)|(?:Jul|July)\s+(\d+)/i);
+  if(!m) return null;
+  const isJul=/Jul/i.test(s), day=+(m[1]||m[2]);
+  if(!isJul && day>=28) return 'r32';
+  if(isJul && day<=3) return 'r32';
+  if(isJul && day>=4 && day<=8) return 'r16';
+  if(isJul && day>=9 && day<=12) return 'qf';
+  if(isJul && day>=14 && day<=16) return 'sf';
+  if(isJul && day===18) return 'third';
+  if(isJul && day===19) return 'final';
+  return null;
+}
+function actualStageState(){
+  const guaranteedR32=new Set(((D.stats||{}).qualification_accuracy||{}).guaranteed_teams||[]);
+  const reached={r32:new Set(guaranteedR32),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
+  const eliminatedFromGroup=new Set();
+  const qualifiedThird=new Set((D.third_places||[]).filter(r=>r.qualified).map(r=>r.team));
+  (D.standings||[]).forEach(g=>{
+    const rows=g.rows||[];
+    const complete=rows.length && rows.every(r=>((r.W||0)+(r.D||0)+(r.L||0))>=3);
+    if(!complete) return;
+    rows.forEach(r=>{
+      if(r.place<=2 || qualifiedThird.has(r.team)) reached.r32.add(r.team);
+      else if(r.place>=4) eliminatedFromGroup.add(r.team);
+    });
+  });
+  const eliminatedByRound={r32:new Set(),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
+  (D.results||[]).filter(m=>m.played && m.num>72).forEach(m=>{
+    const rk=knockoutRoundFromDate(m.date);
+    if(!rk || m.hs==null || m.as==null || m.hs===m.as) return;
+    const winner=m.hs>m.as?m.home:m.away, loser=m.hs>m.as?m.away:m.home;
+    const next={r32:'r16',r16:'qf',qf:'sf',sf:'final'}[rk];
+    if(next) reached[next].add(winner);
+    eliminatedByRound[rk].add(loser);
+  });
+  return {reached,eliminatedFromGroup,eliminatedByRound};
+}
+const ACTUAL_STAGE_STATE=actualStageState();
+function stageStatus(teamName, stageKey){
+  const key=stageKey==='group'?'r32':stageKey;
+  if((ACTUAL_STAGE_STATE.reached[key]||new Set()).has(teamName)) return 'guaranteed';
+  if(ACTUAL_STAGE_STATE.eliminatedFromGroup.has(teamName)) return 'eliminated';
+  const idx=STAGE_INDEX[key] ?? 0;
+  for(const [rk,set] of Object.entries(ACTUAL_STAGE_STATE.eliminatedByRound)){
+    if((STAGE_INDEX[rk] ?? 0)<idx && set.has(teamName)) return 'eliminated';
+  }
+  return 'pending';
+}
+function statusRowsHtml(items, cls, participant, popKey){
+  return [...items].sort((a,b)=>stagePct(b,popKey,participant)-stagePct(a,popKey,participant) || a.localeCompare(b))
+    .map(tm=>`<div class="stage-team-row ${cls}"><span>${team(tm)}</span><span class="stage-pct">${stagePct(tm,popKey,participant)}%</span></div>`).join('');
+}
+function stageStatusHtml(teams, participant, stage){
+  const buckets={guaranteed:[],pending:[],eliminated:[]};
+  teams.forEach(tm=>buckets[stageStatus(tm,stage.key)].push(tm));
+  const cards=[
+    ['guaranteed','הבטיחו מקום'],
+    ['eliminated','הודחו'],
+    ['pending','עדיין בתמונה']
+  ].filter(([k])=>buckets[k].length);
+  if(!cards.length) return '';
+  return `<div class="stage-status-grid">${cards.map(([k,label])=>`<div class="stage-status-card ${k}">
+    <div class="stage-status-head"><span>${label}</span><span class="stage-status-count">${buckets[k].length}</span></div>
+    <div class="stage-team-list">${statusRowsHtml(buckets[k],k,participant,stage.popKey)}</div>
+  </div>`).join('')}</div>`;
+}
+function stageGameCardHtml(m, i, stage){
+  const teams=[m.t1,m.t2], out=teams.filter(t=>stageStatus(t,stage.key)==='eliminated');
+  const sideClass=t=>`${m.win===t?'team-win':'team-loss'} ${out.includes(t)?'team-out':''}`;
+  const score=`${m.s1??''}-${m.s2??''}`;
+  return `<div class="stage-game ${out.length?'eliminated':''}">
+    <div class="stage-game-num">${stage.label} · משחק ${i+1}</div>
+    <div class="stage-game-row"><span class="${sideClass(m.t1)}">${team(m.t1)}</span><span class="stage-game-score">${score}</span><span class="${sideClass(m.t2)}">${team(m.t2)}</span></div>
+    ${out.length?`<div class="stage-warning">${out.map(team).join(' · ')} כבר הודחה מהמסלול הזה</div>`:''}
+  </div>`;
+}
+function groupMatchesHtml(participant){
+  let h=`<div class="card"><table class="mtable"><thead><tr><th>#</th><th>בית</th><th>ניחוש</th><th>תוצאה</th><th>חוץ</th><th>נק׳</th></tr></thead><tbody>`;
+  (participant.matches||[]).forEach(m=>{
+    const ptcell = m.pts==null?'' : `<span class="pp p${m.pts}">${m.pts}</span>`;
+    h+=`<tr><td>${m.num}</td><td class="h ${scoreSideClass(m.actual,'home')}">${team(m.home)}</td><td><b class="score-ltr">${m.pred}</b></td>
+      <td><span class="score-ltr">${m.actual||'—'}</span></td><td class="a ${scoreSideClass(m.actual,'away')}">${team(m.away)}</td><td>${ptcell}</td></tr>`;
+  });
+  return h+'</tbody></table></div>';
+}
+function stagePanelHtml(participant, stage){
+  const teams=participantStageTeams(participant,stage.key);
+  let h=`<div class="stage-panel ${stage.key==='group'?'active':''}" data-stage="${stage.key}">`;
+  if(stage.key==='group'){
+    h+=`<div class="stage-games-title">טבלאות הבתים</div>`;
+    const actualByGroup=new Map((D.standings||[]).map(g=>[g.group,g]));
+    h+='<div class="gcompare">';
+    (participant.standings||[]).forEach(g=>{
+      const actual=actualByGroup.get(g.group);
+      h+=`<div class="gpair"><div class="gpair-title"><span class="gpair-name">בית ${g.group}</span></div>
+        <div class="gpair-tables">${groupTableHtml(g.group,g.rows,'pred')}${groupTableHtml(g.group,actual&&actual.rows,'actual')}</div></div>`;
+    });
+    h+='</div>';
+    h+=`<div class="stage-games-title stage-standings">דירוג מקומות 3</div>
+      <div class="gpair third-compare"><div class="gpair-tables">
+        ${thirdPlaceTableHtml(participant.third_places,'pred')}
+        ${thirdPlaceTableHtml(D.third_places,'actual')}
+      </div></div>`;
+    h+=`<div class="stage-games-title stage-standings">ניחושי משחקי הבתים</div>${groupMatchesHtml(participant)}`;
+  } else {
+    const matches=((participant.bracket||{})[stage.matches]||[]);
+    h+=stageStatusHtml(teams,participant,stage);
+    h+=`<div class="stage-games-title">המשחקים בניחוש</div><div class="stage-games">${matches.map((m,i)=>stageGameCardHtml(m,i,stage)).join('')}</div>`;
+  }
+  return h+'</div>';
+}
+function setParticipantStageTab(key){
+  document.querySelectorAll('.stage-tab').forEach(b=>b.classList.toggle('active',b.dataset.stage===key));
+  document.querySelectorAll('.stage-panel').forEach(p=>p.classList.toggle('active',p.dataset.stage===key));
+  const note=$('.stage-note');
+  if(note) note.hidden = key === 'group';
+}
 function openForm(name,switchTab=true){
   curForm=name;
   if(switchTab){
@@ -858,53 +1058,19 @@ function openForm(name,switchTab=true){
   body.appendChild(k);
   const brk=el('div','brk');
   brk.innerHTML=`<div class="stage-chip"><span class="label">בתים</span><span class="pts">${t.group}<span class="unit">נק׳</span></span></div>
-    <div class="stage-chip"><span class="label">נוקאאוט</span><span class="pts">${t.knockout}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">התקדמות</span><span class="pts">${t.progression}<span class="unit">נק׳</span></span></div>
+    <div class="stage-chip"><span class="label">נוקאאוט</span><span class="pts">${t.knockout}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">מלך שערים</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
   body.appendChild(brk);
-  // standings
-  const actualByGroup=new Map((D.standings||[]).map(g=>[g.group,g]));
-  const mc=el('div','gcompare');
-  p.standings.forEach(g=>{
-    const actual=actualByGroup.get(g.group);
-    const gp=el('div','gpair');
-    gp.innerHTML=`<div class="gpair-title"><span class="gpair-name">בית ${g.group}</span></div>
-      <div class="gpair-tables">
-        ${groupTableHtml(g.group,g.rows,'pred')}
-        ${groupTableHtml(g.group,actual&&actual.rows,'actual')}
-      </div>`;
-    mc.appendChild(gp);
-  });
-  appendFold(body,'📊 טבלאות הבתים',mc);
-  const thirds=el('div','gpair third-compare');
-  thirds.innerHTML=`<div class="gpair-tables">
-      ${thirdPlaceTableHtml(p.third_places,'pred')}
-      ${thirdPlaceTableHtml(D.third_places,'actual')}
-    </div>`;
-  appendFold(body,'📈 דירוג מקומות 3',thirds);
-  // group match predictions
-  const card=el('div','card');
-  let h=`<table class="mtable"><thead><tr><th>#</th><th>בית</th><th>ניחוש</th><th>תוצאה</th><th>חוץ</th><th>נק׳</th></tr></thead><tbody>`;
-  p.matches.forEach(m=>{
-    const ptcell = m.pts==null?'' : `<span class="pp p${m.pts}">${m.pts}</span>`;
-    h+=`<tr><td>${m.num}</td><td class="h ${scoreSideClass(m.actual,'home')}">${team(m.home)}</td><td><b class="score-ltr">${m.pred}</b></td>
-      <td><span class="score-ltr">${m.actual||'—'}</span></td><td class="a ${scoreSideClass(m.actual,'away')}">${team(m.away)}</td><td>${ptcell}</td></tr>`;
-  });
-  h+='</tbody></table>'; card.innerHTML=h; appendFold(body,'⚽ ניחושי שלב הבתים',card);
-  // bracket
-  const labels={r32:'1/16',r16:'1/8',qf:'1/4',sf:'1/2',final:'גמר',third:'מקום 3'};
-  const br=el('div','bracket');
-  ['r32','r16','qf','sf','final','third'].forEach(rk=>{
-    const col=el('div','bcol'); col.appendChild(el('h4',null,labels[rk]));
-    p.bracket[rk].forEach(m=>{
-      const bm=el('div','bmatch');
-      bm.innerHTML=`<div class="bteam ${m.win===m.t1?'w':''}"><span>${team(m.t1)}</span><span class="s">${m.s1??''}</span></div>
-        <div class="bteam ${m.win===m.t2?'w':''}"><span>${team(m.t2)}</span><span class="s">${m.s2??''}</span></div>`;
-      col.appendChild(bm);
-    });
-    br.appendChild(col);
-  });
-  appendFold(body,'🏟️ הברקט',br);
+  const tabs=el('div','stage-tabs');
+  tabs.innerHTML=STAGES.map((s,i)=>`<button type="button" class="stage-tab ${i===0?'active':''}" data-stage="${s.key}" onclick="setParticipantStageTab('${s.key}')">${s.label}</button>`).join('');
+  body.appendChild(tabs);
+  const panels=el('div','stage-panels');
+  const note=el('div','stage-note','האחוז = המשתתפים שהביאו את הנבחרת לשלב הזה');
+  note.hidden=true;
+  body.appendChild(note);
+  panels.innerHTML=STAGES.map(s=>stagePanelHtml(p,s)).join('');
+  body.appendChild(panels);
   window.scrollTo(0,0);
 }
 

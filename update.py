@@ -619,7 +619,7 @@ def build_all():
                                                                    "pct": {"home": 0, "draw": 0, "away": 0}})}
                      for g in store["group_matches"]],
           "standings":actual_standings,
-          "third_places":third_place_table(actual_standings),
+          "third_places":third_place_table(actual_standings, store.get("qualified_r32_teams", [])),
           "participants":participants,
           "stats":build_stats(preds, scores, store)}
     # optional payments

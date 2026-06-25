@@ -10,7 +10,11 @@
       "away": "South Africa",
       "home_score": 2,
       "away_score": 0,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     },
     {
       "num": 2,
@@ -19,7 +23,11 @@
       "away": "Czech Republic",
       "home_score": 2,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 3,
@@ -28,7 +36,11 @@
       "away": "Bosnia and Herzegovina",
       "home_score": 1,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 4,
@@ -37,7 +49,11 @@
       "away": "Paraguay",
       "home_score": 4,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+9'",
+      "status_detail": "FT"
     },
     {
       "num": 5,
@@ -46,7 +62,11 @@
       "away": "Scotland",
       "home_score": 0,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     },
     {
       "num": 6,
@@ -55,7 +75,11 @@
       "away": "Turkey",
       "home_score": 2,
       "away_score": 0,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 7,
@@ -64,7 +88,11 @@
       "away": "Morocco",
       "home_score": 1,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+25'",
+      "status_detail": "FT"
     },
     {
       "num": 8,
@@ -73,7 +101,11 @@
       "away": "Switzerland",
       "home_score": 1,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 9,
@@ -82,7 +114,11 @@
       "away": "Ecuador",
       "home_score": 1,
       "away_score": 0,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     },
     {
       "num": 10,
@@ -91,7 +127,11 @@
       "away": "Curaçao",
       "home_score": 7,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 11,
@@ -100,7 +140,11 @@
       "away": "Japan",
       "home_score": 2,
       "away_score": 2,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 12,
@@ -109,7 +153,11 @@
       "away": "Tunisia",
       "home_score": 5,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 13,
@@ -118,7 +166,11 @@
       "away": "Uruguay",
       "home_score": 1,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     },
     {
       "num": 14,
@@ -127,7 +179,11 @@
       "away": "Cape Verde",
       "home_score": 0,
       "away_score": 0,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+5'",
+      "status_detail": "FT"
     },
     {
       "num": 15,
@@ -136,7 +192,11 @@
       "away": "New Zealand",
       "home_score": 2,
       "away_score": 2,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+5'",
+      "status_detail": "FT"
     },
     {
       "num": 16,
@@ -145,7 +205,11 @@
       "away": "Egypt",
       "home_score": 1,
       "away_score": 1,
-      "played": true
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+5'",
+      "status_detail": "FT"
     },
     {
       "num": 17,
