@@ -711,12 +711,12 @@
       "home": "Curaçao",
       "away": "Ivory Coast",
       "home_score": 0,
-      "away_score": 1,
+      "away_score": 2,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "58'",
-      "status_detail": "58'"
+      "display_clock": "69'",
+      "status_detail": "69'"
     },
     {
       "num": 56,
@@ -728,8 +728,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "59'",
-      "status_detail": "59'"
+      "display_clock": "70'",
+      "status_detail": "70'"
     },
     {
       "num": 57,
