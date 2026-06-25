@@ -710,18 +710,26 @@
       "date": "Jun 25, 2026",
       "home": "Curaçao",
       "away": "Ivory Coast",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 1,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "num": 56,
       "date": "Jun 25, 2026",
       "home": "Ecuador",
       "away": "Germany",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 1,
+      "away_score": 1,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "num": 57,
