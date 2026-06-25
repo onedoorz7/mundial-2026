@@ -621,12 +621,12 @@
       "home": "Czech Republic",
       "away": "Mexico",
       "home_score": 0,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "49'",
-      "status_detail": "49'"
+      "display_clock": "59'",
+      "status_detail": "59'"
     },
     {
       "num": 54,
@@ -638,8 +638,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "49'",
-      "status_detail": "49'"
+      "display_clock": "59'",
+      "status_detail": "59'"
     },
     {
       "num": 55,
