@@ -763,12 +763,12 @@
       "home": "Turkey",
       "away": "United States",
       "home_score": 2,
-      "away_score": 1,
+      "away_score": 2,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "47'",
-      "status_detail": "47'"
+      "display_clock": "58'",
+      "status_detail": "58'"
     },
     {
       "num": 60,
@@ -780,8 +780,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "47'",
-      "status_detail": "47'"
+      "display_clock": "57'",
+      "status_detail": "57'"
     },
     {
       "num": 61,
