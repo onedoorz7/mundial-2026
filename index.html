@@ -268,20 +268,25 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .stage-team-row.pending{background:#f7faff;color:var(--txt)}
 .stage-pct{flex-shrink:0;border-radius:999px;background:#fff;border:1px solid #d8e0ec;color:var(--navy);font-size:11px;font-weight:900;padding:2px 7px}
 .stage-games-title{font-size:14px;font-weight:900;margin:2px 0 9px;color:var(--navy)}
-.stage-games{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:14px}
-.stage-game{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;padding:10px 12px}
-.stage-game.eliminated{border-color:#f0b6bc}
-.stage-game-num{color:var(--muted);font-size:11px;font-weight:900;margin-bottom:7px;text-align:center}
-.stage-game-row{display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);align-items:center;gap:7px;font-size:14px;font-weight:700;direction:ltr}
+.stage-games{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:14px}
+.stage-game{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);overflow:hidden}
+.stage-game-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:var(--muted);font-size:11px;font-weight:500;padding:12px 14px 9px}
+.stage-game-date{text-align:left;direction:ltr}
+.stage-game-num{text-align:right}
+.stage-game-line{padding:12px 14px}
+.stage-game-line.predicted{background:#eef5ff}
+.stage-game-line.actual{background:#effaf3;padding-top:15px}
+.stage-game-actual-label{position:relative;height:0;text-align:center;z-index:1}
+.stage-game-actual-label>span{position:relative;top:-11px;display:inline-block;background:#f6f9fe;color:#52617a;font-size:10px;font-weight:600;line-height:16px;padding:0 9px;border:1px solid #d8e0ec;border-radius:999px}
+.stage-game-row{display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);align-items:center;gap:7px;font-size:14px;font-weight:500;direction:ltr}
 .stage-game-row>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .stage-game-row>span:first-child{text-align:left}
 .stage-game-row>span:last-child{text-align:right}
 .stage-game-row .team-ltr{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 .stage-game-row .team-win{font-weight:700;color:var(--navy)}
-.stage-game-row .team-loss{font-weight:500;color:var(--muted)}
-.stage-game-row .team-out{color:#a92f3d;text-decoration:line-through;text-decoration-thickness:1.5px}
+.stage-game-row .team-loss{font-weight:500;color:var(--txt)}
 .stage-game-score{background:var(--navy);color:#fff;border-radius:8px;padding:3px 10px;font-weight:900;min-width:48px;text-align:center;direction:ltr;unicode-bidi:bidi-override}
-.stage-warning{margin:9px 0 0;padding:7px 9px;border-radius:8px;background:#fff0f1;color:#a92f3d;font-size:12px;font-weight:800;text-align:center}
+.stage-game-line.actual .stage-game-score{background:#e4eaf3;color:#41516a}
 .stage-standings{margin-top:2px}
 .bracket{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:8px;margin-bottom:8px}
 .bcol h4{font-size:12px;text-align:center;color:var(--muted);margin-bottom:8px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
@@ -1028,13 +1033,23 @@ function actualStageState(){
   const reached={r32:new Set(guaranteedR32),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
   const eliminatedFromGroup=new Set();
   const qualifiedThird=new Set((D.third_places||[]).filter(r=>r.qualified).map(r=>r.team));
+  const thirdRankByTeam=new Map((D.third_places||[]).map(r=>[r.team,r.rank]));
+  const completeGroups=new Set();
   (D.standings||[]).forEach(g=>{
     const rows=g.rows||[];
     const complete=rows.length && rows.every(r=>((r.W||0)+(r.D||0)+(r.L||0))>=3);
-    if(!complete) return;
+    if(complete) completeGroups.add(g.group);
+  });
+  const allGroupsComplete=(D.standings||[]).length>0 && completeGroups.size===(D.standings||[]).length;
+  (D.standings||[]).forEach(g=>{
+    const rows=g.rows||[];
+    if(!completeGroups.has(g.group)) return;
     rows.forEach(r=>{
-      if(r.place<=2 || qualifiedThird.has(r.team)) reached.r32.add(r.team);
-      else if(r.place>=4) eliminatedFromGroup.add(r.team);
+      if(r.place<=2 || qualifiedThird.has(r.team) || (allGroupsComplete && r.place===3 && (thirdRankByTeam.get(r.team)||99)<=8)){
+        reached.r32.add(r.team);
+      } else if(r.place>=4 || (allGroupsComplete && r.place===3 && (thirdRankByTeam.get(r.team)||99)>8)){
+        eliminatedFromGroup.add(r.team);
+      }
     });
   });
   const eliminatedByRound={r32:new Set(),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
@@ -1077,14 +1092,46 @@ function stageStatusHtml(teams, participant, stage){
     <div class="stage-team-list"><div class="stage-status-note">האחוז = המשתתפים שהביאו את הנבחרת לשלב הזה</div>${statusRowsHtml(buckets[k],k,participant,stage.popKey)}</div>
   </details>`).join('')}</div>`;
 }
+function actualKnockoutMatch(stageKey, index){
+  const matches=(D.knockout_results||[]).filter(m=>m.stage===stageKey);
+  if(stageKey==='r32'){
+    const bracketToDateOrder=[2,5,0,3,11,10,9,8,1,4,6,7,14,13,12,15];
+    const mapped=bracketToDateOrder[index];
+    return mapped==null ? null : (matches[mapped] || null);
+  }
+  return matches[index] || null;
+}
+function actualStageTeam(n){
+  return isTbdTeamName(n) ? '<span class="team-ltr">TBD</span>' : team(n);
+}
+function actualStageScore(m){
+  if(m && m.hs!=null && m.as!=null) return `${m.hs}-${m.as}`;
+  return 'vs';
+}
+function stageGameDate(m){
+  return m ? resultDate(m) : '';
+}
+function actualStageSideClass(m, side){
+  if(!m || !m.played || m.hs==null || m.as==null || m.hs===m.as) return '';
+  return side==='home'
+    ? (m.hs>m.as ? 'team-win' : 'team-loss')
+    : (m.as>m.hs ? 'team-win' : 'team-loss');
+}
 function stageGameCardHtml(m, i, stage){
   const teams=[m.t1,m.t2], out=teams.filter(t=>stageStatus(t,stage.key)==='eliminated');
   const sideClass=t=>`${m.win===t?'team-win':'team-loss'} ${out.includes(t)?'team-out':''}`;
   const score=`${m.s1??''}-${m.s2??''}`;
-  return `<div class="stage-game ${out.length?'eliminated':''}">
-    <div class="stage-game-num">${stage.label} · משחק ${i+1}</div>
-    <div class="stage-game-row"><span class="${sideClass(m.t1)}">${team(m.t1)}</span><span class="stage-game-score">${score}</span><span class="${sideClass(m.t2)}">${team(m.t2)}</span></div>
-    ${out.length?`<div class="stage-warning">${out.map(team).join(' · ')} כבר הודחה מהמסלול הזה</div>`:''}
+  const actual=actualKnockoutMatch(stage.key,i);
+  const actualRow=actual ? `<div class="stage-game-line actual">
+      <div class="stage-game-row"><span class="${actualStageSideClass(actual,'home')}">${actualStageTeam(actual.home)}</span><span class="stage-game-score">${actualStageScore(actual)}</span><span class="${actualStageSideClass(actual,'away')}">${actualStageTeam(actual.away)}</span></div>
+    </div>` : '';
+  return `<div class="stage-game">
+    <div class="stage-game-head"><span class="stage-game-num">משחק ${actual&&actual.num?actual.num:i+1}</span><span></span><span class="stage-game-date">${stageGameDate(actual)}</span></div>
+    <div class="stage-game-line predicted">
+      <div class="stage-game-row"><span class="${sideClass(m.t1)}">${team(m.t1)}</span><span class="stage-game-score">${score}</span><span class="${sideClass(m.t2)}">${team(m.t2)}</span></div>
+    </div>
+    ${actual?'<div class="stage-game-actual-label"><span>בפועל</span></div>':''}
+    ${actualRow}
   </div>`;
 }
 function groupMatchesHtml(participant){
