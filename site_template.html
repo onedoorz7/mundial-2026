@@ -161,8 +161,11 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .match.live:hover{border-color:var(--red);box-shadow:0 8px 22px rgba(226,59,80,.16)}
 .match.up{background:#fbfdff;border-color:#d9e2ee;box-shadow:0 1px 2px rgba(16,32,64,.04)}
 .match.up:hover{border-color:#b8c9df;box-shadow:var(--shadow);transform:none}
+.match.no-click{cursor:default}
+.match.no-click:hover{border-color:var(--line);box-shadow:var(--shadow);transform:none}
 .mtap{margin-top:9px;text-align:center;font-size:11px;font-weight:800;color:var(--blue);border-top:1px dashed var(--line);padding-top:7px}
 .match.up .mtap{color:var(--muted)}
+.mtap.no-guess{color:var(--muted)}
 .match .mh{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-size:11px;color:var(--muted);margin-bottom:7px}
 .match .mh-date{text-align:left}
 .match .mh-num{text-align:right}
@@ -188,6 +191,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .outcome-seg .mark{display:inline-flex;align-items:center;color:inherit;opacity:.9}
 .outcome-seg .mark .fl,.outcome-seg .mark .flsvg{margin-inline-end:0}
 .outcome-seg .pct{font-size:12px;color:inherit}
+.outcome-split.ko{width:min(86%,380px)}
 .live-chip{color:var(--red);font-weight:400}
 
 /* ---------- browse ---------- */
@@ -335,7 +339,6 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   background:var(--navy);color:#fff;font-family:inherit;font-weight:800;font-size:15px;cursor:pointer}
 .gate-box button:hover{background:var(--navy2)}
 .gate-err{color:var(--red);font-size:13px;margin-top:9px;min-height:18px;font-weight:700}
-.foot{text-align:center;color:var(--muted);font-size:12px;margin-top:34px;line-height:1.9}
 .collapse-row td{padding:0;border:none}
 .detail{background:#f7faff;padding:12px 16px;font-size:13px}
 
@@ -397,10 +400,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .mm-rank{font-size:12px;font-weight:800;color:var(--muted);min-width:20px;text-align:center}
 .mm-name{flex:1;font-weight:700;font-size:14px;color:var(--blue);cursor:pointer}
 .mm-pred{font-weight:800;font-size:14px;background:#eef2f9;border-radius:7px;padding:3px 10px;min-width:48px;text-align:center}
-
-/* ---------- trademark ---------- */
-.trademark{text-align:center;margin-top:34px;font-weight:900;letter-spacing:.5px;color:var(--navy);font-size:14px}
-.trademark span{color:var(--gold-d)}
+.mm-empty{padding:28px 18px 34px;text-align:center;color:var(--muted);font-size:14px;font-weight:800;line-height:1.7}
 
 /* ---------- statistics + trends ---------- */
 .stats-card .muted-note{padding:12px 14px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);line-height:1.6}
@@ -444,6 +444,16 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .trend-chart-card.has-focus .trend-label-guide.active{opacity:.85;stroke-width:1.4}
 .trend-chart-card.has-focus .trend-end-label.active{opacity:1}
 .trend-chart-card .pay-upd{margin-top:10px}
+
+/* ---------- rules ---------- */
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.rule-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 15px;min-width:0}
+.rule-title{font-size:15px;font-weight:900;color:var(--navy);margin-bottom:9px}
+.rule-list{display:flex;flex-direction:column;gap:8px;color:var(--txt);font-size:13px;font-weight:700;line-height:1.55}
+.rule-item{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed #dbe4f0;padding-bottom:7px}
+.rule-item:last-child{border-bottom:none;padding-bottom:0}
+.rule-points{flex-shrink:0;color:var(--green-d);font-weight:900;white-space:nowrap}
+.rules-note{margin-top:12px;color:var(--muted);font-size:12px;font-weight:800;line-height:1.8;text-align:center}
 
 /* ---------- responsive ---------- */
 @media(max-width:760px){
@@ -544,6 +554,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   <button data-v="stats">📊 סטטיסטיקות</button>
   <button data-v="pay">💸 בושה!</button>
   <button data-v="trends">📈 מגמות</button>
+  <button data-v="rules">📜 חוקים</button>
  </nav>
 </div>
 <main class="wrap">
@@ -554,11 +565,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
  <section id="stats" class="view"></section>
  <section id="pay" class="view"></section>
  <section id="trends" class="view"></section>
- <div class="trademark">התערבות מונדיאל™ · <span>Since 2010</span></div>
- <div class="foot">
-  אתר צפייה בלבד · הנתונים מתעדכנים אוטומטית מדי בוקר · מקור תוצאות: <span id="m-src"></span><br>
-  הניקוד לפי חוקי ההתערבות: כיוון נכון 1 · תוצאה מדויקת 2 · מדויקת 4+ גולים 3 · התקדמות בבית 4/5/7/10/14/16 · מלך שערים 12
- </div>
+ <section id="rules" class="view"></section>
 </main>
 <div id="modal" class="modal" hidden>
  <div class="modal-card">
@@ -649,8 +656,6 @@ function currentMatchPts(pred, actual){
   if(((hg-ag>0)===(hs-as>0)) && ((hg-ag<0)===(hs-as<0))) return 1;
   return 0;
 }
-$('#m-src').textContent = D.meta.source;
-
 // ---- nav ----
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));
@@ -834,11 +839,16 @@ function resultMatchCardHtml(m, focus){
     const points=hasPoints(m);
   const isGroup=!m.stage || m.stage==='group';
     const sc=result?`${m.hs}-${m.as}`:'vs';
-  const split=isGroup ? outcomeSplitHtml(m) : '';
-  const tap=isGroup ? `<div class="mtap">${points?'הניחושים והנקודות':'הניחושים של כולם'} ›</div>` : '';
-  const click=isGroup ? ` onclick="openMatch(${m.num})"` : '';
+  const hasTbd=!isGroup && (isTbdTeamName(m.home) || isTbdTeamName(m.away));
+  const exactGuesses=((m.prediction_split||{}).total||0);
+  const split=isGroup ? outcomeSplitHtml(m) : (!hasTbd && exactGuesses ? knockoutSplitHtml(m) : '');
+  const tap=isGroup
+    ? `<div class="mtap">${points?'הניחושים והנקודות':'הניחושים של כולם'} ›</div>`
+    : (hasTbd ? '' : exactGuesses ? `<div class="mtap">${exactGuesses} ניחשו את המשחק הזה ›</div>` : `<div class="mtap no-guess">אף אחד לא ניחש את המשחק הזה</div>`);
+  const click=isGroup ? ` onclick="openMatch(${m.num})"` : (!hasTbd && exactGuesses ? ` onclick="openKnockoutMatch(${m.num})"` : '');
+  const noClick=!isGroup && (hasTbd || !exactGuesses);
   const latest=(focus && focus.num===m.num && matchStageKey(focus)===matchStageKey(m)) ? ` data-latest-played="true"` : '';
-  return `<div class="match${result?'':' up'}${m.live?' live':''}" data-match-num="${m.num}"${latest}${click}>
+  return `<div class="match${result?'':' up'}${m.live?' live':''}${noClick?' no-click':''}" data-match-num="${m.num}"${latest}${click}>
      <div class="mh"><span class="mh-num">משחק ${m.num}</span><span class="mh-live">${liveLabel(m)}</span><span class="mh-date">${resultDate(m)}</span></div>
      <div class="teams"><span class="${matchSideClass(m,'home')}">${resultTeam(m.home,isGroup)}</span><span class="sc">${sc}</span><span class="${matchSideClass(m,'away')}">${resultTeam(m.away,isGroup)}</span></div>
      ${tap}
@@ -881,6 +891,26 @@ function outcomeSplitHtml(m){
   const showFavorite=!actual;
   const maxPct=Math.max(...items.map(x=>x.pct));
   return `<div class="outcome-split" title="${s.total} ניחושים">${
+    items.map(x=>`<div class="outcome-seg ${x.key}${showFavorite&&x.pct===maxPct?' fav':''}${actual===x.key?' correct':''}"
+      title="${escAttr(x.label)}: ${x.count} מתוך ${s.total}">
+      <span class="mark">${x.mark}</span><span class="pct">${x.pct}%</span>
+    </div>`).join('')
+  }</div>`;
+}
+
+function knockoutSplitHtml(m){
+  const s=m.prediction_split;
+  if(!s || !s.total) return '';
+  const pct=s.pct||{};
+  const actual=hasPoints(m) ? (m.hs>m.as?'home':(m.hs<m.as?'away':'draw')) : '';
+  const items=[
+    {key:'home',mark:fl(m.home)||'1',label:m.home,pct:pct.home||0,count:s.home||0},
+    {key:'draw',mark:'🏳️',label:'תיקו',pct:pct.draw||0,count:s.draw||0},
+    {key:'away',mark:fl(m.away)||'2',label:m.away,pct:pct.away||0,count:s.away||0}
+  ];
+  const showFavorite=!actual;
+  const maxPct=Math.max(...items.map(x=>x.pct));
+  return `<div class="outcome-split ko" title="${s.total} ניחשו את המשחק המדויק בשלב הזה">${
     items.map(x=>`<div class="outcome-seg ${x.key}${showFavorite&&x.pct===maxPct?' fav':''}${actual===x.key?' correct':''}"
       title="${escAttr(x.label)}: ${x.count} מתוך ${s.total}">
       <span class="mark">${x.mark}</span><span class="pct">${x.pct}%</span>
@@ -1166,10 +1196,51 @@ function renderPay(){
     note.innerHTML=`${p.fee?`💰 דמי השתתפות: <b>${p.fee}</b>`:''}${(p.fee&&p.instructions)?'<br>':''}${p.instructions||''}`;
     v.appendChild(note);
   }
-  if(p.updated) v.appendChild(el('div','pay-upd','עודכן: '+p.updated));
+if(p.updated) v.appendChild(el('div','pay-upd','עודכן: '+p.updated));
 }
 // hide the בושה tab until there's a payments list
 if(!D.payments){ const pb=document.querySelector('#nav button[data-v="pay"]'); if(pb) pb.style.display='none'; }
+
+// ---- rules ----
+function ruleCard(title, rows){
+  return `<div class="rule-card"><div class="rule-title">${title}</div><div class="rule-list">${
+    rows.map(([label, points])=>`<div class="rule-item"><span>${label}</span>${points?`<span class="rule-points">${points}</span>`:''}</div>`).join('')
+  }</div></div>`;
+}
+function renderRules(){
+  const v=$('#rules'); if(!v) return; v.innerHTML='';
+  v.appendChild(el('h2','sec','📜 חוקים וניקוד'));
+  const card=el('div','rules-grid');
+  card.innerHTML=[
+    ruleCard('ניחוש תוצאה', [
+      ['אותו ניקוד לכל משחק שנספר: בתים או נוקאאוט', ''],
+      ['כיוון נכון: ניצחון / תיקו / הפסד', '1 נק׳'],
+      ['תוצאה מדויקת', '2 נק׳'],
+      ['תוצאה מדויקת במשחק עם 4+ שערים', '3 נק׳']
+    ]),
+    ruleCard('זכאות בנוקאאוט', [
+      ['התוצאה צריכה להיות בין שתי הנבחרות שרשומות בטופס', ''],
+      ['לא צריך שהמשחק יהיה במיקום המדויק בטופס, אלא רק באותו שלב', ''],
+      ['בשלבי הנוקאאוט התוצאה שנקבעת היא התוצאה בתוך הזמן החוקי: 90 דקות', '']
+    ]),
+    ruleCard('התקדמות בטורניר', [
+      ['קבוצה שהגיעה ל-32 האחרונות', '4 נק׳'],
+      ['קבוצה שהגיעה לשמינית הגמר', '5 נק׳'],
+      ['קבוצה שהגיעה לרבע הגמר', '7 נק׳'],
+      ['קבוצה שהגיעה לחצי הגמר', '10 נק׳'],
+      ['קבוצה שהגיעה לגמר', '14 נק׳'],
+      ['אלופה', '16 נק׳']
+    ]),
+    ruleCard('מלך שערים', [
+      ['פגיעה באחד ממלכי השערים שנבחרו', '12 נק׳'],
+      ['מלך השערים נקבע רק לפי מספר שערים, בלי שוברי שוויון של פיפ״א כמו בישולים או דקות משחק', ''],
+      ['אם אותו שחקן נכתב בשתי האופציות, לא מקבלים ניקוד כפול', '']
+    ])
+  ].join('');
+  v.appendChild(card);
+  v.appendChild(el('div','rules-note',
+    `אתר צפייה בלבד · הנתונים מתעדכנים אוטומטית · מקור תוצאות: ${escAttr(D.meta.source || '')}`));
+}
 
 // ---- statistics ----
 function openPersonFromStats(name){
@@ -1278,6 +1349,53 @@ function openMatch(num){
   });
   h+='</div>';
   $('#modal-body').innerHTML=h; $('#modal').hidden=false; $('.mm-list').scrollTop=0;
+}
+function openKnockoutMatch(num){
+  const m=(D.knockout_results||[]).find(x=>x.num===num); if(!m) return;
+  const result=hasResult(m);
+  const points=hasPoints(m);
+  const split=m.prediction_split||{total:0,rows:[]};
+  const actualScore=result?`${m.hs}-${m.as}`:null;
+  const rows=[...(split.rows||[])].map(r=>({
+    ...r,
+    pts:(points?currentMatchPts(r.pred,actualScore):null),
+    livePts:(m.live?currentMatchPts(r.pred,actualScore):0)
+  }));
+  if(points) rows.sort((a,b)=>(b.pts??-1)-(a.pts??-1) || (a.rank||99)-(b.rank||99));
+  else if(m.live) rows.sort((a,b)=>b.livePts-a.livePts || (a.rank||99)-(b.rank||99));
+  else rows.sort((a,b)=>(a.rank||99)-(b.rank||99));
+  const sc=actualScore||'vs';
+  const sub=m.live?` · <span class="mm-live">${liveText(m)}</span>`:(m.played?'':' · טרם שוחק');
+  let h=`<div class="modal-head">
+    <div class="mm-teams"><span class="${matchSideClass(m,'home')}">${team(m.home)}</span><span class="mm-sc ${result?'':'up'}">${sc}</span><span class="${matchSideClass(m,'away')}">${team(m.away)}</span></div>
+    <div class="mm-sub">${m.round||'נוקאאוט'} · משחק ${m.num} · ${m.date}${sub}</div></div>`;
+  if(points){
+    const scoredRows=rows.filter(r=>r.pts>0).length, exact=rows.filter(r=>r.pts>=2).length;
+    h+=`<div class="mm-stats"><span class="chip"><b>${split.total}</b> ניחשו את המשחק</span>
+      <span class="chip">✅ צדקו <b>${scoredRows}</b></span>
+      <span class="chip">🎯 מדויקים <b>${exact}</b></span></div>`;
+  } else if(m.live){
+    const scoredRows=rows.filter(r=>r.livePts>0).length, exact=rows.filter(r=>r.livePts>=2).length;
+    h+=`<div class="mm-stats"><span class="chip"><b>${split.total}</b> ניחשו את המשחק</span>
+      <span class="chip">נכון לעכשיו</span><span class="chip">✅ צדקו <b>${scoredRows}</b></span>
+      <span class="chip">🎯 מדויקים <b>${exact}</b></span></div>`;
+  } else {
+    h+=`<div class="mm-stats"><span class="chip"><b>${split.total}</b> ניחשו את המשחק המדויק בשלב הזה</span></div>`;
+  }
+  if(!rows.length){
+    h+=`<div class="mm-empty">אף משתתף לא ניחש שהמשחק הזה יקרה בדיוק בשלב הזה.</div>`;
+  } else {
+    h+='<div class="mm-list">';
+    rows.forEach((r,i)=>{
+      const pc=(points && r.pts!=null)?`<span class="pp p${r.pts}">${r.pts}</span>`:'';
+      h+=`<div class="mm-row"><span class="mm-rank">${i+1}</span>
+        <span class="mm-name" onclick="openForm('${r.name.replace(/'/g,"\\'")}');closeModal()">${r.name}</span>
+        <span class="mm-pred score-ltr">${r.pred}</span>${pc}</div>`;
+    });
+    h+='</div>';
+  }
+  $('#modal-body').innerHTML=h; $('#modal').hidden=false;
+  const list=$('.mm-list'); if(list) list.scrollTop=0;
 }
 document.getElementById('modal-x').onclick=closeModal;
 $('#modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
@@ -1409,7 +1527,7 @@ function renderTrends(){
 }
 if(!D.history || Object.keys(D.history).length<2){ const tb=document.querySelector('#nav button[data-v="trends"]'); if(tb) tb.style.display='none'; }
 
-renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderStats(); renderTrends();
+renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderStats(); renderTrends(); renderRules();
 </script>
 </body>
 </html>

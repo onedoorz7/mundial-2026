@@ -471,7 +471,7 @@ def score_one(d, store):
                    "pts":pts,"label":lab})
     kp=0; kd=[]
     predr={"Round of 32":d["r32"],"Round of 16":d["r16"],"Quarterfinals":d["qf"],
-           "Semi-Finals":d["sf"],"Final":[d["final"]]}
+           "Semi-Finals":d["sf"],"Third-Place":[d["third"]],"Final":[d["final"]]}
     for am in store.get("knockout_matches",[]):
         if am.get("home_score") is None or not am.get("played"): continue
         rnd=am.get("round"); pair={norm(am["home"]),norm(am["away"])}
@@ -549,6 +549,40 @@ def prediction_outcome_splits(preds):
         }
     return totals
 
+def knockout_prediction_splits(preds):
+    def valid_score(value):
+        return isinstance(value, (int, float))
+    totals = {}
+    stages = {
+        "r32": "Round of 32",
+        "r16": "Round of 16",
+        "qf": "Quarterfinals",
+        "sf": "Semi-Finals",
+        "third": "Third-Place",
+        "final": "Final",
+    }
+    for name, d in preds.items():
+        for stage_key, rnd in stages.items():
+            matches = [d["final"]] if stage_key == "final" else [d["third"]] if stage_key == "third" else d.get(stage_key, [])
+            for pm in matches:
+                if not pm or len(pm) < 2:
+                    continue
+                t1, t2 = pm[0].get("team"), pm[1].get("team")
+                if not t1 or not t2:
+                    continue
+                key = (rnd, frozenset((norm(t1), norm(t2))))
+                row = totals.setdefault(key, {"total": 0, "home": 0, "draw": 0, "away": 0, "rows": []})
+                row["total"] += 1
+                s1, s2 = pm[0].get("score"), pm[1].get("score")
+                if valid_score(s1) and valid_score(s2) and s1 > s2:
+                    winner = t1
+                elif valid_score(s1) and valid_score(s2) and s1 < s2:
+                    winner = t2
+                else:
+                    winner = None
+                row["rows"].append({"name": name, "t1": t1, "s1": s1, "t2": t2, "s2": s2, "winner": winner})
+    return totals
+
 ROUND_KEYS = {
     "Round of 32": "r32",
     "Round of 16": "r16",
@@ -558,10 +592,42 @@ ROUND_KEYS = {
     "Final": "final",
 }
 
-def knockout_payload(store):
+def knockout_payload(store, prediction_splits=None, rank_by_name=None):
+    def valid_score(value):
+        return isinstance(value, (int, float))
+    def score_text(value):
+        return str(value) if valid_score(value) else "—"
+    prediction_splits = prediction_splits or {}
+    rank_by_name = rank_by_name or {}
     rows = []
     for i, m in enumerate(store.get("knockout_matches", []), 1):
         rnd = m.get("round") or ""
+        pred = prediction_splits.get((rnd, frozenset((norm(m.get("home")), norm(m.get("away"))))))
+        prediction = None
+        if pred:
+            aligned_rows = []
+            home_count = draw_count = away_count = 0
+            for r in pred["rows"]:
+                if norm(r["t1"]) == norm(m.get("home")):
+                    hs, aas = r["s1"], r["s2"]
+                else:
+                    hs, aas = r["s2"], r["s1"]
+                if valid_score(hs) and valid_score(aas) and hs > aas:
+                    home_count += 1
+                elif valid_score(hs) and valid_score(aas) and hs < aas:
+                    away_count += 1
+                elif valid_score(hs) and valid_score(aas):
+                    draw_count += 1
+                aligned_rows.append({"name": r["name"], "rank": rank_by_name.get(r["name"], 999),
+                                     "pred": f"{score_text(hs)}-{score_text(aas)}",
+                                     "winner": m.get("home") if valid_score(hs) and valid_score(aas) and hs > aas else m.get("away") if valid_score(hs) and valid_score(aas) and hs < aas else None})
+            aligned_rows.sort(key=lambda r: (r["rank"], r["name"]))
+            total = pred["total"] or 1
+            prediction = {"total": pred["total"], "home": home_count, "draw": draw_count, "away": away_count,
+                          "pct": {"home": round(home_count * 100 / total),
+                                  "draw": round(draw_count * 100 / total),
+                                  "away": round(away_count * 100 / total)},
+                          "rows": aligned_rows}
         rows.append({"num": m.get("num") or 72 + i,
                      "stage": ROUND_KEYS.get(rnd, "knockout"),
                      "round": rnd,
@@ -573,7 +639,8 @@ def knockout_payload(store):
                      "played": bool(m.get("played")),
                      "live": bool(m.get("live")),
                      "display_clock": m.get("display_clock") or "",
-                     "status_detail": m.get("status_detail") or ""})
+                     "status_detail": m.get("status_detail") or "",
+                     "prediction_split": prediction})
     return rows
 
 def predicted_r32_teams(d):
@@ -659,6 +726,8 @@ def build_all():
     live=sum(1 for g in store["group_matches"] if g.get("live"))
     actual_standings = actual_group_standings(store, preds)
     outcome_splits = prediction_outcome_splits(preds)
+    knockout_splits = knockout_prediction_splits(preds)
+    rank_by_name = {s["name"]: s["rank"] for s in scores}
     gb_counts = dict(gb_tally)
     current_top_scorers = []
     for row in store.get("current_top_scorers", []):
@@ -681,7 +750,7 @@ def build_all():
                       "outcome_split":outcome_splits.get(g["num"], {"total": 0, "home": 0, "draw": 0, "away": 0,
                                                                    "pct": {"home": 0, "draw": 0, "away": 0}})}
                      for g in store["group_matches"]],
-          "knockout_results":knockout_payload(store),
+          "knockout_results":knockout_payload(store, knockout_splits, rank_by_name),
           "standings":actual_standings,
           "third_places":third_place_table(actual_standings, store.get("qualified_r32_teams", [])),
           "participants":participants,
