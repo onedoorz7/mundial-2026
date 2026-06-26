@@ -788,13 +788,13 @@
       "date": "Jun 26, 2026",
       "home": "Norway",
       "away": "France",
-      "home_score": 0,
-      "away_score": 1,
+      "home_score": 1,
+      "away_score": 2,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "18'",
-      "status_detail": "18'"
+      "display_clock": "28'",
+      "status_detail": "28'"
     },
     {
       "num": 62,
@@ -806,8 +806,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "18'",
-      "status_detail": "18'"
+      "display_clock": "28'",
+      "status_detail": "28'"
     },
     {
       "num": 63,
