@@ -788,18 +788,26 @@
       "date": "Jun 26, 2026",
       "home": "Norway",
       "away": "France",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 1,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "num": 62,
       "date": "Jun 26, 2026",
       "home": "Senegal",
       "away": "Iraq",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 1,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "8'",
+      "status_detail": "8'"
     },
     {
       "num": 63,
