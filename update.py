@@ -12,6 +12,7 @@ Pipeline:
 """
 import json, os, hashlib, urllib.request, datetime, sys, unicodedata
 from collections import Counter
+from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 def P(name): return os.path.join(HERE, name)
@@ -84,17 +85,32 @@ def round_for_date(d):
     return None
 
 def fetch_dates():
-    """Fetch a small live window by default; use MUNDIAL_FULL_SYNC=1 for a full sweep."""
+    """Fetch a live window plus the next week of fixtures; use MUNDIAL_FULL_SYNC=1 for a full sweep."""
     if os.environ.get("MUNDIAL_FULL_SYNC") == "1":
         return list(daterange(datetime.date(2026,6,11), datetime.date(2026,7,20)))
     today = datetime.datetime.utcnow().date()
     start = max(datetime.date(2026,6,11), today - datetime.timedelta(days=1))
-    end = min(datetime.date(2026,7,20), today + datetime.timedelta(days=1))
+    end = min(datetime.date(2026,7,20), today + datetime.timedelta(days=7))
     return list(daterange(start, end))
 
 def parse_score(v):
     try: return int(v)
     except (TypeError, ValueError): return None
+
+def display_date(d):
+    return d.strftime("%b ") + str(d.day)
+
+def display_match_date(event_date, fallback_date):
+    if event_date:
+        try:
+            dt = datetime.datetime.fromisoformat(str(event_date).replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=datetime.timezone.utc)
+            local = dt.astimezone(ZoneInfo("Asia/Jerusalem"))
+            return f"{display_date(local.date())} · {local.strftime('%H:%M')}"
+        except Exception:
+            pass
+    return display_date(fallback_date)
 
 def fetch_json(url, timeout=25):
     if url.startswith("http://sports.core.api.espn.com/"):
@@ -118,15 +134,17 @@ def fetch_espn():
             st = status.get("type", {})
             home = away = None
             for c in comp["competitors"]:
-                t = norm(c["team"]["displayName"])
+                team_obj = c.get("team") or {}
+                t = norm(team_obj.get("displayName") or team_obj.get("name") or team_obj.get("location") or "")
                 sc = parse_score(c.get("score"))
                 if c["homeAway"]=="home": home=(t, sc)
                 else: away=(t, sc)
-            if not home or not away or home[1] is None or away[1] is None: continue
+            if not home or not away or not home[0] or not away[0]: continue
             state = st.get("state")
             completed = bool(st.get("completed"))
             live = (state == "in") and not completed
-            out.append({"date": d, "home": home[0], "away": away[0],
+            out.append({"id": ev.get("id"), "date": d, "event_date": ev.get("date"),
+                        "home": home[0], "away": away[0],
                         "hs": home[1], "as": away[1], "round": round_for_date(d),
                         "completed": completed, "live": live, "status_state": state,
                         "display_clock": status.get("displayClock") or "",
@@ -242,6 +260,14 @@ def apply_match_state(dst, m, hs=None, as_=None):
     dst["display_clock"] = m.get("display_clock") or ""
     dst["status_detail"] = m.get("status_detail") or ""
 
+def apply_match_meta(dst, m):
+    if m.get("id"):
+        dst["id"] = m["id"]
+    dst["date"] = display_match_date(m.get("event_date"), m["date"])
+    dst["home"] = m["home"]
+    dst["away"] = m["away"]
+    dst["round"] = m["round"]
+
 # ---------------- update results store ----------------
 def update_store():
     store = json.load(open(P("results_store.json"), encoding="utf-8"))
@@ -253,7 +279,9 @@ def update_store():
     results = fetch_espn()
     existing_ko = {}
     for km in store.get("knockout_matches", []):
-        if km.get("round") and km.get("home") and km.get("away"):
+        if km.get("id"):
+            existing_ko[("id", km["id"])] = km
+        elif km.get("round") and km.get("home") and km.get("away"):
             existing_ko[(km["round"], frozenset((norm(km["home"]), norm(km["away"]))))] = km
     champion = store.get("champion")
     changed = False
@@ -272,10 +300,18 @@ def update_store():
                     apply_match_state(g, m, hs, as_)
                     changed = True
         elif m["round"]:
-            key = (m["round"], pair)
-            if not (m["completed"] or m["live"]): continue
-            km = existing_ko.get(key, {"round": m["round"], "home": m["home"], "away": m["away"]})
-            if status_sig(km) != fetched_sig(m):
+            pair_key = (m["round"], pair)
+            key = ("id", m["id"]) if m.get("id") else pair_key
+            km = existing_ko.get(key) or existing_ko.get(pair_key, {"round": m["round"], "home": m["home"], "away": m["away"]})
+            if key != pair_key:
+                existing_ko.pop(pair_key, None)
+            meta_sig = (km.get("id") or "", km.get("date"), km.get("home"), km.get("away"), km.get("round"))
+            fetched_meta = (m.get("id") or "", display_match_date(m.get("event_date"), m["date"]), m["home"], m["away"], m["round"])
+            if meta_sig != fetched_meta:
+                apply_match_meta(km, m)
+                existing_ko[key] = km
+                changed = True
+            if (m["completed"] or m["live"]) and status_sig(km) != fetched_sig(m):
                 apply_match_state(km, m)
                 existing_ko[key] = km
                 changed = True
@@ -513,6 +549,33 @@ def prediction_outcome_splits(preds):
         }
     return totals
 
+ROUND_KEYS = {
+    "Round of 32": "r32",
+    "Round of 16": "r16",
+    "Quarterfinals": "qf",
+    "Semi-Finals": "sf",
+    "Third-Place": "third",
+    "Final": "final",
+}
+
+def knockout_payload(store):
+    rows = []
+    for i, m in enumerate(store.get("knockout_matches", []), 1):
+        rnd = m.get("round") or ""
+        rows.append({"num": m.get("num") or 72 + i,
+                     "stage": ROUND_KEYS.get(rnd, "knockout"),
+                     "round": rnd,
+                     "date": m.get("date") or "",
+                     "home": m.get("home") or "",
+                     "away": m.get("away") or "",
+                     "hs": m.get("home_score"),
+                     "as": m.get("away_score"),
+                     "played": bool(m.get("played")),
+                     "live": bool(m.get("live")),
+                     "display_clock": m.get("display_clock") or "",
+                     "status_detail": m.get("status_detail") or ""})
+    return rows
+
 def predicted_r32_teams(d):
     return pred_sets(d)["r32"]
 
@@ -618,6 +681,7 @@ def build_all():
                       "outcome_split":outcome_splits.get(g["num"], {"total": 0, "home": 0, "draw": 0, "away": 0,
                                                                    "pct": {"home": 0, "draw": 0, "away": 0}})}
                      for g in store["group_matches"]],
+          "knockout_results":knockout_payload(store),
           "standings":actual_standings,
           "third_places":third_place_table(actual_standings, store.get("qualified_r32_teams", [])),
           "participants":participants,

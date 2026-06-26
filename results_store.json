@@ -892,7 +892,120 @@
       "played": false
     }
   ],
-  "knockout_matches": [],
+  "knockout_matches": [
+    {
+      "round": "Round of 32",
+      "home": "South Africa",
+      "away": "Canada",
+      "id": "760486",
+      "date": "Jun 28 · 22:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Brazil",
+      "away": "Japan",
+      "id": "760487",
+      "date": "Jun 29 · 20:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Germany",
+      "away": "Third Place Group A/B/C/D/F",
+      "id": "760489",
+      "date": "Jun 29 · 23:30"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Netherlands",
+      "away": "Morocco",
+      "id": "760488",
+      "date": "Jun 30 · 04:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Ivory Coast",
+      "away": "Group I 2nd Place",
+      "id": "760490",
+      "date": "Jun 30 · 20:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Group I Winner",
+      "away": "Third Place Group C/D/F/G/H",
+      "id": "760492",
+      "date": "Jul 1 · 00:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Mexico",
+      "away": "Third Place Group C/E/F/H/I",
+      "id": "760491",
+      "date": "Jul 1 · 04:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Group L Winner",
+      "away": "Third Place Group E/H/I/J/K",
+      "id": "760495",
+      "date": "Jul 1 · 19:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Group G Winner",
+      "away": "Third Place Group A/E/H/I/J",
+      "id": "760493",
+      "date": "Jul 1 · 23:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "United States",
+      "away": "Bosnia and Herzegovina",
+      "id": "760494",
+      "date": "Jul 2 · 03:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Group H Winner",
+      "away": "Group J 2nd Place",
+      "id": "760497",
+      "date": "Jul 2 · 22:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Group K 2nd Place",
+      "away": "Group L 2nd Place",
+      "id": "760496",
+      "date": "Jul 3 · 02:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Switzerland",
+      "away": "Third Place Group E/F/G/I/J",
+      "id": "760498",
+      "date": "Jul 3 · 06:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Australia",
+      "away": "Group G 2nd Place",
+      "id": "760499",
+      "date": "Jul 3 · 21:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Argentina",
+      "away": "Group H 2nd Place",
+      "id": "760500",
+      "date": "Jul 4 · 01:00"
+    },
+    {
+      "round": "Round of 32",
+      "home": "Group K Winner",
+      "away": "Third Place Group D/E/I/J/L",
+      "id": "760501",
+      "date": "Jul 4 · 04:30"
+    }
+  ],
   "current_top_scorers": [
     {
       "rank": 1,
