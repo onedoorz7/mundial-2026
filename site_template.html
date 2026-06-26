@@ -634,6 +634,31 @@ const team = n => n ? `<span class="team-ltr">${fl(n)}${n}</span>` : "—";
 const isTbdTeamName = n => /^Third Place Group\b/i.test(String(n||'')) || /^Group [A-L] (Winner|2nd Place)$/i.test(String(n||''));
 const resultTeam = (n, isGroup) => (!isGroup && isTbdTeamName(n)) ? '<span class="team-ltr">TBD</span>' : team(n);
 const resultDate = m => String((m&&m.date)||'').replace(/,\s*2026\b/,'');
+function matchDateValue(m){
+  const s=String((m&&m.date)||'').replace(/\s*·.*$/,'').trim();
+  const parts=s.match(/^(Jun|June|Jul|July)\s+(\d{1,2})(?:,\s*(\d{4}))?$/i);
+  if(!parts) return null;
+  const month=/^Jul/i.test(parts[1]) ? 6 : 5;
+  return new Date(+(parts[3]||2026), month, +parts[2]).getTime();
+}
+function todayValue(){
+  const now=new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+}
+function calendarStageForDate(value){
+  const d=new Date(value);
+  const month=d.getMonth()+1, day=d.getDate();
+  if(month===7 && day>=19) return 'final';
+  if(month===7 && day===18) return 'third';
+  if(month===7 && day>=14) return 'sf';
+  if(month===7 && day>=9) return 'qf';
+  if(month===7 && day>=4) return 'r16';
+  if((month===6 && day>=28) || month===7) return 'r32';
+  return 'group';
+}
+function stageOrderValue(key){
+  return ({group:0,r32:1,r16:2,qf:3,sf:4,third:5,final:6})[key] ?? 0;
+}
 const escAttr = s => String(s ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $ = (s,e=document)=>e.querySelector(s);
 const el = (t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
@@ -798,7 +823,7 @@ function renderRes(){
   const v=$('#res'); v.innerHTML='';
   const stages=resultStages();
   const focus=resultFocusMatch();
-  const defaultStage=focus ? matchStageKey(focus) : 'group';
+  const defaultStage=visibleResultStage(currentCompetitionStage());
   const active=stages.some(s=>s.key===curResultStage) ? curResultStage : (stages.some(s=>s.key===defaultStage) ? defaultStage : 'group');
   curResultStage=active;
   const tabs=el('div','stage-tabs');
@@ -813,6 +838,13 @@ function resultStages(){
   return STAGES.filter(s=>s.key==='group' || resultMatchesForStage(s.key).length);
 }
 
+function visibleResultStage(preferred){
+  const stages=resultStages();
+  if(stages.some(s=>s.key===preferred)) return preferred;
+  if(stages.some(s=>s.key===curResultStage)) return curResultStage;
+  return stages[stages.length-1]?.key || 'group';
+}
+
 function resultMatchesForStage(stageKey){
   if(stageKey==='group') return D.results||[];
   return (D.knockout_results||[]).filter(m=>m.stage===stageKey);
@@ -824,6 +856,20 @@ function allResultMatches(){
 
 function matchStageKey(m){
   return m && m.stage ? m.stage : 'group';
+}
+
+function currentCompetitionStage(){
+  const live=allResultMatches().find(m=>m.live);
+  if(live) return matchStageKey(live);
+  const today=todayValue();
+  let active=calendarStageForDate(today);
+  ['group','r32','r16','qf','sf','third','final'].forEach(stageKey=>{
+    const s=STAGES.find(x=>x.key===stageKey);
+    if(!s) return;
+    const firstDate=Math.min(...resultMatchesForStage(s.key).map(matchDateValue).filter(v=>v!=null));
+    if(Number.isFinite(firstDate) && firstDate<=today && stageOrderValue(s.key)>stageOrderValue(active)) active=s.key;
+  });
+  return active;
 }
 
 function resultFocusMatch(){
@@ -931,10 +977,8 @@ function knockoutSplitHtml(m){
 
 function scrollToLatestResult(){
   requestAnimationFrame(()=>{
-    const focus=resultFocusMatch();
     window.scrollTo(0,0);
-    if(focus) setResultsStageTab(matchStageKey(focus));
-    else scrollResultsStage(curResultStage || 'group');
+    setResultsStageTab(visibleResultStage(currentCompetitionStage()));
   });
 }
 
@@ -1143,9 +1187,9 @@ function groupMatchesHtml(participant){
   });
   return h+'</tbody></table></div>';
 }
-function stagePanelHtml(participant, stage){
+function stagePanelHtml(participant, stage, activeStage){
   const teams=participantStageTeams(participant,stage.key);
-  let h=`<div class="stage-panel ${stage.key==='group'?'active':''}" data-stage="${stage.key}">`;
+  let h=`<div class="stage-panel ${stage.key===activeStage?'active':''}" data-stage="${stage.key}">`;
   if(stage.key==='group'){
     const actualByGroup=new Map((D.standings||[]).map(g=>[g.group,g]));
     h+='<div class="gcompare">';
@@ -1203,11 +1247,12 @@ function openForm(name,switchTab=true){
     <div class="stage-chip"><span class="label">מלך שערים</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
   body.appendChild(brk);
   body.appendChild(el('div','form-stage-divider',''));
+  const activeStage=currentCompetitionStage();
   const tabs=el('div','stage-tabs');
-  tabs.innerHTML=STAGES.map((s,i)=>`<button type="button" class="stage-tab ${i===0?'active':''}" data-stage="${s.key}" onclick="setParticipantStageTab('${s.key}')">${s.label}</button>`).join('');
+  tabs.innerHTML=STAGES.map(s=>`<button type="button" class="stage-tab ${s.key===activeStage?'active':''}" data-stage="${s.key}" onclick="setParticipantStageTab('${s.key}')">${s.label}</button>`).join('');
   body.appendChild(tabs);
   const panels=el('div','stage-panels');
-  panels.innerHTML=STAGES.map(s=>stagePanelHtml(p,s)).join('');
+  panels.innerHTML=STAGES.map(s=>stagePanelHtml(p,s,activeStage)).join('');
   body.appendChild(panels);
   window.scrollTo(0,0);
 }
