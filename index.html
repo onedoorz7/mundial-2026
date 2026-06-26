@@ -238,22 +238,28 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 #res .result-stage-tab.active{background:transparent;border:none;color:var(--navy);box-shadow:none}
 #res .result-stage-tab.active::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:4px;
   border-radius:4px 4px 0 0;background:var(--gold)}
-.stage-note{margin:-5px 1px 13px;color:var(--muted);font-size:12px;font-weight:800;line-height:1.55}
+.form-stage-divider{height:1px;margin:0 4px 14px;background:linear-gradient(90deg,transparent,#cfd9e8 18%,#cfd9e8 82%,transparent)}
 .stage-panel{display:none}
 .stage-panel.active{display:block}
 .result-stage-panels{overflow-y:auto;-webkit-overflow-scrolling:touch;max-height:calc(100dvh - var(--sticky-stack-h) - 96px);padding:0 2px 18px;scrollbar-width:thin}
 .result-stage-panel{display:none}
 .result-stage-panel.active{display:block}
-.stage-status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:14px}
+.stage-status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:14px;align-items:start}
 .stage-status-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
 .stage-status-card.guaranteed{border-color:#bfe6cd;background:linear-gradient(180deg,#f4fbf7,#fff)}
 .stage-status-card.pending{border-color:#d7e0ec}
 .stage-status-card.eliminated{border-color:#f0b6bc;background:linear-gradient(180deg,#fff5f5,#fff)}
-.stage-status-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line);
+.stage-status-card>summary{list-style:none;cursor:pointer;user-select:none}
+.stage-status-card>summary::-webkit-details-marker{display:none}
+.stage-status-head{display:flex;align-items:center;justify-content:flex-start;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line);
   font-size:12px;font-weight:900;color:var(--navy)}
+.stage-status-head::before{content:"▾";font-size:12px;color:var(--muted);transition:transform .15s ease;order:3;margin-inline-start:auto}
+.stage-status-card:not([open]) .stage-status-head{border-bottom:none}
+.stage-status-card:not([open]) .stage-status-head::before{transform:rotate(90deg)}
 .stage-status-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:999px;background:#eef2f9;color:var(--navy);
   font-size:12px;font-weight:900;padding:0 8px}
 .stage-team-list{display:flex;flex-direction:column;gap:6px;padding:10px;min-height:50px}
+.stage-status-note{color:var(--muted);font-size:11px;font-weight:800;line-height:1.45;padding:0 2px 3px;text-align:right}
 .stage-team-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 9px;border-radius:9px;background:#f7faff;
   font-size:12px;font-weight:800;min-width:0}
 .stage-team-row .team-ltr{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
@@ -1066,10 +1072,10 @@ function stageStatusHtml(teams, participant, stage){
     ['pending','עדיין בתמונה']
   ].filter(([k])=>buckets[k].length);
   if(!cards.length) return '';
-  return `<div class="stage-status-grid">${cards.map(([k,label])=>`<div class="stage-status-card ${k}">
-    <div class="stage-status-head"><span>${label}</span><span class="stage-status-count">${buckets[k].length}</span></div>
-    <div class="stage-team-list">${statusRowsHtml(buckets[k],k,participant,stage.popKey)}</div>
-  </div>`).join('')}</div>`;
+  return `<div class="stage-status-grid">${cards.map(([k,label])=>`<details class="stage-status-card ${k}">
+    <summary class="stage-status-head"><span>${label}</span><span class="stage-status-count">${buckets[k].length}</span></summary>
+    <div class="stage-team-list"><div class="stage-status-note">האחוז = המשתתפים שהביאו את הנבחרת לשלב הזה</div>${statusRowsHtml(buckets[k],k,participant,stage.popKey)}</div>
+  </details>`).join('')}</div>`;
 }
 function stageGameCardHtml(m, i, stage){
   const teams=[m.t1,m.t2], out=teams.filter(t=>stageStatus(t,stage.key)==='eliminated');
@@ -1094,7 +1100,6 @@ function stagePanelHtml(participant, stage){
   const teams=participantStageTeams(participant,stage.key);
   let h=`<div class="stage-panel ${stage.key==='group'?'active':''}" data-stage="${stage.key}">`;
   if(stage.key==='group'){
-    h+=`<div class="stage-games-title">טבלאות הבתים</div>`;
     const actualByGroup=new Map((D.standings||[]).map(g=>[g.group,g]));
     h+='<div class="gcompare">';
     (participant.standings||[]).forEach(g=>{
@@ -1112,15 +1117,13 @@ function stagePanelHtml(participant, stage){
   } else {
     const matches=((participant.bracket||{})[stage.matches]||[]);
     h+=stageStatusHtml(teams,participant,stage);
-    h+=`<div class="stage-games-title">המשחקים בניחוש</div><div class="stage-games">${matches.map((m,i)=>stageGameCardHtml(m,i,stage)).join('')}</div>`;
+    h+=`<div class="stage-games">${matches.map((m,i)=>stageGameCardHtml(m,i,stage)).join('')}</div>`;
   }
   return h+'</div>';
 }
 function setParticipantStageTab(key){
   document.querySelectorAll('.stage-tab').forEach(b=>b.classList.toggle('active',b.dataset.stage===key));
   document.querySelectorAll('.stage-panel').forEach(p=>p.classList.toggle('active',p.dataset.stage===key));
-  const note=$('.stage-note');
-  if(note) note.hidden = key === 'group';
 }
 function openForm(name,switchTab=true){
   curForm=name;
@@ -1152,13 +1155,11 @@ function openForm(name,switchTab=true){
     <div class="stage-chip"><span class="label">נוקאאוט</span><span class="pts">${t.knockout}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">מלך שערים</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
   body.appendChild(brk);
+  body.appendChild(el('div','form-stage-divider',''));
   const tabs=el('div','stage-tabs');
   tabs.innerHTML=STAGES.map((s,i)=>`<button type="button" class="stage-tab ${i===0?'active':''}" data-stage="${s.key}" onclick="setParticipantStageTab('${s.key}')">${s.label}</button>`).join('');
   body.appendChild(tabs);
   const panels=el('div','stage-panels');
-  const note=el('div','stage-note','האחוז = המשתתפים שהביאו את הנבחרת לשלב הזה');
-  note.hidden=true;
-  body.appendChild(note);
   panels.innerHTML=STAGES.map(s=>stagePanelHtml(p,s)).join('');
   body.appendChild(panels);
   window.scrollTo(0,0);
