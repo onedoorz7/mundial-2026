@@ -736,26 +736,26 @@
       "date": "Jun 26, 2026",
       "home": "Japan",
       "away": "Sweden",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "49'",
-      "status_detail": "49'"
+      "display_clock": "59'",
+      "status_detail": "59'"
     },
     {
       "num": 58,
       "date": "Jun 26, 2026",
       "home": "Tunisia",
       "away": "Netherlands",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 2,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "50'",
-      "status_detail": "50'"
+      "display_clock": "60'",
+      "status_detail": "60'"
     },
     {
       "num": 59,
