@@ -762,13 +762,13 @@
       "date": "Jun 26, 2026",
       "home": "Turkey",
       "away": "United States",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "10'",
-      "status_detail": "10'"
+      "display_clock": "20'",
+      "status_detail": "20'"
     },
     {
       "num": 60,
@@ -780,8 +780,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "10'",
-      "status_detail": "10'"
+      "display_clock": "20'",
+      "status_detail": "20'"
     },
     {
       "num": 61,
