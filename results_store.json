@@ -793,21 +793,21 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "56'",
-      "status_detail": "56'"
+      "display_clock": "66'",
+      "status_detail": "66'"
     },
     {
       "num": 62,
       "date": "Jun 26, 2026",
       "home": "Senegal",
       "away": "Iraq",
-      "home_score": 1,
+      "home_score": 3,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "52'",
-      "status_detail": "52'"
+      "display_clock": "62'",
+      "status_detail": "62'"
     },
     {
       "num": 63,
