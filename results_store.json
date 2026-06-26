@@ -738,11 +738,11 @@
       "away": "Sweden",
       "home_score": 1,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "89'",
-      "status_detail": "89'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT"
     },
     {
       "num": 58,
@@ -751,11 +751,11 @@
       "away": "Netherlands",
       "home_score": 1,
       "away_score": 3,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+1'",
-      "status_detail": "90'+1'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+5'",
+      "status_detail": "FT"
     },
     {
       "num": 59,
