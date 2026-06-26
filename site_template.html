@@ -87,27 +87,6 @@ h2.sec{font-size:clamp(17px,4.5vw,20px);font-weight:800;margin:10px 0 14px;displ
 .fold:not([open]) .fold-title::before{transform:rotate(90deg)}
 .fold-body{display:block}
 
-/* ---------- podium ---------- */
-.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:clamp(7px,2.5vw,12px);align-items:end;margin-bottom:18px}
-.pod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);text-align:center;
-  padding:clamp(13px,3.5vw,18px) clamp(6px,2vw,10px);cursor:pointer;transition:.18s;box-shadow:var(--shadow)}
-.pod:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.pod .rk{font-size:12px;font-weight:700;color:var(--muted)}
-.pod .nm{font-weight:800;font-size:clamp(14px,3.6vw,17px);margin:4px 0;line-height:1.15;word-break:break-word}
-.pod .pt{font-size:clamp(24px,7vw,32px);font-weight:900;line-height:1}
-.pod .lbl{font-size:11px;color:var(--muted)}
-.pod .pickline{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);font-size:12px;font-weight:700;color:var(--txt)}
-.pod.p1{border-color:var(--gold);background:linear-gradient(180deg,#fffaf0,#fff);box-shadow:0 10px 26px rgba(224,160,0,.22)}
-.pod.p1 .medal{font-size:clamp(26px,7vw,32px)}.pod.p2 .medal,.pod.p3 .medal{font-size:clamp(20px,5.5vw,25px)}
-.pod.p1 .pt{color:var(--gold-d)}
-.pod.p1{transform:translateY(-8px)}
-.pod.p1:hover{transform:translateY(-11px)}
-@media(max-width:560px){
-  .podium{grid-template-columns:1fr 1.05fr 1fr;gap:6px;align-items:stretch}
-  .pod{padding:10px 4px}.pod.p1,.pod.p1:hover{transform:none}
-  .pod .rk{font-size:10px}.pod .nm{font-size:12px}.pod .pt{font-size:22px}.pod .pickline{font-size:10px}
-}
-
 /* ---------- table ---------- */
 .tscroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -119,6 +98,8 @@ tr.clickable{cursor:pointer}
 td.name{font-weight:700;text-align:right;color:var(--blue)}
 .name-wrap{display:flex;align-items:center;gap:7px;justify-content:flex-start;min-width:0}
 .name-wrap .name-text{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.winner-flag{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.winner-flag .fl,.winner-flag .flsvg{margin-inline-end:0}
 .money-chip{display:inline-flex;align-items:center;justify-content:center;padding:2px 8px;border-radius:999px;
   background:#fff;color:var(--navy);border:1px solid #d8e0ec;font-size:11px;font-weight:900;
   line-height:1.4;white-space:nowrap;box-shadow:0 1px 3px rgba(10,23,51,.13)}
@@ -683,20 +664,6 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{
 function renderLB(){
   const v=$('#lb'); v.innerHTML='';
   const lb=D.leaderboard;
-  // podium (2-1-3 visual order)
-  const pod=el('div','podium');
-  const order=[lb[1],lb[0],lb[2]];
-  const cls=['p2','p1','p3'];
-  const medal=['🥈','🥇','🥉'];
-  order.forEach((p,i)=>{ if(!p)return;
-    const c=el('div','pod '+cls[i]);
-    const ch=(D.participants[p.name]||{}).champion;
-    c.innerHTML=`<div class="medal">${medal[i]}</div><div class="rk">מקום ${p.rank}</div>
-     <div class="nm">${p.name}</div><div class="pt">${p.total}</div><div class="lbl">נקודות</div>
-     <div class="pickline">🏆 ${team(ch)}</div>`;
-    c.onclick=()=>openForm(p.name); pod.appendChild(c);
-  });
-  v.appendChild(pod);
   // table
   const card=el('div','card');
   let h=`<table><thead><tr><th>#</th><th>שם</th><th>בתים</th><th>נוקאאוט</th><th>התקדמות</th><th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
@@ -716,9 +683,12 @@ function renderLB(){
     else if(p.rank===2) prize='<span class="money-chip p2">₪400</span>';
     else if(p.rank===3) prize='<span class="money-chip p3">₪100</span>';
     else if(idx===lb.length-1) prize='<span class="money-chip last">₪50</span>';
+    const champion=(D.participants[p.name]||{}).champion;
+    const flag=fl(champion);
+    const winnerFlag=flag?`<span class="winner-flag" title="ניחוש זוכה: ${escAttr(champion)}">${flag}</span>`:'';
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
       <td><span class="rk-badge">${p.rank}</span>${mvr(p.name,p.rank)}</td>
-      <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${prize}</span></td><td>${p.group}</td><td>${p.knockout}</td>
+      <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${prize}</span></td><td>${p.group}</td><td>${p.knockout}</td>
       <td>${p.progression}</td><td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
   });
   h+='</tbody></table>'; card.innerHTML=h; v.appendChild(card);
