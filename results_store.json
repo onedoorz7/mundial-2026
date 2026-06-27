@@ -815,12 +815,12 @@
       "home": "Egypt",
       "away": "Iran",
       "home_score": 1,
-      "away_score": 2,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+6'",
-      "status_detail": "90'+6'"
+      "away_score": 1,
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+9'",
+      "status_detail": "FT"
     },
     {
       "num": 64,
@@ -975,7 +975,7 @@
     },
     {
       "round": "Round of 32",
-      "home": "Group G Winner",
+      "home": "Belgium",
       "away": "Third Place Group A/E/H/I/J",
       "id": "760493",
       "date": "Jul 1 · 23:00"
@@ -1011,7 +1011,7 @@
     {
       "round": "Round of 32",
       "home": "Australia",
-      "away": "Group G 2nd Place",
+      "away": "Egypt",
       "id": "760499",
       "date": "Jul 3 · 21:00"
     },
@@ -1114,10 +1114,12 @@
   "qualified_r32_teams": [
     "Argentina",
     "Australia",
+    "Belgium",
     "Bosnia and Herzegovina",
     "Brazil",
     "Canada",
     "Cape Verde",
+    "Egypt",
     "France",
     "Germany",
     "Ivory Coast",
