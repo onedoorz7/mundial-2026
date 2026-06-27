@@ -815,12 +815,12 @@
       "home": "Egypt",
       "away": "Iran",
       "home_score": 1,
-      "away_score": 1,
+      "away_score": 2,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "86'",
-      "status_detail": "86'"
+      "display_clock": "90'+6'",
+      "status_detail": "90'+6'"
     },
     {
       "num": 64,
@@ -828,12 +828,12 @@
       "home": "New Zealand",
       "away": "Belgium",
       "home_score": 1,
-      "away_score": 4,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "88'",
-      "status_detail": "88'"
+      "away_score": 5,
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 65,
