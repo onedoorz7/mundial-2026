@@ -814,18 +814,26 @@
       "date": "Jun 27, 2026",
       "home": "Egypt",
       "away": "Iran",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 1,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "num": 64,
       "date": "Jun 27, 2026",
       "home": "New Zealand",
       "away": "Belgium",
-      "home_score": null,
-      "away_score": null,
-      "played": false
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "num": 65,
