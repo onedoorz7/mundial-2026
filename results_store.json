@@ -819,8 +819,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "56'",
-      "status_detail": "56'"
+      "display_clock": "65'",
+      "status_detail": "65'"
     },
     {
       "num": 64,
@@ -828,12 +828,12 @@
       "home": "New Zealand",
       "away": "Belgium",
       "home_score": 0,
-      "away_score": 2,
+      "away_score": 3,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "57'",
-      "status_detail": "57'"
+      "display_clock": "68'",
+      "status_detail": "68'"
     },
     {
       "num": 65,
