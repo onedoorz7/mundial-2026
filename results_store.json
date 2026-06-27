@@ -926,7 +926,7 @@
     {
       "round": "Round of 32",
       "home": "Germany",
-      "away": "Third Place Group A/B/C/D/F",
+      "away": "Paraguay",
       "id": "760489",
       "date": "Jun 29 · 23:30"
     },
@@ -947,7 +947,7 @@
     {
       "round": "Round of 32",
       "home": "France",
-      "away": "Third Place Group C/D/F/G/H",
+      "away": "Sweden",
       "id": "760492",
       "date": "Jul 1 · 00:00"
     },
@@ -1118,8 +1118,10 @@
     "Morocco",
     "Netherlands",
     "Norway",
+    "Paraguay",
     "South Africa",
     "Spain",
+    "Sweden",
     "Switzerland",
     "United States"
   ]
