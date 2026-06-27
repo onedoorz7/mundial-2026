@@ -970,13 +970,13 @@
     {
       "round": "Round of 32",
       "home": "Mexico",
-      "away": "Third Place Group C/E/F/H/I",
+      "away": "Ecuador",
       "id": "760491",
       "date": "Jul 1 · 04:00"
     },
     {
       "round": "Round of 32",
-      "home": "Group L Winner",
+      "home": "England",
       "away": "Third Place Group E/H/I/J/K",
       "id": "760495",
       "date": "Jul 1 · 19:00"
@@ -1005,7 +1005,7 @@
     {
       "round": "Round of 32",
       "home": "Group K 2nd Place",
-      "away": "Group L 2nd Place",
+      "away": "Croatia",
       "id": "760496",
       "date": "Jul 3 · 02:00"
     },
@@ -1033,7 +1033,7 @@
     {
       "round": "Round of 32",
       "home": "Group K Winner",
-      "away": "Third Place Group D/E/I/J/L",
+      "away": "Ghana",
       "id": "760501",
       "date": "Jul 4 · 04:30"
     },
@@ -1097,9 +1097,13 @@
     "Brazil",
     "Canada",
     "Cape Verde",
+    "Croatia",
+    "Ecuador",
     "Egypt",
+    "England",
     "France",
     "Germany",
+    "Ghana",
     "Ivory Coast",
     "Japan",
     "Mexico",
