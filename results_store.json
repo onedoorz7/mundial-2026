@@ -819,8 +819,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "39'",
-      "status_detail": "39'"
+      "display_clock": "45'+4'",
+      "status_detail": "45'+4'"
     },
     {
       "num": 64,
@@ -832,8 +832,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "39'",
-      "status_detail": "39'"
+      "display_clock": "45'+3'",
+      "status_detail": "45'+3'"
     },
     {
       "num": 65,
