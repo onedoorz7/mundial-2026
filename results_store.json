@@ -847,11 +847,11 @@
       "away": "Spain",
       "home_score": 0,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+5'",
-      "status_detail": "90'+5'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 67,
@@ -981,7 +981,7 @@
     },
     {
       "round": "Round of 32",
-      "home": "Group H Winner",
+      "home": "Spain",
       "away": "Group J 2nd Place",
       "id": "760497",
       "date": "Jul 2 · 22:00"
@@ -1010,7 +1010,7 @@
     {
       "round": "Round of 32",
       "home": "Argentina",
-      "away": "Group H 2nd Place",
+      "away": "Cape Verde",
       "id": "760500",
       "date": "Jul 4 · 01:00"
     },
@@ -1109,6 +1109,7 @@
     "Bosnia and Herzegovina",
     "Brazil",
     "Canada",
+    "Cape Verde",
     "France",
     "Germany",
     "Ivory Coast",
@@ -1118,6 +1119,7 @@
     "Netherlands",
     "Norway",
     "South Africa",
+    "Spain",
     "Switzerland",
     "United States"
   ]
