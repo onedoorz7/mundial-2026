@@ -1053,8 +1053,20 @@
     },
     {
       "rank": 2,
+      "player": "Kylian Mbappé",
+      "team": "France",
+      "goals": 4
+    },
+    {
+      "rank": 2,
       "player": "Vinícius Júnior",
       "team": "Brazil",
+      "goals": 4
+    },
+    {
+      "rank": 2,
+      "player": "Ousmane Dembélé",
+      "team": "France",
       "goals": 4
     },
     {
@@ -1062,48 +1074,6 @@
       "player": "Erling Haaland",
       "team": "Norway",
       "goals": 4
-    },
-    {
-      "rank": 2,
-      "player": "Kylian Mbappé",
-      "team": "France",
-      "goals": 4
-    },
-    {
-      "rank": 5,
-      "player": "Ismael Saibari",
-      "team": "Morocco",
-      "goals": 3
-    },
-    {
-      "rank": 5,
-      "player": "Jonathan David",
-      "team": "Canada",
-      "goals": 3
-    },
-    {
-      "rank": 5,
-      "player": "Matheus Cunha",
-      "team": "Brazil",
-      "goals": 3
-    },
-    {
-      "rank": 5,
-      "player": "Brian Brobbey",
-      "team": "Netherlands",
-      "goals": 3
-    },
-    {
-      "rank": 5,
-      "player": "Johan Manzambi",
-      "team": "Switzerland",
-      "goals": 3
-    },
-    {
-      "rank": 5,
-      "player": "Deniz Undav",
-      "team": "Germany",
-      "goals": 3
     }
   ],
   "current_top_scorers_note": "",
