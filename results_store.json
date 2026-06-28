@@ -912,24 +912,24 @@
       "away": "Portugal",
       "home_score": 0,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "88'",
-      "status_detail": "88'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT"
     },
     {
       "num": 72,
       "date": "Jun 28, 2026",
       "home": "DR Congo",
       "away": "Uzbekistan",
-      "home_score": 2,
+      "home_score": 3,
       "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "86'",
-      "status_detail": "86'"
+      "display_clock": "90'+6'",
+      "status_detail": "90'+6'"
     }
   ],
   "knockout_matches": [
