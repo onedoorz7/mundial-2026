@@ -1014,7 +1014,7 @@
     {
       "round": "Round of 32",
       "home": "Spain",
-      "away": "Group J 2nd Place",
+      "away": "Austria",
       "id": "760497",
       "date": "Jul 2 · 22:00"
     },
@@ -1028,7 +1028,7 @@
     {
       "round": "Round of 32",
       "home": "Switzerland",
-      "away": "Third Place Group E/F/G/I/J",
+      "away": "Algeria",
       "id": "760498",
       "date": "Jul 3 · 06:00"
     },
@@ -1120,8 +1120,10 @@
   ],
   "champion": null,
   "qualified_r32_teams": [
+    "Algeria",
     "Argentina",
     "Australia",
+    "Austria",
     "Belgium",
     "Bosnia and Herzegovina",
     "Brazil",
