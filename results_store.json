@@ -925,11 +925,11 @@
       "away": "Uzbekistan",
       "home_score": 3,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+6'",
-      "status_detail": "90'+6'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT"
     }
   ],
   "knockout_matches": [
@@ -985,14 +985,14 @@
     {
       "round": "Round of 32",
       "home": "England",
-      "away": "Third Place Group E/H/I/J/K",
+      "away": "DR Congo",
       "id": "760495",
       "date": "Jul 1 · 19:00"
     },
     {
       "round": "Round of 32",
       "home": "Belgium",
-      "away": "Third Place Group A/E/H/I/J",
+      "away": "Senegal",
       "id": "760493",
       "date": "Jul 1 · 23:00"
     },
@@ -1012,7 +1012,7 @@
     },
     {
       "round": "Round of 32",
-      "home": "Group K 2nd Place",
+      "home": "Portugal",
       "away": "Croatia",
       "id": "760496",
       "date": "Jul 3 · 02:00"
@@ -1040,7 +1040,7 @@
     },
     {
       "round": "Round of 32",
-      "home": "Group K Winner",
+      "home": "Colombia",
       "away": "Ghana",
       "id": "760501",
       "date": "Jul 4 · 04:30"
@@ -1119,7 +1119,9 @@
     "Brazil",
     "Canada",
     "Cape Verde",
+    "Colombia",
     "Croatia",
+    "DR Congo",
     "Ecuador",
     "Egypt",
     "England",
@@ -1133,6 +1135,8 @@
     "Netherlands",
     "Norway",
     "Paraguay",
+    "Portugal",
+    "Senegal",
     "South Africa",
     "Spain",
     "Sweden",
