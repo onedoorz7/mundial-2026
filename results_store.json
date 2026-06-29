@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-06-28",
+  "last_updated": "2026-06-29",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -1087,6 +1087,20 @@
       "away": "Round of 32 8 Winner",
       "id": "760505",
       "date": "Jul 6 · 03:00"
+    },
+    {
+      "round": "Round of 16",
+      "home": "Round of 32 11 Winner",
+      "away": "Round of 32 12 Winner",
+      "id": "760506",
+      "date": "Jul 6 · 22:00"
+    },
+    {
+      "round": "Round of 16",
+      "home": "Round of 32 9 Winner",
+      "away": "Round of 32 10 Winner",
+      "id": "760507",
+      "date": "Jul 7 · 03:00"
     }
   ],
   "current_top_scorers": [
