@@ -977,11 +977,11 @@
       "date": "Jun 29 · 23:30",
       "home_score": 1,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
+      "played": true,
+      "live": false,
+      "status_state": "post",
       "display_clock": "120'",
-      "status_detail": "Pens"
+      "status_detail": "FT-Pens"
     },
     {
       "round": "Round of 32",
