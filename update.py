@@ -376,16 +376,35 @@ def pred_sets(d):
     return {"r32":teams(d["r32"]),"r16":teams(d["r16"]),"qf":teams(d["qf"]),
             "sf":teams(d["sf"]),"final":teams([d["final"]]),
             "champion":{norm(d["champion"])} if d.get("champion") else set()}
+
+def is_stage_placeholder_name(name):
+    if not name:
+        return True
+    markers = ("Group ", "Third Place", "Winner", "2nd Place", "Round of 32", "Round of 16",
+               "Quarterfinal", "Semi-Final")
+    return any(m in str(name) for m in markers)
+
+def match_winner(m):
+    hs, as_ = m.get("home_score"), m.get("away_score")
+    if hs is None or as_ is None or hs == as_:
+        return None
+    return m.get("home") if hs > as_ else m.get("away")
+
 def reached_sets(store):
     reached={k:set() for k in STAGE_PTS}
     reached["r32"].update(norm(t) for t in store.get("qualified_r32_teams", []) if t)
     r2s={"Round of 32":"r32","Round of 16":"r16","Quarterfinals":"qf","Semi-Finals":"sf","Final":"final"}
+    next_stage={"r32":"r16","r16":"qf","qf":"sf","sf":"final"}
     for m in store.get("knockout_matches",[]):
-        if not m.get("played"): continue
         st=r2s.get(m.get("round"))
         if st:
             for t in (m.get("home"),m.get("away")):
-                if t: reached[st].add(norm(t))
+                if not is_stage_placeholder_name(t):
+                    reached[st].add(norm(t))
+        if not m.get("played"): continue
+        winner = match_winner(m)
+        if st in next_stage and winner:
+            reached[next_stage[st]].add(norm(winner))
     if store.get("champion"): reached["champion"].add(norm(store["champion"]))
     return reached
 
@@ -648,11 +667,13 @@ def predicted_r32_teams(d):
 
 def build_stats(preds, scores, store):
     rank_by_name = {s["name"]: s["rank"] for s in scores}
+    score_by_name = {s["name"]: s for s in scores}
     score_rows = []
     for s in scores:
-        exact = sum(1 for m in s["group_details"] if m["pts"] >= 2)
-        big_exact = sum(1 for m in s["group_details"] if m["pts"] == 3)
-        direction_only = sum(1 for m in s["group_details"] if m["pts"] == 1)
+        result_details = s["group_details"] + s["knockout_details"]
+        exact = sum(1 for m in result_details if m["pts"] >= 2)
+        big_exact = sum(1 for m in result_details if m["pts"] == 3)
+        direction_only = sum(1 for m in result_details if m["pts"] == 1)
         score_rows.append({"name": s["name"], "rank": s["rank"],
                            "correct": exact + direction_only,
                            "exact": exact, "big_exact": big_exact,
@@ -678,18 +699,35 @@ def build_stats(preds, scores, store):
     combined_rows = []
     for row in score_rows:
         q = qual_by_name[row["name"]]
+        progression = score_by_name[row["name"]].get("progression_breakdown", {})
         combined_rows.append({"name": row["name"], "rank": row["rank"],
                               "correct": row["correct"], "exact": row["exact"],
                               "big_exact": row["big_exact"],
                               "qualifiers": q["guaranteed_hits"],
-                              "guaranteed_teams": q["guaranteed_teams"]})
+                              "guaranteed_teams": q["guaranteed_teams"],
+                              "r32_qualifiers": len(progression.get("r32", {}).get("hits", [])),
+                              "qualified_r32_teams": progression.get("r32", {}).get("hits", []),
+                              "r16_qualifiers": len(progression.get("r16", {}).get("hits", [])),
+                              "qualified_r16_teams": progression.get("r16", {}).get("hits", []),
+                              "qf_qualifiers": len(progression.get("qf", {}).get("hits", [])),
+                              "qualified_qf_teams": progression.get("qf", {}).get("hits", []),
+                              "sf_qualifiers": len(progression.get("sf", {}).get("hits", [])),
+                              "qualified_sf_teams": progression.get("sf", {}).get("hits", []),
+                              "final_qualifiers": len(progression.get("final", {}).get("hits", [])),
+                              "qualified_final_teams": progression.get("final", {}).get("hits", []),
+                              "champion_hits": len(progression.get("champion", {}).get("hits", [])),
+                              "champion_teams": progression.get("champion", {}).get("hits", [])})
 
+    reached = reached_sets(store)
+    reached_by_stage = {st: sorted(teams) for st, teams in reached.items()}
     return {"rows": combined_rows,
             "score_accuracy": {"rows": score_rows},
             "qualification_accuracy": {
                 "source": "espn_round_of_32_fixtures",
                 "available": True,
                 "guaranteed_teams": sorted(guaranteed),
+                "reached_teams_by_stage": reached_by_stage,
+                "reached_r16_teams": sorted(reached["r16"]),
                 "pending_teams": sorted(pending),
                 "rows": qual_rows}}
 
@@ -737,8 +775,16 @@ def build_all():
         current_top_scorers.append(current_row)
     site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
                   "played":played,"live":live,"total_group":len(store["group_matches"]),"source":store["source"]},
-          "leaderboard":[{"rank":s["rank"],"name":s["name"],"group":s["group_points"],
-                          "knockout":s["knockout_points"],"progression":s["progression_points"],
+          "leaderboard":[{"rank":s["rank"],"name":s["name"],
+                          "results":s["group_points"] + s["knockout_points"],
+                          "group":s["group_points"],"knockout":s["knockout_points"],
+                          "progression":s["progression_points"],
+                          "progression_r32":s["progression_breakdown"]["r32"]["points"],
+                          "progression_r16":s["progression_breakdown"]["r16"]["points"],
+                          "progression_qf":s["progression_breakdown"]["qf"]["points"],
+                          "progression_sf":s["progression_breakdown"]["sf"]["points"],
+                          "progression_final":s["progression_breakdown"]["final"]["points"],
+                          "progression_champion":s["progression_breakdown"]["champion"]["points"],
                           "gb":s["golden_boot_points"],"total":s["total"],"hits":s["group_hits"]} for s in scores],
           "goldenboot":{"current":current_top_scorers,
                         "current_note":store.get("current_top_scorers_note",""),

@@ -110,6 +110,8 @@ td.name{font-weight:700;text-align:right;color:var(--blue)}
 .tot{font-weight:900;font-size:16px}
 .rk-badge{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;
   border-radius:50%;font-weight:800;font-size:13px;background:#eef2f9}
+#lb .card{overflow-x:auto}
+#lb table{min-width:980px}
 /* rank-tinted rows: gold / silver / bronze / last */
 tr.top1 td{background:linear-gradient(90deg,rgba(255,194,28,.22),rgba(255,194,28,.07))}
 tr.top2 td{background:rgba(168,184,206,.22)}
@@ -415,10 +417,11 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 
 /* ---------- statistics + trends ---------- */
 .stats-card .muted-note{padding:12px 14px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);line-height:1.6}
-.stats-card table{table-layout:fixed}
+.stats-card{overflow-x:auto}
+.stats-card table{table-layout:fixed;min-width:980px}
 .stats-card th:first-child,.stats-card td:first-child{width:44px}
-.stats-card th:nth-child(2),.stats-card td:nth-child(2){width:28%}
-.stats-card th:nth-child(n+3),.stats-card td:nth-child(n+3){width:14.4%}
+.stats-card th:nth-child(2),.stats-card td:nth-child(2){width:18%}
+.stats-card th:nth-child(n+3),.stats-card td:nth-child(n+3){width:7.2%}
 .stats-card th.sortable{cursor:pointer;user-select:none}
 .stats-card th.sortable:hover{background:var(--navy2)}
 .sort-mark{display:inline-block;min-width:14px;margin-inline-start:3px;color:var(--gold)}
@@ -515,19 +518,22 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   .gteam{font-size:12px}
   .gpts{width:22px;font-size:12px}
   /* leaderboard: keep rank · name · total, fold the breakdown columns away */
-  #lb table th:nth-child(n+3):nth-child(-n+6),
-  #lb table td:nth-child(n+3):nth-child(-n+6){display:none}
+  #lb table{min-width:0}
+  #lb table th:nth-child(n+3):not(:last-child),
+  #lb table td:nth-child(n+3):not(:last-child){display:none}
   /* let the wider tables scroll instead of squashing */
   #gb .card,#forms .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
   #gb .card table,#forms .mtable{min-width:440px}
   #stats .card{overflow:hidden}
-  #stats table{min-width:0;font-size:11px}
+  #stats table{min-width:0;font-size:11px;table-layout:fixed}
   #stats th,#stats td{padding:8px 3px}
-  #stats .stats-card th:first-child,#stats .stats-card td:first-child{width:30px}
-  #stats .stats-card th:nth-child(2),#stats .stats-card td:nth-child(2){width:26%}
-  #stats .stats-card th:nth-child(n+3),#stats .stats-card td:nth-child(n+3){width:15.5%}
+  #stats .stats-card th:first-child,#stats .stats-card td:first-child{width:34px}
+  #stats .stats-card th:nth-child(2),#stats .stats-card td:nth-child(2){width:30%}
+  #stats .stats-card th:nth-child(n+3),#stats .stats-card td:nth-child(n+3){width:auto}
+  #stats .stats-card th:nth-child(4),#stats .stats-card td:nth-child(4),
+  #stats .stats-card th:nth-child(5),#stats .stats-card td:nth-child(5){display:none}
   #stats .rk-badge{width:24px;height:24px;font-size:12px}
-  #stats td.name{font-size:11px}
+  #stats td.name{font-size:11px;white-space:normal}
   #stats .stats-card td.num{font-size:13px}
   #stats .sort-mark{min-width:9px;margin-inline-start:1px}
   #stats .stats-card .muted-note{font-size:11px;padding:10px 12px}
@@ -702,12 +708,25 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{
 });
 
 // ---- leaderboard ----
+const PROGRESS_STAGE_COLUMNS=[
+  {stage:'r32',label:'32 האחרונות',pointsKey:'progression_r32',countKey:'r32_qualifiers'},
+  {stage:'r16',label:'שמינית',pointsKey:'progression_r16',countKey:'r16_qualifiers'},
+  {stage:'qf',label:'רבע',pointsKey:'progression_qf',countKey:'qf_qualifiers'},
+  {stage:'sf',label:'חצי',pointsKey:'progression_sf',countKey:'sf_qualifiers'},
+  {stage:'final',label:'גמר',pointsKey:'progression_final',countKey:'final_qualifiers'},
+  {stage:'champion',label:'אלופה',pointsKey:'progression_champion',countKey:'champion_hits'}
+];
+function visibleProgressStages(){
+  const reached=(((D.stats||{}).qualification_accuracy||{}).reached_teams_by_stage)||{};
+  return PROGRESS_STAGE_COLUMNS.filter(c=>(reached[c.stage]||[]).length>0);
+}
 function renderLB(){
   const v=$('#lb'); v.innerHTML='';
   const lb=D.leaderboard;
+  const progressCols=visibleProgressStages();
   // table
   const card=el('div','card');
-  let h=`<table><thead><tr><th>#</th><th>שם</th><th>בתים</th><th>נוקאאוט</th><th>התקדמות</th><th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
+  let h=`<table><thead><tr><th>#</th><th>שם</th><th>תוצאות</th>${progressCols.map(c=>`<th>${c.label}</th>`).join('')}<th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
   const lastRank=lb.length;
   const hdates=Object.keys(D.history||{}).sort();
   const prevSnap=hdates.length>=2?D.history[hdates[hdates.length-2]]:null;
@@ -729,8 +748,8 @@ function renderLB(){
     const winnerFlag=flag?`<span class="winner-flag" title="ניחוש זוכה: ${escAttr(champion)}">${flag}</span>`:'';
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
       <td><span class="rk-badge">${p.rank}</span>${mvr(p.name,p.rank)}</td>
-      <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${prize}</span></td><td>${p.group}</td><td>${p.knockout}</td>
-      <td>${p.progression}</td><td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
+      <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${prize}</span></td>
+      <td>${p.results}</td>${progressCols.map(c=>`<td>${p[c.pointsKey]||0}</td>`).join('')}<td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
   });
   h+='</tbody></table>'; card.innerHTML=h; v.appendChild(card);
 }
@@ -1073,8 +1092,10 @@ function knockoutRoundFromDate(dateText){
   return null;
 }
 function actualStageState(){
-  const guaranteedR32=new Set(((D.stats||{}).qualification_accuracy||{}).guaranteed_teams||[]);
-  const reached={r32:new Set(guaranteedR32),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
+  const qa=((D.stats||{}).qualification_accuracy||{});
+  const reachedByStage=qa.reached_teams_by_stage||{};
+  const guaranteedR32=new Set(qa.guaranteed_teams||[]);
+  const reached={r32:new Set(reachedByStage.r32||guaranteedR32),r16:new Set(reachedByStage.r16||[]),qf:new Set(reachedByStage.qf||[]),sf:new Set(reachedByStage.sf||[]),final:new Set(reachedByStage.final||[]),third:new Set()};
   const eliminatedFromGroup=new Set();
   const qualifiedThird=new Set((D.third_places||[]).filter(r=>r.qualified).map(r=>r.team));
   const thirdRankByTeam=new Map((D.third_places||[]).map(r=>[r.team,r.rank]));
@@ -1097,8 +1118,8 @@ function actualStageState(){
     });
   });
   const eliminatedByRound={r32:new Set(),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
-  (D.results||[]).filter(m=>m.played && m.num>72).forEach(m=>{
-    const rk=knockoutRoundFromDate(m.date);
+  (D.knockout_results||[]).filter(m=>m.played).forEach(m=>{
+    const rk=m.stage||knockoutRoundFromDate(m.date);
     if(!rk || m.hs==null || m.as==null || m.hs===m.as) return;
     const winner=m.hs>m.as?m.home:m.away, loser=m.hs>m.as?m.away:m.home;
     const next={r32:'r16',r16:'qf',qf:'sf',sf:'final'}[rk];
@@ -1243,7 +1264,7 @@ function openForm(name,switchTab=true){
   const brk=el('div','brk');
   brk.innerHTML=`<div class="stage-chip"><span class="label">בתים</span><span class="pts">${t.group}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">התקדמות</span><span class="pts">${t.progression}<span class="unit">נק׳</span></span></div>
-    <div class="stage-chip"><span class="label">נוקאאוט</span><span class="pts">${t.knockout}<span class="unit">נק׳</span></span></div>
+    <div class="stage-chip"><span class="label">תוצאות נוקאאוט</span><span class="pts">${t.knockout}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">מלך שערים</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
   body.appendChild(brk);
   body.appendChild(el('div','form-stage-divider',''));
@@ -1364,13 +1385,14 @@ function sortHead(key,label){
   return `<th class="sortable" onclick="setStatsSort('${key}')">${label}<span class="sort-mark">${mark}</span></th>`;
 }
 function renderStatsTable(rows){
+  const progressCols=visibleProgressStages();
   const cols=[
     {key:'place',label:'#'},
     {key:'name',label:'שם'},
-    {key:'correct',label:'תוצאה',render:r=>`<td class="num">${r.correct}</td>`},
-    {key:'exact',label:'מדויקת',render:r=>`<td class="num">${r.exact}</td>`},
+    {key:'correct',label:'תוצאות',render:r=>`<td class="num">${r.correct}</td>`},
+    {key:'exact',label:'מדויקות',render:r=>`<td class="num">${r.exact}</td>`},
     {key:'big_exact',label:'4+ גולים',render:r=>`<td class="num callout">${r.big_exact}</td>`},
-    {key:'qualifiers',label:'עולות',render:r=>`<td class="num">${r.qualifiers}</td>`}
+    ...progressCols.map(c=>({key:c.countKey,label:c.label,render:r=>`<td class="num">${r[c.countKey]||0}</td>`}))
   ];
   return `<table><thead><tr>${cols.map(c=>(c.key==='place'||c.key==='name')?`<th>${c.label}</th>`:sortHead(c.key,c.label)).join('')}</tr></thead><tbody>`+
     rows.map((r,i)=>`<tr class="clickable" ${statRowClick(r.name)}>${
@@ -1394,7 +1416,7 @@ function renderStats(){
   }
   const card=el('div','card stats-card');
   card.innerHTML=renderStatsTable(sortedStatsRows(rows));
-  card.innerHTML+=`<div class="muted-note">תוצאה כוללת משחקים שבהם צדקו במנצחת או בתיקו, כולל תוצאות מדויקות. עולות נספרות כש-ESPN כבר מציב את הקבוצה במשחקי שלב 32 האחרונות.</div>`;
+  card.innerHTML+=`<div class="muted-note">תוצאות, מדויקות ו-4+ גולים כוללות את כל משחקי התוצאה שנספרו: בתים ונוקאאוט. עמודות ההתקדמות מציגות כמה נבחרות כל משתתף פגע בכל שלב.</div>`;
   v.appendChild(card);
 }
 
