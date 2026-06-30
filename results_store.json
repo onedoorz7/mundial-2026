@@ -990,12 +990,12 @@
       "id": "760488",
       "date": "Jun 30 · 04:00",
       "home_score": 1,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "88'",
-      "status_detail": "88'"
+      "display_clock": "90'+7'",
+      "status_detail": "ET"
     },
     {
       "round": "Round of 32",
