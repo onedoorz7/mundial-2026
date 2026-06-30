@@ -991,11 +991,11 @@
       "date": "Jun 30 · 04:00",
       "home_score": 1,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
+      "played": true,
+      "live": false,
+      "status_state": "post",
       "display_clock": "120'",
-      "status_detail": "Pens"
+      "status_detail": "FT-Pens"
     },
     {
       "round": "Round of 32",
@@ -1084,7 +1084,7 @@
     {
       "round": "Round of 16",
       "home": "Canada",
-      "away": "Round of 32 3 Winner",
+      "away": "Morocco",
       "id": "760502",
       "date": "Jul 4 · 20:00"
     },
