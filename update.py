@@ -132,20 +132,29 @@ def fetch_espn():
             comp = ev["competitions"][0]
             status = comp.get("status", {})
             st = status.get("type", {})
+            rnd = round_for_date(d)
             home = away = None
             for c in comp["competitors"]:
                 team_obj = c.get("team") or {}
                 t = norm(team_obj.get("displayName") or team_obj.get("name") or team_obj.get("location") or "")
                 sc = parse_score(c.get("score"))
-                if c["homeAway"]=="home": home=(t, sc)
-                else: away=(t, sc)
+                shootout = parse_score(c.get("shootoutScore"))
+                side = (t, sc, bool(c.get("winner")), shootout)
+                if c["homeAway"]=="home": home=side
+                else: away=side
             if not home or not away or not home[0] or not away[0]: continue
             state = st.get("state")
             completed = bool(st.get("completed"))
             live = (state == "in") and not completed
+            winner = None
+            home_so = away_so = None
+            if rnd:
+                winner = home[0] if home[2] else away[0] if away[2] else None
+                home_so, away_so = home[3], away[3]
             out.append({"id": ev.get("id"), "date": d, "event_date": ev.get("date"),
                         "home": home[0], "away": away[0],
-                        "hs": home[1], "as": away[1], "round": round_for_date(d),
+                        "hs": home[1], "as": away[1], "round": rnd,
+                        "winner": winner, "home_shootout_score": home_so, "away_shootout_score": away_so,
                         "completed": completed, "live": live, "status_state": state,
                         "display_clock": status.get("displayClock") or "",
                         "status_detail": st.get("shortDetail") or st.get("detail") or st.get("description") or ""})
@@ -244,12 +253,14 @@ def scoreable(m):
 def status_sig(m):
     return (m.get("home_score"), m.get("away_score"), bool(m.get("played")),
             bool(m.get("live")), m.get("status_state") or "",
-            m.get("display_clock") or "", m.get("status_detail") or "")
+            m.get("display_clock") or "", m.get("status_detail") or "",
+            m.get("winner") or "", m.get("home_shootout_score"), m.get("away_shootout_score"))
 
 def fetched_sig(m, hs=None, as_=None):
     return (hs if hs is not None else m["hs"], as_ if as_ is not None else m["as"],
             bool(m["completed"]), bool(m["live"]), m.get("status_state") or "",
-            m.get("display_clock") or "", m.get("status_detail") or "")
+            m.get("display_clock") or "", m.get("status_detail") or "",
+            m.get("winner") or "", m.get("home_shootout_score"), m.get("away_shootout_score"))
 
 def apply_match_state(dst, m, hs=None, as_=None):
     dst["home_score"] = hs if hs is not None else m["hs"]
@@ -259,6 +270,17 @@ def apply_match_state(dst, m, hs=None, as_=None):
     dst["status_state"] = m.get("status_state") or ""
     dst["display_clock"] = m.get("display_clock") or ""
     dst["status_detail"] = m.get("status_detail") or ""
+    if m.get("round"):
+        if m.get("winner"):
+            dst["winner"] = m["winner"]
+        else:
+            dst.pop("winner", None)
+        if m.get("home_shootout_score") is not None or m.get("away_shootout_score") is not None:
+            dst["home_shootout_score"] = m.get("home_shootout_score")
+            dst["away_shootout_score"] = m.get("away_shootout_score")
+        else:
+            dst.pop("home_shootout_score", None)
+            dst.pop("away_shootout_score", None)
 
 def apply_match_meta(dst, m):
     if m.get("id"):
@@ -316,7 +338,7 @@ def update_store():
                 existing_ko[key] = km
                 changed = True
             if m["round"] == "Final" and m["completed"]:
-                champion = m["home"] if m["hs"] >= m["as"] else m["away"]
+                champion = m.get("winner") or (m["home"] if m["hs"] >= m["as"] else m["away"])
     if store.get("knockout_matches") != list(existing_ko.values()):
         store["knockout_matches"] = list(existing_ko.values())
         changed = True
@@ -385,6 +407,8 @@ def is_stage_placeholder_name(name):
     return any(m in str(name) for m in markers)
 
 def match_winner(m):
+    if m.get("winner"):
+        return m["winner"]
     hs, as_ = m.get("home_score"), m.get("away_score")
     if hs is None or as_ is None or hs == as_:
         return None
@@ -655,6 +679,9 @@ def knockout_payload(store, prediction_splits=None, rank_by_name=None):
                      "away": m.get("away") or "",
                      "hs": m.get("home_score"),
                      "as": m.get("away_score"),
+                     "winner": m.get("winner"),
+                     "home_so": m.get("home_shootout_score"),
+                     "away_so": m.get("away_shootout_score"),
                      "played": bool(m.get("played")),
                      "live": bool(m.get("live")),
                      "display_clock": m.get("display_clock") or "",

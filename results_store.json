@@ -967,7 +967,8 @@
       "live": false,
       "status_state": "post",
       "display_clock": "90'+11'",
-      "status_detail": "FT"
+      "status_detail": "FT",
+      "winner": "Brazil"
     },
     {
       "round": "Round of 32",
@@ -981,7 +982,10 @@
       "live": false,
       "status_state": "post",
       "display_clock": "120'",
-      "status_detail": "FT-Pens"
+      "status_detail": "FT-Pens",
+      "winner": "Paraguay",
+      "home_shootout_score": 3,
+      "away_shootout_score": 4
     },
     {
       "round": "Round of 32",
@@ -995,7 +999,10 @@
       "live": false,
       "status_state": "post",
       "display_clock": "120'",
-      "status_detail": "FT-Pens"
+      "status_detail": "FT-Pens",
+      "winner": "Morocco",
+      "home_shootout_score": 2,
+      "away_shootout_score": 3
     },
     {
       "round": "Round of 32",

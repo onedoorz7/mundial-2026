@@ -1091,6 +1091,23 @@ function knockoutRoundFromDate(dateText){
   if(isJul && day===19) return 'final';
   return null;
 }
+function knockoutNextStage(roundKey){
+  return {r32:'r16',r16:'qf',qf:'sf',sf:'final'}[roundKey] || null;
+}
+function knockoutWinner(m, roundKey, reached){
+  if(!m || m.hs==null || m.as==null) return null;
+  if(m.winner) return m.winner;
+  if(m.hs>m.as) return m.home;
+  if(m.as>m.hs) return m.away;
+  const next=knockoutNextStage(roundKey);
+  if(!next) return null;
+  const nextReached=(reached||{})[next] || new Set();
+  const homeAdvanced=nextReached.has(m.home);
+  const awayAdvanced=nextReached.has(m.away);
+  if(homeAdvanced && !awayAdvanced) return m.home;
+  if(awayAdvanced && !homeAdvanced) return m.away;
+  return null;
+}
 function actualStageState(){
   const qa=((D.stats||{}).qualification_accuracy||{});
   const reachedByStage=qa.reached_teams_by_stage||{};
@@ -1120,9 +1137,10 @@ function actualStageState(){
   const eliminatedByRound={r32:new Set(),r16:new Set(),qf:new Set(),sf:new Set(),final:new Set(),third:new Set()};
   (D.knockout_results||[]).filter(m=>m.played).forEach(m=>{
     const rk=m.stage||knockoutRoundFromDate(m.date);
-    if(!rk || m.hs==null || m.as==null || m.hs===m.as) return;
-    const winner=m.hs>m.as?m.home:m.away, loser=m.hs>m.as?m.away:m.home;
-    const next={r32:'r16',r16:'qf',qf:'sf',sf:'final'}[rk];
+    const winner=knockoutWinner(m,rk,reached);
+    if(!rk || !winner) return;
+    const loser=winner===m.home?m.away:m.home;
+    const next=knockoutNextStage(rk);
     if(next) reached[next].add(winner);
     eliminatedByRound[rk].add(loser);
   });
@@ -1170,17 +1188,22 @@ function actualStageTeam(n){
   return isTbdTeamName(n) ? '<span class="team-ltr">TBD</span>' : team(n);
 }
 function actualStageScore(m){
-  if(m && m.hs!=null && m.as!=null) return `${m.hs}-${m.as}`;
+  if(m && m.hs!=null && m.as!=null){
+    const pens=(m.home_so!=null && m.away_so!=null) ? ` (${m.home_so}-${m.away_so})` : '';
+    return `${m.hs}-${m.as}${pens}`;
+  }
   return 'vs';
 }
 function stageGameDate(m){
   return m ? resultDate(m) : '';
 }
 function actualStageSideClass(m, side){
-  if(!m || !m.played || m.hs==null || m.as==null || m.hs===m.as) return '';
+  if(!m || !m.played || m.hs==null || m.as==null) return '';
+  const winner=knockoutWinner(m,m.stage||knockoutRoundFromDate(m.date),ACTUAL_STAGE_STATE.reached);
+  if(!winner) return '';
   return side==='home'
-    ? (m.hs>m.as ? 'team-win' : 'team-loss')
-    : (m.as>m.hs ? 'team-win' : 'team-loss');
+    ? (m.home===winner ? 'team-win' : 'team-loss')
+    : (m.away===winner ? 'team-win' : 'team-loss');
 }
 function stageGameCardHtml(m, i, stage){
   const teams=[m.t1,m.t2], out=teams.filter(t=>stageStatus(t,stage.key)==='eliminated');
