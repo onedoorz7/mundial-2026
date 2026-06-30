@@ -1010,13 +1010,13 @@
       "away": "Norway",
       "id": "760490",
       "date": "Jun 30 · 20:00",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "70'",
-      "status_detail": "70'"
+      "display_clock": "80'",
+      "status_detail": "80'"
     },
     {
       "round": "Round of 32",
