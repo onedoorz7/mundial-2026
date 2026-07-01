@@ -1172,37 +1172,38 @@
   "current_top_scorers": [
     {
       "rank": 1,
+      "player": "Kylian Mbappé",
+      "team": "France",
+      "goals": 6
+    },
+    {
+      "rank": 1,
       "player": "Lionel Messi",
       "team": "Argentina",
       "goals": 6
     },
     {
-      "rank": 2,
+      "rank": 3,
+      "player": "Erling Haaland",
+      "team": "Norway",
+      "goals": 5
+    },
+    {
+      "rank": 4,
       "player": "Vinícius Júnior",
       "team": "Brazil",
       "goals": 4
     },
     {
-      "rank": 2,
-      "player": "Kylian Mbappé",
-      "team": "France",
-      "goals": 4
-    },
-    {
-      "rank": 2,
+      "rank": 4,
       "player": "Ousmane Dembélé",
       "team": "France",
-      "goals": 4
-    },
-    {
-      "rank": 2,
-      "player": "Erling Haaland",
-      "team": "Norway",
       "goals": 4
     }
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
+    "Kylian Mbappé",
     "Lionel Messi"
   ],
   "champion": null,
