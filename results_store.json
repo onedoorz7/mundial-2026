@@ -1042,11 +1042,12 @@
       "date": "Jul 1 · 05:00",
       "home_score": 2,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+7'",
-      "status_detail": "90'+7'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+9'",
+      "status_detail": "FT",
+      "winner": "Mexico"
     },
     {
       "round": "Round of 32",
@@ -1134,7 +1135,7 @@
     },
     {
       "round": "Round of 16",
-      "home": "Round of 32 7 Winner",
+      "home": "Mexico",
       "away": "Round of 32 8 Winner",
       "id": "760505",
       "date": "Jul 6 · 03:00"
