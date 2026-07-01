@@ -1069,7 +1069,14 @@
       "home": "Belgium",
       "away": "Senegal",
       "id": "760493",
-      "date": "Jul 1 · 23:00"
+      "date": "Jul 1 · 23:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "10'",
+      "status_detail": "10'"
     },
     {
       "round": "Round of 32",
