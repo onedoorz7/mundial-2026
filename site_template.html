@@ -419,19 +419,20 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .stats-card .muted-note{padding:12px 14px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);line-height:1.6}
 .stats-card{overflow-x:auto}
 .stats-card table{table-layout:fixed;min-width:980px}
-.stats-card th:first-child,.stats-card td:first-child{width:44px}
-.stats-card th:nth-child(2),.stats-card td:nth-child(2){width:18%}
-.stats-card th:nth-child(n+3),.stats-card td:nth-child(n+3){width:7.2%}
+.stats-card col.stat-place{width:5%}
+.stats-card col.stat-name{width:18%}
+.stats-card col.stat-num{width:var(--stat-num-w)}
 .stats-card th.sortable{cursor:pointer;user-select:none}
 .stats-card th.sortable:hover{background:var(--navy2)}
 .sort-mark{display:inline-block;min-width:14px;margin-inline-start:3px;color:var(--gold)}
 .stats-card td.num{font-weight:900;font-size:16px;color:var(--navy)}
 .stats-card td.callout{color:#9a7400}
 .empty-state{padding:24px;text-align:center;color:var(--muted);font-size:14px;line-height:1.7}
-.mv{display:block;font-size:10px;font-weight:800;margin-top:3px;line-height:1}
-.mv.up{color:var(--green-d)}
-.mv.down{color:var(--red)}
-.mv.same{color:#9aa6bb}
+.mv{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-width:30px;
+  padding:4px 7px;border-radius:999px;font-size:10px;font-weight:900;line-height:1;
+  white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.mv.up{background:#e3f5e9;color:var(--green-d)}
+.mv.down{background:#fde8ea;color:var(--red)}
 .trend-chart-card{padding:14px;overflow:hidden}
 .trend-chart-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
 .trend-focus{font-weight:900;color:var(--navy);font-size:15px;line-height:1.45}
@@ -525,11 +526,16 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   #gb .card,#forms .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
   #gb .card table,#forms .mtable{min-width:440px}
   #stats .card{overflow:hidden}
-  #stats table{min-width:0;font-size:11px;table-layout:fixed}
+  #stats table{width:100%;min-width:0;font-size:11px;table-layout:fixed}
+  #stats .stats-card colgroup{display:none}
   #stats th,#stats td{padding:8px 3px}
   #stats .stats-card th:first-child,#stats .stats-card td:first-child{width:34px}
   #stats .stats-card th:nth-child(2),#stats .stats-card td:nth-child(2){width:30%}
   #stats .stats-card th:nth-child(n+3),#stats .stats-card td:nth-child(n+3){width:auto}
+  #stats .stats-card col.stat-place{width:34px}
+  #stats .stats-card col.stat-name{width:30%}
+  #stats .stats-card col.stat-num{width:auto}
+  #stats .stats-card col.stat-hide-mobile{width:0;visibility:collapse}
   #stats .stats-card th:nth-child(4),#stats .stats-card td:nth-child(4),
   #stats .stats-card th:nth-child(5),#stats .stats-card td:nth-child(5){display:none}
   #stats .rk-badge{width:24px;height:24px;font-size:12px}
@@ -732,10 +738,15 @@ function renderLB(){
   const prevSnap=hdates.length>=2?D.history[hdates[hdates.length-2]]:null;
   const mvr=(name,rank)=>{ if(!prevSnap||!prevSnap[name])return '';
     const d=prevSnap[name][0]-rank;
-    if(d>0)return `<span class="mv up">▲${d}</span>`;
-    if(d<0)return `<span class="mv down">▼${-d}</span>`;
-    return `<span class="mv same">–</span>`; };
+    if(Math.abs(d)<3)return '';
+    if(d>0)return `<span class="mv up">↑${d}</span>`;
+    if(d<0)return `<span class="mv down">↓${-d}</span>`;
+    return ''; };
+  let prevTotal=null;
   lb.forEach((p,idx)=>{
+    const total=Number(p.total);
+    const rankBadge=total===prevTotal ? '' : `<span class="rk-badge">${idx+1}</span>`;
+    prevTotal=total;
     let tc=p.rank<=3?'top'+p.rank:'';
     if(p.rank===lastRank) tc+=(tc?' ':'')+'last';
     let prize='';
@@ -746,9 +757,10 @@ function renderLB(){
     const champion=(D.participants[p.name]||{}).champion;
     const flag=fl(champion);
     const winnerFlag=flag?`<span class="winner-flag" title="ניחוש זוכה: ${escAttr(champion)}">${flag}</span>`:'';
+    const trend=mvr(p.name,p.rank);
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
-      <td><span class="rk-badge">${p.rank}</span>${mvr(p.name,p.rank)}</td>
-      <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${prize}</span></td>
+      <td>${rankBadge}</td>
+      <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${trend}${prize}</span></td>
       <td>${p.results}</td>${progressCols.map(c=>`<td>${p[c.pointsKey]||0}</td>`).join('')}<td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
   });
   h+='</tbody></table>'; card.innerHTML=h; v.appendChild(card);
@@ -1417,7 +1429,9 @@ function renderStatsTable(rows){
     {key:'big_exact',label:'4+ גולים',render:r=>`<td class="num callout">${r.big_exact}</td>`},
     ...progressCols.map(c=>({key:c.countKey,label:c.label,render:r=>`<td class="num">${r[c.countKey]||0}</td>`}))
   ];
-  return `<table><thead><tr>${cols.map(c=>(c.key==='place'||c.key==='name')?`<th>${c.label}</th>`:sortHead(c.key,c.label)).join('')}</tr></thead><tbody>`+
+  const numColWidth=(77 / Math.max(1, cols.length-2)).toFixed(3);
+  const colgroup=`<colgroup><col class="stat-place"><col class="stat-name">${cols.slice(2).map(c=>`<col class="stat-num ${c.key==='exact'||c.key==='big_exact'?'stat-hide-mobile':''}">`).join('')}</colgroup>`;
+  return `<table style="--stat-num-w:${numColWidth}%">${colgroup}<thead><tr>${cols.map(c=>(c.key==='place'||c.key==='name')?`<th>${c.label}</th>`:sortHead(c.key,c.label)).join('')}</tr></thead><tbody>`+
     rows.map((r,i)=>`<tr class="clickable" ${statRowClick(r.name)}>${
       cols.map(c=>{
         if(c.key==='place') return `<td><span class="rk-badge">${i+1}</span></td>`;
