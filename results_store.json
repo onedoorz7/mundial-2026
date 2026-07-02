@@ -1215,18 +1215,30 @@
     },
     {
       "rank": 3,
+      "player": "Harry Kane",
+      "team": "England",
+      "goals": 5
+    },
+    {
+      "rank": 3,
       "player": "Erling Haaland",
       "team": "Norway",
       "goals": 5
     },
     {
-      "rank": 4,
+      "rank": 5,
+      "player": "Ismaïla Sarr",
+      "team": "Senegal",
+      "goals": 4
+    },
+    {
+      "rank": 5,
       "player": "Vinícius Júnior",
       "team": "Brazil",
       "goals": 4
     },
     {
-      "rank": 4,
+      "rank": 5,
       "player": "Ousmane Dembélé",
       "team": "France",
       "goals": 4
