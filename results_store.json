@@ -1100,13 +1100,14 @@
       "away": "Austria",
       "id": "760497",
       "date": "Jul 2 · 22:00",
-      "home_score": 2,
+      "home_score": 3,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "88'",
-      "status_detail": "88'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT",
+      "winner": "Spain"
     },
     {
       "round": "Round of 32",
@@ -1174,7 +1175,7 @@
     {
       "round": "Round of 16",
       "home": "Round of 32 11 Winner",
-      "away": "Round of 32 12 Winner",
+      "away": "Spain",
       "id": "760506",
       "date": "Jul 6 · 22:00"
     },
