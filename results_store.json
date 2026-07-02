@@ -1085,13 +1085,13 @@
       "away": "Bosnia and Herzegovina",
       "id": "760494",
       "date": "Jul 2 · 03:00",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "40'",
-      "status_detail": "40'"
+      "display_clock": "45'+5'",
+      "status_detail": "45'+5'"
     },
     {
       "round": "Round of 32",
