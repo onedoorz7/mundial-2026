@@ -1146,12 +1146,12 @@
       "id": "760499",
       "date": "Jul 3 · 21:00",
       "home_score": 0,
-      "away_score": 0,
+      "away_score": 1,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "9'",
-      "status_detail": "9'"
+      "display_clock": "19'",
+      "status_detail": "19'"
     },
     {
       "round": "Round of 32",
