@@ -1132,11 +1132,12 @@
       "date": "Jul 3 · 06:00",
       "home_score": 2,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'",
-      "status_detail": "90'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT",
+      "winner": "Switzerland"
     },
     {
       "round": "Round of 32",
@@ -1210,7 +1211,7 @@
     },
     {
       "round": "Round of 16",
-      "home": "Round of 32 13 Winner",
+      "home": "Switzerland",
       "away": "Round of 32 15 Winner",
       "id": "760508",
       "date": "Jul 7 · 23:00"
