@@ -107,6 +107,15 @@ td.name{font-weight:700;text-align:right;color:var(--blue)}
 .money-chip.p2{background:#f7f9fc;color:#4c5b70;border-color:#a8b4c5}
 .money-chip.p3{background:#fff4ea;color:#8b4c18;border-color:#c78349}
 .money-chip.last{background:#fff0f1;color:#a92f3d;border-color:#e28b94}
+.gb-icon{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;
+  color:var(--gold);filter:drop-shadow(0 1px 1px rgba(138,95,0,.24));flex-shrink:0}
+.gb-icon svg{display:block;width:100%;height:100%;transform:rotate(-16deg);transform-origin:center}
+.gb-cleat-outline{fill:none;stroke:#7b5400;stroke-width:1.5;stroke-linejoin:round}
+.gb-cleat{fill:var(--gold);stroke:#ffd75a;stroke-width:.35;stroke-linejoin:round}
+.tot-wrap{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;justify-content:center;gap:3px}
+.tot-wrap.has-gb{position:relative}
+.gb-mobile-total{display:none}
+.lb-gb-note{display:none}
 .tot{font-weight:900;font-size:16px}
 .rk-badge{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;
   border-radius:50%;font-weight:800;font-size:13px;background:#eef2f9}
@@ -140,13 +149,13 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .scorer-row>div{padding:11px 8px;text-align:center;min-width:0}
 .scorer-row .player{text-align:right;font-weight:800;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .scorer-row.head .player{color:#fff;text-align:center}
-.scorer-player{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;max-width:100%;vertical-align:middle}
+.scorer-player{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;gap:6px;max-width:100%;vertical-align:middle}
 .scorer-name{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .scorer-short{display:none}
 .scorer-num{font-weight:900;color:var(--txt)}
 @media(max-width:560px){
   .scorer-card{overflow:hidden}
-  .scorer-row{grid-template-columns:36px minmax(0,1fr) 46px 62px}
+  .scorer-row{grid-template-columns:34px minmax(0,1fr) 40px 54px}
   .scorer-row>div{padding:9px 4px;font-size:12px}
   .scorer-card .rk-badge{width:28px;height:28px}
   .scorer-row .player{text-align:right}
@@ -522,6 +531,9 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   #lb table{min-width:0}
   #lb table th:nth-child(n+3):not(:last-child),
   #lb table td:nth-child(n+3):not(:last-child){display:none}
+  #lb .lb-gb-note{display:flex;align-items:center;justify-content:flex-start;gap:6px;margin:-14px 0 8px;color:#52627a;font-size:12px;font-weight:800;line-height:1.35;direction:rtl;text-align:right}
+  #lb .gb-mobile-total{display:inline-flex;position:absolute;top:-6px;left:-9px}
+  #lb .tot .gb-icon{width:12px;height:12px;filter:drop-shadow(0 1px 1px rgba(138,95,0,.24))}
   /* let the wider tables scroll instead of squashing */
   #gb .card,#forms .card{overflow-x:auto;-webkit-overflow-scrolling:touch}
   #gb .card table,#forms .mtable{min-width:440px}
@@ -730,9 +742,12 @@ function renderLB(){
   const v=$('#lb'); v.innerHTML='';
   const lb=D.leaderboard;
   const progressCols=visibleProgressStages();
+  const note=el('div','lb-gb-note');
+  note.innerHTML=`${goldenBootIcon()}<span>= כולל ${goldenBootPoints()} נק׳ על מלך שערים (לא סופי)</span>`;
+  v.appendChild(note);
   // table
   const card=el('div','card');
-  let h=`<table><thead><tr><th>#</th><th>שם</th><th>תוצאות</th>${progressCols.map(c=>`<th>${c.label}</th>`).join('')}<th>מלך</th><th>סה״כ</th></tr></thead><tbody>`;
+  let h=`<table><thead><tr><th>#</th><th>שם</th><th>תוצאות</th>${progressCols.map(c=>`<th>${c.label}</th>`).join('')}<th>נעל הזהב</th><th>סה״כ</th></tr></thead><tbody>`;
   const lastRank=lb.length;
   const hdates=Object.keys(D.history||{}).sort();
   const prevSnap=hdates.length>=2?D.history[hdates[hdates.length-2]]:null;
@@ -758,35 +773,48 @@ function renderLB(){
     const flag=fl(champion);
     const winnerFlag=flag?`<span class="winner-flag" title="ניחוש זוכה: ${escAttr(champion)}">${flag}</span>`:'';
     const trend=mvr(p.name,p.rank);
+    const gbPoints=Number(p.gb)||0;
+    const gbCell=gbPoints || 0;
+    const totalCell=`<span class="tot-wrap ${gbPoints?'has-gb':''}"><span>${p.total}</span>${gbPoints?`<span class="gb-mobile-total">${goldenBootIcon()}</span>`:''}</span>`;
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
       <td>${rankBadge}</td>
       <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${trend}${prize}</span></td>
-      <td>${p.results}</td>${progressCols.map(c=>`<td>${p[c.pointsKey]||0}</td>`).join('')}<td>${p.gb}</td><td class="tot">${p.total}</td></tr>`;
+      <td>${p.results}</td>${progressCols.map(c=>`<td>${p[c.pointsKey]||0}</td>`).join('')}<td>${gbCell}</td><td class="tot">${totalCell}</td></tr>`;
   });
   h+='</tbody></table>'; card.innerHTML=h; v.appendChild(card);
 }
 
 // ---- golden boot ----
+const SCORER_ALIAS_GROUPS=[
+  ['messi','מסי'],
+  ['david','דויד'],
+  ['balogun','באלוגון','בלוגון'],
+  ['havertz','האברץ','האוורץ'],
+  ['ayari','איארי','איירי'],
+  ['just','ג׳אסט','גאסט'],
+  ['oyarz','oyarzabal','אוירז','אויארס'],
+  ['vinicius','ויניסיוס'],
+  ['kane','קיין'],
+  ['haaland','האלנד','הלאנד','האלאנד'],
+  ['mbappe','אמבפה','אמבאפה','אמפבה']
+];
 function scorerKey(name){
   return String(name||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 }
-function guessCountForScorer(name){
+function scorerAliasGroup(name){
   const q=scorerKey(name);
-  const aliases=[
-    [['messi','מסי'],['messi','מסי']],
-    [['david','דויד'],['david','דויד']],
-    [['balogun','באלוגון','בלוגון'],['balogun','באלוגון','בלוגון']],
-    [['havertz','האברץ','האוורץ'],['havertz','האברץ','האוורץ']],
-    [['ayari','איארי','איירי'],['ayari','איארי','איירי']],
-    [['just','ג׳אסט','גאסט'],['just','ג׳אסט','גאסט']],
-    [['oyarz','oyarzabal','אוירז','אויארס'],['oyarz','oyarzabal','אוירז','אויארס']],
-    [['vinicius','ויניסיוס'],['vinicius','ויניסיוס']],
-    [['kane','קיין'],['kane','קיין']],
-    [['haaland','האלנד','הלאנד','האלאנד'],['haaland','האלנד','הלאנד','האלאנד']],
-    [['mbappe','אמבפה','אמבאפה','אמפבה'],['mbappe','אמבפה','אמבאפה','אמפבה']]
-  ];
-  const hit=aliases.find(([needles])=>needles.some(x=>q.includes(x)));
-  const needles=hit ? hit[1] : [q];
+  return SCORER_ALIAS_GROUPS.find(g=>g.some(x=>q.includes(x))) || [q];
+}
+function goldenBootPoints(){
+  return Number((D.goldenboot||{}).points) || 12;
+}
+function goldenBootIcon(){
+  const label=`${goldenBootPoints()} נק׳ על מלך השערים הנוכחי`;
+  const cleat=`M21 8h-.7l-.05-.03c-2.11-.13-3.87-.8-4.72-1.74L14 7c-.05.1-.11.19-.16.28c.71.61 1.16 1.37 1.16 2.22c0 .33-.09.64-.21.95l-1.87-1.87c-.22.25-.45.49-.7.71l2.03 2.03c-.21.25-.45.47-.75.68l-2.07-2.09c-.29.2-.58.37-.88.54l2.03 2.05c-.33.13-.69.24-1.08.32l-1.91-1.91c-.34.14-.68.27-1.03.38l1.7 1.71H10c-1.5 0-2.8-.46-3.72-1.18c-.82.13-1.6.18-2.28.18c-2 0-2 3-2 3c0 1.11.89 2 2 2v1c0 .55.45 1 1 1s1-.45 1-1v-1h1v1c0 .55.45 1 1 1s1-.45 1-1v-1h1v1c0 .55.45 1 1 1s1-.45 1-1v-1h3v1c0 .55.45 1 1 1s1-.45 1-1v-1h1v1c0 .55.45 1 1 1s1-.45 1-1v-1h1s1 0 1-4.5C22 9 21 8 21 8`;
+  return `<span class="gb-icon" title="${label}" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="gb-cleat-outline" d="${cleat}"/><path class="gb-cleat" d="${cleat}"/></svg></span>`;
+}
+function guessCountForScorer(name){
+  const needles=scorerAliasGroup(name);
   const row=(D.goldenboot.tally||[]).find(([p])=>{
     const s=scorerKey(p);
     return needles.some(x=>s.includes(x));
