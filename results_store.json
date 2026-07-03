@@ -1147,11 +1147,14 @@
       "date": "Jul 3 · 21:00",
       "home_score": 1,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "120'+2'",
-      "status_detail": "AET-pens"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "120'",
+      "status_detail": "FT-Pens",
+      "winner": "Egypt",
+      "home_shootout_score": 2,
+      "away_shootout_score": 4
     },
     {
       "round": "Round of 32",
@@ -1212,7 +1215,7 @@
     {
       "round": "Round of 16",
       "home": "Round of 32 14 Winner",
-      "away": "Round of 32 16 Winner",
+      "away": "Egypt",
       "id": "760509",
       "date": "Jul 7 · 19:00"
     },
