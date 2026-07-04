@@ -1164,11 +1164,12 @@
       "date": "Jul 4 · 01:00",
       "home_score": 3,
       "away_score": 2,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "119'",
-      "status_detail": "119'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "120'+3'",
+      "status_detail": "AET",
+      "winner": "Argentina"
     },
     {
       "round": "Round of 32",
@@ -1221,7 +1222,7 @@
     },
     {
       "round": "Round of 16",
-      "home": "Round of 32 14 Winner",
+      "home": "Argentina",
       "away": "Egypt",
       "id": "760509",
       "date": "Jul 7 · 19:00"
