@@ -1206,7 +1206,14 @@
       "home": "Paraguay",
       "away": "France",
       "id": "760503",
-      "date": "Jul 5 · 00:00"
+      "date": "Jul 5 · 00:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "6'",
+      "status_detail": "6'"
     },
     {
       "round": "Round of 16",
