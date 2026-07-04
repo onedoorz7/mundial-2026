@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-07-03",
+  "last_updated": "2026-07-04",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -1167,8 +1167,8 @@
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "89'",
-      "status_detail": "89'"
+      "display_clock": "90'+8'",
+      "status_detail": "ET"
     },
     {
       "round": "Round of 32",
@@ -1246,6 +1246,20 @@
       "away": "Round of 16 6 Winner",
       "id": "760511",
       "date": "Jul 10 · 22:00"
+    },
+    {
+      "round": "Quarterfinals",
+      "home": "Round of 16 3 Winner",
+      "away": "Round of 16 4 Winner",
+      "id": "760512",
+      "date": "Jul 12 · 00:00"
+    },
+    {
+      "round": "Quarterfinals",
+      "home": "Round of 16 7 Winner",
+      "away": "Round of 16 8 Winner",
+      "id": "760513",
+      "date": "Jul 12 · 04:00"
     }
   ],
   "current_top_scorers": [
