@@ -1274,14 +1274,14 @@
   "current_top_scorers": [
     {
       "rank": 1,
-      "player": "Kylian Mbappé",
-      "team": "France",
-      "goals": 6
-    },
-    {
-      "rank": 1,
       "player": "Lionel Messi",
       "team": "Argentina",
+      "goals": 7
+    },
+    {
+      "rank": 2,
+      "player": "Kylian Mbappé",
+      "team": "France",
       "goals": 6
     },
     {
@@ -1323,7 +1323,6 @@
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
-    "Kylian Mbappé",
     "Lionel Messi"
   ],
   "champion": null,
