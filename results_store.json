@@ -1209,11 +1209,12 @@
       "date": "Jul 5 · 00:00",
       "home_score": 0,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+6'",
-      "status_detail": "90'+6'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+11'",
+      "status_detail": "FT",
+      "winner": "France"
     },
     {
       "round": "Round of 16",
@@ -1259,7 +1260,7 @@
     },
     {
       "round": "Quarterfinals",
-      "home": "Round of 16 1 Winner",
+      "home": "France",
       "away": "Morocco",
       "id": "760510",
       "date": "Jul 9 · 23:00"
