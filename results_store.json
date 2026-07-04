@@ -1179,11 +1179,12 @@
       "date": "Jul 4 · 04:30",
       "home_score": 1,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+6'",
-      "status_detail": "90'+6'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+8'",
+      "status_detail": "FT",
+      "winner": "Colombia"
     },
     {
       "round": "Round of 16",
@@ -1237,7 +1238,7 @@
     {
       "round": "Round of 16",
       "home": "Switzerland",
-      "away": "Round of 32 15 Winner",
+      "away": "Colombia",
       "id": "760508",
       "date": "Jul 7 · 23:00"
     },
