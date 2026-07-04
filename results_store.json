@@ -1191,7 +1191,14 @@
       "home": "Canada",
       "away": "Morocco",
       "id": "760502",
-      "date": "Jul 4 · 20:00"
+      "date": "Jul 4 · 20:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "8'",
+      "status_detail": "8'"
     },
     {
       "round": "Round of 16",
