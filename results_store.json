@@ -1239,11 +1239,12 @@
       "date": "Jul 6 · 04:00",
       "home_score": 2,
       "away_score": 3,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+8'",
-      "status_detail": "90'+8'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+12'",
+      "status_detail": "FT",
+      "winner": "England"
     },
     {
       "round": "Round of 16",
@@ -1290,7 +1291,7 @@
     {
       "round": "Quarterfinals",
       "home": "Norway",
-      "away": "Round of 16 4 Winner",
+      "away": "England",
       "id": "760512",
       "date": "Jul 12 · 00:00"
     },
