@@ -1312,21 +1312,39 @@
     },
     {
       "rank": 1,
+      "player": "Erling Haaland",
+      "team": "Norway",
+      "goals": 7
+    },
+    {
+      "rank": 1,
       "player": "Lionel Messi",
       "team": "Argentina",
       "goals": 7
     },
     {
-      "rank": 3,
+      "rank": 4,
       "player": "Harry Kane",
       "team": "England",
-      "goals": 5
+      "goals": 6
     },
     {
-      "rank": 3,
-      "player": "Erling Haaland",
-      "team": "Norway",
-      "goals": 5
+      "rank": 5,
+      "player": "Vinícius Júnior",
+      "team": "Brazil",
+      "goals": 4
+    },
+    {
+      "rank": 5,
+      "player": "Julián Quiñones",
+      "team": "Mexico",
+      "goals": 4
+    },
+    {
+      "rank": 5,
+      "player": "Jude Bellingham",
+      "team": "England",
+      "goals": 4
     },
     {
       "rank": 5,
@@ -1342,12 +1360,6 @@
     },
     {
       "rank": 5,
-      "player": "Vinícius Júnior",
-      "team": "Brazil",
-      "goals": 4
-    },
-    {
-      "rank": 5,
       "player": "Mikel Oyarzabal",
       "team": "Spain",
       "goals": 4
@@ -1356,6 +1368,7 @@
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
     "Kylian Mbappé",
+    "Erling Haaland",
     "Lionel Messi"
   ],
   "champion": null,
