@@ -1268,12 +1268,13 @@
       "id": "760507",
       "date": "Jul 7 · 03:00",
       "home_score": 1,
-      "away_score": 3,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "86'",
-      "status_detail": "86'"
+      "away_score": 4,
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+4'",
+      "status_detail": "FT",
+      "winner": "Belgium"
     },
     {
       "round": "Round of 16",
