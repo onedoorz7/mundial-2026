@@ -1371,6 +1371,12 @@
     },
     {
       "rank": 5,
+      "player": "Mikel Oyarzabal",
+      "team": "Spain",
+      "goals": 4
+    },
+    {
+      "rank": 5,
       "player": "Ousmane Dembélé",
       "team": "France",
       "goals": 4
@@ -1379,12 +1385,6 @@
       "rank": 5,
       "player": "Ismaïla Sarr",
       "team": "Senegal",
-      "goals": 4
-    },
-    {
-      "rank": 5,
-      "player": "Mikel Oyarzabal",
-      "team": "Spain",
       "goals": 4
     }
   ],
