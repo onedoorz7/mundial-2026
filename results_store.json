@@ -1281,7 +1281,14 @@
       "home": "Argentina",
       "away": "Egypt",
       "id": "760509",
-      "date": "Jul 7 · 19:00"
+      "date": "Jul 7 · 19:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "round": "Round of 16",
