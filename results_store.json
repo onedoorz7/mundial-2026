@@ -1354,20 +1354,20 @@
   "current_top_scorers": [
     {
       "rank": 1,
+      "player": "Lionel Messi",
+      "team": "Argentina",
+      "goals": 8
+    },
+    {
+      "rank": 2,
       "player": "Kylian Mbappé",
       "team": "France",
       "goals": 7
     },
     {
-      "rank": 1,
+      "rank": 2,
       "player": "Erling Haaland",
       "team": "Norway",
-      "goals": 7
-    },
-    {
-      "rank": 1,
-      "player": "Lionel Messi",
-      "team": "Argentina",
       "goals": 7
     },
     {
@@ -1415,8 +1415,6 @@
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
-    "Kylian Mbappé",
-    "Erling Haaland",
     "Lionel Messi"
   ],
   "champion": null,
