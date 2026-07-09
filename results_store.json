@@ -1316,11 +1316,12 @@
       "date": "Jul 9 · 23:00",
       "home_score": 2,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+5'",
-      "status_detail": "90'+5'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+6'",
+      "status_detail": "FT",
+      "winner": "France"
     },
     {
       "round": "Quarterfinals",
@@ -1345,7 +1346,7 @@
     },
     {
       "round": "Semi-Finals",
-      "home": "Quarterfinal 1 Winner",
+      "home": "France",
       "away": "Quarterfinal 2 Winner",
       "id": "760514",
       "date": "Jul 14 · 22:00"
