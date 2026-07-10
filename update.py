@@ -379,6 +379,17 @@ def update_store():
 # ---------------- scoring ----------------
 STAGE_PTS = {"r32":4,"r16":5,"qf":7,"sf":10,"final":14,"champion":16}
 GB_POINTS = 12
+def golden_boot_finalized(store):
+    return any(
+        m.get("round") == "Final" and m.get("played") and not m.get("live")
+        for m in store.get("knockout_matches", [])
+    )
+
+def golden_boot_pick_hits_current_leader(d, store):
+    leaders={canon_scorer(x) for x in store.get("golden_boot_leaders",[]) if x}
+    picks={canon_scorer(p) for p in d["golden_boot"] if p}
+    return bool(leaders and (picks&leaders))
+
 def match_points(pred, actual):
     if None in pred or None in actual: return 0,""
     hg,ag = pred; hs,as_ = actual
@@ -529,12 +540,12 @@ def score_one(d, store):
     ps=pred_sets(d); rs=reached_sets(store); pp=0; pb={}
     for st,v in STAGE_PTS.items():
         hits=ps[st]&rs[st]; pb[st]={"hits":sorted(hits),"points":len(hits)*v}; pp+=len(hits)*v
-    gb=0; leaders={canon_scorer(x) for x in store.get("golden_boot_leaders",[]) if x}
-    picks={canon_scorer(p) for p in d["golden_boot"] if p}
-    if leaders and (picks&leaders): gb=GB_POINTS
+    gb_current=golden_boot_pick_hits_current_leader(d, store)
+    gb=GB_POINTS if golden_boot_finalized(store) and gb_current else 0
     return {"name":d["name"],"group_points":gp,"group_hits":gh,"group_details":gd,
             "knockout_points":kp,"knockout_details":kd,"progression_points":pp,
-            "progression_breakdown":pb,"golden_boot_points":gb,"total":gp+kp+pp+gb}
+            "progression_breakdown":pb,"golden_boot_points":gb,
+            "golden_boot_current":gb_current,"total":gp+kp+pp+gb}
 
 # ---------------- site data + html ----------------
 def participant_payload(d, store, sc):
@@ -568,6 +579,7 @@ def participant_payload(d, store, sc):
             "third_places":third_place_table(standings, r32_teams),
             "totals":{"group":sc["group_points"],"knockout":sc["knockout_points"],
                       "progression":sc["progression_points"],"gb":sc["golden_boot_points"],
+                      "gb_current":sc.get("golden_boot_current", False),
                       "total":sc["total"],"rank":sc["rank"]}}
 
 def prediction_outcome_splits(preds):
@@ -800,6 +812,7 @@ def build_all():
         current_row = dict(row)
         current_row["guess_count"] = gb_counts.get(canon_scorer(player), 0)
         current_top_scorers.append(current_row)
+    gb_finalized = golden_boot_finalized(store)
     site={"meta":{"tournament":store["tournament"],"updated":store["last_updated"],
                   "played":played,"live":live,"total_group":len(store["group_matches"]),"source":store["source"]},
           "leaderboard":[{"rank":s["rank"],"name":s["name"],
@@ -812,8 +825,11 @@ def build_all():
                           "progression_sf":s["progression_breakdown"]["sf"]["points"],
                           "progression_final":s["progression_breakdown"]["final"]["points"],
                           "progression_champion":s["progression_breakdown"]["champion"]["points"],
-                          "gb":s["golden_boot_points"],"total":s["total"],"hits":s["group_hits"]} for s in scores],
+                          "gb":s["golden_boot_points"],
+                          "gb_current":s.get("golden_boot_current", False),
+                          "total":s["total"],"hits":s["group_hits"]} for s in scores],
           "goldenboot":{"points":GB_POINTS,
+                        "finalized":gb_finalized,
                         "current":current_top_scorers,
                         "current_note":store.get("current_top_scorers_note",""),
                         "tally":gb_tally.most_common(),"champions":champ_tally.most_common(),"picks":picks},

@@ -115,7 +115,8 @@ td.name{font-weight:700;text-align:right;color:var(--blue)}
 .tot-wrap{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;justify-content:center;gap:3px}
 .tot-wrap.has-gb{position:relative}
 .gb-mobile-total{display:none}
-.lb-gb-note{display:none}
+.gb-cell-wrap{direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.lb-gb-note{display:flex;align-items:center;justify-content:flex-start;gap:6px;margin:-6px 0 10px;color:#52627a;font-size:12px;font-weight:800;line-height:1.35;direction:rtl;text-align:right}
 .tot{font-weight:900;font-size:16px}
 .rk-badge{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;
   border-radius:50%;font-weight:800;font-size:13px;background:#eef2f9}
@@ -531,7 +532,7 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
   #lb table{min-width:0}
   #lb table th:nth-child(n+3):not(:last-child),
   #lb table td:nth-child(n+3):not(:last-child){display:none}
-  #lb .lb-gb-note{display:flex;align-items:center;justify-content:flex-start;gap:6px;margin:-14px 0 8px;color:#52627a;font-size:12px;font-weight:800;line-height:1.35;direction:rtl;text-align:right}
+  #lb .lb-gb-note{margin:-14px 0 8px}
   #lb .gb-mobile-total{display:inline-flex;position:absolute;top:-6px;left:-9px}
   #lb .tot .gb-icon{width:12px;height:12px;filter:drop-shadow(0 1px 1px rgba(138,95,0,.24))}
   /* let the wider tables scroll instead of squashing */
@@ -742,8 +743,11 @@ function renderLB(){
   const v=$('#lb'); v.innerHTML='';
   const lb=D.leaderboard;
   const progressCols=visibleProgressStages();
+  const gbFinal=goldenBootFinalized();
   const note=el('div','lb-gb-note');
-  note.innerHTML=`${goldenBootIcon()}<span>= כולל ${goldenBootPoints()} נק׳ על מלך שערים (לא סופי)</span>`;
+  note.innerHTML=gbFinal
+    ? `${goldenBootIcon('points')}<span>= ${goldenBootPoints()} נק׳ על מלך שערים</span>`
+    : `${goldenBootIcon('current')}<span>לא כולל נקודות על מלך שערים</span>`;
   v.appendChild(note);
   // table
   const card=el('div','card');
@@ -774,8 +778,9 @@ function renderLB(){
     const winnerFlag=flag?`<span class="winner-flag" title="ניחוש זוכה: ${escAttr(champion)}">${flag}</span>`:'';
     const trend=mvr(p.name,p.rank);
     const gbPoints=Number(p.gb)||0;
-    const gbCell=gbPoints || 0;
-    const totalCell=`<span class="tot-wrap ${gbPoints?'has-gb':''}"><span>${p.total}</span>${gbPoints?`<span class="gb-mobile-total">${goldenBootIcon()}</span>`:''}</span>`;
+    const gbCurrent=Boolean(p.gb_current);
+    const gbCell=`<span class="gb-cell-wrap"><span>${gbPoints}</span>${gbCurrent?goldenBootIcon(gbPoints?'points':'current'):''}</span>`;
+    const totalCell=`<span class="tot-wrap ${gbCurrent?'has-gb':''}"><span>${p.total}</span>${gbCurrent?`<span class="gb-mobile-total">${goldenBootIcon(gbPoints?'points':'current')}</span>`:''}</span>`;
     h+=`<tr class="clickable ${tc}" onclick="openForm('${p.name.replace(/'/g,"\\'")}')">
       <td>${rankBadge}</td>
       <td class="name"><span class="name-wrap"><span class="name-text">${p.name}</span>${winnerFlag}${trend}${prize}</span></td>
@@ -808,8 +813,13 @@ function scorerAliasGroup(name){
 function goldenBootPoints(){
   return Number((D.goldenboot||{}).points) || 12;
 }
-function goldenBootIcon(){
-  const label=`${goldenBootPoints()} נק׳ על מלך השערים הנוכחי`;
+function goldenBootFinalized(){
+  return Boolean((D.goldenboot||{}).finalized);
+}
+function goldenBootIcon(kind='current'){
+  const label=kind==='points'
+    ? `${goldenBootPoints()} נק׳ על מלך השערים`
+    : 'ניחוש תואם למוביל מלך השערים כרגע; נקודות רק אחרי הגמר';
   const cleat=`M21 8h-.7l-.05-.03c-2.11-.13-3.87-.8-4.72-1.74L14 7c-.05.1-.11.19-.16.28c.71.61 1.16 1.37 1.16 2.22c0 .33-.09.64-.21.95l-1.87-1.87c-.22.25-.45.49-.7.71l2.03 2.03c-.21.25-.45.47-.75.68l-2.07-2.09c-.29.2-.58.37-.88.54l2.03 2.05c-.33.13-.69.24-1.08.32l-1.91-1.91c-.34.14-.68.27-1.03.38l1.7 1.71H10c-1.5 0-2.8-.46-3.72-1.18c-.82.13-1.6.18-2.28.18c-2 0-2 3-2 3c0 1.11.89 2 2 2v1c0 .55.45 1 1 1s1-.45 1-1v-1h1v1c0 .55.45 1 1 1s1-.45 1-1v-1h1v1c0 .55.45 1 1 1s1-.45 1-1v-1h3v1c0 .55.45 1 1 1s1-.45 1-1v-1h1v1c0 .55.45 1 1 1s1-.45 1-1v-1h1s1 0 1-4.5C22 9 21 8 21 8`;
   return `<span class="gb-icon" title="${label}" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="gb-cleat-outline" d="${cleat}"/><path class="gb-cleat" d="${cleat}"/></svg></span>`;
 }
@@ -1328,7 +1338,7 @@ function openForm(name,switchTab=true){
   brk.innerHTML=`<div class="stage-chip"><span class="label">בתים</span><span class="pts">${t.group}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">התקדמות</span><span class="pts">${t.progression}<span class="unit">נק׳</span></span></div>
     <div class="stage-chip"><span class="label">תוצאות נוקאאוט</span><span class="pts">${t.knockout}<span class="unit">נק׳</span></span></div>
-    <div class="stage-chip"><span class="label">מלך שערים</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
+    <div class="stage-chip"><span class="label">מלך שערים ${t.gb_current?goldenBootIcon(t.gb?'points':'current'):''}</span><span class="pts">${t.gb}<span class="unit">נק׳</span></span></div>`;
   body.appendChild(brk);
   body.appendChild(el('div','form-stage-divider',''));
   const activeStage=currentCompetitionStage();

@@ -795,6 +795,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 284,
     "rank": 1
   },
@@ -1576,6 +1577,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 280,
     "rank": 2
   },
@@ -2355,6 +2357,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 277,
     "rank": 3
   },
@@ -3117,6 +3120,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 276,
     "rank": 4
   },
@@ -3901,6 +3905,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 275,
     "rank": 5
   },
@@ -4674,6 +4679,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 274,
     "rank": 6
   },
@@ -5477,6 +5483,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 273,
     "rank": 7
   },
@@ -6255,6 +6262,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 273,
     "rank": 8
   },
@@ -7028,6 +7036,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 269,
     "rank": 9
   },
@@ -7819,6 +7828,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 269,
     "rank": 10
   },
@@ -8586,6 +8596,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 265,
     "rank": 11
   },
@@ -9365,6 +9376,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 264,
     "rank": 12
   },
@@ -10137,6 +10149,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 263,
     "rank": 13
   },
@@ -10897,6 +10910,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 263,
     "rank": 14
   },
@@ -11657,6 +11671,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 261,
     "rank": 15
   },
@@ -12422,6 +12437,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 261,
     "rank": 16
   },
@@ -13216,6 +13232,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 259,
     "rank": 17
   },
@@ -13981,6 +13998,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 259,
     "rank": 18
   },
@@ -14753,6 +14771,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 255,
     "rank": 19
   },
@@ -15517,6 +15536,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 254,
     "rank": 20
   },
@@ -16281,6 +16301,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 252,
     "rank": 21
   },
@@ -17034,6 +17055,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 251,
     "rank": 22
   },
@@ -17787,6 +17809,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 247,
     "rank": 23
   },
@@ -18550,6 +18573,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 245,
     "rank": 24
   },
@@ -19314,6 +19338,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 245,
     "rank": 25
   },
@@ -20082,6 +20107,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 237,
     "rank": 26
   },
@@ -20833,6 +20859,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 237,
     "rank": 27
   },
@@ -21593,6 +21620,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 234,
     "rank": 28
   },
@@ -22354,6 +22382,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 234,
     "rank": 29
   },
@@ -23126,6 +23155,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 229,
     "rank": 30
   },
@@ -23873,6 +23903,7 @@
       }
     },
     "golden_boot_points": 0,
+    "golden_boot_current": false,
     "total": 222,
     "rank": 31
   }
