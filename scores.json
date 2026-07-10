@@ -653,7 +653,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 8,
+    "knockout_points": 9,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -714,9 +714,15 @@
         "match": "Switzerland 0-0 Colombia",
         "pts": 0,
         "label": ""
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 225,
+    "progression_points": 235,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -781,9 +787,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -796,7 +803,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 284,
+    "total": 295,
     "rank": 1
   },
   {
@@ -1453,7 +1460,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 6,
+    "knockout_points": 7,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -1496,9 +1503,15 @@
         "match": "Mexico 2-3 England",
         "pts": 0,
         "label": ""
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 224,
+    "progression_points": 234,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -1563,9 +1576,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -1578,7 +1592,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 280,
+    "total": 291,
     "rank": 2
   },
   {
@@ -2280,7 +2294,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 213,
+    "progression_points": 223,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -2343,9 +2357,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -2358,771 +2373,8 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 277,
+    "total": 287,
     "rank": 3
-  },
-  {
-    "name": "אמיל",
-    "group_points": 53,
-    "group_hits": 44,
-    "group_details": [
-      {
-        "num": 1,
-        "home": "Mexico",
-        "away": "South Africa",
-        "pred": "2-0",
-        "actual": "2-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 2,
-        "home": "Korea Republic",
-        "away": "Czech Republic",
-        "pred": "1-3",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 3,
-        "home": "Canada",
-        "away": "Bosnia and Herzegovina",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 4,
-        "home": "United States",
-        "away": "Paraguay",
-        "pred": "2-0",
-        "actual": "4-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 5,
-        "home": "Haiti",
-        "away": "Scotland",
-        "pred": "0-4",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 6,
-        "home": "Australia",
-        "away": "Turkey",
-        "pred": "1-2",
-        "actual": "2-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 7,
-        "home": "Brazil",
-        "away": "Morocco",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 8,
-        "home": "Qatar",
-        "away": "Switzerland",
-        "pred": "0-3",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 9,
-        "home": "Ivory Coast",
-        "away": "Ecuador",
-        "pred": "0-0",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 10,
-        "home": "Germany",
-        "away": "Curaçao",
-        "pred": "6-0",
-        "actual": "7-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 11,
-        "home": "Netherlands",
-        "away": "Japan",
-        "pred": "3-1",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 12,
-        "home": "Sweden",
-        "away": "Tunisia",
-        "pred": "2-0",
-        "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 13,
-        "home": "Saudi Arabia",
-        "away": "Uruguay",
-        "pred": "0-3",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 14,
-        "home": "Spain",
-        "away": "Cape Verde",
-        "pred": "5-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 15,
-        "home": "Iran",
-        "away": "New Zealand",
-        "pred": "1-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 16,
-        "home": "Belgium",
-        "away": "Egypt",
-        "pred": "2-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 17,
-        "home": "France",
-        "away": "Senegal",
-        "pred": "3-1",
-        "actual": "3-1",
-        "pts": 3,
-        "label": "מדויק 4+ גולים"
-      },
-      {
-        "num": 18,
-        "home": "Iraq",
-        "away": "Norway",
-        "pred": "0-4",
-        "actual": "1-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 19,
-        "home": "Argentina",
-        "away": "Algeria",
-        "pred": "3-1",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 20,
-        "home": "Austria",
-        "away": "Jordan",
-        "pred": "3-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 21,
-        "home": "Ghana",
-        "away": "Panama",
-        "pred": "2-0",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 22,
-        "home": "England",
-        "away": "Croatia",
-        "pred": "3-1",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 23,
-        "home": "Portugal",
-        "away": "DR Congo",
-        "pred": "6-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 24,
-        "home": "Uzbekistan",
-        "away": "Colombia",
-        "pred": "0-2",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 25,
-        "home": "Czech Republic",
-        "away": "South Africa",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 26,
-        "home": "Switzerland",
-        "away": "Bosnia and Herzegovina",
-        "pred": "2-0",
-        "actual": "4-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 27,
-        "home": "Canada",
-        "away": "Qatar",
-        "pred": "3-0",
-        "actual": "6-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 28,
-        "home": "Mexico",
-        "away": "Korea Republic",
-        "pred": "1-0",
-        "actual": "1-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 29,
-        "home": "Brazil",
-        "away": "Haiti",
-        "pred": "4-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 30,
-        "home": "Scotland",
-        "away": "Morocco",
-        "pred": "0-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 31,
-        "home": "United States",
-        "away": "Australia",
-        "pred": "2-0",
-        "actual": "2-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 32,
-        "home": "Turkey",
-        "away": "Paraguay",
-        "pred": "2-1",
-        "actual": "0-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 33,
-        "home": "Germany",
-        "away": "Ivory Coast",
-        "pred": "3-1",
-        "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 34,
-        "home": "Ecuador",
-        "away": "Curaçao",
-        "pred": "2-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 35,
-        "home": "Netherlands",
-        "away": "Sweden",
-        "pred": "3-2",
-        "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 36,
-        "home": "Tunisia",
-        "away": "Japan",
-        "pred": "1-2",
-        "actual": "0-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 37,
-        "home": "Uruguay",
-        "away": "Cape Verde",
-        "pred": "4-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 38,
-        "home": "Spain",
-        "away": "Saudi Arabia",
-        "pred": "5-0",
-        "actual": "4-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 39,
-        "home": "Belgium",
-        "away": "Iran",
-        "pred": "3-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 40,
-        "home": "New Zealand",
-        "away": "Egypt",
-        "pred": "0-2",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 41,
-        "home": "Norway",
-        "away": "Senegal",
-        "pred": "3-1",
-        "actual": "3-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 42,
-        "home": "France",
-        "away": "Iraq",
-        "pred": "6-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 43,
-        "home": "Argentina",
-        "away": "Austria",
-        "pred": "2-1",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 44,
-        "home": "Jordan",
-        "away": "Algeria",
-        "pred": "0-3",
-        "actual": "1-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 45,
-        "home": "England",
-        "away": "Ghana",
-        "pred": "2-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 46,
-        "home": "Panama",
-        "away": "Croatia",
-        "pred": "0-3",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 47,
-        "home": "Portugal",
-        "away": "Uzbekistan",
-        "pred": "5-0",
-        "actual": "5-0",
-        "pts": 3,
-        "label": "מדויק 4+ גולים"
-      },
-      {
-        "num": 48,
-        "home": "Colombia",
-        "away": "DR Congo",
-        "pred": "4-0",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 49,
-        "home": "Scotland",
-        "away": "Brazil",
-        "pred": "0-1",
-        "actual": "0-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 50,
-        "home": "Morocco",
-        "away": "Haiti",
-        "pred": "4-0",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 51,
-        "home": "Switzerland",
-        "away": "Canada",
-        "pred": "2-0",
-        "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 52,
-        "home": "Bosnia and Herzegovina",
-        "away": "Qatar",
-        "pred": "3-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 53,
-        "home": "Czech Republic",
-        "away": "Mexico",
-        "pred": "2-0",
-        "actual": "0-3",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 54,
-        "home": "South Africa",
-        "away": "Korea Republic",
-        "pred": "0-1",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 55,
-        "home": "Curaçao",
-        "away": "Ivory Coast",
-        "pred": "0-3",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 56,
-        "home": "Ecuador",
-        "away": "Germany",
-        "pred": "0-2",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 57,
-        "home": "Japan",
-        "away": "Sweden",
-        "pred": "1-1",
-        "actual": "1-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 58,
-        "home": "Tunisia",
-        "away": "Netherlands",
-        "pred": "0-3",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 59,
-        "home": "Turkey",
-        "away": "United States",
-        "pred": "1-0",
-        "actual": "3-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 60,
-        "home": "Paraguay",
-        "away": "Australia",
-        "pred": "2-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 61,
-        "home": "Norway",
-        "away": "France",
-        "pred": "2-2",
-        "actual": "1-4",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 62,
-        "home": "Senegal",
-        "away": "Iraq",
-        "pred": "4-0",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 63,
-        "home": "Egypt",
-        "away": "Iran",
-        "pred": "2-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 64,
-        "home": "New Zealand",
-        "away": "Belgium",
-        "pred": "0-3",
-        "actual": "1-5",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 65,
-        "home": "Cape Verde",
-        "away": "Saudi Arabia",
-        "pred": "0-1",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 66,
-        "home": "Uruguay",
-        "away": "Spain",
-        "pred": "1-3",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 67,
-        "home": "Panama",
-        "away": "England",
-        "pred": "0-4",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 68,
-        "home": "Croatia",
-        "away": "Ghana",
-        "pred": "2-1",
-        "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 69,
-        "home": "Algeria",
-        "away": "Austria",
-        "pred": "0-2",
-        "actual": "3-3",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 70,
-        "home": "Jordan",
-        "away": "Argentina",
-        "pred": "0-4",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 71,
-        "home": "Colombia",
-        "away": "Portugal",
-        "pred": "1-3",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 72,
-        "home": "DR Congo",
-        "away": "Uzbekistan",
-        "pred": "0-1",
-        "actual": "3-1",
-        "pts": 0,
-        "label": ""
-      }
-    ],
-    "knockout_points": 4,
-    "knockout_details": [
-      {
-        "round": "Round of 32",
-        "match": "Germany 1-1 Paraguay",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
-        "match": "Ivory Coast 1-2 Norway",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Spain 3-0 Austria",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Switzerland 2-0 Algeria",
-        "pts": 1,
-        "label": "כיוון נכון"
-      }
-    ],
-    "progression_points": 219,
-    "progression_breakdown": {
-      "r32": {
-        "hits": [
-          "Algeria",
-          "Argentina",
-          "Austria",
-          "Belgium",
-          "Bosnia and Herzegovina",
-          "Brazil",
-          "Canada",
-          "Colombia",
-          "Croatia",
-          "Ecuador",
-          "Egypt",
-          "England",
-          "France",
-          "Germany",
-          "Ghana",
-          "Ivory Coast",
-          "Japan",
-          "Mexico",
-          "Morocco",
-          "Netherlands",
-          "Norway",
-          "Paraguay",
-          "Portugal",
-          "Senegal",
-          "Spain",
-          "Sweden",
-          "Switzerland",
-          "United States"
-        ],
-        "points": 112
-      },
-      "r16": {
-        "hits": [
-          "Argentina",
-          "Belgium",
-          "England",
-          "France",
-          "Mexico",
-          "Morocco",
-          "Norway",
-          "Portugal",
-          "Spain",
-          "Switzerland",
-          "United States"
-        ],
-        "points": 55
-      },
-      "qf": {
-        "hits": [
-          "Argentina",
-          "Belgium",
-          "England",
-          "France",
-          "Morocco",
-          "Spain"
-        ],
-        "points": 42
-      },
-      "sf": {
-        "hits": [
-          "France"
-        ],
-        "points": 10
-      },
-      "final": {
-        "hits": [],
-        "points": 0
-      },
-      "champion": {
-        "hits": [],
-        "points": 0
-      }
-    },
-    "golden_boot_points": 0,
-    "golden_boot_current": true,
-    "total": 276,
-    "rank": 4
   },
   {
     "name": "קאמי",
@@ -3778,7 +3030,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 6,
+    "knockout_points": 8,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -3827,9 +3079,15 @@
         "match": "Argentina 3-2 Egypt",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 2,
+        "label": "מדויק"
       }
     ],
-    "progression_points": 211,
+    "progression_points": 221,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -3891,9 +3149,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -3906,7 +3165,777 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 275,
+    "total": 287,
+    "rank": 4
+  },
+  {
+    "name": "אמיל",
+    "group_points": 53,
+    "group_hits": 44,
+    "group_details": [
+      {
+        "num": 1,
+        "home": "Mexico",
+        "away": "South Africa",
+        "pred": "2-0",
+        "actual": "2-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 2,
+        "home": "Korea Republic",
+        "away": "Czech Republic",
+        "pred": "1-3",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 3,
+        "home": "Canada",
+        "away": "Bosnia and Herzegovina",
+        "pred": "0-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 4,
+        "home": "United States",
+        "away": "Paraguay",
+        "pred": "2-0",
+        "actual": "4-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 5,
+        "home": "Haiti",
+        "away": "Scotland",
+        "pred": "0-4",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 6,
+        "home": "Australia",
+        "away": "Turkey",
+        "pred": "1-2",
+        "actual": "2-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 7,
+        "home": "Brazil",
+        "away": "Morocco",
+        "pred": "0-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 8,
+        "home": "Qatar",
+        "away": "Switzerland",
+        "pred": "0-3",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 9,
+        "home": "Ivory Coast",
+        "away": "Ecuador",
+        "pred": "0-0",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 10,
+        "home": "Germany",
+        "away": "Curaçao",
+        "pred": "6-0",
+        "actual": "7-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 11,
+        "home": "Netherlands",
+        "away": "Japan",
+        "pred": "3-1",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 12,
+        "home": "Sweden",
+        "away": "Tunisia",
+        "pred": "2-0",
+        "actual": "5-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 13,
+        "home": "Saudi Arabia",
+        "away": "Uruguay",
+        "pred": "0-3",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 14,
+        "home": "Spain",
+        "away": "Cape Verde",
+        "pred": "5-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 15,
+        "home": "Iran",
+        "away": "New Zealand",
+        "pred": "1-0",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 16,
+        "home": "Belgium",
+        "away": "Egypt",
+        "pred": "2-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 17,
+        "home": "France",
+        "away": "Senegal",
+        "pred": "3-1",
+        "actual": "3-1",
+        "pts": 3,
+        "label": "מדויק 4+ גולים"
+      },
+      {
+        "num": 18,
+        "home": "Iraq",
+        "away": "Norway",
+        "pred": "0-4",
+        "actual": "1-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 19,
+        "home": "Argentina",
+        "away": "Algeria",
+        "pred": "3-1",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 20,
+        "home": "Austria",
+        "away": "Jordan",
+        "pred": "3-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 21,
+        "home": "Ghana",
+        "away": "Panama",
+        "pred": "2-0",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 22,
+        "home": "England",
+        "away": "Croatia",
+        "pred": "3-1",
+        "actual": "4-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 23,
+        "home": "Portugal",
+        "away": "DR Congo",
+        "pred": "6-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 24,
+        "home": "Uzbekistan",
+        "away": "Colombia",
+        "pred": "0-2",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 25,
+        "home": "Czech Republic",
+        "away": "South Africa",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 26,
+        "home": "Switzerland",
+        "away": "Bosnia and Herzegovina",
+        "pred": "2-0",
+        "actual": "4-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 27,
+        "home": "Canada",
+        "away": "Qatar",
+        "pred": "3-0",
+        "actual": "6-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 28,
+        "home": "Mexico",
+        "away": "Korea Republic",
+        "pred": "1-0",
+        "actual": "1-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 29,
+        "home": "Brazil",
+        "away": "Haiti",
+        "pred": "4-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 30,
+        "home": "Scotland",
+        "away": "Morocco",
+        "pred": "0-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 31,
+        "home": "United States",
+        "away": "Australia",
+        "pred": "2-0",
+        "actual": "2-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 32,
+        "home": "Turkey",
+        "away": "Paraguay",
+        "pred": "2-1",
+        "actual": "0-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 33,
+        "home": "Germany",
+        "away": "Ivory Coast",
+        "pred": "3-1",
+        "actual": "2-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 35,
+        "home": "Netherlands",
+        "away": "Sweden",
+        "pred": "3-2",
+        "actual": "5-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 36,
+        "home": "Tunisia",
+        "away": "Japan",
+        "pred": "1-2",
+        "actual": "0-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 37,
+        "home": "Uruguay",
+        "away": "Cape Verde",
+        "pred": "4-0",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 38,
+        "home": "Spain",
+        "away": "Saudi Arabia",
+        "pred": "5-0",
+        "actual": "4-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 39,
+        "home": "Belgium",
+        "away": "Iran",
+        "pred": "3-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 40,
+        "home": "New Zealand",
+        "away": "Egypt",
+        "pred": "0-2",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 41,
+        "home": "Norway",
+        "away": "Senegal",
+        "pred": "3-1",
+        "actual": "3-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 42,
+        "home": "France",
+        "away": "Iraq",
+        "pred": "6-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 43,
+        "home": "Argentina",
+        "away": "Austria",
+        "pred": "2-1",
+        "actual": "2-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 44,
+        "home": "Jordan",
+        "away": "Algeria",
+        "pred": "0-3",
+        "actual": "1-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 45,
+        "home": "England",
+        "away": "Ghana",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 46,
+        "home": "Panama",
+        "away": "Croatia",
+        "pred": "0-3",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 47,
+        "home": "Portugal",
+        "away": "Uzbekistan",
+        "pred": "5-0",
+        "actual": "5-0",
+        "pts": 3,
+        "label": "מדויק 4+ גולים"
+      },
+      {
+        "num": 48,
+        "home": "Colombia",
+        "away": "DR Congo",
+        "pred": "4-0",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 49,
+        "home": "Scotland",
+        "away": "Brazil",
+        "pred": "0-1",
+        "actual": "0-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 50,
+        "home": "Morocco",
+        "away": "Haiti",
+        "pred": "4-0",
+        "actual": "4-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 51,
+        "home": "Switzerland",
+        "away": "Canada",
+        "pred": "2-0",
+        "actual": "2-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 52,
+        "home": "Bosnia and Herzegovina",
+        "away": "Qatar",
+        "pred": "3-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 53,
+        "home": "Czech Republic",
+        "away": "Mexico",
+        "pred": "2-0",
+        "actual": "0-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 54,
+        "home": "South Africa",
+        "away": "Korea Republic",
+        "pred": "0-1",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 55,
+        "home": "Curaçao",
+        "away": "Ivory Coast",
+        "pred": "0-3",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 56,
+        "home": "Ecuador",
+        "away": "Germany",
+        "pred": "0-2",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 57,
+        "home": "Japan",
+        "away": "Sweden",
+        "pred": "1-1",
+        "actual": "1-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 58,
+        "home": "Tunisia",
+        "away": "Netherlands",
+        "pred": "0-3",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 59,
+        "home": "Turkey",
+        "away": "United States",
+        "pred": "1-0",
+        "actual": "3-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 60,
+        "home": "Paraguay",
+        "away": "Australia",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 61,
+        "home": "Norway",
+        "away": "France",
+        "pred": "2-2",
+        "actual": "1-4",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 62,
+        "home": "Senegal",
+        "away": "Iraq",
+        "pred": "4-0",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 63,
+        "home": "Egypt",
+        "away": "Iran",
+        "pred": "2-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 64,
+        "home": "New Zealand",
+        "away": "Belgium",
+        "pred": "0-3",
+        "actual": "1-5",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 65,
+        "home": "Cape Verde",
+        "away": "Saudi Arabia",
+        "pred": "0-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 66,
+        "home": "Uruguay",
+        "away": "Spain",
+        "pred": "1-3",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 67,
+        "home": "Panama",
+        "away": "England",
+        "pred": "0-4",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 68,
+        "home": "Croatia",
+        "away": "Ghana",
+        "pred": "2-1",
+        "actual": "2-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 69,
+        "home": "Algeria",
+        "away": "Austria",
+        "pred": "0-2",
+        "actual": "3-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 70,
+        "home": "Jordan",
+        "away": "Argentina",
+        "pred": "0-4",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 71,
+        "home": "Colombia",
+        "away": "Portugal",
+        "pred": "1-3",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 72,
+        "home": "DR Congo",
+        "away": "Uzbekistan",
+        "pred": "0-1",
+        "actual": "3-1",
+        "pts": 0,
+        "label": ""
+      }
+    ],
+    "knockout_points": 5,
+    "knockout_details": [
+      {
+        "round": "Round of 32",
+        "match": "Germany 1-1 Paraguay",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 32",
+        "match": "Ivory Coast 1-2 Norway",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Spain 3-0 Austria",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Switzerland 2-0 Algeria",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
+      }
+    ],
+    "progression_points": 229,
+    "progression_breakdown": {
+      "r32": {
+        "hits": [
+          "Algeria",
+          "Argentina",
+          "Austria",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Ghana",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 112
+      },
+      "r16": {
+        "hits": [
+          "Argentina",
+          "Belgium",
+          "England",
+          "France",
+          "Mexico",
+          "Morocco",
+          "Norway",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 55
+      },
+      "qf": {
+        "hits": [
+          "Argentina",
+          "Belgium",
+          "England",
+          "France",
+          "Morocco",
+          "Spain"
+        ],
+        "points": 42
+      },
+      "sf": {
+        "hits": [
+          "France",
+          "Spain"
+        ],
+        "points": 20
+      },
+      "final": {
+        "hits": [],
+        "points": 0
+      },
+      "champion": {
+        "hits": [],
+        "points": 0
+      }
+    },
+    "golden_boot_points": 0,
+    "golden_boot_current": true,
+    "total": 287,
     "rank": 5
   },
   {
@@ -4563,7 +4592,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 4,
+    "knockout_points": 6,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -4600,9 +4629,15 @@
         "match": "Mexico 2-3 England",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 2,
+        "label": "מדויק"
       }
     ],
-    "progression_points": 214,
+    "progression_points": 224,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -4665,9 +4700,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -4680,7 +4716,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 274,
+    "total": 286,
     "rank": 6
   },
   {
@@ -5337,7 +5373,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "knockout_points": 12,
+    "knockout_points": 14,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -5404,9 +5440,15 @@
         "match": "United States 1-4 Belgium",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 2,
+        "label": "מדויק"
       }
     ],
-    "progression_points": 212,
+    "progression_points": 222,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -5469,9 +5511,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -5484,7 +5527,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 273,
+    "total": 285,
     "rank": 7
   },
   {
@@ -6186,7 +6229,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 209,
+    "progression_points": 219,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -6248,9 +6291,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -6263,7 +6307,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 273,
+    "total": 283,
     "rank": 8
   },
   {
@@ -6920,7 +6964,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 5,
+    "knockout_points": 6,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -6957,9 +7001,15 @@
         "match": "Mexico 2-3 England",
         "pts": 0,
         "label": ""
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 213,
+    "progression_points": 223,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -7022,9 +7072,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -7037,7 +7088,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 269,
+    "total": 280,
     "rank": 9
   },
   {
@@ -7694,7 +7745,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 10,
+    "knockout_points": 11,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -7749,9 +7800,15 @@
         "match": "Mexico 2-3 England",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 213,
+    "progression_points": 223,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -7814,9 +7871,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -7829,7 +7887,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 269,
+    "total": 280,
     "rank": 10
   },
   {
@@ -8486,7 +8544,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "knockout_points": 3,
+    "knockout_points": 4,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -8517,9 +8575,15 @@
         "match": "Switzerland 2-0 Algeria",
         "pts": 0,
         "label": ""
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 215,
+    "progression_points": 225,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -8582,9 +8646,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -8597,7 +8662,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 265,
+    "total": 276,
     "rank": 11
   },
   {
@@ -9254,7 +9319,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 7,
+    "knockout_points": 8,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -9297,9 +9362,15 @@
         "match": "Argentina 3-2 Egypt",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 213,
+    "progression_points": 223,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -9362,9 +9433,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -9377,7 +9449,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 264,
+    "total": 275,
     "rank": 12
   },
   {
@@ -10034,7 +10106,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "knockout_points": 5,
+    "knockout_points": 6,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -10071,9 +10143,15 @@
         "match": "Mexico 2-3 England",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 209,
+    "progression_points": 219,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -10135,9 +10213,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -10150,7 +10229,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 263,
+    "total": 274,
     "rank": 13
   },
   {
@@ -10807,7 +10886,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 3,
+    "knockout_points": 4,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -10832,9 +10911,15 @@
         "match": "Mexico 2-3 England",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 211,
+    "progression_points": 221,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -10897,8 +10982,10 @@
         "points": 42
       },
       "sf": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Spain"
+        ],
+        "points": 10
       },
       "final": {
         "hits": [],
@@ -10911,7 +10998,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 263,
+    "total": 274,
     "rank": 14
   },
   {
@@ -11595,7 +11682,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 209,
+    "progression_points": 219,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -11657,9 +11744,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -11672,7 +11760,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 261,
+    "total": 271,
     "rank": 15
   },
   {
@@ -12362,7 +12450,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 202,
+    "progression_points": 212,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -12423,9 +12511,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -12438,7 +12527,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 261,
+    "total": 271,
     "rank": 16
   },
   {
@@ -13095,7 +13184,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 9,
+    "knockout_points": 10,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -13156,9 +13245,15 @@
         "match": "Argentina 3-2 Egypt",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 197,
+    "progression_points": 207,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -13219,8 +13314,10 @@
         "points": 28
       },
       "sf": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Spain"
+        ],
+        "points": 10
       },
       "final": {
         "hits": [],
@@ -13233,7 +13330,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 259,
+    "total": 270,
     "rank": 17
   },
   {
@@ -13890,7 +13987,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "knockout_points": 4,
+    "knockout_points": 5,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -13921,9 +14018,15 @@
         "match": "United States 1-4 Belgium",
         "pts": 0,
         "label": ""
+      },
+      {
+        "round": "Quarterfinals",
+        "match": "Spain 2-1 Belgium",
+        "pts": 1,
+        "label": "כיוון נכון"
       }
     ],
-    "progression_points": 204,
+    "progression_points": 214,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -13984,9 +14087,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -13999,7 +14103,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 259,
+    "total": 270,
     "rank": 18
   },
   {
@@ -14695,7 +14799,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 206,
+    "progression_points": 216,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -14757,9 +14861,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -14772,7 +14877,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 255,
+    "total": 265,
     "rank": 19
   },
   {
@@ -15462,7 +15567,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 198,
+    "progression_points": 208,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -15523,8 +15628,10 @@
         "points": 35
       },
       "sf": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Spain"
+        ],
+        "points": 10
       },
       "final": {
         "hits": [],
@@ -15537,7 +15644,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 254,
+    "total": 264,
     "rank": 20
   },
   {
@@ -16227,7 +16334,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 196,
+    "progression_points": 206,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -16288,8 +16395,10 @@
         "points": 28
       },
       "sf": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Spain"
+        ],
+        "points": 10
       },
       "final": {
         "hits": [],
@@ -16302,7 +16411,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 252,
+    "total": 262,
     "rank": 21
   },
   {
@@ -16980,7 +17089,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 204,
+    "progression_points": 214,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -17041,9 +17150,10 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -17056,7 +17166,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 251,
+    "total": 261,
     "rank": 22
   },
   {
@@ -17734,7 +17844,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 203,
+    "progression_points": 213,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -17795,7 +17905,1545 @@
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
+        ],
+        "points": 20
+      },
+      "final": {
+        "hits": [],
+        "points": 0
+      },
+      "champion": {
+        "hits": [],
+        "points": 0
+      }
+    },
+    "golden_boot_points": 0,
+    "golden_boot_current": true,
+    "total": 257,
+    "rank": 23
+  },
+  {
+    "name": "יותקה",
+    "group_points": 46,
+    "group_hits": 39,
+    "group_details": [
+      {
+        "num": 1,
+        "home": "Mexico",
+        "away": "South Africa",
+        "pred": "2-0",
+        "actual": "2-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 2,
+        "home": "Korea Republic",
+        "away": "Czech Republic",
+        "pred": "1-2",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 3,
+        "home": "Canada",
+        "away": "Bosnia and Herzegovina",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 4,
+        "home": "United States",
+        "away": "Paraguay",
+        "pred": "1-0",
+        "actual": "4-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 5,
+        "home": "Haiti",
+        "away": "Scotland",
+        "pred": "0-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 6,
+        "home": "Australia",
+        "away": "Turkey",
+        "pred": "1-2",
+        "actual": "2-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 7,
+        "home": "Brazil",
+        "away": "Morocco",
+        "pred": "2-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 8,
+        "home": "Qatar",
+        "away": "Switzerland",
+        "pred": "0-4",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 9,
+        "home": "Ivory Coast",
+        "away": "Ecuador",
+        "pred": "1-1",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 10,
+        "home": "Germany",
+        "away": "Curaçao",
+        "pred": "5-0",
+        "actual": "7-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 11,
+        "home": "Netherlands",
+        "away": "Japan",
+        "pred": "2-1",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 12,
+        "home": "Sweden",
+        "away": "Tunisia",
+        "pred": "2-0",
+        "actual": "5-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 13,
+        "home": "Saudi Arabia",
+        "away": "Uruguay",
+        "pred": "0-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 14,
+        "home": "Spain",
+        "away": "Cape Verde",
+        "pred": "4-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 15,
+        "home": "Iran",
+        "away": "New Zealand",
+        "pred": "1-1",
+        "actual": "2-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 16,
+        "home": "Belgium",
+        "away": "Egypt",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 17,
+        "home": "France",
+        "away": "Senegal",
+        "pred": "2-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 18,
+        "home": "Iraq",
+        "away": "Norway",
+        "pred": "0-3",
+        "actual": "1-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 19,
+        "home": "Argentina",
+        "away": "Algeria",
+        "pred": "1-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 20,
+        "home": "Austria",
+        "away": "Jordan",
+        "pred": "3-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 21,
+        "home": "Ghana",
+        "away": "Panama",
+        "pred": "2-0",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 22,
+        "home": "England",
+        "away": "Croatia",
+        "pred": "1-1",
+        "actual": "4-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 23,
+        "home": "Portugal",
+        "away": "DR Congo",
+        "pred": "4-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 24,
+        "home": "Uzbekistan",
+        "away": "Colombia",
+        "pred": "0-2",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 25,
+        "home": "Czech Republic",
+        "away": "South Africa",
+        "pred": "2-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 26,
+        "home": "Switzerland",
+        "away": "Bosnia and Herzegovina",
+        "pred": "2-1",
+        "actual": "4-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 27,
+        "home": "Canada",
+        "away": "Qatar",
+        "pred": "2-0",
+        "actual": "6-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 28,
+        "home": "Mexico",
+        "away": "Korea Republic",
+        "pred": "1-0",
+        "actual": "1-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 29,
+        "home": "Brazil",
+        "away": "Haiti",
+        "pred": "5-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 30,
+        "home": "Scotland",
+        "away": "Morocco",
+        "pred": "1-1",
+        "actual": "0-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 31,
+        "home": "United States",
+        "away": "Australia",
+        "pred": "1-0",
+        "actual": "2-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 32,
+        "home": "Turkey",
+        "away": "Paraguay",
+        "pred": "1-1",
+        "actual": "0-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 33,
+        "home": "Germany",
+        "away": "Ivory Coast",
+        "pred": "2-1",
+        "actual": "2-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 35,
+        "home": "Netherlands",
+        "away": "Sweden",
+        "pred": "1-1",
+        "actual": "5-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 36,
+        "home": "Tunisia",
+        "away": "Japan",
+        "pred": "1-2",
+        "actual": "0-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 37,
+        "home": "Uruguay",
+        "away": "Cape Verde",
+        "pred": "2-0",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 38,
+        "home": "Spain",
+        "away": "Saudi Arabia",
+        "pred": "3-0",
+        "actual": "4-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 39,
+        "home": "Belgium",
+        "away": "Iran",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 40,
+        "home": "New Zealand",
+        "away": "Egypt",
+        "pred": "1-1",
+        "actual": "1-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 41,
+        "home": "Norway",
+        "away": "Senegal",
+        "pred": "2-0",
+        "actual": "3-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 42,
+        "home": "France",
+        "away": "Iraq",
+        "pred": "3-0",
+        "actual": "3-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 43,
+        "home": "Argentina",
+        "away": "Austria",
+        "pred": "1-1",
+        "actual": "2-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 44,
+        "home": "Jordan",
+        "away": "Algeria",
+        "pred": "0-1",
+        "actual": "1-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 45,
+        "home": "England",
+        "away": "Ghana",
+        "pred": "1-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 46,
+        "home": "Panama",
+        "away": "Croatia",
+        "pred": "0-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 47,
+        "home": "Portugal",
+        "away": "Uzbekistan",
+        "pred": "3-0",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 48,
+        "home": "Colombia",
+        "away": "DR Congo",
+        "pred": "2-0",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 49,
+        "home": "Scotland",
+        "away": "Brazil",
+        "pred": "0-1",
+        "actual": "0-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 50,
+        "home": "Morocco",
+        "away": "Haiti",
+        "pred": "2-0",
+        "actual": "4-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 51,
+        "home": "Switzerland",
+        "away": "Canada",
+        "pred": "1-1",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 52,
+        "home": "Bosnia and Herzegovina",
+        "away": "Qatar",
+        "pred": "1-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 53,
+        "home": "Czech Republic",
+        "away": "Mexico",
+        "pred": "1-1",
+        "actual": "0-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 54,
+        "home": "South Africa",
+        "away": "Korea Republic",
+        "pred": "0-1",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 55,
+        "home": "Curaçao",
+        "away": "Ivory Coast",
+        "pred": "0-2",
+        "actual": "0-2",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 56,
+        "home": "Ecuador",
+        "away": "Germany",
+        "pred": "0-2",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 57,
+        "home": "Japan",
+        "away": "Sweden",
+        "pred": "1-1",
+        "actual": "1-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 58,
+        "home": "Tunisia",
+        "away": "Netherlands",
+        "pred": "0-2",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 59,
+        "home": "Turkey",
+        "away": "United States",
+        "pred": "0-1",
+        "actual": "3-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 60,
+        "home": "Paraguay",
+        "away": "Australia",
+        "pred": "1-1",
+        "actual": "0-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 61,
+        "home": "Norway",
+        "away": "France",
+        "pred": "1-1",
+        "actual": "1-4",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 62,
+        "home": "Senegal",
+        "away": "Iraq",
+        "pred": "1-0",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 63,
+        "home": "Egypt",
+        "away": "Iran",
+        "pred": "2-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 64,
+        "home": "New Zealand",
+        "away": "Belgium",
+        "pred": "0-2",
+        "actual": "1-5",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 65,
+        "home": "Cape Verde",
+        "away": "Saudi Arabia",
+        "pred": "0-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 66,
+        "home": "Uruguay",
+        "away": "Spain",
+        "pred": "1-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 67,
+        "home": "Panama",
+        "away": "England",
+        "pred": "0-4",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 68,
+        "home": "Croatia",
+        "away": "Ghana",
+        "pred": "2-1",
+        "actual": "2-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 69,
+        "home": "Algeria",
+        "away": "Austria",
+        "pred": "1-2",
+        "actual": "3-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 70,
+        "home": "Jordan",
+        "away": "Argentina",
+        "pred": "0-3",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 71,
+        "home": "Colombia",
+        "away": "Portugal",
+        "pred": "1-2",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 72,
+        "home": "DR Congo",
+        "away": "Uzbekistan",
+        "pred": "1-1",
+        "actual": "3-1",
+        "pts": 0,
+        "label": ""
+      }
+    ],
+    "knockout_points": 5,
+    "knockout_details": [
+      {
+        "round": "Round of 32",
+        "match": "Ivory Coast 1-2 Norway",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "round": "Round of 32",
+        "match": "United States 2-0 Bosnia and Herzegovina",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Switzerland 2-0 Algeria",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Round of 16",
+        "match": "Brazil 1-2 Norway",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 16",
+        "match": "United States 1-4 Belgium",
+        "pts": 0,
+        "label": ""
+      }
+    ],
+    "progression_points": 204,
+    "progression_breakdown": {
+      "r32": {
+        "hits": [
+          "Algeria",
+          "Argentina",
+          "Austria",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Ghana",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 108
+      },
+      "r16": {
+        "hits": [
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "England",
+          "France",
+          "Mexico",
+          "Norway",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 55
+      },
+      "qf": {
+        "hits": [
+          "England",
+          "France",
+          "Spain"
+        ],
+        "points": 21
+      },
+      "sf": {
+        "hits": [
+          "France",
+          "Spain"
+        ],
+        "points": 20
+      },
+      "final": {
+        "hits": [],
+        "points": 0
+      },
+      "champion": {
+        "hits": [],
+        "points": 0
+      }
+    },
+    "golden_boot_points": 0,
+    "golden_boot_current": true,
+    "total": 255,
+    "rank": 24
+  },
+  {
+    "name": "אורי",
+    "group_points": 48,
+    "group_hits": 42,
+    "group_details": [
+      {
+        "num": 1,
+        "home": "Mexico",
+        "away": "South Africa",
+        "pred": "2-0",
+        "actual": "2-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 2,
+        "home": "Korea Republic",
+        "away": "Czech Republic",
+        "pred": "1-0",
+        "actual": "2-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 3,
+        "home": "Canada",
+        "away": "Bosnia and Herzegovina",
+        "pred": "1-1",
+        "actual": "1-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 4,
+        "home": "United States",
+        "away": "Paraguay",
+        "pred": "3-2",
+        "actual": "4-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 5,
+        "home": "Haiti",
+        "away": "Scotland",
+        "pred": "0-4",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 6,
+        "home": "Australia",
+        "away": "Turkey",
+        "pred": "1-1",
+        "actual": "2-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 7,
+        "home": "Brazil",
+        "away": "Morocco",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 8,
+        "home": "Qatar",
+        "away": "Switzerland",
+        "pred": "0-3",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 9,
+        "home": "Ivory Coast",
+        "away": "Ecuador",
+        "pred": "0-1",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 10,
+        "home": "Germany",
+        "away": "Curaçao",
+        "pred": "5-2",
+        "actual": "7-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 11,
+        "home": "Netherlands",
+        "away": "Japan",
+        "pred": "3-1",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 12,
+        "home": "Sweden",
+        "away": "Tunisia",
+        "pred": "2-0",
+        "actual": "5-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 13,
+        "home": "Saudi Arabia",
+        "away": "Uruguay",
+        "pred": "1-3",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 14,
+        "home": "Spain",
+        "away": "Cape Verde",
+        "pred": "5-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 15,
+        "home": "Iran",
+        "away": "New Zealand",
+        "pred": "0-0",
+        "actual": "2-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 16,
+        "home": "Belgium",
+        "away": "Egypt",
+        "pred": "2-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 17,
+        "home": "France",
+        "away": "Senegal",
+        "pred": "1-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 18,
+        "home": "Iraq",
+        "away": "Norway",
+        "pred": "0-3",
+        "actual": "1-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 19,
+        "home": "Argentina",
+        "away": "Algeria",
+        "pred": "2-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 20,
+        "home": "Austria",
+        "away": "Jordan",
+        "pred": "3-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 21,
+        "home": "Ghana",
+        "away": "Panama",
+        "pred": "4-1",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 22,
+        "home": "England",
+        "away": "Croatia",
+        "pred": "0-0",
+        "actual": "4-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 23,
+        "home": "Portugal",
+        "away": "DR Congo",
+        "pred": "4-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 24,
+        "home": "Uzbekistan",
+        "away": "Colombia",
+        "pred": "0-2",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 25,
+        "home": "Czech Republic",
+        "away": "South Africa",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 26,
+        "home": "Switzerland",
+        "away": "Bosnia and Herzegovina",
+        "pred": "2-0",
+        "actual": "4-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 27,
+        "home": "Canada",
+        "away": "Qatar",
+        "pred": "2-0",
+        "actual": "6-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 28,
+        "home": "Mexico",
+        "away": "Korea Republic",
+        "pred": "1-1",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 29,
+        "home": "Brazil",
+        "away": "Haiti",
+        "pred": "4-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 30,
+        "home": "Scotland",
+        "away": "Morocco",
+        "pred": "0-1",
+        "actual": "0-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 31,
+        "home": "United States",
+        "away": "Australia",
+        "pred": "2-1",
+        "actual": "2-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 32,
+        "home": "Turkey",
+        "away": "Paraguay",
+        "pred": "1-0",
+        "actual": "0-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 33,
+        "home": "Germany",
+        "away": "Ivory Coast",
+        "pred": "2-0",
+        "actual": "2-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 35,
+        "home": "Netherlands",
+        "away": "Sweden",
+        "pred": "1-1",
+        "actual": "5-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 36,
+        "home": "Tunisia",
+        "away": "Japan",
+        "pred": "0-2",
+        "actual": "0-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 37,
+        "home": "Uruguay",
+        "away": "Cape Verde",
+        "pred": "2-0",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 38,
+        "home": "Spain",
+        "away": "Saudi Arabia",
+        "pred": "3-0",
+        "actual": "4-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 39,
+        "home": "Belgium",
+        "away": "Iran",
+        "pred": "2-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 40,
+        "home": "New Zealand",
+        "away": "Egypt",
+        "pred": "0-1",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 41,
+        "home": "Norway",
+        "away": "Senegal",
+        "pred": "2-1",
+        "actual": "3-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 42,
+        "home": "France",
+        "away": "Iraq",
+        "pred": "3-0",
+        "actual": "3-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 43,
+        "home": "Argentina",
+        "away": "Austria",
+        "pred": "2-1",
+        "actual": "2-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 44,
+        "home": "Jordan",
+        "away": "Algeria",
+        "pred": "1-2",
+        "actual": "1-2",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 45,
+        "home": "England",
+        "away": "Ghana",
+        "pred": "1-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 46,
+        "home": "Panama",
+        "away": "Croatia",
+        "pred": "0-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 47,
+        "home": "Portugal",
+        "away": "Uzbekistan",
+        "pred": "3-1",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 48,
+        "home": "Colombia",
+        "away": "DR Congo",
+        "pred": "2-0",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 49,
+        "home": "Scotland",
+        "away": "Brazil",
+        "pred": "1-1",
+        "actual": "0-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 50,
+        "home": "Morocco",
+        "away": "Haiti",
+        "pred": "3-0",
+        "actual": "4-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 51,
+        "home": "Switzerland",
+        "away": "Canada",
+        "pred": "2-1",
+        "actual": "2-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 52,
+        "home": "Bosnia and Herzegovina",
+        "away": "Qatar",
+        "pred": "1-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 53,
+        "home": "Czech Republic",
+        "away": "Mexico",
+        "pred": "0-0",
+        "actual": "0-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 54,
+        "home": "South Africa",
+        "away": "Korea Republic",
+        "pred": "1-2",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 55,
+        "home": "Curaçao",
+        "away": "Ivory Coast",
+        "pred": "1-2",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 56,
+        "home": "Ecuador",
+        "away": "Germany",
+        "pred": "0-1",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 57,
+        "home": "Japan",
+        "away": "Sweden",
+        "pred": "0-0",
+        "actual": "1-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 58,
+        "home": "Tunisia",
+        "away": "Netherlands",
+        "pred": "0-3",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 59,
+        "home": "Turkey",
+        "away": "United States",
+        "pred": "1-1",
+        "actual": "3-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 60,
+        "home": "Paraguay",
+        "away": "Australia",
+        "pred": "2-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 61,
+        "home": "Norway",
+        "away": "France",
+        "pred": "0-0",
+        "actual": "1-4",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 62,
+        "home": "Senegal",
+        "away": "Iraq",
+        "pred": "2-0",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 63,
+        "home": "Egypt",
+        "away": "Iran",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 64,
+        "home": "New Zealand",
+        "away": "Belgium",
+        "pred": "0-3",
+        "actual": "1-5",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 65,
+        "home": "Cape Verde",
+        "away": "Saudi Arabia",
+        "pred": "0-2",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 66,
+        "home": "Uruguay",
+        "away": "Spain",
+        "pred": "1-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 67,
+        "home": "Panama",
+        "away": "England",
+        "pred": "0-4",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 68,
+        "home": "Croatia",
+        "away": "Ghana",
+        "pred": "4-2",
+        "actual": "2-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 69,
+        "home": "Algeria",
+        "away": "Austria",
+        "pred": "0-1",
+        "actual": "3-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 70,
+        "home": "Jordan",
+        "away": "Argentina",
+        "pred": "1-4",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 71,
+        "home": "Colombia",
+        "away": "Portugal",
+        "pred": "2-3",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 72,
+        "home": "DR Congo",
+        "away": "Uzbekistan",
+        "pred": "0-1",
+        "actual": "3-1",
+        "pts": 0,
+        "label": ""
+      }
+    ],
+    "knockout_points": 3,
+    "knockout_details": [
+      {
+        "round": "Round of 32",
+        "match": "Germany 1-1 Paraguay",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 32",
+        "match": "Netherlands 1-1 Morocco",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 32",
+        "match": "United States 2-0 Bosnia and Herzegovina",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 32",
+        "match": "Spain 3-0 Austria",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Switzerland 2-0 Algeria",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Round of 16",
+        "match": "United States 1-4 Belgium",
+        "pts": 0,
+        "label": ""
+      }
+    ],
+    "progression_points": 196,
+    "progression_breakdown": {
+      "r32": {
+        "hits": [
+          "Algeria",
+          "Argentina",
+          "Austria",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Ghana",
+          "Japan",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 108
+      },
+      "r16": {
+        "hits": [
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Mexico",
+          "Norway",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 50
+      },
+      "qf": {
+        "hits": [
+          "England",
+          "France",
+          "Norway",
+          "Spain"
+        ],
+        "points": 28
+      },
+      "sf": {
+        "hits": [
+          "Spain"
         ],
         "points": 10
       },
@@ -17809,9 +19457,762 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": true,
+    "golden_boot_current": false,
     "total": 247,
-    "rank": 23
+    "rank": 25
+  },
+  {
+    "name": "אליה 1",
+    "group_points": 45,
+    "group_hits": 40,
+    "group_details": [
+      {
+        "num": 1,
+        "home": "Mexico",
+        "away": "South Africa",
+        "pred": "2-0",
+        "actual": "2-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 2,
+        "home": "Korea Republic",
+        "away": "Czech Republic",
+        "pred": "2-1",
+        "actual": "2-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 3,
+        "home": "Canada",
+        "away": "Bosnia and Herzegovina",
+        "pred": "0-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 4,
+        "home": "United States",
+        "away": "Paraguay",
+        "pred": "1-1",
+        "actual": "4-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 5,
+        "home": "Haiti",
+        "away": "Scotland",
+        "pred": "0-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 6,
+        "home": "Australia",
+        "away": "Turkey",
+        "pred": "1-2",
+        "actual": "2-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 7,
+        "home": "Brazil",
+        "away": "Morocco",
+        "pred": "1-1",
+        "actual": "1-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 8,
+        "home": "Qatar",
+        "away": "Switzerland",
+        "pred": "0-3",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 9,
+        "home": "Ivory Coast",
+        "away": "Ecuador",
+        "pred": "2-2",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 10,
+        "home": "Germany",
+        "away": "Curaçao",
+        "pred": "3-0",
+        "actual": "7-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 11,
+        "home": "Netherlands",
+        "away": "Japan",
+        "pred": "1-2",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 12,
+        "home": "Sweden",
+        "away": "Tunisia",
+        "pred": "2-0",
+        "actual": "5-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 13,
+        "home": "Saudi Arabia",
+        "away": "Uruguay",
+        "pred": "0-2",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 14,
+        "home": "Spain",
+        "away": "Cape Verde",
+        "pred": "5-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 15,
+        "home": "Iran",
+        "away": "New Zealand",
+        "pred": "1-0",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 16,
+        "home": "Belgium",
+        "away": "Egypt",
+        "pred": "1-2",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 17,
+        "home": "France",
+        "away": "Senegal",
+        "pred": "1-1",
+        "actual": "3-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 18,
+        "home": "Iraq",
+        "away": "Norway",
+        "pred": "0-3",
+        "actual": "1-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 19,
+        "home": "Argentina",
+        "away": "Algeria",
+        "pred": "2-1",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 20,
+        "home": "Austria",
+        "away": "Jordan",
+        "pred": "3-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 21,
+        "home": "Ghana",
+        "away": "Panama",
+        "pred": "3-1",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 22,
+        "home": "England",
+        "away": "Croatia",
+        "pred": "1-2",
+        "actual": "4-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 23,
+        "home": "Portugal",
+        "away": "DR Congo",
+        "pred": "4-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 24,
+        "home": "Uzbekistan",
+        "away": "Colombia",
+        "pred": "0-3",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 25,
+        "home": "Czech Republic",
+        "away": "South Africa",
+        "pred": "1-0",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 26,
+        "home": "Switzerland",
+        "away": "Bosnia and Herzegovina",
+        "pred": "1-2",
+        "actual": "4-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 27,
+        "home": "Canada",
+        "away": "Qatar",
+        "pred": "3-0",
+        "actual": "6-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 28,
+        "home": "Mexico",
+        "away": "Korea Republic",
+        "pred": "1-1",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 29,
+        "home": "Brazil",
+        "away": "Haiti",
+        "pred": "4-0",
+        "actual": "3-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 30,
+        "home": "Scotland",
+        "away": "Morocco",
+        "pred": "1-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 31,
+        "home": "United States",
+        "away": "Australia",
+        "pred": "2-1",
+        "actual": "2-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 32,
+        "home": "Turkey",
+        "away": "Paraguay",
+        "pred": "1-1",
+        "actual": "0-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 33,
+        "home": "Germany",
+        "away": "Ivory Coast",
+        "pred": "3-1",
+        "actual": "2-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 34,
+        "home": "Ecuador",
+        "away": "Curaçao",
+        "pred": "3-0",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 35,
+        "home": "Netherlands",
+        "away": "Sweden",
+        "pred": "2-2",
+        "actual": "5-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 36,
+        "home": "Tunisia",
+        "away": "Japan",
+        "pred": "0-3",
+        "actual": "0-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 37,
+        "home": "Uruguay",
+        "away": "Cape Verde",
+        "pred": "3-0",
+        "actual": "2-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 38,
+        "home": "Spain",
+        "away": "Saudi Arabia",
+        "pred": "3-0",
+        "actual": "4-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 39,
+        "home": "Belgium",
+        "away": "Iran",
+        "pred": "2-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 40,
+        "home": "New Zealand",
+        "away": "Egypt",
+        "pred": "0-2",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 41,
+        "home": "Norway",
+        "away": "Senegal",
+        "pred": "1-1",
+        "actual": "3-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 42,
+        "home": "France",
+        "away": "Iraq",
+        "pred": "3-0",
+        "actual": "3-0",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 43,
+        "home": "Argentina",
+        "away": "Austria",
+        "pred": "2-1",
+        "actual": "2-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 44,
+        "home": "Jordan",
+        "away": "Algeria",
+        "pred": "0-3",
+        "actual": "1-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 45,
+        "home": "England",
+        "away": "Ghana",
+        "pred": "2-2",
+        "actual": "0-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 46,
+        "home": "Panama",
+        "away": "Croatia",
+        "pred": "0-2",
+        "actual": "0-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 47,
+        "home": "Portugal",
+        "away": "Uzbekistan",
+        "pred": "3-0",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 48,
+        "home": "Colombia",
+        "away": "DR Congo",
+        "pred": "3-0",
+        "actual": "1-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 49,
+        "home": "Scotland",
+        "away": "Brazil",
+        "pred": "0-2",
+        "actual": "0-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 50,
+        "home": "Morocco",
+        "away": "Haiti",
+        "pred": "3-0",
+        "actual": "4-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 51,
+        "home": "Switzerland",
+        "away": "Canada",
+        "pred": "2-1",
+        "actual": "2-1",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "num": 52,
+        "home": "Bosnia and Herzegovina",
+        "away": "Qatar",
+        "pred": "3-0",
+        "actual": "3-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 53,
+        "home": "Czech Republic",
+        "away": "Mexico",
+        "pred": "1-2",
+        "actual": "0-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 54,
+        "home": "South Africa",
+        "away": "Korea Republic",
+        "pred": "0-2",
+        "actual": "1-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 55,
+        "home": "Curaçao",
+        "away": "Ivory Coast",
+        "pred": "0-3",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 56,
+        "home": "Ecuador",
+        "away": "Germany",
+        "pred": "1-1",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 57,
+        "home": "Japan",
+        "away": "Sweden",
+        "pred": "2-2",
+        "actual": "1-1",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 58,
+        "home": "Tunisia",
+        "away": "Netherlands",
+        "pred": "0-4",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 59,
+        "home": "Turkey",
+        "away": "United States",
+        "pred": "1-1",
+        "actual": "3-2",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 60,
+        "home": "Paraguay",
+        "away": "Australia",
+        "pred": "2-1",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 61,
+        "home": "Norway",
+        "away": "France",
+        "pred": "0-2",
+        "actual": "1-4",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 62,
+        "home": "Senegal",
+        "away": "Iraq",
+        "pred": "3-0",
+        "actual": "5-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 63,
+        "home": "Egypt",
+        "away": "Iran",
+        "pred": "2-1",
+        "actual": "1-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 64,
+        "home": "New Zealand",
+        "away": "Belgium",
+        "pred": "1-2",
+        "actual": "1-5",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 65,
+        "home": "Cape Verde",
+        "away": "Saudi Arabia",
+        "pred": "0-2",
+        "actual": "0-0",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 66,
+        "home": "Uruguay",
+        "away": "Spain",
+        "pred": "0-0",
+        "actual": "0-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 67,
+        "home": "Panama",
+        "away": "England",
+        "pred": "0-5",
+        "actual": "0-2",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 68,
+        "home": "Croatia",
+        "away": "Ghana",
+        "pred": "1-1",
+        "actual": "2-1",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 69,
+        "home": "Algeria",
+        "away": "Austria",
+        "pred": "1-2",
+        "actual": "3-3",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "num": 70,
+        "home": "Jordan",
+        "away": "Argentina",
+        "pred": "0-3",
+        "actual": "1-3",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 71,
+        "home": "Colombia",
+        "away": "Portugal",
+        "pred": "1-1",
+        "actual": "0-0",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "num": 72,
+        "home": "DR Congo",
+        "away": "Uzbekistan",
+        "pred": "0-1",
+        "actual": "3-1",
+        "pts": 0,
+        "label": ""
+      }
+    ],
+    "knockout_points": 4,
+    "knockout_details": [
+      {
+        "round": "Round of 32",
+        "match": "Germany 1-1 Paraguay",
+        "pts": 2,
+        "label": "מדויק"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Spain 3-0 Austria",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Colombia 1-0 Ghana",
+        "pts": 1,
+        "label": "כיוון נכון"
+      }
+    ],
+    "progression_points": 198,
+    "progression_breakdown": {
+      "r32": {
+        "hits": [
+          "Algeria",
+          "Argentina",
+          "Austria",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Ghana",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "United States"
+        ],
+        "points": 112
+      },
+      "r16": {
+        "hits": [
+          "Argentina",
+          "Brazil",
+          "Colombia",
+          "Egypt",
+          "France",
+          "Mexico",
+          "Portugal",
+          "Spain",
+          "United States"
+        ],
+        "points": 45
+      },
+      "qf": {
+        "hits": [
+          "Argentina",
+          "France",
+          "Spain"
+        ],
+        "points": 21
+      },
+      "sf": {
+        "hits": [
+          "France",
+          "Spain"
+        ],
+        "points": 20
+      },
+      "final": {
+        "hits": [],
+        "points": 0
+      },
+      "champion": {
+        "hits": [],
+        "points": 0
+      }
+    },
+    "golden_boot_points": 0,
+    "golden_boot_current": false,
+    "total": 247,
+    "rank": 26
   },
   {
     "name": "אוני ואלישע",
@@ -18575,27 +20976,27 @@
     "golden_boot_points": 0,
     "golden_boot_current": false,
     "total": 245,
-    "rank": 24
+    "rank": 27
   },
   {
-    "name": "יותקה",
+    "name": "שחר גולן",
     "group_points": 46,
-    "group_hits": 39,
+    "group_hits": 40,
     "group_details": [
       {
         "num": 1,
         "home": "Mexico",
         "away": "South Africa",
-        "pred": "2-0",
+        "pred": "2-1",
         "actual": "2-0",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 2,
         "home": "Korea Republic",
         "away": "Czech Republic",
-        "pred": "1-2",
+        "pred": "1-1",
         "actual": "2-1",
         "pts": 0,
         "label": ""
@@ -18604,7 +21005,7 @@
         "num": 3,
         "home": "Canada",
         "away": "Bosnia and Herzegovina",
-        "pred": "1-0",
+        "pred": "2-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -18622,7 +21023,7 @@
         "num": 5,
         "home": "Haiti",
         "away": "Scotland",
-        "pred": "0-2",
+        "pred": "1-2",
         "actual": "0-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18631,7 +21032,7 @@
         "num": 6,
         "home": "Australia",
         "away": "Turkey",
-        "pred": "1-2",
+        "pred": "1-1",
         "actual": "2-0",
         "pts": 0,
         "label": ""
@@ -18640,7 +21041,7 @@
         "num": 7,
         "home": "Brazil",
         "away": "Morocco",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -18649,7 +21050,7 @@
         "num": 8,
         "home": "Qatar",
         "away": "Switzerland",
-        "pred": "0-4",
+        "pred": "0-3",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -18658,7 +21059,7 @@
         "num": 9,
         "home": "Ivory Coast",
         "away": "Ecuador",
-        "pred": "1-1",
+        "pred": "0-2",
         "actual": "1-0",
         "pts": 0,
         "label": ""
@@ -18667,7 +21068,7 @@
         "num": 10,
         "home": "Germany",
         "away": "Curaçao",
-        "pred": "5-0",
+        "pred": "8-0",
         "actual": "7-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18685,16 +21086,16 @@
         "num": 12,
         "home": "Sweden",
         "away": "Tunisia",
-        "pred": "2-0",
+        "pred": "1-1",
         "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 13,
         "home": "Saudi Arabia",
         "away": "Uruguay",
-        "pred": "0-1",
+        "pred": "0-2",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -18703,7 +21104,7 @@
         "num": 14,
         "home": "Spain",
         "away": "Cape Verde",
-        "pred": "4-0",
+        "pred": "8-0",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -18712,28 +21113,28 @@
         "num": 15,
         "home": "Iran",
         "away": "New Zealand",
-        "pred": "1-1",
+        "pred": "1-0",
         "actual": "2-2",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 16,
         "home": "Belgium",
         "away": "Egypt",
-        "pred": "1-0",
+        "pred": "1-1",
         "actual": "1-1",
-        "pts": 0,
-        "label": ""
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 17,
         "home": "France",
         "away": "Senegal",
-        "pred": "2-0",
+        "pred": "2-2",
         "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 18,
@@ -18748,7 +21149,7 @@
         "num": 19,
         "home": "Argentina",
         "away": "Algeria",
-        "pred": "1-0",
+        "pred": "2-1",
         "actual": "3-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18757,7 +21158,7 @@
         "num": 20,
         "home": "Austria",
         "away": "Jordan",
-        "pred": "3-0",
+        "pred": "2-0",
         "actual": "3-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18766,25 +21167,25 @@
         "num": 21,
         "home": "Ghana",
         "away": "Panama",
-        "pred": "2-0",
+        "pred": "1-1",
         "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 22,
         "home": "England",
         "away": "Croatia",
-        "pred": "1-1",
+        "pred": "2-1",
         "actual": "4-2",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 23,
         "home": "Portugal",
         "away": "DR Congo",
-        "pred": "4-0",
+        "pred": "5-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -18793,7 +21194,7 @@
         "num": 24,
         "home": "Uzbekistan",
         "away": "Colombia",
-        "pred": "0-2",
+        "pred": "0-3",
         "actual": "1-3",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18802,7 +21203,7 @@
         "num": 25,
         "home": "Czech Republic",
         "away": "South Africa",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -18811,7 +21212,7 @@
         "num": 26,
         "home": "Switzerland",
         "away": "Bosnia and Herzegovina",
-        "pred": "2-1",
+        "pred": "2-0",
         "actual": "4-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18820,7 +21221,7 @@
         "num": 27,
         "home": "Canada",
         "away": "Qatar",
-        "pred": "2-0",
+        "pred": "2-1",
         "actual": "6-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18829,10 +21230,10 @@
         "num": 28,
         "home": "Mexico",
         "away": "Korea Republic",
-        "pred": "1-0",
+        "pred": "1-2",
         "actual": "1-0",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 29,
@@ -18847,10 +21248,10 @@
         "num": 30,
         "home": "Scotland",
         "away": "Morocco",
-        "pred": "1-1",
+        "pred": "1-2",
         "actual": "0-1",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 31,
@@ -18883,7 +21284,7 @@
         "num": 34,
         "home": "Ecuador",
         "away": "Curaçao",
-        "pred": "2-0",
+        "pred": "5-0",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -18892,10 +21293,10 @@
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
-        "pred": "1-1",
+        "pred": "2-0",
         "actual": "5-1",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 36,
@@ -18910,7 +21311,7 @@
         "num": 37,
         "home": "Uruguay",
         "away": "Cape Verde",
-        "pred": "2-0",
+        "pred": "3-1",
         "actual": "2-2",
         "pts": 0,
         "label": ""
@@ -18919,7 +21320,7 @@
         "num": 38,
         "home": "Spain",
         "away": "Saudi Arabia",
-        "pred": "3-0",
+        "pred": "4-1",
         "actual": "4-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -18928,61 +21329,61 @@
         "num": 39,
         "home": "Belgium",
         "away": "Iran",
-        "pred": "2-0",
+        "pred": "1-1",
         "actual": "0-0",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 40,
         "home": "New Zealand",
         "away": "Egypt",
-        "pred": "1-1",
+        "pred": "0-1",
         "actual": "1-3",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 41,
         "home": "Norway",
         "away": "Senegal",
-        "pred": "2-0",
+        "pred": "2-2",
         "actual": "3-2",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 42,
         "home": "France",
         "away": "Iraq",
-        "pred": "3-0",
+        "pred": "6-0",
         "actual": "3-0",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 43,
         "home": "Argentina",
         "away": "Austria",
-        "pred": "1-1",
+        "pred": "1-0",
         "actual": "2-0",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 44,
         "home": "Jordan",
         "away": "Algeria",
-        "pred": "0-1",
+        "pred": "1-2",
         "actual": "1-2",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 45,
         "home": "England",
         "away": "Ghana",
-        "pred": "1-0",
+        "pred": "2-1",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -18991,7 +21392,7 @@
         "num": 46,
         "home": "Panama",
         "away": "Croatia",
-        "pred": "0-2",
+        "pred": "1-2",
         "actual": "0-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19000,7 +21401,7 @@
         "num": 47,
         "home": "Portugal",
         "away": "Uzbekistan",
-        "pred": "3-0",
+        "pred": "6-1",
         "actual": "5-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19009,7 +21410,7 @@
         "num": 48,
         "home": "Colombia",
         "away": "DR Congo",
-        "pred": "2-0",
+        "pred": "5-1",
         "actual": "1-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19018,7 +21419,7 @@
         "num": 49,
         "home": "Scotland",
         "away": "Brazil",
-        "pred": "0-1",
+        "pred": "2-3",
         "actual": "0-3",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19027,7 +21428,7 @@
         "num": 50,
         "home": "Morocco",
         "away": "Haiti",
-        "pred": "2-0",
+        "pred": "3-0",
         "actual": "4-2",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19036,7 +21437,7 @@
         "num": 51,
         "home": "Switzerland",
         "away": "Canada",
-        "pred": "1-1",
+        "pred": "2-2",
         "actual": "2-1",
         "pts": 0,
         "label": ""
@@ -19045,7 +21446,7 @@
         "num": 52,
         "home": "Bosnia and Herzegovina",
         "away": "Qatar",
-        "pred": "1-0",
+        "pred": "2-1",
         "actual": "3-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19054,16 +21455,16 @@
         "num": 53,
         "home": "Czech Republic",
         "away": "Mexico",
-        "pred": "1-1",
+        "pred": "1-2",
         "actual": "0-3",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 54,
         "home": "South Africa",
         "away": "Korea Republic",
-        "pred": "0-1",
+        "pred": "0-2",
         "actual": "1-0",
         "pts": 0,
         "label": ""
@@ -19072,34 +21473,34 @@
         "num": 55,
         "home": "Curaçao",
         "away": "Ivory Coast",
-        "pred": "0-2",
+        "pred": "0-5",
         "actual": "0-2",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 56,
         "home": "Ecuador",
         "away": "Germany",
-        "pred": "0-2",
+        "pred": "2-1",
         "actual": "2-1",
-        "pts": 0,
-        "label": ""
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 57,
         "home": "Japan",
         "away": "Sweden",
-        "pred": "1-1",
+        "pred": "2-1",
         "actual": "1-1",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 58,
         "home": "Tunisia",
         "away": "Netherlands",
-        "pred": "0-2",
+        "pred": "0-3",
         "actual": "1-3",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19108,7 +21509,7 @@
         "num": 59,
         "home": "Turkey",
         "away": "United States",
-        "pred": "0-1",
+        "pred": "1-1",
         "actual": "3-2",
         "pts": 0,
         "label": ""
@@ -19117,16 +21518,16 @@
         "num": 60,
         "home": "Paraguay",
         "away": "Australia",
-        "pred": "1-1",
+        "pred": "0-0",
         "actual": "0-0",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 61,
         "home": "Norway",
         "away": "France",
-        "pred": "1-1",
+        "pred": "2-2",
         "actual": "1-4",
         "pts": 0,
         "label": ""
@@ -19135,7 +21536,7 @@
         "num": 62,
         "home": "Senegal",
         "away": "Iraq",
-        "pred": "1-0",
+        "pred": "3-1",
         "actual": "5-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19144,7 +21545,7 @@
         "num": 63,
         "home": "Egypt",
         "away": "Iran",
-        "pred": "2-1",
+        "pred": "0-1",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19162,7 +21563,7 @@
         "num": 65,
         "home": "Cape Verde",
         "away": "Saudi Arabia",
-        "pred": "0-1",
+        "pred": "0-3",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19171,19 +21572,19 @@
         "num": 66,
         "home": "Uruguay",
         "away": "Spain",
-        "pred": "1-2",
+        "pred": "1-1",
         "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 67,
         "home": "Panama",
         "away": "England",
-        "pred": "0-4",
+        "pred": "1-1",
         "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 68,
@@ -19198,10 +21599,10 @@
         "num": 69,
         "home": "Algeria",
         "away": "Austria",
-        "pred": "1-2",
+        "pred": "1-1",
         "actual": "3-3",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 70,
@@ -19216,7 +21617,7 @@
         "num": 71,
         "home": "Colombia",
         "away": "Portugal",
-        "pred": "1-2",
+        "pred": "1-3",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19225,7 +21626,7 @@
         "num": 72,
         "home": "DR Congo",
         "away": "Uzbekistan",
-        "pred": "1-1",
+        "pred": "2-2",
         "actual": "3-1",
         "pts": 0,
         "label": ""
@@ -19235,36 +21636,36 @@
     "knockout_details": [
       {
         "round": "Round of 32",
-        "match": "Ivory Coast 1-2 Norway",
+        "match": "Brazil 2-1 Japan",
         "pts": 2,
         "label": "מדויק"
       },
       {
         "round": "Round of 32",
+        "match": "Netherlands 1-1 Morocco",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 32",
         "match": "United States 2-0 Bosnia and Herzegovina",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Spain 3-0 Austria",
         "pts": 2,
         "label": "מדויק"
       },
       {
         "round": "Round of 32",
         "match": "Switzerland 2-0 Algeria",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "round": "Round of 16",
-        "match": "Brazil 1-2 Norway",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 16",
-        "match": "United States 1-4 Belgium",
         "pts": 0,
         "label": ""
       }
     ],
-    "progression_points": 194,
+    "progression_points": 193,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -19282,7 +21683,6 @@
           "England",
           "France",
           "Germany",
-          "Ghana",
           "Ivory Coast",
           "Japan",
           "Mexico",
@@ -19292,41 +21692,40 @@
           "Portugal",
           "Senegal",
           "Spain",
-          "Sweden",
           "Switzerland",
           "United States"
         ],
-        "points": 108
+        "points": 100
       },
       "r16": {
         "hits": [
-          "Belgium",
+          "Argentina",
           "Brazil",
           "Colombia",
           "England",
           "France",
           "Mexico",
-          "Norway",
           "Portugal",
           "Spain",
-          "Switzerland",
           "United States"
         ],
-        "points": 55
+        "points": 45
       },
       "qf": {
         "hits": [
+          "Argentina",
           "England",
           "France",
           "Spain"
         ],
-        "points": 21
+        "points": 28
       },
       "sf": {
         "hits": [
-          "France"
+          "France",
+          "Spain"
         ],
-        "points": 10
+        "points": 20
       },
       "final": {
         "hits": [],
@@ -19338,47 +21737,47 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": true,
-    "total": 245,
-    "rank": 25
+    "golden_boot_current": false,
+    "total": 244,
+    "rank": 28
   },
   {
-    "name": "אורי",
+    "name": "אוני",
     "group_points": 48,
-    "group_hits": 42,
+    "group_hits": 41,
     "group_details": [
       {
         "num": 1,
         "home": "Mexico",
         "away": "South Africa",
-        "pred": "2-0",
+        "pred": "2-1",
         "actual": "2-0",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 2,
         "home": "Korea Republic",
         "away": "Czech Republic",
-        "pred": "1-0",
+        "pred": "0-2",
         "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 3,
         "home": "Canada",
         "away": "Bosnia and Herzegovina",
-        "pred": "1-1",
+        "pred": "1-0",
         "actual": "1-1",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 4,
         "home": "United States",
         "away": "Paraguay",
-        "pred": "3-2",
+        "pred": "1-0",
         "actual": "4-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19387,16 +21786,16 @@
         "num": 5,
         "home": "Haiti",
         "away": "Scotland",
-        "pred": "0-4",
+        "pred": "0-1",
         "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 6,
         "home": "Australia",
         "away": "Turkey",
-        "pred": "1-1",
+        "pred": "0-1",
         "actual": "2-0",
         "pts": 0,
         "label": ""
@@ -19414,7 +21813,7 @@
         "num": 8,
         "home": "Qatar",
         "away": "Switzerland",
-        "pred": "0-3",
+        "pred": "1-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19423,16 +21822,16 @@
         "num": 9,
         "home": "Ivory Coast",
         "away": "Ecuador",
-        "pred": "0-1",
+        "pred": "1-0",
         "actual": "1-0",
-        "pts": 0,
-        "label": ""
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 10,
         "home": "Germany",
         "away": "Curaçao",
-        "pred": "5-2",
+        "pred": "1-0",
         "actual": "7-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19441,7 +21840,7 @@
         "num": 11,
         "home": "Netherlands",
         "away": "Japan",
-        "pred": "3-1",
+        "pred": "1-0",
         "actual": "2-2",
         "pts": 0,
         "label": ""
@@ -19450,7 +21849,7 @@
         "num": 12,
         "home": "Sweden",
         "away": "Tunisia",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "5-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19459,7 +21858,7 @@
         "num": 13,
         "home": "Saudi Arabia",
         "away": "Uruguay",
-        "pred": "1-3",
+        "pred": "0-1",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19468,7 +21867,7 @@
         "num": 14,
         "home": "Spain",
         "away": "Cape Verde",
-        "pred": "5-0",
+        "pred": "1-0",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19477,16 +21876,16 @@
         "num": 15,
         "home": "Iran",
         "away": "New Zealand",
-        "pred": "0-0",
+        "pred": "1-0",
         "actual": "2-2",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 16,
         "home": "Belgium",
         "away": "Egypt",
-        "pred": "2-1",
+        "pred": "0-1",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19504,7 +21903,7 @@
         "num": 18,
         "home": "Iraq",
         "away": "Norway",
-        "pred": "0-3",
+        "pred": "0-1",
         "actual": "1-4",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19513,7 +21912,7 @@
         "num": 19,
         "home": "Argentina",
         "away": "Algeria",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "3-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19522,7 +21921,7 @@
         "num": 20,
         "home": "Austria",
         "away": "Jordan",
-        "pred": "3-0",
+        "pred": "1-0",
         "actual": "3-1",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19531,25 +21930,25 @@
         "num": 21,
         "home": "Ghana",
         "away": "Panama",
-        "pred": "4-1",
+        "pred": "1-0",
         "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 22,
         "home": "England",
         "away": "Croatia",
-        "pred": "0-0",
+        "pred": "1-0",
         "actual": "4-2",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 23,
         "home": "Portugal",
         "away": "DR Congo",
-        "pred": "4-0",
+        "pred": "1-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19558,7 +21957,7 @@
         "num": 24,
         "home": "Uzbekistan",
         "away": "Colombia",
-        "pred": "0-2",
+        "pred": "0-1",
         "actual": "1-3",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19567,7 +21966,7 @@
         "num": 25,
         "home": "Czech Republic",
         "away": "South Africa",
-        "pred": "1-0",
+        "pred": "4-0",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19576,16 +21975,16 @@
         "num": 26,
         "home": "Switzerland",
         "away": "Bosnia and Herzegovina",
-        "pred": "2-0",
+        "pred": "0-1",
         "actual": "4-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 27,
         "home": "Canada",
         "away": "Qatar",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "6-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19594,16 +21993,16 @@
         "num": 28,
         "home": "Mexico",
         "away": "Korea Republic",
-        "pred": "1-1",
+        "pred": "2-1",
         "actual": "1-0",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 29,
         "home": "Brazil",
         "away": "Haiti",
-        "pred": "4-0",
+        "pred": "1-0",
         "actual": "3-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19621,10 +22020,10 @@
         "num": 31,
         "home": "United States",
         "away": "Australia",
-        "pred": "2-1",
+        "pred": "0-1",
         "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 32,
@@ -19639,16 +22038,16 @@
         "num": 33,
         "home": "Germany",
         "away": "Ivory Coast",
-        "pred": "2-0",
+        "pred": "1-1",
         "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 34,
         "home": "Ecuador",
         "away": "Curaçao",
-        "pred": "3-1",
+        "pred": "1-0",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19657,16 +22056,16 @@
         "num": 35,
         "home": "Netherlands",
         "away": "Sweden",
-        "pred": "1-1",
+        "pred": "1-0",
         "actual": "5-1",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 36,
         "home": "Tunisia",
         "away": "Japan",
-        "pred": "0-2",
+        "pred": "0-1",
         "actual": "0-4",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19675,7 +22074,7 @@
         "num": 37,
         "home": "Uruguay",
         "away": "Cape Verde",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "2-2",
         "pts": 0,
         "label": ""
@@ -19684,7 +22083,7 @@
         "num": 38,
         "home": "Spain",
         "away": "Saudi Arabia",
-        "pred": "3-0",
+        "pred": "1-0",
         "actual": "4-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19693,7 +22092,7 @@
         "num": 39,
         "home": "Belgium",
         "away": "Iran",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19711,7 +22110,7 @@
         "num": 41,
         "home": "Norway",
         "away": "Senegal",
-        "pred": "2-1",
+        "pred": "1-0",
         "actual": "3-2",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19720,16 +22119,16 @@
         "num": 42,
         "home": "France",
         "away": "Iraq",
-        "pred": "3-0",
+        "pred": "1-0",
         "actual": "3-0",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 43,
         "home": "Argentina",
         "away": "Austria",
-        "pred": "2-1",
+        "pred": "1-0",
         "actual": "2-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19738,10 +22137,10 @@
         "num": 44,
         "home": "Jordan",
         "away": "Algeria",
-        "pred": "1-2",
+        "pred": "0-1",
         "actual": "1-2",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 45,
@@ -19756,16 +22155,16 @@
         "num": 46,
         "home": "Panama",
         "away": "Croatia",
-        "pred": "0-2",
+        "pred": "0-1",
         "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 47,
         "home": "Portugal",
         "away": "Uzbekistan",
-        "pred": "3-1",
+        "pred": "1-0",
         "actual": "5-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19774,25 +22173,25 @@
         "num": 48,
         "home": "Colombia",
         "away": "DR Congo",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 49,
         "home": "Scotland",
         "away": "Brazil",
-        "pred": "1-1",
+        "pred": "0-1",
         "actual": "0-3",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 50,
         "home": "Morocco",
         "away": "Haiti",
-        "pred": "3-0",
+        "pred": "1-0",
         "actual": "4-2",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19801,10 +22200,10 @@
         "num": 51,
         "home": "Switzerland",
         "away": "Canada",
-        "pred": "2-1",
+        "pred": "1-0",
         "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 52,
@@ -19819,7 +22218,7 @@
         "num": 53,
         "home": "Czech Republic",
         "away": "Mexico",
-        "pred": "0-0",
+        "pred": "1-1",
         "actual": "0-3",
         "pts": 0,
         "label": ""
@@ -19828,16 +22227,16 @@
         "num": 54,
         "home": "South Africa",
         "away": "Korea Republic",
-        "pred": "1-2",
+        "pred": "3-2",
         "actual": "1-0",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 55,
         "home": "Curaçao",
         "away": "Ivory Coast",
-        "pred": "1-2",
+        "pred": "0-1",
         "actual": "0-2",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19855,16 +22254,16 @@
         "num": 57,
         "home": "Japan",
         "away": "Sweden",
-        "pred": "0-0",
+        "pred": "0-1",
         "actual": "1-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 58,
         "home": "Tunisia",
         "away": "Netherlands",
-        "pred": "0-3",
+        "pred": "0-1",
         "actual": "1-3",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19882,7 +22281,7 @@
         "num": 60,
         "home": "Paraguay",
         "away": "Australia",
-        "pred": "2-1",
+        "pred": "1-2",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19891,16 +22290,16 @@
         "num": 61,
         "home": "Norway",
         "away": "France",
-        "pred": "0-0",
+        "pred": "0-1",
         "actual": "1-4",
-        "pts": 0,
-        "label": ""
+        "pts": 1,
+        "label": "כיוון נכון"
       },
       {
         "num": 62,
         "home": "Senegal",
         "away": "Iraq",
-        "pred": "2-0",
+        "pred": "1-0",
         "actual": "5-0",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19909,7 +22308,7 @@
         "num": 63,
         "home": "Egypt",
         "away": "Iran",
-        "pred": "1-0",
+        "pred": "2-3",
         "actual": "1-1",
         "pts": 0,
         "label": ""
@@ -19918,7 +22317,7 @@
         "num": 64,
         "home": "New Zealand",
         "away": "Belgium",
-        "pred": "0-3",
+        "pred": "0-1",
         "actual": "1-5",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19927,7 +22326,7 @@
         "num": 65,
         "home": "Cape Verde",
         "away": "Saudi Arabia",
-        "pred": "0-2",
+        "pred": "0-1",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -19936,16 +22335,16 @@
         "num": 66,
         "home": "Uruguay",
         "away": "Spain",
-        "pred": "1-2",
+        "pred": "0-1",
         "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 2,
+        "label": "מדויק"
       },
       {
         "num": 67,
         "home": "Panama",
         "away": "England",
-        "pred": "0-4",
+        "pred": "0-1",
         "actual": "0-2",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19954,10 +22353,10 @@
         "num": 68,
         "home": "Croatia",
         "away": "Ghana",
-        "pred": "4-2",
+        "pred": "0-1",
         "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
+        "pts": 0,
+        "label": ""
       },
       {
         "num": 69,
@@ -19972,7 +22371,7 @@
         "num": 70,
         "home": "Jordan",
         "away": "Argentina",
-        "pred": "1-4",
+        "pred": "0-1",
         "actual": "1-3",
         "pts": 1,
         "label": "כיוון נכון"
@@ -19981,7 +22380,7 @@
         "num": 71,
         "home": "Colombia",
         "away": "Portugal",
-        "pred": "2-3",
+        "pred": "0-1",
         "actual": "0-0",
         "pts": 0,
         "label": ""
@@ -20000,788 +22399,43 @@
     "knockout_details": [
       {
         "round": "Round of 32",
-        "match": "Germany 1-1 Paraguay",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
         "match": "Netherlands 1-1 Morocco",
         "pts": 0,
         "label": ""
       },
       {
         "round": "Round of 32",
-        "match": "United States 2-0 Bosnia and Herzegovina",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
-        "match": "Spain 3-0 Austria",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Switzerland 2-0 Algeria",
+        "match": "Ivory Coast 1-2 Norway",
         "pts": 1,
         "label": "כיוון נכון"
-      },
-      {
-        "round": "Round of 16",
-        "match": "United States 1-4 Belgium",
-        "pts": 0,
-        "label": ""
-      }
-    ],
-    "progression_points": 186,
-    "progression_breakdown": {
-      "r32": {
-        "hits": [
-          "Algeria",
-          "Argentina",
-          "Austria",
-          "Belgium",
-          "Bosnia and Herzegovina",
-          "Brazil",
-          "Canada",
-          "Colombia",
-          "Croatia",
-          "Ecuador",
-          "Egypt",
-          "England",
-          "France",
-          "Germany",
-          "Ghana",
-          "Japan",
-          "Mexico",
-          "Morocco",
-          "Netherlands",
-          "Norway",
-          "Paraguay",
-          "Portugal",
-          "Senegal",
-          "Spain",
-          "Sweden",
-          "Switzerland",
-          "United States"
-        ],
-        "points": 108
-      },
-      "r16": {
-        "hits": [
-          "Belgium",
-          "Brazil",
-          "England",
-          "France",
-          "Mexico",
-          "Norway",
-          "Portugal",
-          "Spain",
-          "Switzerland",
-          "United States"
-        ],
-        "points": 50
-      },
-      "qf": {
-        "hits": [
-          "England",
-          "France",
-          "Norway",
-          "Spain"
-        ],
-        "points": 28
-      },
-      "sf": {
-        "hits": [],
-        "points": 0
-      },
-      "final": {
-        "hits": [],
-        "points": 0
-      },
-      "champion": {
-        "hits": [],
-        "points": 0
-      }
-    },
-    "golden_boot_points": 0,
-    "golden_boot_current": false,
-    "total": 237,
-    "rank": 26
-  },
-  {
-    "name": "אליה 1",
-    "group_points": 45,
-    "group_hits": 40,
-    "group_details": [
-      {
-        "num": 1,
-        "home": "Mexico",
-        "away": "South Africa",
-        "pred": "2-0",
-        "actual": "2-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 2,
-        "home": "Korea Republic",
-        "away": "Czech Republic",
-        "pred": "2-1",
-        "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 3,
-        "home": "Canada",
-        "away": "Bosnia and Herzegovina",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 4,
-        "home": "United States",
-        "away": "Paraguay",
-        "pred": "1-1",
-        "actual": "4-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 5,
-        "home": "Haiti",
-        "away": "Scotland",
-        "pred": "0-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 6,
-        "home": "Australia",
-        "away": "Turkey",
-        "pred": "1-2",
-        "actual": "2-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 7,
-        "home": "Brazil",
-        "away": "Morocco",
-        "pred": "1-1",
-        "actual": "1-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 8,
-        "home": "Qatar",
-        "away": "Switzerland",
-        "pred": "0-3",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 9,
-        "home": "Ivory Coast",
-        "away": "Ecuador",
-        "pred": "2-2",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 10,
-        "home": "Germany",
-        "away": "Curaçao",
-        "pred": "3-0",
-        "actual": "7-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 11,
-        "home": "Netherlands",
-        "away": "Japan",
-        "pred": "1-2",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 12,
-        "home": "Sweden",
-        "away": "Tunisia",
-        "pred": "2-0",
-        "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 13,
-        "home": "Saudi Arabia",
-        "away": "Uruguay",
-        "pred": "0-2",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 14,
-        "home": "Spain",
-        "away": "Cape Verde",
-        "pred": "5-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 15,
-        "home": "Iran",
-        "away": "New Zealand",
-        "pred": "1-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 16,
-        "home": "Belgium",
-        "away": "Egypt",
-        "pred": "1-2",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 17,
-        "home": "France",
-        "away": "Senegal",
-        "pred": "1-1",
-        "actual": "3-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 18,
-        "home": "Iraq",
-        "away": "Norway",
-        "pred": "0-3",
-        "actual": "1-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 19,
-        "home": "Argentina",
-        "away": "Algeria",
-        "pred": "2-1",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 20,
-        "home": "Austria",
-        "away": "Jordan",
-        "pred": "3-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 21,
-        "home": "Ghana",
-        "away": "Panama",
-        "pred": "3-1",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 22,
-        "home": "England",
-        "away": "Croatia",
-        "pred": "1-2",
-        "actual": "4-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 23,
-        "home": "Portugal",
-        "away": "DR Congo",
-        "pred": "4-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 24,
-        "home": "Uzbekistan",
-        "away": "Colombia",
-        "pred": "0-3",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 25,
-        "home": "Czech Republic",
-        "away": "South Africa",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 26,
-        "home": "Switzerland",
-        "away": "Bosnia and Herzegovina",
-        "pred": "1-2",
-        "actual": "4-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 27,
-        "home": "Canada",
-        "away": "Qatar",
-        "pred": "3-0",
-        "actual": "6-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 28,
-        "home": "Mexico",
-        "away": "Korea Republic",
-        "pred": "1-1",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 29,
-        "home": "Brazil",
-        "away": "Haiti",
-        "pred": "4-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 30,
-        "home": "Scotland",
-        "away": "Morocco",
-        "pred": "1-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 31,
-        "home": "United States",
-        "away": "Australia",
-        "pred": "2-1",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 32,
-        "home": "Turkey",
-        "away": "Paraguay",
-        "pred": "1-1",
-        "actual": "0-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 33,
-        "home": "Germany",
-        "away": "Ivory Coast",
-        "pred": "3-1",
-        "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 34,
-        "home": "Ecuador",
-        "away": "Curaçao",
-        "pred": "3-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 35,
-        "home": "Netherlands",
-        "away": "Sweden",
-        "pred": "2-2",
-        "actual": "5-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 36,
-        "home": "Tunisia",
-        "away": "Japan",
-        "pred": "0-3",
-        "actual": "0-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 37,
-        "home": "Uruguay",
-        "away": "Cape Verde",
-        "pred": "3-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 38,
-        "home": "Spain",
-        "away": "Saudi Arabia",
-        "pred": "3-0",
-        "actual": "4-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 39,
-        "home": "Belgium",
-        "away": "Iran",
-        "pred": "2-1",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 40,
-        "home": "New Zealand",
-        "away": "Egypt",
-        "pred": "0-2",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 41,
-        "home": "Norway",
-        "away": "Senegal",
-        "pred": "1-1",
-        "actual": "3-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 42,
-        "home": "France",
-        "away": "Iraq",
-        "pred": "3-0",
-        "actual": "3-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 43,
-        "home": "Argentina",
-        "away": "Austria",
-        "pred": "2-1",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 44,
-        "home": "Jordan",
-        "away": "Algeria",
-        "pred": "0-3",
-        "actual": "1-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 45,
-        "home": "England",
-        "away": "Ghana",
-        "pred": "2-2",
-        "actual": "0-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 46,
-        "home": "Panama",
-        "away": "Croatia",
-        "pred": "0-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 47,
-        "home": "Portugal",
-        "away": "Uzbekistan",
-        "pred": "3-0",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 48,
-        "home": "Colombia",
-        "away": "DR Congo",
-        "pred": "3-0",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 49,
-        "home": "Scotland",
-        "away": "Brazil",
-        "pred": "0-2",
-        "actual": "0-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 50,
-        "home": "Morocco",
-        "away": "Haiti",
-        "pred": "3-0",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 51,
-        "home": "Switzerland",
-        "away": "Canada",
-        "pred": "2-1",
-        "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 52,
-        "home": "Bosnia and Herzegovina",
-        "away": "Qatar",
-        "pred": "3-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 53,
-        "home": "Czech Republic",
-        "away": "Mexico",
-        "pred": "1-2",
-        "actual": "0-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 54,
-        "home": "South Africa",
-        "away": "Korea Republic",
-        "pred": "0-2",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 55,
-        "home": "Curaçao",
-        "away": "Ivory Coast",
-        "pred": "0-3",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 56,
-        "home": "Ecuador",
-        "away": "Germany",
-        "pred": "1-1",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 57,
-        "home": "Japan",
-        "away": "Sweden",
-        "pred": "2-2",
-        "actual": "1-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 58,
-        "home": "Tunisia",
-        "away": "Netherlands",
-        "pred": "0-4",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 59,
-        "home": "Turkey",
-        "away": "United States",
-        "pred": "1-1",
-        "actual": "3-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 60,
-        "home": "Paraguay",
-        "away": "Australia",
-        "pred": "2-1",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 61,
-        "home": "Norway",
-        "away": "France",
-        "pred": "0-2",
-        "actual": "1-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 62,
-        "home": "Senegal",
-        "away": "Iraq",
-        "pred": "3-0",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 63,
-        "home": "Egypt",
-        "away": "Iran",
-        "pred": "2-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 64,
-        "home": "New Zealand",
-        "away": "Belgium",
-        "pred": "1-2",
-        "actual": "1-5",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 65,
-        "home": "Cape Verde",
-        "away": "Saudi Arabia",
-        "pred": "0-2",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 66,
-        "home": "Uruguay",
-        "away": "Spain",
-        "pred": "0-0",
-        "actual": "0-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 67,
-        "home": "Panama",
-        "away": "England",
-        "pred": "0-5",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 68,
-        "home": "Croatia",
-        "away": "Ghana",
-        "pred": "1-1",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 69,
-        "home": "Algeria",
-        "away": "Austria",
-        "pred": "1-2",
-        "actual": "3-3",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 70,
-        "home": "Jordan",
-        "away": "Argentina",
-        "pred": "0-3",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 71,
-        "home": "Colombia",
-        "away": "Portugal",
-        "pred": "1-1",
-        "actual": "0-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 72,
-        "home": "DR Congo",
-        "away": "Uzbekistan",
-        "pred": "0-1",
-        "actual": "3-1",
-        "pts": 0,
-        "label": ""
-      }
-    ],
-    "knockout_points": 4,
-    "knockout_details": [
-      {
-        "round": "Round of 32",
-        "match": "Germany 1-1 Paraguay",
-        "pts": 2,
-        "label": "מדויק"
       },
       {
         "round": "Round of 32",
         "match": "Spain 3-0 Austria",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Round of 32",
+        "match": "Portugal 2-1 Croatia",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 32",
+        "match": "Australia 1-1 Egypt",
+        "pts": 0,
+        "label": ""
       },
       {
         "round": "Round of 32",
         "match": "Colombia 1-0 Ghana",
+        "pts": 0,
+        "label": ""
+      },
+      {
+        "round": "Round of 16",
+        "match": "Brazil 1-2 Norway",
         "pts": 1,
         "label": "כיוון נכון"
       }
@@ -20792,6 +22446,7 @@
         "hits": [
           "Algeria",
           "Argentina",
+          "Australia",
           "Austria",
           "Belgium",
           "Bosnia and Herzegovina",
@@ -20811,41 +22466,39 @@
           "Morocco",
           "Netherlands",
           "Norway",
-          "Paraguay",
           "Portugal",
           "Senegal",
           "Spain",
           "Sweden",
-          "Switzerland",
           "United States"
         ],
-        "points": 112
+        "points": 108
       },
       "r16": {
         "hits": [
-          "Argentina",
+          "Belgium",
           "Brazil",
-          "Colombia",
-          "Egypt",
+          "England",
           "France",
           "Mexico",
-          "Portugal",
-          "Spain",
-          "United States"
+          "Norway",
+          "Spain"
         ],
-        "points": 45
+        "points": 35
       },
       "qf": {
         "hits": [
-          "Argentina",
+          "Belgium",
+          "England",
           "France",
+          "Norway",
           "Spain"
         ],
-        "points": 21
+        "points": 35
       },
       "sf": {
         "hits": [
-          "France"
+          "Spain"
         ],
         "points": 10
       },
@@ -20860,8 +22513,8 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 237,
-    "rank": 27
+    "total": 239,
+    "rank": 29
   },
   {
     "name": "איליה ואסף",
@@ -21622,1541 +23275,6 @@
     "golden_boot_points": 0,
     "golden_boot_current": true,
     "total": 234,
-    "rank": 28
-  },
-  {
-    "name": "שחר גולן",
-    "group_points": 46,
-    "group_hits": 40,
-    "group_details": [
-      {
-        "num": 1,
-        "home": "Mexico",
-        "away": "South Africa",
-        "pred": "2-1",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 2,
-        "home": "Korea Republic",
-        "away": "Czech Republic",
-        "pred": "1-1",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 3,
-        "home": "Canada",
-        "away": "Bosnia and Herzegovina",
-        "pred": "2-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 4,
-        "home": "United States",
-        "away": "Paraguay",
-        "pred": "1-0",
-        "actual": "4-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 5,
-        "home": "Haiti",
-        "away": "Scotland",
-        "pred": "1-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 6,
-        "home": "Australia",
-        "away": "Turkey",
-        "pred": "1-1",
-        "actual": "2-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 7,
-        "home": "Brazil",
-        "away": "Morocco",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 8,
-        "home": "Qatar",
-        "away": "Switzerland",
-        "pred": "0-3",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 9,
-        "home": "Ivory Coast",
-        "away": "Ecuador",
-        "pred": "0-2",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 10,
-        "home": "Germany",
-        "away": "Curaçao",
-        "pred": "8-0",
-        "actual": "7-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 11,
-        "home": "Netherlands",
-        "away": "Japan",
-        "pred": "2-1",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 12,
-        "home": "Sweden",
-        "away": "Tunisia",
-        "pred": "1-1",
-        "actual": "5-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 13,
-        "home": "Saudi Arabia",
-        "away": "Uruguay",
-        "pred": "0-2",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 14,
-        "home": "Spain",
-        "away": "Cape Verde",
-        "pred": "8-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 15,
-        "home": "Iran",
-        "away": "New Zealand",
-        "pred": "1-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 16,
-        "home": "Belgium",
-        "away": "Egypt",
-        "pred": "1-1",
-        "actual": "1-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 17,
-        "home": "France",
-        "away": "Senegal",
-        "pred": "2-2",
-        "actual": "3-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 18,
-        "home": "Iraq",
-        "away": "Norway",
-        "pred": "0-3",
-        "actual": "1-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 19,
-        "home": "Argentina",
-        "away": "Algeria",
-        "pred": "2-1",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 20,
-        "home": "Austria",
-        "away": "Jordan",
-        "pred": "2-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 21,
-        "home": "Ghana",
-        "away": "Panama",
-        "pred": "1-1",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 22,
-        "home": "England",
-        "away": "Croatia",
-        "pred": "2-1",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 23,
-        "home": "Portugal",
-        "away": "DR Congo",
-        "pred": "5-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 24,
-        "home": "Uzbekistan",
-        "away": "Colombia",
-        "pred": "0-3",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 25,
-        "home": "Czech Republic",
-        "away": "South Africa",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 26,
-        "home": "Switzerland",
-        "away": "Bosnia and Herzegovina",
-        "pred": "2-0",
-        "actual": "4-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 27,
-        "home": "Canada",
-        "away": "Qatar",
-        "pred": "2-1",
-        "actual": "6-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 28,
-        "home": "Mexico",
-        "away": "Korea Republic",
-        "pred": "1-2",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 29,
-        "home": "Brazil",
-        "away": "Haiti",
-        "pred": "5-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 30,
-        "home": "Scotland",
-        "away": "Morocco",
-        "pred": "1-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 31,
-        "home": "United States",
-        "away": "Australia",
-        "pred": "1-0",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 32,
-        "home": "Turkey",
-        "away": "Paraguay",
-        "pred": "1-1",
-        "actual": "0-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 33,
-        "home": "Germany",
-        "away": "Ivory Coast",
-        "pred": "2-1",
-        "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 34,
-        "home": "Ecuador",
-        "away": "Curaçao",
-        "pred": "5-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 35,
-        "home": "Netherlands",
-        "away": "Sweden",
-        "pred": "2-0",
-        "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 36,
-        "home": "Tunisia",
-        "away": "Japan",
-        "pred": "1-2",
-        "actual": "0-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 37,
-        "home": "Uruguay",
-        "away": "Cape Verde",
-        "pred": "3-1",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 38,
-        "home": "Spain",
-        "away": "Saudi Arabia",
-        "pred": "4-1",
-        "actual": "4-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 39,
-        "home": "Belgium",
-        "away": "Iran",
-        "pred": "1-1",
-        "actual": "0-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 40,
-        "home": "New Zealand",
-        "away": "Egypt",
-        "pred": "0-1",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 41,
-        "home": "Norway",
-        "away": "Senegal",
-        "pred": "2-2",
-        "actual": "3-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 42,
-        "home": "France",
-        "away": "Iraq",
-        "pred": "6-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 43,
-        "home": "Argentina",
-        "away": "Austria",
-        "pred": "1-0",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 44,
-        "home": "Jordan",
-        "away": "Algeria",
-        "pred": "1-2",
-        "actual": "1-2",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 45,
-        "home": "England",
-        "away": "Ghana",
-        "pred": "2-1",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 46,
-        "home": "Panama",
-        "away": "Croatia",
-        "pred": "1-2",
-        "actual": "0-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 47,
-        "home": "Portugal",
-        "away": "Uzbekistan",
-        "pred": "6-1",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 48,
-        "home": "Colombia",
-        "away": "DR Congo",
-        "pred": "5-1",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 49,
-        "home": "Scotland",
-        "away": "Brazil",
-        "pred": "2-3",
-        "actual": "0-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 50,
-        "home": "Morocco",
-        "away": "Haiti",
-        "pred": "3-0",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 51,
-        "home": "Switzerland",
-        "away": "Canada",
-        "pred": "2-2",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 52,
-        "home": "Bosnia and Herzegovina",
-        "away": "Qatar",
-        "pred": "2-1",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 53,
-        "home": "Czech Republic",
-        "away": "Mexico",
-        "pred": "1-2",
-        "actual": "0-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 54,
-        "home": "South Africa",
-        "away": "Korea Republic",
-        "pred": "0-2",
-        "actual": "1-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 55,
-        "home": "Curaçao",
-        "away": "Ivory Coast",
-        "pred": "0-5",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 56,
-        "home": "Ecuador",
-        "away": "Germany",
-        "pred": "2-1",
-        "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 57,
-        "home": "Japan",
-        "away": "Sweden",
-        "pred": "2-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 58,
-        "home": "Tunisia",
-        "away": "Netherlands",
-        "pred": "0-3",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 59,
-        "home": "Turkey",
-        "away": "United States",
-        "pred": "1-1",
-        "actual": "3-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 60,
-        "home": "Paraguay",
-        "away": "Australia",
-        "pred": "0-0",
-        "actual": "0-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 61,
-        "home": "Norway",
-        "away": "France",
-        "pred": "2-2",
-        "actual": "1-4",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 62,
-        "home": "Senegal",
-        "away": "Iraq",
-        "pred": "3-1",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 63,
-        "home": "Egypt",
-        "away": "Iran",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 64,
-        "home": "New Zealand",
-        "away": "Belgium",
-        "pred": "0-2",
-        "actual": "1-5",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 65,
-        "home": "Cape Verde",
-        "away": "Saudi Arabia",
-        "pred": "0-3",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 66,
-        "home": "Uruguay",
-        "away": "Spain",
-        "pred": "1-1",
-        "actual": "0-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 67,
-        "home": "Panama",
-        "away": "England",
-        "pred": "1-1",
-        "actual": "0-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 68,
-        "home": "Croatia",
-        "away": "Ghana",
-        "pred": "2-1",
-        "actual": "2-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 69,
-        "home": "Algeria",
-        "away": "Austria",
-        "pred": "1-1",
-        "actual": "3-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 70,
-        "home": "Jordan",
-        "away": "Argentina",
-        "pred": "0-3",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 71,
-        "home": "Colombia",
-        "away": "Portugal",
-        "pred": "1-3",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 72,
-        "home": "DR Congo",
-        "away": "Uzbekistan",
-        "pred": "2-2",
-        "actual": "3-1",
-        "pts": 0,
-        "label": ""
-      }
-    ],
-    "knockout_points": 5,
-    "knockout_details": [
-      {
-        "round": "Round of 32",
-        "match": "Brazil 2-1 Japan",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Netherlands 1-1 Morocco",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
-        "match": "United States 2-0 Bosnia and Herzegovina",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Spain 3-0 Austria",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Switzerland 2-0 Algeria",
-        "pts": 0,
-        "label": ""
-      }
-    ],
-    "progression_points": 183,
-    "progression_breakdown": {
-      "r32": {
-        "hits": [
-          "Algeria",
-          "Argentina",
-          "Austria",
-          "Belgium",
-          "Bosnia and Herzegovina",
-          "Brazil",
-          "Canada",
-          "Colombia",
-          "Croatia",
-          "Ecuador",
-          "Egypt",
-          "England",
-          "France",
-          "Germany",
-          "Ivory Coast",
-          "Japan",
-          "Mexico",
-          "Morocco",
-          "Netherlands",
-          "Norway",
-          "Portugal",
-          "Senegal",
-          "Spain",
-          "Switzerland",
-          "United States"
-        ],
-        "points": 100
-      },
-      "r16": {
-        "hits": [
-          "Argentina",
-          "Brazil",
-          "Colombia",
-          "England",
-          "France",
-          "Mexico",
-          "Portugal",
-          "Spain",
-          "United States"
-        ],
-        "points": 45
-      },
-      "qf": {
-        "hits": [
-          "Argentina",
-          "England",
-          "France",
-          "Spain"
-        ],
-        "points": 28
-      },
-      "sf": {
-        "hits": [
-          "France"
-        ],
-        "points": 10
-      },
-      "final": {
-        "hits": [],
-        "points": 0
-      },
-      "champion": {
-        "hits": [],
-        "points": 0
-      }
-    },
-    "golden_boot_points": 0,
-    "golden_boot_current": false,
-    "total": 234,
-    "rank": 29
-  },
-  {
-    "name": "אוני",
-    "group_points": 48,
-    "group_hits": 41,
-    "group_details": [
-      {
-        "num": 1,
-        "home": "Mexico",
-        "away": "South Africa",
-        "pred": "2-1",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 2,
-        "home": "Korea Republic",
-        "away": "Czech Republic",
-        "pred": "0-2",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 3,
-        "home": "Canada",
-        "away": "Bosnia and Herzegovina",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 4,
-        "home": "United States",
-        "away": "Paraguay",
-        "pred": "1-0",
-        "actual": "4-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 5,
-        "home": "Haiti",
-        "away": "Scotland",
-        "pred": "0-1",
-        "actual": "0-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 6,
-        "home": "Australia",
-        "away": "Turkey",
-        "pred": "0-1",
-        "actual": "2-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 7,
-        "home": "Brazil",
-        "away": "Morocco",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 8,
-        "home": "Qatar",
-        "away": "Switzerland",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 9,
-        "home": "Ivory Coast",
-        "away": "Ecuador",
-        "pred": "1-0",
-        "actual": "1-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 10,
-        "home": "Germany",
-        "away": "Curaçao",
-        "pred": "1-0",
-        "actual": "7-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 11,
-        "home": "Netherlands",
-        "away": "Japan",
-        "pred": "1-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 12,
-        "home": "Sweden",
-        "away": "Tunisia",
-        "pred": "1-0",
-        "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 13,
-        "home": "Saudi Arabia",
-        "away": "Uruguay",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 14,
-        "home": "Spain",
-        "away": "Cape Verde",
-        "pred": "1-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 15,
-        "home": "Iran",
-        "away": "New Zealand",
-        "pred": "1-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 16,
-        "home": "Belgium",
-        "away": "Egypt",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 17,
-        "home": "France",
-        "away": "Senegal",
-        "pred": "1-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 18,
-        "home": "Iraq",
-        "away": "Norway",
-        "pred": "0-1",
-        "actual": "1-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 19,
-        "home": "Argentina",
-        "away": "Algeria",
-        "pred": "1-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 20,
-        "home": "Austria",
-        "away": "Jordan",
-        "pred": "1-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 21,
-        "home": "Ghana",
-        "away": "Panama",
-        "pred": "1-0",
-        "actual": "1-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 22,
-        "home": "England",
-        "away": "Croatia",
-        "pred": "1-0",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 23,
-        "home": "Portugal",
-        "away": "DR Congo",
-        "pred": "1-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 24,
-        "home": "Uzbekistan",
-        "away": "Colombia",
-        "pred": "0-1",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 25,
-        "home": "Czech Republic",
-        "away": "South Africa",
-        "pred": "4-0",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 26,
-        "home": "Switzerland",
-        "away": "Bosnia and Herzegovina",
-        "pred": "0-1",
-        "actual": "4-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 27,
-        "home": "Canada",
-        "away": "Qatar",
-        "pred": "1-0",
-        "actual": "6-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 28,
-        "home": "Mexico",
-        "away": "Korea Republic",
-        "pred": "2-1",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 29,
-        "home": "Brazil",
-        "away": "Haiti",
-        "pred": "1-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 30,
-        "home": "Scotland",
-        "away": "Morocco",
-        "pred": "0-1",
-        "actual": "0-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 31,
-        "home": "United States",
-        "away": "Australia",
-        "pred": "0-1",
-        "actual": "2-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 32,
-        "home": "Turkey",
-        "away": "Paraguay",
-        "pred": "1-0",
-        "actual": "0-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 33,
-        "home": "Germany",
-        "away": "Ivory Coast",
-        "pred": "1-1",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 34,
-        "home": "Ecuador",
-        "away": "Curaçao",
-        "pred": "1-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 35,
-        "home": "Netherlands",
-        "away": "Sweden",
-        "pred": "1-0",
-        "actual": "5-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 36,
-        "home": "Tunisia",
-        "away": "Japan",
-        "pred": "0-1",
-        "actual": "0-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 37,
-        "home": "Uruguay",
-        "away": "Cape Verde",
-        "pred": "1-0",
-        "actual": "2-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 38,
-        "home": "Spain",
-        "away": "Saudi Arabia",
-        "pred": "1-0",
-        "actual": "4-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 39,
-        "home": "Belgium",
-        "away": "Iran",
-        "pred": "1-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 40,
-        "home": "New Zealand",
-        "away": "Egypt",
-        "pred": "0-1",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 41,
-        "home": "Norway",
-        "away": "Senegal",
-        "pred": "1-0",
-        "actual": "3-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 42,
-        "home": "France",
-        "away": "Iraq",
-        "pred": "1-0",
-        "actual": "3-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 43,
-        "home": "Argentina",
-        "away": "Austria",
-        "pred": "1-0",
-        "actual": "2-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 44,
-        "home": "Jordan",
-        "away": "Algeria",
-        "pred": "0-1",
-        "actual": "1-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 45,
-        "home": "England",
-        "away": "Ghana",
-        "pred": "1-0",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 46,
-        "home": "Panama",
-        "away": "Croatia",
-        "pred": "0-1",
-        "actual": "0-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 47,
-        "home": "Portugal",
-        "away": "Uzbekistan",
-        "pred": "1-0",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 48,
-        "home": "Colombia",
-        "away": "DR Congo",
-        "pred": "1-0",
-        "actual": "1-0",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 49,
-        "home": "Scotland",
-        "away": "Brazil",
-        "pred": "0-1",
-        "actual": "0-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 50,
-        "home": "Morocco",
-        "away": "Haiti",
-        "pred": "1-0",
-        "actual": "4-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 51,
-        "home": "Switzerland",
-        "away": "Canada",
-        "pred": "1-0",
-        "actual": "2-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 52,
-        "home": "Bosnia and Herzegovina",
-        "away": "Qatar",
-        "pred": "1-0",
-        "actual": "3-1",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 53,
-        "home": "Czech Republic",
-        "away": "Mexico",
-        "pred": "1-1",
-        "actual": "0-3",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 54,
-        "home": "South Africa",
-        "away": "Korea Republic",
-        "pred": "3-2",
-        "actual": "1-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 55,
-        "home": "Curaçao",
-        "away": "Ivory Coast",
-        "pred": "0-1",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 56,
-        "home": "Ecuador",
-        "away": "Germany",
-        "pred": "0-1",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 57,
-        "home": "Japan",
-        "away": "Sweden",
-        "pred": "0-1",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 58,
-        "home": "Tunisia",
-        "away": "Netherlands",
-        "pred": "0-1",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 59,
-        "home": "Turkey",
-        "away": "United States",
-        "pred": "1-1",
-        "actual": "3-2",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 60,
-        "home": "Paraguay",
-        "away": "Australia",
-        "pred": "1-2",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 61,
-        "home": "Norway",
-        "away": "France",
-        "pred": "0-1",
-        "actual": "1-4",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 62,
-        "home": "Senegal",
-        "away": "Iraq",
-        "pred": "1-0",
-        "actual": "5-0",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 63,
-        "home": "Egypt",
-        "away": "Iran",
-        "pred": "2-3",
-        "actual": "1-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 64,
-        "home": "New Zealand",
-        "away": "Belgium",
-        "pred": "0-1",
-        "actual": "1-5",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 65,
-        "home": "Cape Verde",
-        "away": "Saudi Arabia",
-        "pred": "0-1",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 66,
-        "home": "Uruguay",
-        "away": "Spain",
-        "pred": "0-1",
-        "actual": "0-1",
-        "pts": 2,
-        "label": "מדויק"
-      },
-      {
-        "num": 67,
-        "home": "Panama",
-        "away": "England",
-        "pred": "0-1",
-        "actual": "0-2",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 68,
-        "home": "Croatia",
-        "away": "Ghana",
-        "pred": "0-1",
-        "actual": "2-1",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 69,
-        "home": "Algeria",
-        "away": "Austria",
-        "pred": "0-1",
-        "actual": "3-3",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 70,
-        "home": "Jordan",
-        "away": "Argentina",
-        "pred": "0-1",
-        "actual": "1-3",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "num": 71,
-        "home": "Colombia",
-        "away": "Portugal",
-        "pred": "0-1",
-        "actual": "0-0",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "num": 72,
-        "home": "DR Congo",
-        "away": "Uzbekistan",
-        "pred": "0-1",
-        "actual": "3-1",
-        "pts": 0,
-        "label": ""
-      }
-    ],
-    "knockout_points": 3,
-    "knockout_details": [
-      {
-        "round": "Round of 32",
-        "match": "Netherlands 1-1 Morocco",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
-        "match": "Ivory Coast 1-2 Norway",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Spain 3-0 Austria",
-        "pts": 1,
-        "label": "כיוון נכון"
-      },
-      {
-        "round": "Round of 32",
-        "match": "Portugal 2-1 Croatia",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
-        "match": "Australia 1-1 Egypt",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 32",
-        "match": "Colombia 1-0 Ghana",
-        "pts": 0,
-        "label": ""
-      },
-      {
-        "round": "Round of 16",
-        "match": "Brazil 1-2 Norway",
-        "pts": 1,
-        "label": "כיוון נכון"
-      }
-    ],
-    "progression_points": 178,
-    "progression_breakdown": {
-      "r32": {
-        "hits": [
-          "Algeria",
-          "Argentina",
-          "Australia",
-          "Austria",
-          "Belgium",
-          "Bosnia and Herzegovina",
-          "Brazil",
-          "Canada",
-          "Colombia",
-          "Croatia",
-          "Ecuador",
-          "Egypt",
-          "England",
-          "France",
-          "Germany",
-          "Ghana",
-          "Ivory Coast",
-          "Japan",
-          "Mexico",
-          "Morocco",
-          "Netherlands",
-          "Norway",
-          "Portugal",
-          "Senegal",
-          "Spain",
-          "Sweden",
-          "United States"
-        ],
-        "points": 108
-      },
-      "r16": {
-        "hits": [
-          "Belgium",
-          "Brazil",
-          "England",
-          "France",
-          "Mexico",
-          "Norway",
-          "Spain"
-        ],
-        "points": 35
-      },
-      "qf": {
-        "hits": [
-          "Belgium",
-          "England",
-          "France",
-          "Norway",
-          "Spain"
-        ],
-        "points": 35
-      },
-      "sf": {
-        "hits": [],
-        "points": 0
-      },
-      "final": {
-        "hits": [],
-        "points": 0
-      },
-      "champion": {
-        "hits": [],
-        "points": 0
-      }
-    },
-    "golden_boot_points": 0,
-    "golden_boot_current": false,
-    "total": 229,
     "rank": 30
   },
   {
@@ -23834,7 +23952,7 @@
         "label": "כיוון נכון"
       }
     ],
-    "progression_points": 170,
+    "progression_points": 180,
     "progression_breakdown": {
       "r32": {
         "hits": [
@@ -23890,8 +24008,10 @@
         "points": 21
       },
       "sf": {
-        "hits": [],
-        "points": 0
+        "hits": [
+          "Spain"
+        ],
+        "points": 10
       },
       "final": {
         "hits": [],
@@ -23904,7 +24024,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": false,
-    "total": 222,
+    "total": 232,
     "rank": 31
   }
 ]

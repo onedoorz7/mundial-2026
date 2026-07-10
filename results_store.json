@@ -1329,13 +1329,14 @@
       "away": "Belgium",
       "id": "760511",
       "date": "Jul 10 · 22:00",
-      "home_score": 1,
+      "home_score": 2,
       "away_score": 1,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "88'",
-      "status_detail": "88'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+7'",
+      "status_detail": "FT",
+      "winner": "Spain"
     },
     {
       "round": "Quarterfinals",
