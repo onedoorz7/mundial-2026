@@ -1328,7 +1328,14 @@
       "home": "Spain",
       "away": "Belgium",
       "id": "760511",
-      "date": "Jul 10 · 22:00"
+      "date": "Jul 10 · 22:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "round": "Quarterfinals",
