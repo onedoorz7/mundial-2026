@@ -3120,7 +3120,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 276,
     "rank": 4
   },
@@ -3905,7 +3905,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 275,
     "rank": 5
   },
@@ -4679,7 +4679,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 274,
     "rank": 6
   },
@@ -5483,7 +5483,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 273,
     "rank": 7
   },
@@ -6262,7 +6262,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 273,
     "rank": 8
   },
@@ -7036,7 +7036,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 269,
     "rank": 9
   },
@@ -7828,7 +7828,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 269,
     "rank": 10
   },
@@ -8596,7 +8596,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 265,
     "rank": 11
   },
@@ -9376,7 +9376,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 264,
     "rank": 12
   },
@@ -10149,7 +10149,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 263,
     "rank": 13
   },
@@ -12437,7 +12437,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 261,
     "rank": 16
   },
@@ -13998,7 +13998,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 259,
     "rank": 18
   },
@@ -15536,7 +15536,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 254,
     "rank": 20
   },
@@ -17055,7 +17055,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 251,
     "rank": 22
   },
@@ -17809,7 +17809,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 247,
     "rank": 23
   },
@@ -19338,7 +19338,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 245,
     "rank": 25
   },
@@ -21620,7 +21620,7 @@
       }
     },
     "golden_boot_points": 0,
-    "golden_boot_current": false,
+    "golden_boot_current": true,
     "total": 234,
     "rank": 28
   },
