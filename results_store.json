@@ -1346,11 +1346,12 @@
       "date": "Jul 12 · 00:00",
       "home_score": 1,
       "away_score": 2,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "115'",
-      "status_detail": "115'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "120'+2'",
+      "status_detail": "AET",
+      "winner": "England"
     },
     {
       "round": "Quarterfinals",
@@ -1368,7 +1369,7 @@
     },
     {
       "round": "Semi-Finals",
-      "home": "Quarterfinal 3 Winner",
+      "home": "England",
       "away": "Quarterfinal 4 Winner",
       "id": "760515",
       "date": "Jul 15 · 22:00"
