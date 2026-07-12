@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-07-11",
+  "last_updated": "2026-07-12",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -1380,6 +1380,13 @@
       "away": "Semifinal 2 Loser",
       "id": "760516",
       "date": "Jul 19 · 00:00"
+    },
+    {
+      "round": "Final",
+      "home": "Semifinal 1 Winner",
+      "away": "Semifinal 2 Winner",
+      "id": "760517",
+      "date": "Jul 19 · 22:00"
     }
   ],
   "current_top_scorers": [
