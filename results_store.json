@@ -1457,14 +1457,14 @@
   "current_top_scorers": [
     {
       "rank": 1,
-      "player": "Kylian Mbappé",
-      "team": "France",
+      "player": "Lionel Messi",
+      "team": "Argentina",
       "goals": 8
     },
     {
       "rank": 1,
-      "player": "Lionel Messi",
-      "team": "Argentina",
+      "player": "Kylian Mbappé",
+      "team": "France",
       "goals": 8
     },
     {
@@ -1480,16 +1480,16 @@
       "goals": 6
     },
     {
-      "rank": 5,
-      "player": "Ousmane Dembélé",
-      "team": "France",
-      "goals": 5
+      "rank": 4,
+      "player": "Jude Bellingham",
+      "team": "England",
+      "goals": 6
     }
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
-    "Kylian Mbappé",
-    "Lionel Messi"
+    "Lionel Messi",
+    "Kylian Mbappé"
   ],
   "champion": null,
   "qualified_r32_teams": [
