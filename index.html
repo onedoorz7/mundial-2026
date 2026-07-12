@@ -1028,7 +1028,9 @@ function knockoutSplitHtml(m){
   const s=m.prediction_split;
   if(!s || !s.total) return '';
   const pct=s.pct||{};
-  const actual=hasPoints(m) ? (m.hs>m.as?'home':(m.hs<m.as?'away':'draw')) : '';
+  const actualHs=Number.isFinite(m.hs90)?m.hs90:m.hs;
+  const actualAs=Number.isFinite(m.as90)?m.as90:m.as;
+  const actual=hasPoints(m) ? (actualHs>actualAs?'home':(actualHs<actualAs?'away':'draw')) : '';
   const items=[
     {key:'home',mark:fl(m.home)||'1',label:m.home,pct:pct.home||0,count:s.home||0},
     {key:'draw',mark:'🏳️',label:'תיקו',pct:pct.draw||0,count:s.draw||0},
