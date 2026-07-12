@@ -1358,7 +1358,14 @@
       "home": "Argentina",
       "away": "Switzerland",
       "id": "760513",
-      "date": "Jul 12 · 04:00"
+      "date": "Jul 12 · 04:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "9'",
+      "status_detail": "9'"
     },
     {
       "round": "Semi-Finals",
