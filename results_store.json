@@ -953,7 +953,10 @@
       "live": false,
       "status_state": "post",
       "display_clock": "90'+6'",
-      "status_detail": "FT"
+      "status_detail": "FT",
+      "winner": "Canada",
+      "home_score_90": 0,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -968,7 +971,9 @@
       "status_state": "post",
       "display_clock": "90'+11'",
       "status_detail": "FT",
-      "winner": "Brazil"
+      "winner": "Brazil",
+      "home_score_90": 2,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -985,7 +990,9 @@
       "status_detail": "FT-Pens",
       "winner": "Paraguay",
       "home_shootout_score": 3,
-      "away_shootout_score": 4
+      "away_shootout_score": 4,
+      "home_score_90": 1,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -1002,7 +1009,9 @@
       "status_detail": "FT-Pens",
       "winner": "Morocco",
       "home_shootout_score": 2,
-      "away_shootout_score": 3
+      "away_shootout_score": 3,
+      "home_score_90": 1,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -1017,7 +1026,9 @@
       "status_state": "post",
       "display_clock": "90'+8'",
       "status_detail": "FT",
-      "winner": "Norway"
+      "winner": "Norway",
+      "home_score_90": 1,
+      "away_score_90": 2
     },
     {
       "round": "Round of 32",
@@ -1032,7 +1043,9 @@
       "status_state": "post",
       "display_clock": "90'+4'",
       "status_detail": "FT",
-      "winner": "France"
+      "winner": "France",
+      "home_score_90": 3,
+      "away_score_90": 0
     },
     {
       "round": "Round of 32",
@@ -1047,7 +1060,9 @@
       "status_state": "post",
       "display_clock": "90'+9'",
       "status_detail": "FT",
-      "winner": "Mexico"
+      "winner": "Mexico",
+      "home_score_90": 2,
+      "away_score_90": 0
     },
     {
       "round": "Round of 32",
@@ -1062,7 +1077,9 @@
       "status_state": "post",
       "display_clock": "90'+7'",
       "status_detail": "FT",
-      "winner": "England"
+      "winner": "England",
+      "home_score_90": 2,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -1077,7 +1094,9 @@
       "status_state": "post",
       "display_clock": "120'+12'",
       "status_detail": "AET",
-      "winner": "Belgium"
+      "winner": "Belgium",
+      "home_score_90": 2,
+      "away_score_90": 2
     },
     {
       "round": "Round of 32",
@@ -1092,7 +1111,9 @@
       "status_state": "post",
       "display_clock": "90'+10'",
       "status_detail": "FT",
-      "winner": "United States"
+      "winner": "United States",
+      "home_score_90": 2,
+      "away_score_90": 0
     },
     {
       "round": "Round of 32",
@@ -1107,7 +1128,9 @@
       "status_state": "post",
       "display_clock": "90'+6'",
       "status_detail": "FT",
-      "winner": "Spain"
+      "winner": "Spain",
+      "home_score_90": 3,
+      "away_score_90": 0
     },
     {
       "round": "Round of 32",
@@ -1122,7 +1145,9 @@
       "status_state": "post",
       "display_clock": "90'+19'",
       "status_detail": "FT",
-      "winner": "Portugal"
+      "winner": "Portugal",
+      "home_score_90": 2,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -1137,7 +1162,9 @@
       "status_state": "post",
       "display_clock": "90'+7'",
       "status_detail": "FT",
-      "winner": "Switzerland"
+      "winner": "Switzerland",
+      "home_score_90": 2,
+      "away_score_90": 0
     },
     {
       "round": "Round of 32",
@@ -1154,7 +1181,9 @@
       "status_detail": "FT-Pens",
       "winner": "Egypt",
       "home_shootout_score": 2,
-      "away_shootout_score": 4
+      "away_shootout_score": 4,
+      "home_score_90": 1,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -1169,7 +1198,9 @@
       "status_state": "post",
       "display_clock": "120'+3'",
       "status_detail": "AET",
-      "winner": "Argentina"
+      "winner": "Argentina",
+      "home_score_90": 1,
+      "away_score_90": 1
     },
     {
       "round": "Round of 32",
@@ -1184,7 +1215,9 @@
       "status_state": "post",
       "display_clock": "90'+8'",
       "status_detail": "FT",
-      "winner": "Colombia"
+      "winner": "Colombia",
+      "home_score_90": 1,
+      "away_score_90": 0
     },
     {
       "round": "Round of 16",
@@ -1199,7 +1232,9 @@
       "status_state": "post",
       "display_clock": "90'+9'",
       "status_detail": "FT",
-      "winner": "Morocco"
+      "winner": "Morocco",
+      "home_score_90": 0,
+      "away_score_90": 3
     },
     {
       "round": "Round of 16",
@@ -1214,7 +1249,9 @@
       "status_state": "post",
       "display_clock": "90'+11'",
       "status_detail": "FT",
-      "winner": "France"
+      "winner": "France",
+      "home_score_90": 0,
+      "away_score_90": 1
     },
     {
       "round": "Round of 16",
@@ -1229,7 +1266,9 @@
       "status_state": "post",
       "display_clock": "90'+11'",
       "status_detail": "FT",
-      "winner": "Norway"
+      "winner": "Norway",
+      "home_score_90": 1,
+      "away_score_90": 2
     },
     {
       "round": "Round of 16",
@@ -1244,7 +1283,9 @@
       "status_state": "post",
       "display_clock": "90'+12'",
       "status_detail": "FT",
-      "winner": "England"
+      "winner": "England",
+      "home_score_90": 2,
+      "away_score_90": 3
     },
     {
       "round": "Round of 16",
@@ -1259,7 +1300,9 @@
       "status_state": "post",
       "display_clock": "90'+9'",
       "status_detail": "FT",
-      "winner": "Spain"
+      "winner": "Spain",
+      "home_score_90": 0,
+      "away_score_90": 1
     },
     {
       "round": "Round of 16",
@@ -1274,7 +1317,9 @@
       "status_state": "post",
       "display_clock": "90'+4'",
       "status_detail": "FT",
-      "winner": "Belgium"
+      "winner": "Belgium",
+      "home_score_90": 1,
+      "away_score_90": 4
     },
     {
       "round": "Round of 16",
@@ -1289,7 +1334,9 @@
       "status_state": "post",
       "display_clock": "90'+11'",
       "status_detail": "FT",
-      "winner": "Argentina"
+      "winner": "Argentina",
+      "home_score_90": 3,
+      "away_score_90": 2
     },
     {
       "round": "Round of 16",
@@ -1306,7 +1353,9 @@
       "status_detail": "FT-Pens",
       "home_shootout_score": 4,
       "away_shootout_score": 3,
-      "winner": "Switzerland"
+      "winner": "Switzerland",
+      "home_score_90": 0,
+      "away_score_90": 0
     },
     {
       "round": "Quarterfinals",
@@ -1321,7 +1370,9 @@
       "status_state": "post",
       "display_clock": "90'+6'",
       "status_detail": "FT",
-      "winner": "France"
+      "winner": "France",
+      "home_score_90": 2,
+      "away_score_90": 0
     },
     {
       "round": "Quarterfinals",
@@ -1336,7 +1387,9 @@
       "status_state": "post",
       "display_clock": "90'+7'",
       "status_detail": "FT",
-      "winner": "Spain"
+      "winner": "Spain",
+      "home_score_90": 2,
+      "away_score_90": 1
     },
     {
       "round": "Quarterfinals",
@@ -1351,7 +1404,9 @@
       "status_state": "post",
       "display_clock": "120'+2'",
       "status_detail": "AET",
-      "winner": "England"
+      "winner": "England",
+      "home_score_90": 1,
+      "away_score_90": 1
     },
     {
       "round": "Quarterfinals",
@@ -1366,7 +1421,9 @@
       "status_state": "post",
       "display_clock": "120'+4'",
       "status_detail": "AET",
-      "winner": "Argentina"
+      "winner": "Argentina",
+      "home_score_90": 1,
+      "away_score_90": 1
     },
     {
       "round": "Semi-Finals",

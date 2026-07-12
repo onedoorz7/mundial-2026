@@ -1545,7 +1545,9 @@ function openKnockoutMatch(num){
   const result=hasResult(m);
   const points=hasPoints(m);
   const split=m.prediction_split||{total:0,rows:[]};
-  const actualScore=result?`${m.hs}-${m.as}`:null;
+  const finalScore=result?`${m.hs}-${m.as}`:null;
+  const hasRegulationScore=Number.isFinite(m.hs90)&&Number.isFinite(m.as90);
+  const actualScore=result?(hasRegulationScore?`${m.hs90}-${m.as90}`:finalScore):null;
   const rows=[...(split.rows||[])].map(r=>({
     ...r,
     pts:(points?currentMatchPts(r.pred,actualScore):null),
@@ -1555,10 +1557,13 @@ function openKnockoutMatch(num){
   else if(m.live) rows.sort((a,b)=>b.livePts-a.livePts || (a.rank||99)-(b.rank||99));
   else rows.sort((a,b)=>(a.rank||99)-(b.rank||99));
   const sc=actualScore||'vs';
+  const extraTimeResult=points&&hasRegulationScore&&actualScore!==finalScore
+    ? ` · תוצאה סופית אחרי הארכה: <span class="score-ltr">${finalScore}</span>` : '';
+  const regulationLabel=points&&hasRegulationScore?' · תוצאה לניקוד אחרי 90 דקות':'';
   const sub=m.live?` · <span class="mm-live">${liveText(m)}</span>`:(m.played?'':' · טרם שוחק');
   let h=`<div class="modal-head">
     <div class="mm-teams"><span class="${matchSideClass(m,'home')}">${team(m.home)}</span><span class="mm-sc ${result?'':'up'}">${sc}</span><span class="${matchSideClass(m,'away')}">${team(m.away)}</span></div>
-    <div class="mm-sub">${m.round||'נוקאאוט'} · משחק ${m.num} · ${m.date}${sub}</div></div>`;
+    <div class="mm-sub">${m.round||'נוקאאוט'} · משחק ${m.num} · ${m.date}${regulationLabel}${extraTimeResult}${sub}</div></div>`;
   if(points){
     const scoredRows=rows.filter(r=>r.pts>0).length, exact=rows.filter(r=>r.pts>=2).length;
     h+=`<div class="mm-stats"><span class="chip"><b>${split.total}</b> ניחשו את המשחק</span>

@@ -65,6 +65,7 @@ def canon_scorer(name):
 
 # ---------------- ESPN fetch ----------------
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates={}"
+ESPN_SUMMARY = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary?event={}"
 ESPN_LEADERS = "https://sports.core.api.espn.com/v2/sports/soccer/leagues/fifa.world/seasons/2026/types/1/leaders?lang=en&region=us"
 ESPN_R32 = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260628-20260703"
 def daterange(start, end):
@@ -118,6 +119,35 @@ def fetch_json(url, timeout=25):
     req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.load(r)
+
+def regulation_score_from_summary(data):
+    """Return the score after periods 1 and 2 from an ESPN match summary."""
+    competitions = (data.get("header") or {}).get("competitions") or []
+    if not competitions:
+        return None
+    scores = {}
+    for competitor in competitions[0].get("competitors") or []:
+        side = competitor.get("homeAway")
+        linescores = competitor.get("linescores") or []
+        if side not in ("home", "away") or len(linescores) < 2:
+            continue
+        first = parse_score(linescores[0].get("displayValue"))
+        second = parse_score(linescores[1].get("displayValue"))
+        if first is not None and second is not None:
+            scores[side] = first + second
+    if "home" not in scores or "away" not in scores:
+        return None
+    return scores["home"], scores["away"]
+
+def fetch_regulation_score(event_id):
+    if not event_id:
+        return None
+    return regulation_score_from_summary(fetch_json(ESPN_SUMMARY.format(event_id)))
+
+def went_to_extra_time(m):
+    detail = m.get("status_detail") or ""
+    clock = m.get("display_clock") or ""
+    return "AET" in detail or "Pens" in detail or clock.startswith("120")
 
 def fetch_espn():
     """Return ESPN matches with live/final status metadata."""
@@ -337,6 +367,22 @@ def update_store():
                 apply_match_state(km, m)
                 existing_ko[key] = km
                 changed = True
+            if m["completed"]:
+                regulation = None
+                if went_to_extra_time(m):
+                    if km.get("home_score_90") is None or km.get("away_score_90") is None:
+                        try:
+                            regulation = fetch_regulation_score(m.get("id"))
+                        except Exception as e:
+                            sys.stderr.write(f"warn: fetch regulation score for {m.get('id')} failed: {e}\n")
+                else:
+                    regulation = (m["hs"], m["as"])
+                if regulation is not None:
+                    hs90, as90 = regulation
+                    if (km.get("home_score_90"), km.get("away_score_90")) != (hs90, as90):
+                        km["home_score_90"], km["away_score_90"] = hs90, as90
+                        existing_ko[key] = km
+                        changed = True
             if m["round"] == "Final" and m["completed"]:
                 champion = m.get("winner") or (m["home"] if m["hs"] >= m["as"] else m["away"])
     if store.get("knockout_matches") != list(existing_ko.values()):
@@ -399,6 +445,15 @@ def match_points(pred, actual):
     if exact: return 2,"מדויק"
     if correct: return 1,"כיוון נכון"
     return 0,""
+
+def regulation_score(m):
+    """Use the 90-minute score for bets, falling back for legacy normal-time data."""
+    if m.get("home_score_90") is not None and m.get("away_score_90") is not None:
+        return m["home_score_90"], m["away_score_90"]
+    # Never award points from a 120-minute score while the summary request is unavailable.
+    if went_to_extra_time(m):
+        return None, None
+    return m.get("home_score"), m.get("away_score")
 def pred_sets(d):
     def teams(rms):
         s=set()
@@ -528,14 +583,16 @@ def score_one(d, store):
            "Semi-Finals":d["sf"],"Third-Place":[d["third"]],"Final":[d["final"]]}
     for am in store.get("knockout_matches",[]):
         if am.get("home_score") is None or not am.get("played"): continue
+        actual = regulation_score(am)
+        if None in actual: continue
         rnd=am.get("round"); pair={norm(am["home"]),norm(am["away"])}
         for pm in predr.get(rnd,[]):
             pp={norm(pm[0]["team"]),norm(pm[1]["team"])}
             if pp==pair and len(pair)==2:
                 if norm(pm[0]["team"])==norm(am["home"]): pred=(pm[0]["score"],pm[1]["score"])
                 else: pred=(pm[1]["score"],pm[0]["score"])
-                pts,lab=match_points(pred,(am["home_score"],am["away_score"]))
-                kp+=pts; kd.append({"round":rnd,"match":f"{am['home']} {am['home_score']}-{am['away_score']} {am['away']}","pts":pts,"label":lab})
+                pts,lab=match_points(pred,actual)
+                kp+=pts; kd.append({"round":rnd,"match":f"{am['home']} {actual[0]}-{actual[1]} {am['away']}","pts":pts,"label":lab})
                 break
     ps=pred_sets(d); rs=reached_sets(store); pp=0; pb={}
     for st,v in STAGE_PTS.items():
@@ -691,6 +748,8 @@ def knockout_payload(store, prediction_splits=None, rank_by_name=None):
                      "away": m.get("away") or "",
                      "hs": m.get("home_score"),
                      "as": m.get("away_score"),
+                     "hs90": m.get("home_score_90"),
+                     "as90": m.get("away_score_90"),
                      "winner": m.get("winner"),
                      "home_so": m.get("home_shootout_score"),
                      "away_so": m.get("away_shootout_score"),

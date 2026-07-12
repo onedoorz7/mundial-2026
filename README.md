@@ -26,8 +26,10 @@ results, and a browsable gallery of everyone's bracket. It updates itself every 
 ## Scoring rules
 Correct direction = 1 · exact score = 2 · exact score with 4+ goals = 3 ·
 advancing R32/R16/QF/SF/Final/Champion = 4/5/7/10/14/16 per team · golden boot = 12 after the final is played.
+Match-result points are based on the score after 90 minutes, excluding extra time and penalty shootouts.
 
 ## Fixing a wrong score
 Edit `results_store.json` (set the match's `home_score`/`away_score`), commit. The next run rebuilds.
+For a knockout match that went to extra time, set `home_score_90`/`away_score_90` as well.
 Golden-boot leaders can be displayed live, but golden-boot points are awarded only after the Final is played.
 If needed, set `golden_boot_leaders` in `results_store.json` near the end of the tournament.
