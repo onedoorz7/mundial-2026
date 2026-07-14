@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-07-12",
+  "last_updated": "2026-07-14",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -1430,7 +1430,14 @@
       "home": "France",
       "away": "Spain",
       "id": "760514",
-      "date": "Jul 14 · 22:00"
+      "date": "Jul 14 · 22:00",
+      "home_score": 0,
+      "away_score": 0,
+      "played": false,
+      "live": true,
+      "status_state": "in",
+      "display_clock": "10'",
+      "status_detail": "10'"
     },
     {
       "round": "Semi-Finals",
