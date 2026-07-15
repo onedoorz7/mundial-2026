@@ -1448,13 +1448,13 @@
       "away": "Argentina",
       "id": "760515",
       "date": "Jul 15 · 22:00",
-      "home_score": 0,
+      "home_score": 1,
       "away_score": 0,
       "played": false,
       "live": true,
       "status_state": "in",
-      "display_clock": "49'",
-      "status_detail": "49'"
+      "display_clock": "59'",
+      "status_detail": "59'"
     },
     {
       "round": "Third-Place",
