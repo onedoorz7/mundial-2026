@@ -1450,23 +1450,26 @@
       "date": "Jul 15 · 22:00",
       "home_score": 1,
       "away_score": 2,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+9'",
-      "status_detail": "90'+9'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+12'",
+      "status_detail": "FT",
+      "winner": "Argentina",
+      "home_score_90": 1,
+      "away_score_90": 2
     },
     {
       "round": "Third-Place",
       "home": "France",
-      "away": "Semifinal 2 Loser",
+      "away": "England",
       "id": "760516",
       "date": "Jul 19 · 00:00"
     },
     {
       "round": "Final",
       "home": "Spain",
-      "away": "Semifinal 2 Winner",
+      "away": "Argentina",
       "id": "760517",
       "date": "Jul 19 · 22:00"
     }
