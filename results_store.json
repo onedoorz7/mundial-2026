@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "last_updated": "2026-07-14",
+  "last_updated": "2026-07-15",
   "source": "GMA News / ESPN / official match reports",
   "group_matches": [
     {
@@ -1467,14 +1467,14 @@
   "current_top_scorers": [
     {
       "rank": 1,
-      "player": "Lionel Messi",
-      "team": "Argentina",
+      "player": "Kylian Mbappé",
+      "team": "France",
       "goals": 8
     },
     {
       "rank": 1,
-      "player": "Kylian Mbappé",
-      "team": "France",
+      "player": "Lionel Messi",
+      "team": "Argentina",
       "goals": 8
     },
     {
@@ -1498,8 +1498,8 @@
   ],
   "current_top_scorers_note": "",
   "golden_boot_leaders": [
-    "Lionel Messi",
-    "Kylian Mbappé"
+    "Kylian Mbappé",
+    "Lionel Messi"
   ],
   "champion": null,
   "qualified_r32_teams": [
