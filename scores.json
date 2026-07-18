@@ -714,6 +714,12 @@
         "match": "England 1-2 Argentina",
         "pts": 2,
         "label": "מדויק"
+      },
+      {
+        "round": "Third-Place",
+        "match": "France 4-6 England",
+        "pts": 0,
+        "label": ""
       }
     ],
     "progression_points": 271,
@@ -2268,7 +2274,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 6,
+    "knockout_points": 7,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -2303,6 +2309,12 @@
       {
         "round": "Semi-Finals",
         "match": "France 0-2 Spain",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Third-Place",
+        "match": "France 4-6 England",
         "pts": 1,
         "label": "כיוון נכון"
       }
@@ -2390,7 +2402,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 312,
+    "total": 313,
     "rank": 3
   },
   {
@@ -6309,6 +6321,12 @@
         "match": "France 0-2 Spain",
         "pts": 1,
         "label": "כיוון נכון"
+      },
+      {
+        "round": "Third-Place",
+        "match": "France 4-6 England",
+        "pts": 0,
+        "label": ""
       }
     ],
     "progression_points": 247,
@@ -15736,7 +15754,7 @@
         "label": ""
       }
     ],
-    "knockout_points": 6,
+    "knockout_points": 7,
     "knockout_details": [
       {
         "round": "Round of 32",
@@ -15771,6 +15789,12 @@
       {
         "round": "Semi-Finals",
         "match": "France 0-2 Spain",
+        "pts": 1,
+        "label": "כיוון נכון"
+      },
+      {
+        "round": "Third-Place",
+        "match": "France 4-6 England",
         "pts": 1,
         "label": "כיוון נכון"
       }
@@ -15854,7 +15878,7 @@
     },
     "golden_boot_points": 0,
     "golden_boot_current": true,
-    "total": 280,
+    "total": 281,
     "rank": 20
   },
   {

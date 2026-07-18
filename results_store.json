@@ -1466,12 +1466,15 @@
       "id": "760516",
       "date": "Jul 19 · 00:00",
       "home_score": 4,
-      "away_score": 5,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "90'+7'",
-      "status_detail": "90'+7'"
+      "away_score": 6,
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "90'+9'",
+      "status_detail": "FT",
+      "winner": "England",
+      "home_score_90": 4,
+      "away_score_90": 6
     },
     {
       "round": "Final",
