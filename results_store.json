@@ -1484,11 +1484,14 @@
       "date": "Jul 19 · 22:00",
       "home_score": 1,
       "away_score": 0,
-      "played": false,
-      "live": true,
-      "status_state": "in",
-      "display_clock": "120'+3'",
-      "status_detail": "120'+3'"
+      "played": true,
+      "live": false,
+      "status_state": "post",
+      "display_clock": "120'+5'",
+      "status_detail": "AET",
+      "winner": "Spain",
+      "home_score_90": 0,
+      "away_score_90": 0
     }
   ],
   "current_top_scorers": [
@@ -1533,7 +1536,7 @@
   "golden_boot_leaders": [
     "Kylian Mbappé"
   ],
-  "champion": null,
+  "champion": "Spain",
   "qualified_r32_teams": [
     "Algeria",
     "Argentina",
