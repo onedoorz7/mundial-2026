@@ -514,6 +514,19 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .rc-m.lastp{border-color:#f0b6bc;background:linear-gradient(180deg,#fff5f5,#fff)}
 .rc-m.lastp .amt{color:#b5293b}
 @media(max-width:560px){.rc-money{grid-template-columns:repeat(2,1fr)}}
+.rc-pf{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.rc-pf{grid-template-columns:1fr}}
+.rc-pfc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 13px;box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:13px;text-align:right}
+@media(min-width:641px){.rc-pfc{flex-direction:column;text-align:center;gap:6px}}
+.rc-pfc .ic{font-size:24px;line-height:1;flex-shrink:0}
+.rc-pfc .num{display:flex;align-items:baseline;gap:4px;flex-shrink:0}
+.rc-pfc .g{font-size:clamp(26px,8vw,34px);font-weight:900;line-height:1;color:var(--gold-d)}
+.rc-pfc.tight .g{color:var(--red)}
+.rc-pfc .gl{font-size:11px;font-weight:800;color:var(--muted)}
+.rc-pfc .bd{flex:1;min-width:0}
+.rc-pfc .t{font-size:12.5px;font-weight:900}
+.rc-pfc .s{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:3px;line-height:1.55}
 .rc-bigstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:11px}
 .rc-bs{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#fff;border-radius:15px;padding:18px 12px;text-align:center;box-shadow:var(--shadow)}
 .rc-bs .v{font-size:clamp(26px,8vw,36px);font-weight:900;line-height:1;color:var(--gold)}
@@ -561,6 +574,8 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .intro-vid{margin:14px 0 20px}
 .intro-vid .yt{position:relative;width:100%;aspect-ratio:16/9;border-radius:13px;overflow:hidden;background:#000;box-shadow:var(--shadow)}
 .intro-vid.portrait .yt{aspect-ratio:9/16;max-width:262px;margin:0 auto}
+.intro-spotify{margin:4px 0 18px}
+.intro-spotify iframe{width:100%;height:80px;border:0;border-radius:12px;display:block}
 .intro-vid .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .intro-vid .cap{font-size:12px;color:var(--muted);font-weight:700;text-align:center;margin-top:7px}
 .intro-cta{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0),var(--card) 28%);padding:14px 18px 18px}
@@ -1821,11 +1836,18 @@ if(!D.history || Object.keys(D.history).length<2){ const tb=document.querySelect
 
 // ================= RECAP (wrapped-style) =================
 function countUp(node,to,dur=1100){
+  const set=v=>{node.textContent=Math.round(v).toLocaleString('en-US');};
+  const finish=()=>set(to);
+  let reduced=false;
+  try{reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  if(reduced||typeof requestAnimationFrame!=='function'){finish();return;}
   const t0=performance.now();
-  const step=t=>{const p=Math.min((t-t0)/dur,1);const e=1-Math.pow(1-p,3);
-    node.textContent=Math.round(to*e).toLocaleString('en-US');
-    if(p<1)requestAnimationFrame(step);};
+  const step=t=>{const p=Math.min((t-t0)/dur,1);
+    set(to*(1-Math.pow(1-p,3)));
+    if(p<1)requestAnimationFrame(step); else finish();};
   requestAnimationFrame(step);
+  // backstop: if rAF is throttled/stalled (background tab), still land on the true value
+  setTimeout(finish,dur+500);
 }
 function revealPanels(root){
   const ps=root.querySelectorAll('.rc-panel');
@@ -1869,6 +1891,9 @@ function buildIntro(){
     else if(t==='note') h+=`<div class="intro-note">${escAttr(it.text||'')}</div>`;
     else if(t==='highlight') h+=`<div class="intro-hl">${escAttr(it.text||'')}</div>`+vid(it.url,it.caption);
     else if(t==='video') h+=vid(it.url,it.caption);
+    else if(t==='spotify'){ const se=spotifyEmbed(it.url);
+      if(se) h+=`<div class="intro-spotify"><iframe src="${se}?theme=0" title="Spotify" `+
+        `allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`; }
   });
   h+=`</div><div class="intro-cta"><button id="intro-go">${escAttr(ri.cta||'המשך לסיכום ←')}</button></div>`;
   $('#intro-content').innerHTML=h;
@@ -1903,7 +1928,7 @@ function renderRecap(){
   const hero=P();
   hero.innerHTML=`<div class="rc-hero"><div class="rc-kicker">מונדיאל 2026 · הסיכום</div>
     <div class="rc-crown">👑</div><div class="rc-winner">${escAttr(w.name)}</div>
-    <div class="rc-pts"><span data-count="${w.total}">0</span> נקודות</div>
+    <div class="rc-pts"><span data-count="${w.total}">${w.total}</span> נקודות</div>
     <div class="rc-prize">₪1,000</div>
     <div class="rc-sub">אלוף ההתערבות</div></div>`;
   add(hero);
@@ -1927,6 +1952,26 @@ function renderRecap(){
       c.onclick=()=>openForm(p.name); mg.appendChild(c); });
   money.appendChild(mg); add(money);
 
+  // 3.5) photo finish — how thin the margins were
+  const n=lb.length;
+  const pf=[];
+  if(lb[0]&&lb[1]) pf.push({ic:'🥇',t:'הפער בפסגה',g:lb[0].total-lb[1].total,
+    s:`${lb[0].name} מעל ${lb[1].name}`});
+  if(lb[2]&&lb[3]) pf.push({ic:'💰',t:'הקו שבין ₪100 לכלום',g:lb[2].total-lb[3].total,
+    s:`${lb[2].name} מעל ${lb[3].name} — מקום 3 מול מקום 4`});
+  if(n>=2) pf.push({ic:'🃏',t:'המרדף לתחתית',g:lb[n-2].total-lb[n-1].total,
+    s:`${lb[n-1].name} מתחת ל${lb[n-2].name} — וזה שווה ₪50`});
+  if(pf.length){
+    add(el('h2','sec','📸 פוטו פיניש'));
+    const pp=P(); const pg=el('div','rc-pf');
+    pf.forEach(o=>{const c=el('div','rc-pfc'+(o.g<=2?' tight':''));
+      c.innerHTML=`<div class="ic">${o.ic}</div>
+        <div class="num"><span class="g">${o.g}</span><span class="gl">נק׳</span></div>
+        <div class="bd"><div class="t">${escAttr(o.t)}</div><div class="s">${escAttr(o.s)}</div></div>`;
+      pg.appendChild(c);});
+    pp.appendChild(pg); add(pp);
+  }
+
   // 4) big numbers
   const totalExact=rows.reduce((a,r)=>a+(r.exact||0)+(r.big_exact||0),0);
   const leaders={};
@@ -1934,12 +1979,12 @@ function renderRecap(){
   const lArr=Object.entries(leaders).sort((a,b)=>b[1]-a[1]);
   add(el('h2','sec','📊 המספרים'));
   add(P(null,`<div class="rc-bigstats">
-    <div class="rc-bs"><div class="v"><span data-count="${lb.length}">0</span></div><div class="k">טפסים בהתערבות</div></div>
-    <div class="rc-bs"><div class="v"><span data-count="${people.length*50}">0</span>₪</div><div class="k">קופת הפרסים</div></div>
-    <div class="rc-bs"><div class="v"><span data-count="${totalExact}">0</span></div><div class="k">תוצאות מדויקות (כולם יחד)</div></div>
-    <div class="rc-bs"><div class="v"><span data-count="${lArr.length}">0</span></div><div class="k">אנשים שונים שהובילו</div></div>
-    <div class="rc-bs"><div class="v"><span data-count="${ds.length}">0</span></div><div class="k">ימי מעקב</div></div>
-    <div class="rc-bs"><div class="v"><span data-count="${(D.meta&&D.meta.played)||0}">0</span></div><div class="k">משחקי בתים</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${lb.length}">${lb.length}</span></div><div class="k">טפסים בהתערבות</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${people.length*50}">${(people.length*50).toLocaleString('en-US')}</span>₪</div><div class="k">קופת הפרסים</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${totalExact}">${totalExact}</span></div><div class="k">תוצאות מדויקות (כולם יחד)</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${lArr.length}">${lArr.length}</span></div><div class="k">אנשים שונים שהובילו</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${ds.length}">${ds.length}</span></div><div class="k">ימי מעקב</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${(D.meta&&D.meta.played)||0}">${(D.meta&&D.meta.played)||0}</span></div><div class="k">משחקי בתים</div></div>
   </div>`));
 
   // 5) awards
