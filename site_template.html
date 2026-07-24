@@ -480,6 +480,93 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 .rule-points{flex-shrink:0;color:var(--green-d);font-weight:900;white-space:nowrap}
 .rules-note{margin-top:12px;color:var(--muted);font-size:12px;font-weight:800;line-height:1.8;text-align:center}
 
+/* ---------- recap (wrapped-style) ---------- */
+.rc-panel{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.2,.7,.3,1),transform .65s cubic-bezier(.2,.7,.3,1);margin-bottom:16px}
+.rc-panel.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rc-panel{opacity:1;transform:none;transition:none}}
+.rc-hero{background:linear-gradient(145deg,#15294f 0%,#0a1733 48%,#123a3a 100%);color:#fff;border-radius:22px;
+  padding:34px 18px 28px;text-align:center;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.rc-hero::before{content:"";position:absolute;inset:0;opacity:.65;pointer-events:none;
+  background:radial-gradient(circle at 18% 12%,rgba(255,194,28,.4),transparent 42%),
+             radial-gradient(circle at 86% 84%,rgba(25,182,201,.3),transparent 46%),
+             radial-gradient(circle at 60% 50%,rgba(214,48,126,.18),transparent 50%)}
+.rc-hero>*{position:relative;z-index:1}
+.rc-kicker{font-size:11px;font-weight:900;letter-spacing:3px;color:var(--gold)}
+.rc-crown{font-size:46px;line-height:1;margin-top:8px}
+.rc-winner{font-size:clamp(28px,9vw,42px);font-weight:900;margin-top:4px;letter-spacing:-1px;line-height:1.05}
+.rc-pts{font-size:16px;font-weight:900;color:var(--gold);margin-top:4px}
+.rc-prize{display:inline-block;margin-top:12px;background:linear-gradient(135deg,var(--gold),var(--gold-d));
+  color:var(--navy);font-weight:900;font-size:20px;border-radius:13px;padding:7px 20px;box-shadow:0 8px 22px rgba(255,194,28,.42)}
+.rc-sub{font-size:12px;color:#c2cfe6;margin-top:14px;font-weight:700;letter-spacing:1px}
+.rc-tourn{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow)}
+.rc-tt{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:1.5px}
+.rc-tm{font-size:22px;font-weight:900;margin:6px 0}
+.rc-td{font-size:12.5px;color:var(--muted);font-weight:700;line-height:1.7}
+.rc-money{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.rc-m{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 7px;text-align:center;box-shadow:var(--shadow);cursor:pointer;transition:.15s}
+.rc-m:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.rc-m .ic{font-size:21px;line-height:1}
+.rc-m .amt{font-size:clamp(14px,4.4vw,19px);font-weight:900;margin-top:4px}
+.rc-m .who{font-size:12px;font-weight:800;color:var(--blue);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-m .pl{font-size:10px;color:var(--muted);font-weight:700;margin-top:2px}
+.rc-m.p1{border-color:var(--gold);background:linear-gradient(180deg,#fffaf0,#fff)}
+.rc-m.p1 .amt{color:var(--gold-d)}
+.rc-m.lastp{border-color:#f0b6bc;background:linear-gradient(180deg,#fff5f5,#fff)}
+.rc-m.lastp .amt{color:#b5293b}
+@media(max-width:560px){.rc-money{grid-template-columns:repeat(2,1fr)}}
+.rc-bigstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:11px}
+.rc-bs{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#fff;border-radius:15px;padding:18px 12px;text-align:center;box-shadow:var(--shadow)}
+.rc-bs .v{font-size:clamp(26px,8vw,36px);font-weight:900;line-height:1;color:var(--gold)}
+.rc-bs .k{font-size:12px;font-weight:700;margin-top:5px;color:#c2cfe6;line-height:1.4}
+.rc-awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:11px}
+.rc-aw{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow)}
+.rc-aw .ic{font-size:27px;line-height:1;flex-shrink:0}
+.rc-aw .t{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.5px}
+.rc-aw .w{font-size:16px;font-weight:900;margin:3px 0;line-height:1.2}
+.rc-aw .s{font-size:12px;color:var(--muted);font-weight:600;line-height:1.55}
+.rc-credits{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:11px}
+.rc-cr{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px 14px;box-shadow:var(--shadow);text-align:center}
+.rc-cr.star{border-color:var(--gold);background:linear-gradient(180deg,#fffaf0,#fff);box-shadow:0 10px 26px rgba(224,160,0,.18)}
+.rc-cr .em{font-size:31px;line-height:1}
+.rc-cr .nm{font-size:19px;font-weight:900;margin-top:6px}
+.rc-cr .ro{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.5px;margin-top:2px}
+.rc-cr .st{display:inline-block;margin-top:9px;background:#eef2f9;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:900;color:var(--navy)}
+.rc-cr.star .st{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy)}
+.rc-cr .no{font-size:12px;color:var(--muted);font-weight:600;line-height:1.65;margin-top:10px}
+.rc-credit-foot{text-align:center;font-size:11.5px;color:var(--muted);font-weight:700;margin-top:13px;line-height:1.7}
+.rc-spotify{margin-top:16px}
+.rc-spotify iframe{width:100%;height:152px;border:0;border-radius:13px;display:block}
+.rc-outro{text-align:center;padding:30px 16px;background:linear-gradient(145deg,#0a1733,#15294f);color:#fff;border-radius:20px;box-shadow:var(--shadow-lg)}
+.rc-outro .big{font-size:clamp(20px,6vw,27px);font-weight:900}
+.rc-outro .sm{font-size:13px;color:#c2cfe6;margin-top:8px;font-weight:700;line-height:1.8}
+.rc-letter-btn{display:block;width:100%;margin:0 0 16px;padding:14px;border:none;border-radius:14px;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy);font-family:inherit;font-weight:900;font-size:15px;box-shadow:0 6px 18px rgba(255,194,28,.35)}
+/* intro letter modal */
+.intro{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;background:rgba(6,12,28,.72);backdrop-filter:blur(3px);padding:14px}
+.intro[hidden]{display:none}
+.intro-card{background:var(--card);width:100%;max-width:620px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  border-radius:20px;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.5)}
+.intro-head{background:linear-gradient(140deg,#15294f,#0a1733);color:#fff;padding:24px 18px;text-align:center;position:sticky;top:0;z-index:2}
+.intro-head .k{font-size:11px;font-weight:900;letter-spacing:3px;color:var(--gold)}
+.intro-head h3{font-size:clamp(19px,5vw,24px);font-weight:900;margin-top:6px}
+.intro-x{position:absolute;top:12px;inset-inline-start:12px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(255,255,255,.86);color:var(--navy);font-size:15px;font-weight:800;cursor:pointer;z-index:3}
+.intro-body{padding:20px 18px 8px;font-size:16px;line-height:1.95;font-weight:500;direction:rtl;text-align:right;
+  word-break:break-word;overflow-wrap:anywhere}
+.intro-body p{margin-bottom:17px;white-space:pre-wrap}
+.intro-body p:last-of-type{margin-bottom:8px}
+.intro-hl{margin:26px 0 11px;text-align:center;font-size:16.5px;font-weight:900;color:var(--navy);line-height:1.6;
+  background:linear-gradient(135deg,#fffaf0,#fff4d8);border:1px solid #ffe2a8;border-radius:13px;padding:13px 15px}
+.intro-note{margin-top:24px;padding-top:17px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted);
+  font-weight:600;white-space:pre-wrap;line-height:1.9}
+.intro-vid{margin:14px 0 20px}
+.intro-vid .yt{position:relative;width:100%;aspect-ratio:16/9;border-radius:13px;overflow:hidden;background:#000;box-shadow:var(--shadow)}
+.intro-vid.portrait .yt{aspect-ratio:9/16;max-width:262px;margin:0 auto}
+.intro-vid .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.intro-vid .cap{font-size:12px;color:var(--muted);font-weight:700;text-align:center;margin-top:7px}
+.intro-cta{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0),var(--card) 28%);padding:14px 18px 18px}
+.intro-cta button{width:100%;padding:15px;border:none;border-radius:14px;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy);font-family:inherit;font-weight:900;font-size:16px;box-shadow:0 8px 22px rgba(255,194,28,.4)}
+
 /* ---------- responsive ---------- */
 @media(max-width:760px){
   header{padding:7px 0}
@@ -583,7 +670,8 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
 </header>
 <div class="navbar">
  <nav id="nav" class="wrap">
-  <button data-v="lb" class="active">🏆 טבלה</button>
+  <button data-v="recap" class="active">✨ הסיכום</button>
+  <button data-v="lb">🏆 טבלה</button>
   <button data-v="res">📅 תוצאות</button>
   <button data-v="forms">📋 הטפסים</button>
   <button data-v="gb">👟 מלך שערים</button>
@@ -594,7 +682,8 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
  </nav>
 </div>
 <main class="wrap">
- <section id="lb" class="view active"></section>
+ <section id="recap" class="view active"></section>
+ <section id="lb" class="view"></section>
  <section id="res" class="view"></section>
  <section id="forms" class="view"></section>
  <section id="gb" class="view"></section>
@@ -607,6 +696,12 @@ tr.last  .rk-badge{background:linear-gradient(135deg,#e8868f,#cf5560);color:#fff
  <div class="modal-card">
   <button class="modal-x" id="modal-x" aria-label="סגור">✕</button>
   <div id="modal-body"></div>
+ </div>
+</div>
+<div id="intro" class="intro" hidden>
+ <div class="intro-card">
+  <button class="intro-x" id="intro-x" aria-label="סגור">✕</button>
+  <div id="intro-content"></div>
  </div>
 </div>
 <script id="data" type="application/json">/*DATA*/</script>
@@ -1724,7 +1819,226 @@ function renderTrends(){
 }
 if(!D.history || Object.keys(D.history).length<2){ const tb=document.querySelector('#nav button[data-v="trends"]'); if(tb) tb.style.display='none'; }
 
-renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderStats(); renderTrends(); renderRules();
+// ================= RECAP (wrapped-style) =================
+function countUp(node,to,dur=1100){
+  const t0=performance.now();
+  const step=t=>{const p=Math.min((t-t0)/dur,1);const e=1-Math.pow(1-p,3);
+    node.textContent=Math.round(to*e).toLocaleString('en-US');
+    if(p<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
+function revealPanels(root){
+  const ps=root.querySelectorAll('.rc-panel');
+  const fire=t=>{t.classList.add('in');
+    t.querySelectorAll('[data-count]').forEach(n=>{if(!n.dataset.done){n.dataset.done='1';countUp(n,+n.dataset.count);}});};
+  if(!('IntersectionObserver' in window)){ps.forEach(fire);return;}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){fire(e.target);io.unobserve(e.target);}})},{threshold:.12});
+  ps.forEach(p=>io.observe(p));
+}
+function spotifyEmbed(u){
+  const s=String(u||'');
+  const m=s.match(/open\.spotify\.com\/(?:intl-[a-z-]+\/)?(track|album|playlist|episode)\/([A-Za-z0-9]+)/);
+  return m?`https://open.spotify.com/embed/${m[1]}/${m[2]}`:'';
+}
+function ytId(u){
+  const s=String((u&&u.url)||u||'');
+  const m=s.match(/(?:youtu\.be\/|[?&]v=|embed\/|shorts\/)([A-Za-z0-9_-]{6,})/);
+  if(m) return m[1];
+  return /^[A-Za-z0-9_-]{6,}$/.test(s)?s:null;
+}
+function buildIntro(){
+  const ri=D.recap_intro; if(!ri) return false;
+  let h=`<div class="intro-head"><div class="k">✉️ ${escAttr(ri.kicker||'מכתב לחבורה')}</div>`+
+        `<h3>${escAttr(ri.title||'סיכום מונדיאל 2026')}</h3></div><div class="intro-body">`;
+  const vid=(url,caption)=>{
+    const id=ytId(url); if(!id) return '';
+    const portrait=/\/shorts\//i.test(String((url&&url.url)||url||''));
+    return `<div class="intro-vid${portrait?' portrait':''}"><div class="yt">`+
+      `<iframe src="https://www.youtube.com/embed/${id}" title="YouTube video" `+
+      `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" `+
+      `referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>`+
+      `${caption?`<div class="cap">${escAttr(caption)}</div>`:''}</div>`;
+  };
+  const items = Array.isArray(ri.content) ? ri.content : [
+    ...((ri.blocks||[]).map(b=>({type:'p',text:b}))),
+    ...((ri.videos||[]).map(v=>({type:'video',url:(v&&v.url)||v,caption:v&&v.caption})))
+  ];
+  items.forEach(it=>{
+    const t=(it&&it.type)||'p';
+    if(t==='p') h+=`<p>${escAttr(it.text||'')}</p>`;
+    else if(t==='note') h+=`<div class="intro-note">${escAttr(it.text||'')}</div>`;
+    else if(t==='highlight') h+=`<div class="intro-hl">${escAttr(it.text||'')}</div>`+vid(it.url,it.caption);
+    else if(t==='video') h+=vid(it.url,it.caption);
+  });
+  h+=`</div><div class="intro-cta"><button id="intro-go">${escAttr(ri.cta||'המשך לסיכום ←')}</button></div>`;
+  $('#intro-content').innerHTML=h;
+  const go=document.getElementById('intro-go'); if(go) go.onclick=closeIntro;
+  return true;
+}
+function openIntro(){ if(!D.recap_intro) return; if(!$('#intro-content').innerHTML) buildIntro();
+  $('#intro').hidden=false; const c=document.querySelector('.intro-card'); if(c) c.scrollTop=0; }
+function closeIntro(){ $('#intro').hidden=true; try{localStorage.setItem('wc_intro_seen','1');}catch(e){} }
+
+function renderRecap(){
+  const v=$('#recap'); if(!v) return; v.innerHTML='';
+  const lb=D.leaderboard||[]; if(!lb.length) return;
+  const hist=D.history||{}, ds=Object.keys(hist).sort();
+  const firstS=ds.length?hist[ds[0]]:null, lastS=ds.length?hist[ds[ds.length-1]]:null;
+  const kr=D.knockout_results||[];
+  const fin=kr.find(m=>m.stage==='final'&&m.played), thr=kr.find(m=>m.stage==='third'&&m.played);
+  const gbo=D.goldenboot||{}, gbTop=(gbo.current||[])[0], tally=gbo.tally||[];
+  const rows=((D.stats||{}).score_accuracy||{}).rows||[];
+  const people=((D.payments||{}).people)||[];
+  const P=(c,h)=>{const p=el('div','rc-panel');p.innerHTML=h||'';if(c)p.classList.add(c);return p;};
+  const add=n=>{v.appendChild(n);return n;};
+
+  // letter button
+  if(D.recap_intro){
+    const b=el('button','rc-letter-btn','✉️ קראו את המכתב');
+    b.onclick=openIntro; add(b);
+  }
+
+  // 1) hero
+  const w=lb[0];
+  const hero=P();
+  hero.innerHTML=`<div class="rc-hero"><div class="rc-kicker">מונדיאל 2026 · הסיכום</div>
+    <div class="rc-crown">👑</div><div class="rc-winner">${escAttr(w.name)}</div>
+    <div class="rc-pts"><span data-count="${w.total}">0</span> נקודות</div>
+    <div class="rc-prize">₪1,000</div>
+    <div class="rc-sub">אלוף ההתערבות</div></div>`;
+  add(hero);
+
+  // 2) the tournament itself
+  if(fin){
+    add(P(null,`<div class="rc-tourn"><div class="rc-tt">🌍 אלופת העולם</div>
+      <div class="rc-tm">${team(fin.winner)}</div>
+      <div class="rc-td">גמר: <span class="team-ltr">${team(fin.home)} ${fin.hs}–${fin.as} ${team(fin.away)}</span>
+      ${thr?`<br>מקום שלישי: ${team(thr.winner)} · <span class="team-ltr">${team(thr.home)} ${thr.hs}–${thr.as} ${team(thr.away)}</span>`:''}</div></div>`));
+  }
+
+  // 3) money
+  add(el('h2','sec','💰 הכסף'));
+  const money=P(); const mg=el('div','rc-money');
+  [['🥇',lb[0],'₪1,000','p1'],['🥈',lb[1],'₪400',''],['🥉',lb[2],'₪100',''],['🃏',lb[lb.length-1],'₪50','lastp']]
+    .forEach(([ic,p,amt,cls])=>{ if(!p)return;
+      const c=el('div','rc-m '+cls);
+      c.innerHTML=`<div class="ic">${ic}</div><div class="amt">${amt}</div>
+        <div class="who">${escAttr(p.name)}</div><div class="pl">${p.total} נק׳ · מקום ${p.rank}</div>`;
+      c.onclick=()=>openForm(p.name); mg.appendChild(c); });
+  money.appendChild(mg); add(money);
+
+  // 4) big numbers
+  const totalExact=rows.reduce((a,r)=>a+(r.exact||0)+(r.big_exact||0),0);
+  const leaders={};
+  ds.forEach(d=>{let b=null,br=1e9;for(const n in hist[d]){const r=hist[d][n][0];if(r<br){br=r;b=n;}}if(b)leaders[b]=(leaders[b]||0)+1;});
+  const lArr=Object.entries(leaders).sort((a,b)=>b[1]-a[1]);
+  add(el('h2','sec','📊 המספרים'));
+  add(P(null,`<div class="rc-bigstats">
+    <div class="rc-bs"><div class="v"><span data-count="${lb.length}">0</span></div><div class="k">טפסים בהתערבות</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${people.length*50}">0</span>₪</div><div class="k">קופת הפרסים</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${totalExact}">0</span></div><div class="k">תוצאות מדויקות (כולם יחד)</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${lArr.length}">0</span></div><div class="k">אנשים שונים שהובילו</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${ds.length}">0</span></div><div class="k">ימי מעקב</div></div>
+    <div class="rc-bs"><div class="v"><span data-count="${(D.meta&&D.meta.played)||0}">0</span></div><div class="k">משחקי בתים</div></div>
+  </div>`));
+
+  // 5) awards
+  const aw=[];
+  if(lArr.length) aw.push(['👑','מלך ההנהגה',lArr[0][0],`הוביל ${lArr[0][1]} ימים מתוך ${ds.length}. ${lArr.length} אנשים שונים טעמו את הפסגה.`]);
+  // split personality (same person, multiple forms)
+  const grp={};
+  lb.forEach(p=>{const m=p.name.match(/^(.*?)\s*(\d+)$/); if(m){const k=m[1].trim();(grp[k]=grp[k]||[]).push(p);} });
+  for(const k in grp){ const a=grp[k].slice().sort((x,y)=>x.rank-y.rank);
+    if(a.length>=2){ aw.push(['🎭','פרס הפיצול האישיותי',k,
+      `${a[0].name} סיים מקום ${a[0].rank} · ${a[a.length-1].name} סיים מקום ${a[a.length-1].rank}. אותו בן אדם, שני טפסים.`]); break; } }
+  if(firstS&&lastS){
+    const mv=Object.keys(lastS).filter(n=>n in firstS).map(n=>[n,firstS[n][0]-lastS[n][0]]).sort((a,b)=>b[1]-a[1]);
+    if(mv.length&&mv[0][1]>0) aw.push(['🚀','הטיל של הטורניר',mv[0][0],`טיפס ${mv[0][1]} מקומות מתחילת המעקב.`]);
+    const f=mv[mv.length-1];
+    if(f&&f[1]<0) aw.push(['📉','הצניחה החופשית',f[0],`צנח ${Math.abs(f[1])} מקומות. כואב להסתכל.`]);
+  }
+  if(rows.length){
+    const ex=rows.slice().sort((a,b)=>((b.exact||0)+(b.big_exact||0))-((a.exact||0)+(a.big_exact||0)))[0];
+    aw.push(['🎯','הצלף',ex.name,`${(ex.exact||0)+(ex.big_exact||0)} תוצאות מדויקות בול.`]);
+    const co=rows.slice().sort((a,b)=>(b.correct||0)-(a.correct||0))[0];
+    aw.push(['📡','הרדאר',co.name,`${co.correct} ניחושים עם כיוון נכון.`]);
+  }
+  if(gbTop){
+    const mp=tally[0];
+    aw.push(['👟','מלך השערים',`${gbTop.player} · ${gbTop.goals} שערים`,
+      `${gbTop.guess_count} ניחשו נכון וגרפו 12 נק׳.${mp?` הכי הרבה הימרו דווקא על ${mp[0]} (${mp[1]}).`:''}`]);
+  }
+  const unpaid=people.filter(p=>!p.paid).map(p=>p.name);
+  aw.push(unpaid.length
+    ? ['💸','פרס הבושה הנצחית',unpaid.join(' · '),`הטורניר נגמר, הכסף לא הגיע. ₪${unpaid.length*50}.`]
+    : ['✅','קיר הבושה — ריק','כולם שילמו',`31 מתוך 31 טפסים שולמו. שנה נקייה, בלי בושות.`]);
+  add(el('h2','sec','🏅 פרסי הסיום'));
+  const ag=P(); const agrid=el('div','rc-awards');
+  aw.forEach(([ic,t,who,s])=>{const c=el('div','rc-aw');
+    c.innerHTML=`<div class="ic">${ic}</div><div class="bd"><div class="t">${escAttr(t)}</div>
+      <div class="w">${escAttr(who)}</div><div class="s">${escAttr(s)}</div></div>`;
+    agrid.appendChild(c);});
+  ag.appendChild(agrid); add(ag);
+
+  // 6) leadership race
+  if(lArr.length){
+    add(el('h2','sec','🏁 מרוץ ההנהגה'));
+    const rp=P(); const card=el('div','card'); card.style.padding='14px'; const mx=lArr[0][1];
+    lArr.forEach(([n,c])=>{const r=el('div','bar-row');
+      r.innerHTML=`<div class="bar-name">${escAttr(n)}</div><div class="bar-track">
+        <div class="bar-fill gold" style="width:${Math.max(c/mx*100,13)}%">${c}</div></div>`;
+      card.appendChild(r);});
+    rp.appendChild(card); add(rp);
+  }
+
+  // 7) credits — behind the scenes
+  const credits=(D.recap_intro&&D.recap_intro.credits)||[
+    {emoji:'🧑‍💻',name:'Onni',role:'הראש מאחורי הפיתוח',stat:'41 קומיטים · +2,280 שורות',star:true,
+     note:'עדכונים חיים תוך כדי משחקים, עמוד סטטיסטיקות, תיקוני ניקוד בנוקאאוט (הארכה ופנדלים), מלכי שערים מ-ESPN וטבלאות מקום שלישי. בלעדיו האתר הזה היה חצי ממה שהוא.'},
+    {emoji:'🎩',name:'אלישע',role:'בעל הבית',stat:'12 קומיטים',
+     note:'הקים את ההתערבות, אסף 31 טפסים, רדף אחרי הכסף עד השקל האחרון — והצליח.'},
+    {emoji:'🤖',name:'mundial-bot',role:'העובד הכי חרוץ',stat:'954 עדכונים אוטומטיים',
+     note:'קם כל בוקר, שלף תוצאות, חישב ניקוד מחדש ל-31 טפסים ושמר תמונת מצב. לא ביקש כלום בתמורה.'}
+  ];
+  add(el('h2','sec','🛠️ מאחורי הקלעים'));
+  const cp=P(); const cg=el('div','rc-credits');
+  credits.forEach(c=>{const n=el('div','rc-cr'+(c.star?' star':''));
+    n.innerHTML=`<div class="em">${c.emoji||'⭐'}</div><div class="nm">${escAttr(c.name||'')}</div>
+      <div class="ro">${escAttr(c.role||'')}</div><div class="st">${escAttr(c.stat||'')}</div>
+      <div class="no">${escAttr(c.note||'')}</div>`;
+    cg.appendChild(n);});
+  cp.appendChild(cg);
+  cp.appendChild(el('div','rc-credit-foot',
+    `1,007 קומיטים · 15.6.2026 – 21.7.2026 · נבנה בעזרת Claude Code`));
+  add(cp);
+
+  // 8) outro
+  const sp=spotifyEmbed((D.recap_intro||{}).spotify);
+  add(P(null,`<div class="rc-outro"><div class="big">🏆 נתראה ביורו 2028 🇬🇧</div>
+    <div class="sm">${ds.length} ימים · ${lb.length} טפסים · ₪${people.length*50} בקופה<br>
+    התערבות מונדיאל™ · Since 2010</div>
+    ${sp?`<div class="rc-spotify"><iframe src="${sp}" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="It's Coming Home"></iframe></div>`:''}
+    </div>`));
+
+  revealPanels(v);
+}
+
+// intro modal wiring
+(function(){
+  const x=document.getElementById('intro-x'); if(x) x.onclick=closeIntro;
+  const ov=document.getElementById('intro');
+  if(ov) ov.addEventListener('click',e=>{ if(e.target.id==='intro') closeIntro(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeIntro(); });
+})();
+
+renderLB(); renderGB(); renderRes(); renderFormsNav(); renderPay(); renderStats(); renderTrends(); renderRules(); renderRecap();
+
+// show the letter automatically on first visit
+(function(){
+  if(!D.recap_intro) return;
+  let seen=false; try{seen=localStorage.getItem('wc_intro_seen')==='1';}catch(e){}
+  if(!seen){ buildIntro(); setTimeout(openIntro,350); }
+})();
 </script>
 </body>
 </html>

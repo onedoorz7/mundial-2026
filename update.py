@@ -908,6 +908,10 @@ def build_all():
     pay_path=P("payments.json")
     if os.path.exists(pay_path):
         site["payments"]=json.load(open(pay_path, encoding="utf-8"))
+    # optional recap intro (Hebrew letter + YouTube links) shown as a popup on the recap tab
+    intro_path=P("recap_intro.json")
+    if os.path.exists(intro_path):
+        site["recap_intro"]=json.load(open(intro_path, encoding="utf-8"))
     site["history"]=history
     json.dump(site, open(P("site_data.json"),"w",encoding="utf-8"), ensure_ascii=False)
 
